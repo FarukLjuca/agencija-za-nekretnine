@@ -11,9 +11,9 @@ namespace EFM
     {
         public Agent agent { get; set; }
 
-        public Klijent()
+        public Klijent(string Ime, string Prezime, string)
         {
-                
+            
         }
     }
 }

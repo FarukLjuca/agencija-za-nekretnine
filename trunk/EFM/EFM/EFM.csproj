@@ -58,6 +58,7 @@
     <Compile Include="Nekretnina.cs" />
     <Compile Include="NekretninaZaUI.cs" />
     <Compile Include="Nekretnine.cs" />
+    <Compile Include="Osoba.cs" />
     <Compile Include="UnajmljivacIznajmljivac.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
