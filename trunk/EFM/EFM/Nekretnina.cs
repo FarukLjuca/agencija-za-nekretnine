@@ -8,7 +8,10 @@ namespace EFM
 {
     class Nekretnina
     {
-        enum EnumTipNekretnine
+        /// <summary>
+        /// Nabrojani objekat koji obiljezava kojeg je kenretnina tipa
+        /// </summary>
+        public enum EnumTipNekretnine
         {
             Stan,
             Kuca,
@@ -27,7 +30,7 @@ namespace EFM
         public bool DaLiJeRezervisana { get; set; }
 
         /// <summary>
-        /// Kreira novi objekat tipa Nekretnina sa parametrima
+        /// Kreira novi objekat tipa Nekretnina
         /// </summary>
         /// <param name="Lokacija">Lokacija nekretnine</param>
         /// <param name="TipNekretnine">Tip Nekretnine (Stan, Kuca, Zemljite, PoslovniProstor, Soba, Apartman, Vikendica, Garaza ili Ostalo)</param>
