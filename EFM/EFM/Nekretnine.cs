@@ -8,11 +8,18 @@ namespace EFM
 {
     class Nekretnine
     {
-        public List<Nekretnina> nekretnine { get; set; }
+        public List<Nekretnina> Nekretnine { get; set; }
 
-        public Nekretnine()
+        /// <summary>
+        /// Kreira novi objekat tipa Nekretnine, sto pretstavlja listu pojedinacnih Nekretnina
+        /// </summary>
+        /// <param name="Nekretnine">Lista Nekretnina</param>
+        public Nekretnine(List<Nekretnina> Nekretnine = null)
         {
-            nekretnine = new List<Nekretnina>();
+            if (Nekretnine == null)
+                this.Nekretnine = new List<Nekretnina>();
+            else
+                this.Nekretnine = Nekretnine;
         }
     }
 }
