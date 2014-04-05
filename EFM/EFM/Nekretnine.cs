@@ -6,20 +6,16 @@ using System.Threading.Tasks;
 
 namespace EFM
 {
-    class Nekretnine
+    public class Nekretnine
     {
         public List<Nekretnina> ListaNekretnina { get; set; }
 
         /// <summary>
         /// Kreira novi objekat tipa Nekretnine, sto pretstavlja listu pojedinacnih Nekretnina
         /// </summary>
-        /// <param name="Nekretnine">Lista Nekretnina</param>
-        public Nekretnine(List<Nekretnina> ListaNekretnina = null)
+        public Nekretnine()
         {
-            if (ListaNekretnina == null)
-                this.ListaNekretnina = new List<Nekretnina>();
-            else
-                this.ListaNekretnina = ListaNekretnina;
+            this.ListaNekretnina = new List<Nekretnina>();
         }
     }
 }

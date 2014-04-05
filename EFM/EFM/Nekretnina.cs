@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace EFM
 {
-    class Nekretnina
+    //TODO: konstruktor bez parametara
+    public class Nekretnina
     {
         /// <summary>
         /// Nabrojani objekat koji obiljezava kojeg je kenretnina tipa
@@ -21,10 +22,16 @@ namespace EFM
             Apartman,
             Vikendica,
             Garaza,
+            /// <summary>
+            /// Tu spadaju: hotleli, njive, itd.
+            /// </summary>
             Ostalo
         };
 
         public string Lokacija { get; set; }
+        /// <summary>
+        /// Označava koji je tip nekretnine
+        /// </summary>
         public EnumTipNekretnine TipNekretnine { get; set; }
         public bool DaLiJeCista { get; set; }
         public bool DaLiJeRezervisana { get; set; }
