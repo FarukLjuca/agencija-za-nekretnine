@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EFM
 {
-    class Klijent
+    public class Klijent
         : Osoba
     {
         public Agent Agent { get; set; }

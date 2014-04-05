@@ -54,6 +54,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Agent.cs" />
+    <Compile Include="EFMException.cs" />
     <Compile Include="KupacProdavac.cs" />
     <Compile Include="Nekretnina.cs" />
     <Compile Include="NekretninaZaUI.cs" />

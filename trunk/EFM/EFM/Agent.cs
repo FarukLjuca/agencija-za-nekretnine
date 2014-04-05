@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EFM
 {
-    class Agent
+    public class Agent
         : Osoba
     {
         public List<Klijent> Klijenti { get; set; }
@@ -27,15 +27,11 @@ namespace EFM
         /// <param name="BrojTelefona">Broj telefona agenta</param>
         /// <param name="DatumRodjenja">Datum rodjenja agenta</param>
         /// <param name="BrojLicneKarte">Broj licne karte agenta</param>
-        /// <param name="Klijenti">Lista klijenata agenta (opcionalno)</param>
         /// <param name="Povisica">Povisica agenta (opcionalno)</param>
-        public Agent(string Ime, string Prezime, string AdresaStanovanja, string BrojTelefona, DateTime DatumRodjenja, string BrojLicneKarte, List<Klijent> Klijenti = null, decimal Povisica = 0)
+        public Agent(string Ime, string Prezime, string AdresaStanovanja, string BrojTelefona, DateTime DatumRodjenja, string BrojLicneKarte, decimal Povisica = 0)
             : base (Ime, Prezime, AdresaStanovanja, BrojTelefona, DatumRodjenja, BrojLicneKarte)
         {
-            if (Klijenti == null)
-                this.Klijenti = new List<Klijent>();
-            else
-                this.Klijenti = Klijenti;
+            this.Klijenti = new List<Klijent>();
             this.Povisica = Povisica;
         }
     }

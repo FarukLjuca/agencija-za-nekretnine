@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EFM
 {
-    class KupacProdavac
+    public class KupacProdavac
         : Klijent
     {
         public Nekretnina Nekretnina { get; set; }
