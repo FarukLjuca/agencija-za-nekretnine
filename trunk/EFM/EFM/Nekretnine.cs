@@ -17,5 +17,4 @@ namespace EFM
         {
             this.ListaNekretnina = new List<Nekretnina>();
         }
-    }
 }
