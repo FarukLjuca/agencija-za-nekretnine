@@ -50,5 +50,13 @@ namespace EFM
             this.DaLiJeCista = DaLiJeCista;
             this.DaLiJeRezervisana = DaLiJeRezervisana;
         }
+
+        /// <summary>
+        /// Konstrukor bez parametara, namjenjes iskljucivo za serijalizaciju/deserijalizaciju
+        /// </summary>
+        public Nekretnina()
+        {
+
+        }
     }
 }

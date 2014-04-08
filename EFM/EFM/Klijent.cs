@@ -26,5 +26,13 @@ namespace EFM
         {
             this.Agent = Agent;
         }
+
+        /// <summary>
+        /// Konstrukor bez parametara, namjenjes iskljucivo za serijalizaciju/deserijalizaciju
+        /// </summary>
+        public Klijent()
+        {
+
+        }
     }
 }

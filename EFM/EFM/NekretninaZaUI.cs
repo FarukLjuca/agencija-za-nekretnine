@@ -25,11 +25,19 @@ namespace EFM
         /// <param name="PeriodUI">Period unajmljivanja ili iznajmljivanja (u danima; opcionalno)</param>
         /// <param name="DaLiJeCista">True ako je nekretnina cista (opcionalno)</param>
         /// <param name="DaLiJeRezervisana">True ako je nekretnina rezervisana (opcionalno)</param>
-        /// <exception cref="EFM.Exc.ArgumentException">Baca kada je period unajmljivanja ili iznajmnljivanja nanji od nule</exception>
+        /// <exception cref="EFM.Exc.ArgumentException">Izuzetak biva bacen kada je period unajmljivanja ili iznajmnljivanja nanji od nule</exception>
         public NekretninaZaUI(string Lokacija, Nekretnina.EnumTipNekretnine TipNekretnine, int PeriodUI = 0, bool DaLiJeCista = false, bool DaLiJeRezervisana = false)
             : base (Lokacija, TipNekretnine, DaLiJeCista, DaLiJeRezervisana)
         {
             this.periodUI = PeriodUI;
+        }
+
+        /// <summary>
+        /// Konstrukor bez parametara, namjenjes iskljucivo za serijalizaciju/deserijalizaciju
+        /// </summary>
+        public NekretninaZaUI()
+        {
+
         }
     }
 }

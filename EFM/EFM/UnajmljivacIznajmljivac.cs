@@ -27,5 +27,13 @@ namespace EFM
         {
             this.Nekretnina = Nekretnina;
         }
+
+        /// <summary>
+        /// Konstrukor bez parametara, namjenjes iskljucivo za serijalizaciju/deserijalizaciju
+        /// </summary>
+        public UnajmljivacIznajmljivac()
+        {
+
+        }
     }
 }
