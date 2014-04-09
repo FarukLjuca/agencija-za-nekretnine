@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EFM
 {
-    public class Notar : Osoba, IVanjskiSaradnik
+    public class Notar : Osoba, IVanjskiSaradnik 
     {
         /// <summary>
         /// Kreira novi objekat tipa Notar
@@ -23,7 +23,12 @@ namespace EFM
 
         }
 
-        /// <summary>
+        public string Naziv 
+        {
+            get { return Ime; }
+            set { value = Ime; }
+        }
+        /// <summary>
         /// Konstrukor bez parametara, namjenjen za inicijaliziranje notara
         /// </summary>
         public Notar()
