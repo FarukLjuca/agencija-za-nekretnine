@@ -19,6 +19,6 @@ namespace EFM
 		/// <summary>
 		/// ID ugovora pomoću kojeg se identificira
 		/// </summary>
-		public String ID { get; set; }
+		String ID { get; set; }
 	}
 }
