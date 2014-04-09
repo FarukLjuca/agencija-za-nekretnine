@@ -24,7 +24,7 @@ namespace EFM
         }
 
         /// <summary>
-        /// Konstrukor bez parametara, namjenjes iskljucivo za serijalizaciju/deserijalizaciju
+        /// Konstrukor bez parametara, namjenjen za inicijaliziranje administratora
         /// </summary>
         public Administrator()
         {
