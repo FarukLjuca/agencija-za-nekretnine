@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace EFM
 {
-    public class Nekretnine
-    {
-        public List<Nekretnina> ListaNekretnina { get; set; }
+	public class Nekretnine
+	{
+		public List<Nekretnina> ListaNekretnina { get; set; }
 
-        /// <summary>
-        /// Kreira novi objekat tipa Nekretnine, sto pretstavlja listu pojedinacnih Nekretnina
-        /// </summary>
-        public Nekretnine()
-        {
-            this.ListaNekretnina = new List<Nekretnina>();
-        }
+		/// <summary>
+		/// Kreira novi objekat tipa Nekretnine, sto pretstavlja listu pojedinacnih Nekretnina
+		/// </summary>
+		public Nekretnine()
+		{
+			this.ListaNekretnina = new List<Nekretnina> ();
+		}
+	}
 }
