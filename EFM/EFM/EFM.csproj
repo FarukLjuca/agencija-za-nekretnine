@@ -53,14 +53,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Administrator.cs" />
     <Compile Include="Agent.cs" />
+    <Compile Include="Cistacica.cs" />
+    <Compile Include="Direktor.cs" />
     <Compile Include="EFMException.cs" />
     <Compile Include="KupacProdavac.cs" />
     <Compile Include="Nekretnina.cs" />
     <Compile Include="NekretninaZaUI.cs" />
     <Compile Include="Nekretnine.cs" />
+    <Compile Include="Notar.cs" />
     <Compile Include="Osoba.cs" />
+    <Compile Include="Racunovodja.cs" />
     <Compile Include="UnajmljivacIznajmljivac.cs" />
+    <Compile Include="Zaposlenici.cs" />
+    <Compile Include="Zaposlenik.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
