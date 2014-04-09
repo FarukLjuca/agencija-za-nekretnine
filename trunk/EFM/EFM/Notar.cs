@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EFM
 {
-    public class Notar : Osoba
+    public class Notar : Osoba, IVanjskiSaradnik
     {
         /// <summary>
         /// Kreira novi objekat tipa Notar
