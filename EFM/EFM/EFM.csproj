@@ -58,6 +58,7 @@
     <Compile Include="Cistacica.cs" />
     <Compile Include="Direktor.cs" />
     <Compile Include="EFMException.cs" />
+    <Compile Include="IVanjskiSaradnik.cs" />
     <Compile Include="KupacProdavac.cs" />
     <Compile Include="Nekretnina.cs" />
     <Compile Include="NekretninaZaUI.cs" />
