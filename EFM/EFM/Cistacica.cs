@@ -26,7 +26,7 @@ namespace EFM
         /// <summary>
         /// Konstrukor bez parametara, namjenjes iskljucivo za serijalizaciju/deserijalizaciju
         /// </summary>
-        public Administrator()
+        public Cistacica()
         {
 
         }
