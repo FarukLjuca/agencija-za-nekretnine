@@ -28,7 +28,8 @@ namespace EFM
             get { return Ime; }
             set { value = Ime; }
         }
-        /// <summary>
+                  
+        /// <summary>
         /// Konstrukor bez parametara, namjenjen za inicijaliziranje notara
         /// </summary>
         public Notar()
