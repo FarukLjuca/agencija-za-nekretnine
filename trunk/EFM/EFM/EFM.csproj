@@ -54,19 +54,27 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Administrator.cs" />
+    <Compile Include="AgencijaZaReklamiranje.cs" />
     <Compile Include="Agent.cs" />
     <Compile Include="Cistacica.cs" />
     <Compile Include="Direktor.cs" />
     <Compile Include="EFMException.cs" />
+    <Compile Include="EksterniUgovor.cs" />
+    <Compile Include="FinalniUgovor.cs" />
+    <Compile Include="InterniUgovor.cs" />
+    <Compile Include="IUgovor.cs" />
     <Compile Include="IVanjskiSaradnik.cs" />
     <Compile Include="KupacProdavac.cs" />
     <Compile Include="Nekretnina.cs" />
     <Compile Include="NekretninaZaUI.cs" />
     <Compile Include="Nekretnine.cs" />
     <Compile Include="Notar.cs" />
+    <Compile Include="Osiguranje.cs" />
     <Compile Include="Osoba.cs" />
     <Compile Include="Racunovodja.cs" />
+    <Compile Include="Ugovori.cs" />
     <Compile Include="UnajmljivacIznajmljivac.cs" />
+    <Compile Include="VanjskiSaradnici.cs" />
     <Compile Include="Zaposlenici.cs" />
     <Compile Include="Zaposlenik.cs" />
     <Page Include="MainWindow.xaml">

@@ -11,6 +11,6 @@ namespace EFM
 		/// <summary>
 		/// Naziv vanjskog saradnika (osiguranja, marketnške agencije) ili pak Ime i Prezime notara
 		/// </summary>
-		public String Naziv { get; set; }
+		String Naziv { get; set; }
 	}
 }
