@@ -57,6 +57,9 @@
     <Compile Include="AgencijaZaReklamiranje.cs" />
     <Compile Include="Agent.cs" />
     <Compile Include="Cistacica.cs" />
+    <Compile Include="DAO\IDaoCrud.cs" />
+    <Compile Include="DAO\NekretninaDAO.cs" />
+    <Compile Include="DAO\ZaposlenikDAO.cs" />
     <Compile Include="Direktor.cs" />
     <Compile Include="EFMException.cs" />
     <Compile Include="EksterniUgovor.cs" />
@@ -75,6 +78,9 @@
     <Compile Include="Ugovori.cs" />
     <Compile Include="UnajmljivacIznajmljivac.cs" />
     <Compile Include="VanjskiSaradnici.cs" />
+    <Compile Include="WndLogin.xaml.cs">
+      <DependentUpon>WndLogin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Zaposlenici.cs" />
     <Compile Include="Zaposlenik.cs" />
     <Page Include="MainWindow.xaml">
@@ -90,6 +96,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WndLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -118,6 +128,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
