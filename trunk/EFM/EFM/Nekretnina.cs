@@ -35,7 +35,7 @@ namespace EFM
         public EnumTipNekretnine TipNekretnine { get; set; }
         public bool DaLiJeCista { get; set; }
         public bool DaLiJeRezervisana { get; set; }
-        public string Opsi { get; set; }
+        public string Opis { get; set; }
 
         /// <summary>
         /// Kreira novi objekat tipa Nekretnina
