@@ -25,6 +25,8 @@ namespace EFM.Pomocni_prozori
         public Unos_nekretnine()
         {
             InitializeComponent();
+            cbbTipNekretnine.ItemsSource =
+                Enum.GetValues(typeof(Nekretnina.EnumTipNekretnine)).Cast<Nekretnina.EnumTipNekretnine>().ToList();
         }
         
         private void btnCancel_Click(object sender, RoutedEventArgs e)
