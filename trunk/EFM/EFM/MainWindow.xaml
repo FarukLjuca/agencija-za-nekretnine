@@ -3,6 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Button Name="btnDodajNekretninu"
+                Content="Otvori formu za dodavanje nove nekretnine (testni button)"
+                Height="40"
+                Width="350" Click="btnDodajNekretninu_Click"/>
     </Grid>
 </Window>
