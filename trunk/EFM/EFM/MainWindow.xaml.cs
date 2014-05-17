@@ -26,11 +26,5 @@ namespace EFM
 			WndLogin w = new WndLogin ();
 			w.ShowDialog ();
 		}
-
-        private void btnDodajNekretninu_Click(object sender, RoutedEventArgs e)
-        {
-            Pomocni_prozori.Unos_nekretnine n = new Pomocni_prozori.Unos_nekretnine();
-            n.Show();
-        }
 	}
 }
