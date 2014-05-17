@@ -1,11 +1,17 @@
 ﻿<Window x:Class="EFM.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Agencija za nekretnine" Height="350" Width="525">
     <Grid>
-        <Button Name="btnDodajNekretninu"
-                Content="Otvori formu za dodavanje nove nekretnine (testni button)"
-                Height="40"
-                Width="350" Click="btnDodajNekretninu_Click"/>
+        <Menu Name="menGlavniMeni"
+              Height="Auto" 
+              VerticalAlignment="Top">
+            <MenuItem Header="File"
+                      Name="mitFile"/>
+            <MenuItem Header="Edit"
+                      Name="mitEdit"/>
+            <MenuItem Header="About"
+                      Name="mitAbout"/>
+        </Menu>
     </Grid>
 </Window>
