@@ -12,6 +12,15 @@
                       Name="mitEdit"/>
             <MenuItem Header="About"
                       Name="mitAbout"/>
+            <MenuItem Header="Test"
+                      Name="mitTest">
+                <MenuItem Header="Unos nekretnina"
+                          Name="mitUnosNekretnina"
+                          ToolTip="Sluzi za provjeravanje developerima"
+                          Click="mitUnosNekretnina_Click"/>
+                <MenuItem Header="Baza"
+                          Click="TestPovezivanjaSaBP" />
+            </MenuItem>
         </Menu>
     </Grid>
 </Window>
