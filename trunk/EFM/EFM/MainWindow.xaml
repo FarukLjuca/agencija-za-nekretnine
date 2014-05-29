@@ -18,7 +18,7 @@
                           Name="mitUnosNekretnina"
                           ToolTip="Sluzi za provjeravanje developerima"
                           Click="mitUnosNekretnina_Click"/>
-                <MenuItem Header="Baza"
+                <MenuItem Header="SQLite"
                           Click="TestPovezivanjaSaBP" />
             </MenuItem>
         </Menu>

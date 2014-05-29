@@ -12,8 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Data.OracleClient;
-using System.Data.OleDb;
+using System.Data.SQLite;
 
 namespace EFM
 {
@@ -37,13 +36,14 @@ namespace EFM
 
         private void TestPovezivanjaSaBP (object sender, RoutedEventArgs e)
         {
-            //OracleConnection c = new OracleConnection();
-            OleDbConnection c = new OleDbConnection();
-            //c.ConnectionString = "host=80.65.65.66;database=ETFLAB.DB.LAB.ETF.UNSA.BA;uid=efmooad;pwd=hoa8DFWNeS533utR/Q+r3osHzyH5H835JQ==";
-            c.ConnectionString = "provider=Oracle10g;data source=ETFLAB.DB.LAB.ETF.UNSA.BA;user id=efmooad;password=hoa8DFWNeS533utR/Q+r3osHzyH5H835JQ==";
-            try { c.Open(); }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-            MessageBox.Show("Connected to " + c.Database);
+            SQLiteConnection con = new SQLiteConnection
+                (@"Data Source=c:\sqlite\efmooad.db;Version=3;");
+            con.Open();
+            SQLiteCommand com = new SQLiteCommand("create table proba(rjec text);", con);
+            com.ExecuteNonQuery();
+            com.CommandText = "insert into proba values ('Uspjelo je :D');";
+            com.ExecuteNonQuery();
+            con.Close();
         }
 	}
 }
