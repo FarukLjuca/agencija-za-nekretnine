@@ -21,7 +21,6 @@ namespace EFM
             : base (Ime, Prezime, AdresaStanovanja, BrojTelefona, DatumRodjenja, BrojLicneKarte, Plata)
         {
 
-
         }
 
         /// <summary>
