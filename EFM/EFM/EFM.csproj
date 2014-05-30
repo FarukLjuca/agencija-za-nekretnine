@@ -81,8 +81,17 @@
     <Compile Include="Notar.cs" />
     <Compile Include="Osiguranje.cs" />
     <Compile Include="Osoba.cs" />
+    <Compile Include="Pomocni prozori\Kolona.xaml.cs">
+      <DependentUpon>Kolona.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pomocni prozori\Unos entiteta.xaml.cs">
+      <DependentUpon>Unos entiteta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pomocni prozori\Unos nekretnine.xaml.cs">
       <DependentUpon>Unos nekretnine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pomocni prozori\Zaglavlje.xaml.cs">
+      <DependentUpon>Zaglavlje.xaml</DependentUpon>
     </Compile>
     <Compile Include="Racunovodja.cs" />
     <Compile Include="Ugovori.cs" />
@@ -106,7 +115,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pomocni prozori\Kolona.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pomocni prozori\Unos entiteta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pomocni prozori\Unos nekretnine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pomocni prozori\Zaglavlje.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
