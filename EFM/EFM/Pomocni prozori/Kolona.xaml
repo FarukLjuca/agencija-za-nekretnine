@@ -62,11 +62,13 @@
                  Margin="1"
                  Grid.Column="11"/>
         <Button Name="btnDodaj"
+                Content="+"
                 Margin="1"
                 Grid.Column="13"
                 Click="Dodaj"/>
         <Button Name="btnObrisi"
                 Margin="1"
+                Content="-"
                 Grid.Column="14"
                 Click="Obrisi"/>
     </Grid>

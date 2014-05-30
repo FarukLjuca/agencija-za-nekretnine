@@ -37,5 +37,12 @@ namespace EFM.Pomocni_prozori
         {
             panela.Children.Remove(this);
         }
+
+        public string dajString()
+        {
+            string rez = tbxNaziv.Text + " " + cbbTipPodatka.Text;
+            //TODO Nastaviti
+            return rez;
+        }
     }
 }
