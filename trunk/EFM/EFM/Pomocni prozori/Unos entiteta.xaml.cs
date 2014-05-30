@@ -36,18 +36,29 @@ namespace EFM.Pomocni_prozori
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-            SQLiteConnection con = new SQLiteConnection(@"Data Source=c:\sqlite\efmooad.db;Version=3;");
-            con.Open();
-            string komanda = "create table " + tbxNazivEntiteta.Text + "(";
-            foreach (object k in stpGlavnaPanela.Children)
+            try
             {
-                if (k is Kolona)
+                SQLiteConnection con = new SQLiteConnection(@"Data Source=c:\sqlite\efmooad.db;Version=3;");
+                con.Open();
+                string komanda = "create table " + tbxNazivEntiteta.Text + "(";
+                foreach (object k in stpGlavnaPanela.Children)
                 {
-                    
+                    if (k is Kolona)
+                    {
+                        komanda += (k as Kolona).dajString();
+                        if (stpGlavnaPanela.Children.IndexOf(k as UIElement) != stpGlavnaPanela.Children.Count - 1)
+                            komanda += ", ";
+                    }
                 }
+                komanda += ");";
+                SQLiteCommand com = new SQLiteCommand(komanda, con);
+                com.ExecuteNonQuery();
+                con.Close();
             }
-            SQLiteCommand com = new SQLiteCommand(komanda);
-            con.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

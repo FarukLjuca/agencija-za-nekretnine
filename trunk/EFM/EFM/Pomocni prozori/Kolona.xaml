@@ -29,10 +29,11 @@
                  Grid.Column="1"/>
         <ComboBox Name="cbbTipPodatka"
                   Margin="1"
-                  Grid.Column="2"/>
+                  Grid.Column="2" SelectionChanged="cbbTipPodatka_SelectionChanged"/>
         <TextBox Name="tbxVelicinaPodatka"
                  Margin="1"
-                 Grid.Column="3"/>
+                 Grid.Column="3"
+                 IsEnabled="False"/>
         <CheckBox Name="cbxDopustiNull"
                   Grid.Column="4"
                   HorizontalAlignment="Center"
@@ -48,13 +49,15 @@
         <CheckBox Name="cbxStraniKljuc"
                   Grid.Column="7"
                   HorizontalAlignment="Center"
-                  VerticalAlignment="Center"/>
+                  VerticalAlignment="Center" Checked="cbxStraniKljuc_Checked"/>
         <ComboBox Name="cbbStraniKljucTabela"
                   Margin="1"
-                  Grid.Column="8"/>
+                  Grid.Column="8"
+                  IsEnabled="False"/>
         <ComboBox Name="cbbStraniKljucKolona"
                   Margin="1"
-                  Grid.Column="9"/>
+                  Grid.Column="9"
+                  IsEnabled="False"/>
         <TextBox Name="tbxCheck"
                  Margin="1"
                  Grid.Column="10"/>
@@ -64,12 +67,12 @@
         <Button Name="btnDodaj"
                 Content="+"
                 Margin="1"
-                Grid.Column="13"
+                Grid.Column="12"
                 Click="Dodaj"/>
         <Button Name="btnObrisi"
                 Margin="1"
                 Content="-"
-                Grid.Column="14"
+                Grid.Column="13"
                 Click="Obrisi"/>
     </Grid>
 </UserControl>
