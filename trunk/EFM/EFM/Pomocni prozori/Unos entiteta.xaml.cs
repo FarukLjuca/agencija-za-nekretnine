@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SQLite;
 
 namespace EFM.Pomocni_prozori
 {
@@ -26,6 +27,27 @@ namespace EFM.Pomocni_prozori
             stpGlavnaPanela.Children.Add(new Zaglavlje());
             stpGlavnaPanela.Children.Add(new Kolona(stpGlavnaPanela));
             stpGlavnaPanela.Children.Add(new Kolona(stpGlavnaPanela));
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnOK_Click(object sender, RoutedEventArgs e)
+        {
+            SQLiteConnection con = new SQLiteConnection(@"Data Source=c:\sqlite\efmooad.db;Version=3;");
+            con.Open();
+            string komanda = "create table " + tbxNazivEntiteta.Text + "(";
+            foreach (object k in stpGlavnaPanela.Children)
+            {
+                if (k is Kolona)
+                {
+                    
+                }
+            }
+            SQLiteCommand com = new SQLiteCommand(komanda);
+            con.Close();
         }
     }
 }
