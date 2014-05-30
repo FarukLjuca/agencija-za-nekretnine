@@ -81,6 +81,9 @@
     <Compile Include="Notar.cs" />
     <Compile Include="Osiguranje.cs" />
     <Compile Include="Osoba.cs" />
+    <Compile Include="Pomocni prozori\Izmjena entiteta.xaml.cs">
+      <DependentUpon>Izmjena entiteta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pomocni prozori\Kolona.xaml.cs">
       <DependentUpon>Kolona.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pomocni prozori\Izmjena entiteta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pomocni prozori\Kolona.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
