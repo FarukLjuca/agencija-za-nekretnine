@@ -20,6 +20,8 @@
                           Click="mitUnosNekretnina_Click"/>
                 <MenuItem Header="SQLite"
                           Click="TestPovezivanjaSaBP" />
+                <MenuItem Header="Unos entiteta"
+                          Click="UnosEntiteta" />
             </MenuItem>
         </Menu>
     </Grid>

@@ -25,7 +25,7 @@ namespace EFM
 		{
 			InitializeComponent ();
             WndLogin w = new WndLogin();
-            w.ShowDialog();
+            //w.ShowDialog(); itirita svaki put, Faruk
 		}
 
         private void mitUnosNekretnina_Click(object sender, RoutedEventArgs e)
@@ -44,6 +44,12 @@ namespace EFM
             com.CommandText = "insert into proba values ('Uspjelo je :D');";
             com.ExecuteNonQuery();
             con.Close();
+        }
+
+        private void UnosEntiteta(object sender, RoutedEventArgs e)
+        {
+            Pomocni_prozori.Unos_entiteta en = new Pomocni_prozori.Unos_entiteta();
+            en.ShowDialog();
         }
 	}
 }
