@@ -57,6 +57,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.Controls.Add(this.gbxIgrac2);
             this.panel1.Controls.Add(this.flpHrana);
             this.panel1.Controls.Add(this.label5);
@@ -70,10 +71,12 @@
             // 
             this.gbxIgrac2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbxIgrac2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbxIgrac2.BackgroundImage")));
             this.gbxIgrac2.Controls.Add(this.flpTijelo2);
             this.gbxIgrac2.Controls.Add(this.flpGlava2);
             this.gbxIgrac2.Controls.Add(this.label2);
             this.gbxIgrac2.Controls.Add(this.label3);
+            this.gbxIgrac2.ForeColor = System.Drawing.SystemColors.Control;
             this.gbxIgrac2.Location = new System.Drawing.Point(159, 3);
             this.gbxIgrac2.Name = "gbxIgrac2";
             this.gbxIgrac2.Size = new System.Drawing.Size(127, 277);
@@ -100,6 +103,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label2.Location = new System.Drawing.Point(6, 151);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 13);
@@ -109,6 +113,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(6, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 13);
@@ -136,10 +141,12 @@
             // 
             this.gbxIgrac1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.gbxIgrac1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gbxIgrac1.BackgroundImage")));
             this.gbxIgrac1.Controls.Add(this.flpTijelo1);
             this.gbxIgrac1.Controls.Add(this.flpGlava1);
             this.gbxIgrac1.Controls.Add(this.label7);
             this.gbxIgrac1.Controls.Add(this.label1);
+            this.gbxIgrac1.ForeColor = System.Drawing.SystemColors.Control;
             this.gbxIgrac1.Location = new System.Drawing.Point(3, 3);
             this.gbxIgrac1.Name = "gbxIgrac1";
             this.gbxIgrac1.Size = new System.Drawing.Size(140, 277);
@@ -166,6 +173,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label7.Location = new System.Drawing.Point(6, 151);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(106, 13);
@@ -175,6 +183,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(6, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 13);
@@ -253,6 +262,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "About";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // FrmMain
             // 
