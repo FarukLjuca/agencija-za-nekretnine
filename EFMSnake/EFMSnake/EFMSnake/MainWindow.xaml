@@ -62,6 +62,7 @@
                     Content="Nova"/>
         </StackPanel>
         <Button Content="START" Grid.Column="2" HorizontalAlignment="Left" Margin="295,65,0,0" Grid.Row="4" VerticalAlignment="Top" Width="89" Height="43"/>
+        <Button Content="About" Grid.Column="2" HorizontalAlignment="Left" Margin="295,142,0,0" Grid.Row="4" VerticalAlignment="Top" Width="89" Click="Button_Click_1"/>
     </Grid>
 </Window>
 
