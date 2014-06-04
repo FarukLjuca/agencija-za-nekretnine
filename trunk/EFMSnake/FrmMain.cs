@@ -86,31 +86,31 @@ namespace EFMSnake
                 b.Click += new EventHandler(hrana_Click);
                 flpHrana.Controls.Add(b);
             }
+        }
 
-            private void glava1_Click (object seneder, EventArgs e)
-            {
-
-            }
+        private void glava1_Click (object seneder, EventArgs e)
+        {
+            glava1.
+        }
         
-            private void glava2_Click (object seneder, EventArgs e)
-            {
+        private void glava2_Click (object seneder, EventArgs e)
+        {
 
-            }
+        }
 
-            private void tijelo1_Click (object seneder, EventArgs e)
-            {
+        private void tijelo1_Click (object seneder, EventArgs e)
+        {
 
-            }
+        }
 
-            private void tijelo2_Click (object seneder, EventArgs e)
-            {
+        private void tijelo2_Click (object seneder, EventArgs e)
+        {
 
-            }
+        }
 
-            private void hrana_Click (object seneder, EventArgs e)
-            {
+        private void hrana_Click (object seneder, EventArgs e)
+        {
 
-            }
         }
 	}
 }
