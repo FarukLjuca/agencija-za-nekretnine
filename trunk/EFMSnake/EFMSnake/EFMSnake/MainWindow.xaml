@@ -18,7 +18,8 @@
         </Grid.RowDefinitions>
         
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="15"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
@@ -26,10 +27,10 @@
         <TextBlock Name="txtGlava"
                    Text="Odaberite glavu zmije:"
                    Grid.Row="1"
-                   Grid.Column="1"/>
+                   Grid.Column="2"/>
         
         <StackPanel Grid.Row="2" 
-                    Grid.Column="1" 
+                    Grid.Column="2" 
                     Name="spnlGlava" 
                     Orientation="Horizontal"
                     Height="30"
@@ -66,7 +67,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="3" 
-                    Grid.Column="1" 
+                    Grid.Column="2" 
                     Name="spnlGlava1" 
                     Orientation="Horizontal"
                     Height="30"
@@ -103,11 +104,11 @@
         </StackPanel>
 
         <StackPanel Grid.Row="4" 
-                    Grid.Column="1" 
+                    Grid.Column="2" 
                     Name="spnlGlava2" 
                     Orientation="Horizontal"
                     Height="30"
-                    Width="Auto">
+                    Width="Auto" Margin="0,67">
 
             <Button Name="btnGlava12"
                     Margin="2"
@@ -140,7 +141,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="5" 
-                    Grid.Column="1" 
+                    Grid.Column="2" 
                     Name="spnlGlava3" 
                     Orientation="Horizontal"
                     Height="30"
@@ -176,7 +177,7 @@
                     Content="Nova"/>
         </StackPanel>
         <Button Content="START" Grid.Column="2" HorizontalAlignment="Left" Margin="295,65,0,0" Grid.Row="4" VerticalAlignment="Top" Width="89" Height="43"/>
-        <Button Content="About" Grid.Column="2" HorizontalAlignment="Left" Margin="295,142,0,0" Grid.Row="4" Width="89" Click="Button_Click_1"/>
+        <Button Content="About" Grid.Column="2" HorizontalAlignment="Left" Margin="295,142,0,0" Grid.Row="4" VerticalAlignment="Top" Width="89" Click="Button_Click_1"/>
     </Grid>
 </Window>
 
