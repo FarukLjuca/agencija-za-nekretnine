@@ -31,24 +31,24 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.gbxIgrac1 = new System.Windows.Forms.GroupBox();
             this.gbxIgrac2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.flpTijelo2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpGlava2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.flpHrana = new System.Windows.Forms.FlowLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.gbxIgrac1 = new System.Windows.Forms.GroupBox();
+            this.flpTijelo1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpGlava1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.imglGlava = new System.Windows.Forms.ImageList(this.components);
             this.imglTijelo = new System.Windows.Forms.ImageList(this.components);
             this.imglHrana = new System.Windows.Forms.ImageList(this.components);
-            this.flpGlava1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpTijelo1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpHrana = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpTijelo2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpGlava2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
-            this.gbxIgrac1.SuspendLayout();
             this.gbxIgrac2.SuspendLayout();
+            this.gbxIgrac1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -59,10 +59,76 @@
             this.panel1.Controls.Add(this.flpHrana);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.gbxIgrac1);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(12, 215);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(300, 409);
+            this.panel1.Size = new System.Drawing.Size(292, 436);
             this.panel1.TabIndex = 0;
+            // 
+            // gbxIgrac2
+            // 
+            this.gbxIgrac2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbxIgrac2.Controls.Add(this.flpTijelo2);
+            this.gbxIgrac2.Controls.Add(this.flpGlava2);
+            this.gbxIgrac2.Controls.Add(this.label2);
+            this.gbxIgrac2.Controls.Add(this.label3);
+            this.gbxIgrac2.Location = new System.Drawing.Point(159, 3);
+            this.gbxIgrac2.Name = "gbxIgrac2";
+            this.gbxIgrac2.Size = new System.Drawing.Size(127, 277);
+            this.gbxIgrac2.TabIndex = 1;
+            this.gbxIgrac2.TabStop = false;
+            this.gbxIgrac2.Text = "Igrac 2";
+            // 
+            // flpTijelo2
+            // 
+            this.flpTijelo2.AutoScroll = true;
+            this.flpTijelo2.Location = new System.Drawing.Point(9, 167);
+            this.flpTijelo2.Name = "flpTijelo2";
+            this.flpTijelo2.Size = new System.Drawing.Size(90, 90);
+            this.flpTijelo2.TabIndex = 8;
+            // 
+            // flpGlava2
+            // 
+            this.flpGlava2.AutoScroll = true;
+            this.flpGlava2.Location = new System.Drawing.Point(9, 46);
+            this.flpGlava2.Name = "flpGlava2";
+            this.flpGlava2.Size = new System.Drawing.Size(90, 90);
+            this.flpGlava2.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 151);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(106, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Odaberite tijelo zmije:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 30);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(111, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Odaberite glavu zmije:";
+            // 
+            // flpHrana
+            // 
+            this.flpHrana.AutoScroll = true;
+            this.flpHrana.Location = new System.Drawing.Point(96, 299);
+            this.flpHrana.Name = "flpHrana";
+            this.flpHrana.Size = new System.Drawing.Size(90, 90);
+            this.flpHrana.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(93, 283);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(112, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Odaberite hranu zmije:";
             // 
             // gbxIgrac1
             // 
@@ -79,38 +145,21 @@
             this.gbxIgrac1.TabStop = false;
             this.gbxIgrac1.Text = "Igrac 1";
             // 
-            // gbxIgrac2
+            // flpTijelo1
             // 
-            this.gbxIgrac2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbxIgrac2.Controls.Add(this.flpTijelo2);
-            this.gbxIgrac2.Controls.Add(this.flpGlava2);
-            this.gbxIgrac2.Controls.Add(this.label2);
-            this.gbxIgrac2.Controls.Add(this.label3);
-            this.gbxIgrac2.Location = new System.Drawing.Point(154, 3);
-            this.gbxIgrac2.Name = "gbxIgrac2";
-            this.gbxIgrac2.Size = new System.Drawing.Size(140, 277);
-            this.gbxIgrac2.TabIndex = 1;
-            this.gbxIgrac2.TabStop = false;
-            this.gbxIgrac2.Text = "Igrac 2";
+            this.flpTijelo1.AutoScroll = true;
+            this.flpTijelo1.Location = new System.Drawing.Point(9, 167);
+            this.flpTijelo1.Name = "flpTijelo1";
+            this.flpTijelo1.Size = new System.Drawing.Size(90, 90);
+            this.flpTijelo1.TabIndex = 8;
             // 
-            // label1
+            // flpGlava1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Odaberite glavu zmije:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(93, 283);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Odaberite hranu zmije:";
+            this.flpGlava1.AutoScroll = true;
+            this.flpGlava1.Location = new System.Drawing.Point(9, 46);
+            this.flpGlava1.Name = "flpGlava1";
+            this.flpGlava1.Size = new System.Drawing.Size(90, 90);
+            this.flpGlava1.TabIndex = 7;
             // 
             // label7
             // 
@@ -121,23 +170,14 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "Odaberite tijelo zmije:";
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 30);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Odaberite glavu zmije:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 151);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Odaberite tijelo zmije:";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Odaberite glavu zmije:";
             // 
             // imglGlava
             // 
@@ -189,52 +229,12 @@
             this.imglHrana.Images.SetKeyName(9, "1401930259_french_fries.png");
             this.imglHrana.Images.SetKeyName(10, "1401930277_cup_ice_cream.png");
             // 
-            // flpGlava1
-            // 
-            this.flpGlava1.AutoScroll = true;
-            this.flpGlava1.Location = new System.Drawing.Point(9, 46);
-            this.flpGlava1.Name = "flpGlava1";
-            this.flpGlava1.Size = new System.Drawing.Size(90, 90);
-            this.flpGlava1.TabIndex = 7;
-            // 
-            // flpTijelo1
-            // 
-            this.flpTijelo1.AutoScroll = true;
-            this.flpTijelo1.Location = new System.Drawing.Point(9, 167);
-            this.flpTijelo1.Name = "flpTijelo1";
-            this.flpTijelo1.Size = new System.Drawing.Size(90, 90);
-            this.flpTijelo1.TabIndex = 8;
-            // 
-            // flpHrana
-            // 
-            this.flpHrana.AutoScroll = true;
-            this.flpHrana.Location = new System.Drawing.Point(96, 299);
-            this.flpHrana.Name = "flpHrana";
-            this.flpHrana.Size = new System.Drawing.Size(90, 90);
-            this.flpHrana.TabIndex = 8;
-            // 
-            // flpTijelo2
-            // 
-            this.flpTijelo2.AutoScroll = true;
-            this.flpTijelo2.Location = new System.Drawing.Point(9, 167);
-            this.flpTijelo2.Name = "flpTijelo2";
-            this.flpTijelo2.Size = new System.Drawing.Size(90, 90);
-            this.flpTijelo2.TabIndex = 8;
-            // 
-            // flpGlava2
-            // 
-            this.flpGlava2.AutoScroll = true;
-            this.flpGlava2.Location = new System.Drawing.Point(9, 46);
-            this.flpGlava2.Name = "flpGlava2";
-            this.flpGlava2.Size = new System.Drawing.Size(90, 90);
-            this.flpGlava2.TabIndex = 8;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::EFMSnake.Properties.Resources.BGround;
-            this.ClientSize = new System.Drawing.Size(899, 433);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(1123, 663);
             this.Controls.Add(this.panel1);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -242,10 +242,10 @@
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.gbxIgrac1.ResumeLayout(false);
-            this.gbxIgrac1.PerformLayout();
             this.gbxIgrac2.ResumeLayout(false);
             this.gbxIgrac2.PerformLayout();
+            this.gbxIgrac1.ResumeLayout(false);
+            this.gbxIgrac1.PerformLayout();
             this.ResumeLayout(false);
 
 		}
