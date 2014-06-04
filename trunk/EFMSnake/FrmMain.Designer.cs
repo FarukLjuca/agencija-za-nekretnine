@@ -156,43 +156,51 @@
             // 
             this.imglGlava.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imglGlava.ImageStream")));
             this.imglGlava.TransparentColor = System.Drawing.Color.Transparent;
-            this.imglGlava.Images.SetKeyName(0, "g1.png");
-            this.imglGlava.Images.SetKeyName(1, "g2.png");
-            this.imglGlava.Images.SetKeyName(2, "g3.png");
-            this.imglGlava.Images.SetKeyName(3, "g4.png");
-            this.imglGlava.Images.SetKeyName(4, "g5.png");
-            this.imglGlava.Images.SetKeyName(5, "g6.png");
-            this.imglGlava.Images.SetKeyName(6, "g7.png");
-            this.imglGlava.Images.SetKeyName(7, "g8.png");
-            this.imglGlava.Images.SetKeyName(8, "g9.png");
-            this.imglGlava.Images.SetKeyName(9, "g10.png");
-            this.imglGlava.Images.SetKeyName(10, "g11.png");
+            this.imglGlava.Images.SetKeyName(0, "1401929673_ksnake.png");
+            this.imglGlava.Images.SetKeyName(1, "1401929705_head.png");
+            this.imglGlava.Images.SetKeyName(2, "1401929711_pumpkin.png");
+            this.imglGlava.Images.SetKeyName(3, "1401929716_scream.png");
+            this.imglGlava.Images.SetKeyName(4, "1401929721_jack.png");
+            this.imglGlava.Images.SetKeyName(5, "1401929743_Dog_head.png");
+            this.imglGlava.Images.SetKeyName(6, "1401929752_Games.png");
+            this.imglGlava.Images.SetKeyName(7, "1401929773_Cat_head.png");
+            this.imglGlava.Images.SetKeyName(8, "1401929782_Helmet.png");
+            this.imglGlava.Images.SetKeyName(9, "1401929820_spiderman.png");
+            this.imglGlava.Images.SetKeyName(10, "1401929826_boss.png");
+            this.imglGlava.Images.SetKeyName(11, "1401929831_hell_boy.png");
+            this.imglGlava.Images.SetKeyName(12, "1401929835_matrix.png");
+            this.imglGlava.Images.SetKeyName(13, "1401929847_choler.png");
             // 
             // imglTijelo
             // 
             this.imglTijelo.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imglTijelo.ImageStream")));
             this.imglTijelo.TransparentColor = System.Drawing.Color.Transparent;
-            this.imglTijelo.Images.SetKeyName(0, "t1.png");
-            this.imglTijelo.Images.SetKeyName(1, "t2.png");
-            this.imglTijelo.Images.SetKeyName(2, "t3.png");
-            this.imglTijelo.Images.SetKeyName(3, "t4.png");
-            this.imglTijelo.Images.SetKeyName(4, "t5.png");
-            this.imglTijelo.Images.SetKeyName(5, "t6.png");
-            this.imglTijelo.Images.SetKeyName(6, "t7.png");
-            this.imglTijelo.Images.SetKeyName(7, "t8.png");
+            this.imglTijelo.Images.SetKeyName(0, "1401929933_519679-186_FormRoundedBorder.png");
+            this.imglTijelo.Images.SetKeyName(1, "1401929935_519898-184_FormRectangleBorder.png");
+            this.imglTijelo.Images.SetKeyName(2, "1401929938_519677-183_FormRectangle.png");
+            this.imglTijelo.Images.SetKeyName(3, "1401929941_519678-185_FormRounded.png");
+            this.imglTijelo.Images.SetKeyName(4, "1401929953_star.png");
+            this.imglTijelo.Images.SetKeyName(5, "1401929954_star.png");
+            this.imglTijelo.Images.SetKeyName(6, "1401929957_118.png");
+            this.imglTijelo.Images.SetKeyName(7, "1401929961_star.png");
+            this.imglTijelo.Images.SetKeyName(8, "1401929985_icon-ios7-circle-outline.png");
+            this.imglTijelo.Images.SetKeyName(9, "1401929988_icon-ios7-circle-filled.png");
             // 
             // imglHrana
             // 
             this.imglHrana.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imglHrana.ImageStream")));
             this.imglHrana.TransparentColor = System.Drawing.Color.Transparent;
-            this.imglHrana.Images.SetKeyName(0, "h1.png");
-            this.imglHrana.Images.SetKeyName(1, "h2.png");
-            this.imglHrana.Images.SetKeyName(2, "h3.png");
-            this.imglHrana.Images.SetKeyName(3, "h4.png");
-            this.imglHrana.Images.SetKeyName(4, "h5.png");
-            this.imglHrana.Images.SetKeyName(5, "h6.png");
-            this.imglHrana.Images.SetKeyName(6, "h7.png");
-            this.imglHrana.Images.SetKeyName(7, "h8.png");
+            this.imglHrana.Images.SetKeyName(0, "1401930225_teachers_day.png");
+            this.imglHrana.Images.SetKeyName(1, "1401930229_burger.png");
+            this.imglHrana.Images.SetKeyName(2, "1401930232_muffin.png");
+            this.imglHrana.Images.SetKeyName(3, "1401930235_coffee.png");
+            this.imglHrana.Images.SetKeyName(4, "1401930238_Apple.png");
+            this.imglHrana.Images.SetKeyName(5, "1401930241_Cherry Chocolate.png");
+            this.imglHrana.Images.SetKeyName(6, "1401930244_pizza_slice_128.png");
+            this.imglHrana.Images.SetKeyName(7, "1401930248_Strawberry.png");
+            this.imglHrana.Images.SetKeyName(8, "1401930255_cake_9.png");
+            this.imglHrana.Images.SetKeyName(9, "1401930259_french_fries.png");
+            this.imglHrana.Images.SetKeyName(10, "1401930277_cup_ice_cream.png");
             // 
             // flpGlava1
             // 
