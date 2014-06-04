@@ -5,4 +5,7 @@
     <Window.Background>
         <ImageBrush ImageSource="Image2.png" />
     </Window.Background>
+    <TextBlock HorizontalAlignment="Left" Height="82" TextWrapping="Wrap" VerticalAlignment="Top" Width="241" Margin="24,27,0,0"><Run Text="Jedna zmija može biti lagana, ali šta kada se udvostruči broj zmija? U ovoj igri, vaš cilj je da se kontrolišete zmijama, tako da one mogu konzumirati hranu i dalje rasti bez da udare u zid ili sebe."/><InlineUIContainer>
+			<TextBlock TextWrapping="Wrap" />
+		</InlineUIContainer></TextBlock>
 </Window>
