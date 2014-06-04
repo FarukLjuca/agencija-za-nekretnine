@@ -38,13 +38,13 @@ namespace EFM
         private void TestPovezivanjaSaBP (object sender, RoutedEventArgs e)
         {
             //Provider=OraOLEDB.Oracle.1MSDAORA.1
-            OleDbConnection cn = new OleDbConnection(
+            /*OleDbConnection cn = new OleDbConnection(
   "Provider=MSDAORA.1;Data Source=TEST;User ID=efmooad;" +
   "Password=efmooad;Default Collection =SAMPLEDB");
             cn.Open();
             OleDbCommand k = new OleDbCommand();
             
-            /*
+            
             sqliteconnection con = new sqliteconnection
                 (@"data source=c:\sqlite\efmooad.db;version=3;");
             con.open();
