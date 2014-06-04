@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Resources;
 
 namespace EFMSnake
 {
 	public partial class FrmMain : Form
 	{
-        public GlavaZmije glava1;
+        public GlavaZmije glava1 = new GlavaZmije();
         public GlavaZmije glava2;
         public TijeloZmije tijelo1;
         public TijeloZmije tijelo2;
@@ -26,19 +25,10 @@ namespace EFMSnake
 
 		private void FrmMain_Load(object sender, EventArgs e)
 		{
+			//Primjer, da vidite. Ovo sam u designeru postavio, ovdje ne treba
+			//this.BackgroundImage = Properties.Resources.BGround;
             staviSlikice();
-            postaviDefault();
 		}
-
-
-        private void postaviDefault()
-        {
-            glava1 = new GlavaZmije(imglGlava.Images[10]);
-            glava2 = new GlavaZmije(imglGlava.Images[11]);
-            tijelo1 = new TijeloZmije(imglTijelo.Images[2]);
-            tijelo2 = new TijeloZmije(imglTijelo.Images[2]);
-            hrana = new HranaZmije(imglHrana.Images[3]);
-        }
 
 
         private void staviSlikice()
@@ -99,34 +89,34 @@ namespace EFMSnake
             }
         }
 
-        private void glava1_Click (object seneder, EventArgs e)
+        private void glava1_Click(object seneder, EventArgs e)
         {
             glava1.Slika = (seneder as Button).BackgroundImage;
         }
-        
-        private void glava2_Click (object seneder, EventArgs e)
+
+        private void glava2_Click(object seneder, EventArgs e)
         {
             glava2.Slika = (seneder as Button).BackgroundImage;
         }
 
-        private void tijelo1_Click (object seneder, EventArgs e)
+        private void tijelo1_Click(object seneder, EventArgs e)
         {
             tijelo1.Slika = (seneder as Button).BackgroundImage;
         }
 
-        private void tijelo2_Click (object seneder, EventArgs e)
+        private void tijelo2_Click(object seneder, EventArgs e)
         {
             tijelo2.Slika = (seneder as Button).BackgroundImage;
         }
 
-        private void hrana_Click (object seneder, EventArgs e)
+        private void hrana_Click(object seneder, EventArgs e)
         {
             hrana.Slika = (seneder as Button).BackgroundImage;
         }
 
         private void START_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -134,5 +124,6 @@ namespace EFMSnake
             var form = new AboutForm();
             form.Show();
         }
+
 	}
 }
