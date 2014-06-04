@@ -44,8 +44,10 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(750, 430);
 			this.Controls.Add(this.efmPanel1);
+			this.KeyPreview = true;
 			this.Name = "Test";
 			this.Text = "Test";
+			this.Load += new System.EventHandler(this.Test_Load);
 			this.ResumeLayout(false);
 
 		}
