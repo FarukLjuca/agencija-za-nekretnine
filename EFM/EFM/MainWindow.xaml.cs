@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SQLite;
+using System.Data.OleDb;
 
 namespace EFM
 {
@@ -36,14 +37,25 @@ namespace EFM
 
         private void TestPovezivanjaSaBP (object sender, RoutedEventArgs e)
         {
-            SQLiteConnection con = new SQLiteConnection
-                (@"Data Source=c:\sqlite\efmooad.db;Version=3;");
-            con.Open();
-            SQLiteCommand com = new SQLiteCommand("create table proba(rjec text);", con);
-            com.ExecuteNonQuery();
-            com.CommandText = "insert into proba values ('Uspjelo je :D');";
-            com.ExecuteNonQuery();
-            con.Close();
+            //Provider=OraOLEDB.Oracle.1MSDAORA.1
+            OleDbConnection cn = new OleDbConnection(
+  "Provider=MSDAORA.1;Data Source=TEST;User ID=efmooad;" +
+  "Password=efmooad;Default Collection =SAMPLEDB");
+            cn.Open();
+            OleDbCommand k = new OleDbCommand();
+            
+            /*
+            sqliteconnection con = new sqliteconnection
+                (@"data source=c:\sqlite\efmooad.db;version=3;");
+            con.open();
+            sqlitecommand com = new sqlitecommand("create table proba(rjec text);", con);
+            com.executenonquery();
+            com.commandtext = "insert into proba values ('uspjelo je :d');";
+            com.executenonquery();
+            con.close();
+            */
+
+
         }
 
         private void UnosEntiteta(object sender, RoutedEventArgs e)
