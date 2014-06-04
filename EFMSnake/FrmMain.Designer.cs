@@ -379,16 +379,13 @@
         private System.Windows.Forms.FlowLayoutPanel flpTijelo1;
         private System.Windows.Forms.FlowLayoutPanel flpHrana;
         private System.Windows.Forms.FlowLayoutPanel flpGlava1;
-<<<<<<< .mine
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
-=======
         private System.Windows.Forms.Button START;
         private System.Windows.Forms.Button button1;
->>>>>>> .r89
 	}
 }
 

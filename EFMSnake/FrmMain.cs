@@ -30,7 +30,7 @@ namespace EFMSnake
             postaviDefault();
 		}
 
-<<<<<<< .mine
+
         private void postaviDefault()
         {
             glava1 = new GlavaZmije(imglGlava.Images[10]);
@@ -40,9 +40,7 @@ namespace EFMSnake
             hrana = new HranaZmije(imglHrana.Images[3]);
         }
 
-=======
 
->>>>>>> .r89
         private void staviSlikice()
         {
             foreach (Image im in imglGlava.Images)
