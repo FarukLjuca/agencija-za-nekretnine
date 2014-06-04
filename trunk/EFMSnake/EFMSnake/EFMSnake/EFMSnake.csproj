@@ -118,6 +118,73 @@
   <ItemGroup>
     <Resource Include="Image2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\g1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\g2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\g3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\g4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\g5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\g6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\g7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\g8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\g9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\g10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\g11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\t1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\t2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\t3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\t4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\t5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\t6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\t7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\t8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Slike\h1.png" />
+    <Resource Include="Slike\h2.png" />
+    <Resource Include="Slike\h3.png" />
+    <Resource Include="Slike\h4.png" />
+    <Resource Include="Slike\h5.png" />
+    <Resource Include="Slike\h6.png" />
+    <Resource Include="Slike\h7.png" />
+    <Resource Include="Slike\h8.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
