@@ -15,6 +15,6 @@ namespace EFMSnake
 		/// <summary>
 		/// Slika koja opisuje blok
 		/// </summary>
-		public System.Windows.Media.Imaging.BitmapImage Slika { get; set; }
+		//public System.Windows.Media.Imaging.BitmapImage Slika { get; set; } Enile, javljao je error ovdje!
 	}
 }
