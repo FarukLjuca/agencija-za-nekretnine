@@ -38,14 +38,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.imglGlava = new System.Windows.Forms.ImageList(this.components);
             this.imglTijelo = new System.Windows.Forms.ImageList(this.components);
             this.imglHrana = new System.Windows.Forms.ImageList(this.components);
             this.flpGlava1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpHrana2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flpTijelo1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpHrana1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpHrana = new System.Windows.Forms.FlowLayoutPanel();
             this.flpTijelo2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flpGlava2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
@@ -58,6 +56,8 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.Controls.Add(this.gbxIgrac2);
+            this.panel1.Controls.Add(this.flpHrana);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.gbxIgrac1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
@@ -69,14 +69,12 @@
             this.gbxIgrac1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.gbxIgrac1.Controls.Add(this.flpTijelo1);
-            this.gbxIgrac1.Controls.Add(this.flpHrana1);
             this.gbxIgrac1.Controls.Add(this.flpGlava1);
             this.gbxIgrac1.Controls.Add(this.label7);
-            this.gbxIgrac1.Controls.Add(this.label5);
             this.gbxIgrac1.Controls.Add(this.label1);
             this.gbxIgrac1.Location = new System.Drawing.Point(3, 3);
             this.gbxIgrac1.Name = "gbxIgrac1";
-            this.gbxIgrac1.Size = new System.Drawing.Size(140, 403);
+            this.gbxIgrac1.Size = new System.Drawing.Size(140, 277);
             this.gbxIgrac1.TabIndex = 1;
             this.gbxIgrac1.TabStop = false;
             this.gbxIgrac1.Text = "Igrac 1";
@@ -85,15 +83,13 @@
             // 
             this.gbxIgrac2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbxIgrac2.Controls.Add(this.flpHrana2);
             this.gbxIgrac2.Controls.Add(this.flpTijelo2);
             this.gbxIgrac2.Controls.Add(this.flpGlava2);
-            this.gbxIgrac2.Controls.Add(this.label4);
             this.gbxIgrac2.Controls.Add(this.label2);
             this.gbxIgrac2.Controls.Add(this.label3);
             this.gbxIgrac2.Location = new System.Drawing.Point(154, 3);
             this.gbxIgrac2.Name = "gbxIgrac2";
-            this.gbxIgrac2.Size = new System.Drawing.Size(140, 403);
+            this.gbxIgrac2.Size = new System.Drawing.Size(140, 277);
             this.gbxIgrac2.TabIndex = 1;
             this.gbxIgrac2.TabStop = false;
             this.gbxIgrac2.Text = "Igrac 2";
@@ -110,7 +106,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 276);
+            this.label5.Location = new System.Drawing.Point(93, 283);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(112, 13);
             this.label5.TabIndex = 3;
@@ -142,15 +138,6 @@
             this.label2.Size = new System.Drawing.Size(106, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Odaberite tijelo zmije:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 276);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Odaberite hranu zmije:";
             // 
             // imglGlava
             // 
@@ -210,14 +197,6 @@
             this.flpGlava1.Size = new System.Drawing.Size(90, 90);
             this.flpGlava1.TabIndex = 7;
             // 
-            // flpHrana2
-            // 
-            this.flpHrana2.AutoScroll = true;
-            this.flpHrana2.Location = new System.Drawing.Point(9, 292);
-            this.flpHrana2.Name = "flpHrana2";
-            this.flpHrana2.Size = new System.Drawing.Size(90, 90);
-            this.flpHrana2.TabIndex = 8;
-            // 
             // flpTijelo1
             // 
             this.flpTijelo1.AutoScroll = true;
@@ -226,13 +205,13 @@
             this.flpTijelo1.Size = new System.Drawing.Size(90, 90);
             this.flpTijelo1.TabIndex = 8;
             // 
-            // flpHrana1
+            // flpHrana
             // 
-            this.flpHrana1.AutoScroll = true;
-            this.flpHrana1.Location = new System.Drawing.Point(9, 292);
-            this.flpHrana1.Name = "flpHrana1";
-            this.flpHrana1.Size = new System.Drawing.Size(90, 90);
-            this.flpHrana1.TabIndex = 8;
+            this.flpHrana.AutoScroll = true;
+            this.flpHrana.Location = new System.Drawing.Point(96, 299);
+            this.flpHrana.Name = "flpHrana";
+            this.flpHrana.Size = new System.Drawing.Size(90, 90);
+            this.flpHrana.TabIndex = 8;
             // 
             // flpTijelo2
             // 
@@ -262,6 +241,7 @@
             this.Text = "EFM Snake";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.gbxIgrac1.ResumeLayout(false);
             this.gbxIgrac1.PerformLayout();
             this.gbxIgrac2.ResumeLayout(false);
@@ -275,7 +255,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox gbxIgrac2;
         private System.Windows.Forms.GroupBox gbxIgrac1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
@@ -284,11 +263,10 @@
         private System.Windows.Forms.ImageList imglGlava;
         private System.Windows.Forms.ImageList imglTijelo;
         private System.Windows.Forms.ImageList imglHrana;
-        private System.Windows.Forms.FlowLayoutPanel flpHrana2;
         private System.Windows.Forms.FlowLayoutPanel flpTijelo2;
         private System.Windows.Forms.FlowLayoutPanel flpGlava2;
         private System.Windows.Forms.FlowLayoutPanel flpTijelo1;
-        private System.Windows.Forms.FlowLayoutPanel flpHrana1;
+        private System.Windows.Forms.FlowLayoutPanel flpHrana;
         private System.Windows.Forms.FlowLayoutPanel flpGlava1;
 	}
 }
