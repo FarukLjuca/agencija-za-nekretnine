@@ -11,6 +11,9 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
@@ -57,6 +60,117 @@
                     Width="26"/>
             
             <Button Name="btnGlavaNova"
+                    Margin="10,2,2,2"
+                    Width="52"
+                    Content="Nova"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" 
+                    Grid.Column="1" 
+                    Name="spnlGlava1" 
+                    Orientation="Horizontal"
+                    Height="30"
+                    Width="Auto">
+
+            <Button Name="btnGlava11"
+                    Margin="2"
+                    Width="26"/>
+
+            <Button Name="btnGlava21"
+                    Margin="2"
+                    Width="26"/>
+
+            <Button Name="btnGlava31"
+                    Margin="2"
+                    Width="26"/>
+
+            <Button Name="btnGlava41"
+                    Margin="2"
+                    Width="26"/>
+
+            <Button Name="btnGlava51"
+                    Margin="2"
+                    Width="26"/>
+
+            <Button Name="btnGlava61"
+                    Margin="2"
+                    Width="26"/>
+
+            <Button Name="btnGlavaNova1"
+                    Margin="10,2,2,2"
+                    Width="52"
+                    Content="Nova"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" 
+                    Grid.Column="1" 
+                    Name="spnlGlava2" 
+                    Orientation="Horizontal"
+                    Height="30"
+                    Width="Auto">
+
+            <Button Name="btnGlava12"
+                    Margin="2"
+                    Width="26"/>
+
+            <Button Name="btnGlava22"
+                    Margin="2"
+                    Width="26"/>
+
+            <Button Name="btnGlava32"
+                    Margin="2"
+                    Width="26"/>
+
+            <Button Name="btnGlava42"
+                    Margin="2"
+                    Width="26"/>
+
+            <Button Name="btnGlava52"
+                    Margin="2"
+                    Width="26"/>
+
+            <Button Name="btnGlava62"
+                    Margin="2"
+                    Width="26"/>
+
+            <Button Name="btnGlavaNova2"
+                    Margin="10,2,2,2"
+                    Width="52"
+                    Content="Nova"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" 
+                    Grid.Column="1" 
+                    Name="spnlGlava3" 
+                    Orientation="Horizontal"
+                    Height="30"
+                    Width="Auto">
+
+            <Button Name="btnGlava13"
+                    Margin="2"
+                    Width="26"/>
+
+            <Button Name="btnGlava23"
+                    Margin="2"
+                    Width="26"/>
+
+            <Button Name="btnGlava33"
+                    Margin="2"
+                    Width="26"/>
+
+            <Button Name="btnGlava43"
+                    Margin="2"
+                    Width="26"/>
+
+            <Button Name="btnGlava53"
+                    Margin="2"
+                    Width="26"/>
+
+            <Button Name="btnGlava63"
+                    Margin="2"
+                    Width="26"/>
+
+            <Button Name="btnGlavaNova3"
                     Margin="10,2,2,2"
                     Width="52"
                     Content="Nova"/>
