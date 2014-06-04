@@ -46,11 +46,27 @@
             this.imglGlava = new System.Windows.Forms.ImageList(this.components);
             this.imglTijelo = new System.Windows.Forms.ImageList(this.components);
             this.imglHrana = new System.Windows.Forms.ImageList(this.components);
+<<<<<<< .mine
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+=======
             this.START = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+>>>>>>> .r89
             this.panel1.SuspendLayout();
             this.gbxIgrac2.SuspendLayout();
             this.gbxIgrac1.SuspendLayout();
+<<<<<<< .mine
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+=======
+>>>>>>> .r89
             this.SuspendLayout();
             // 
             // panel1
@@ -231,8 +247,19 @@
             this.imglHrana.Images.SetKeyName(9, "1401930259_french_fries.png");
             this.imglHrana.Images.SetKeyName(10, "1401930277_cup_ice_cream.png");
             // 
+<<<<<<< .mine
+            // pictureBox1
+=======
             // START
+>>>>>>> .r89
             // 
+<<<<<<< .mine
+            this.pictureBox1.Location = new System.Drawing.Point(388, 61);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 86);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+=======
             this.START.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("START.BackgroundImage")));
             this.START.ForeColor = System.Drawing.SystemColors.Control;
             this.START.Location = new System.Drawing.Point(940, 407);
@@ -242,9 +269,21 @@
             this.START.Text = "START";
             this.START.UseVisualStyleBackColor = true;
             this.START.Click += new System.EventHandler(this.START_Click);
+>>>>>>> .r89
             // 
+<<<<<<< .mine
+            // pictureBox2
+=======
             // button1
+>>>>>>> .r89
             // 
+<<<<<<< .mine
+            this.pictureBox2.Location = new System.Drawing.Point(594, 61);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 86);
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+=======
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
             this.button1.Location = new System.Drawing.Point(940, 470);
@@ -253,8 +292,39 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "About";
             this.button1.UseVisualStyleBackColor = true;
+<<<<<<< .mine
+>>>>>>> .r89
+=======
             this.button1.Click += new System.EventHandler(this.button1_Click);
+>>>>>>> .r90
             // 
+<<<<<<< .mine
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(388, 166);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 86);
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Location = new System.Drawing.Point(594, 166);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(100, 86);
+            this.pictureBox4.TabIndex = 4;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Location = new System.Drawing.Point(496, 295);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(100, 86);
+            this.pictureBox5.TabIndex = 5;
+            this.pictureBox5.TabStop = false;
+            // 
+=======
+>>>>>>> .r89
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,6 +333,11 @@
             this.ClientSize = new System.Drawing.Size(1123, 663);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.START);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -274,6 +349,14 @@
             this.gbxIgrac2.PerformLayout();
             this.gbxIgrac1.ResumeLayout(false);
             this.gbxIgrac1.PerformLayout();
+<<<<<<< .mine
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+=======
+>>>>>>> .r89
             this.ResumeLayout(false);
 
 		}
@@ -296,8 +379,16 @@
         private System.Windows.Forms.FlowLayoutPanel flpTijelo1;
         private System.Windows.Forms.FlowLayoutPanel flpHrana;
         private System.Windows.Forms.FlowLayoutPanel flpGlava1;
+<<<<<<< .mine
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+=======
         private System.Windows.Forms.Button START;
         private System.Windows.Forms.Button button1;
+>>>>>>> .r89
 	}
 }
 
