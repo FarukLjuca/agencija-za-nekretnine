@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace EFMSnake.Klase
 {
-	class EFMPanel : Panel
+	public class EFMPanel : Panel
 	{
 		public EFMPanel()
 		{

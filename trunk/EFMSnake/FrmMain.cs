@@ -126,11 +126,18 @@ namespace EFMSnake
 
         private void START_Click(object sender, EventArgs e)
         {
+<<<<<<< .mine
+			EFMSnake.Klase.Test t = new EFMSnake.Klase.Test (null);
+			Snake S = new Snake (t.Pnl, glava1, tijelo1, glava2, tijelo2, hrana, Snake.Brzina.Brzina5);
+			t.PostaviSnake (S);
+			t.ShowDialog (this);
+=======
             panel1.Visible = false;
             btnAbout.Visible = false;
             btnStart.Visible = false;
             this.BackgroundImage = null;
 
+>>>>>>> .r102
             
         }
 
