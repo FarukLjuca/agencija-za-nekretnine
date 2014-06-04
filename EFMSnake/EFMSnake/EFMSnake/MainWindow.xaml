@@ -2,6 +2,9 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="400" Width="700">
+    <Window.Background>
+        <ImageBrush ImageSource="Image1.png" />
+    </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -60,3 +63,4 @@
         </StackPanel>
     </Grid>
 </Window>
+
