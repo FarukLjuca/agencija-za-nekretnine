@@ -86,35 +86,8 @@
   <ItemGroup>
     <None Include="Resources\BGround.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Resursi\g1.png" />
-    <Content Include="Resursi\g10.png" />
-    <Content Include="Resursi\g11.png" />
-    <Content Include="Resursi\g2.png" />
-    <Content Include="Resursi\g3.png" />
-    <Content Include="Resursi\g4.png" />
-    <Content Include="Resursi\g5.png" />
-    <Content Include="Resursi\g6.png" />
-    <Content Include="Resursi\g7.png" />
-    <Content Include="Resursi\g8.png" />
-    <Content Include="Resursi\g9.png" />
-    <Content Include="Resursi\h1.png" />
-    <Content Include="Resursi\h2.png" />
-    <Content Include="Resursi\h3.png" />
-    <Content Include="Resursi\h4.png" />
-    <Content Include="Resursi\h5.png" />
-    <Content Include="Resursi\h6.png" />
-    <Content Include="Resursi\h7.png" />
-    <Content Include="Resursi\h8.png" />
-    <Content Include="Resursi\t1.png" />
-    <Content Include="Resursi\t2.png" />
-    <Content Include="Resursi\t3.png" />
-    <Content Include="Resursi\t4.png" />
-    <Content Include="Resursi\t5.png" />
-    <Content Include="Resursi\t6.png" />
-    <Content Include="Resursi\t7.png" />
-    <Content Include="Resursi\t8.png" />
+    <Folder Include="Resursi\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
