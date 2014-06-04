@@ -42,6 +42,12 @@
             this.imglGlava = new System.Windows.Forms.ImageList(this.components);
             this.imglTijelo = new System.Windows.Forms.ImageList(this.components);
             this.imglHrana = new System.Windows.Forms.ImageList(this.components);
+            this.flpGlava1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpHrana2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpTijelo1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpHrana1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpTijelo2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpGlava2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.gbxIgrac1.SuspendLayout();
             this.gbxIgrac2.SuspendLayout();
@@ -62,6 +68,9 @@
             // 
             this.gbxIgrac1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.gbxIgrac1.Controls.Add(this.flpTijelo1);
+            this.gbxIgrac1.Controls.Add(this.flpHrana1);
+            this.gbxIgrac1.Controls.Add(this.flpGlava1);
             this.gbxIgrac1.Controls.Add(this.label7);
             this.gbxIgrac1.Controls.Add(this.label5);
             this.gbxIgrac1.Controls.Add(this.label1);
@@ -76,6 +85,9 @@
             // 
             this.gbxIgrac2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbxIgrac2.Controls.Add(this.flpHrana2);
+            this.gbxIgrac2.Controls.Add(this.flpTijelo2);
+            this.gbxIgrac2.Controls.Add(this.flpGlava2);
             this.gbxIgrac2.Controls.Add(this.label4);
             this.gbxIgrac2.Controls.Add(this.label2);
             this.gbxIgrac2.Controls.Add(this.label3);
@@ -89,7 +101,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 46);
+            this.label1.Location = new System.Drawing.Point(6, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 13);
             this.label1.TabIndex = 0;
@@ -98,7 +110,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 265);
+            this.label5.Location = new System.Drawing.Point(6, 276);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(112, 13);
             this.label5.TabIndex = 3;
@@ -116,7 +128,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 46);
+            this.label3.Location = new System.Drawing.Point(6, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 13);
             this.label3.TabIndex = 6;
@@ -134,7 +146,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 265);
+            this.label4.Location = new System.Drawing.Point(6, 276);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(112, 13);
             this.label4.TabIndex = 6;
@@ -182,6 +194,54 @@
             this.imglHrana.Images.SetKeyName(6, "h7.png");
             this.imglHrana.Images.SetKeyName(7, "h8.png");
             // 
+            // flpGlava1
+            // 
+            this.flpGlava1.AutoScroll = true;
+            this.flpGlava1.Location = new System.Drawing.Point(9, 46);
+            this.flpGlava1.Name = "flpGlava1";
+            this.flpGlava1.Size = new System.Drawing.Size(90, 90);
+            this.flpGlava1.TabIndex = 7;
+            // 
+            // flpHrana2
+            // 
+            this.flpHrana2.AutoScroll = true;
+            this.flpHrana2.Location = new System.Drawing.Point(9, 292);
+            this.flpHrana2.Name = "flpHrana2";
+            this.flpHrana2.Size = new System.Drawing.Size(90, 90);
+            this.flpHrana2.TabIndex = 8;
+            // 
+            // flpTijelo1
+            // 
+            this.flpTijelo1.AutoScroll = true;
+            this.flpTijelo1.Location = new System.Drawing.Point(9, 167);
+            this.flpTijelo1.Name = "flpTijelo1";
+            this.flpTijelo1.Size = new System.Drawing.Size(90, 90);
+            this.flpTijelo1.TabIndex = 8;
+            // 
+            // flpHrana1
+            // 
+            this.flpHrana1.AutoScroll = true;
+            this.flpHrana1.Location = new System.Drawing.Point(9, 292);
+            this.flpHrana1.Name = "flpHrana1";
+            this.flpHrana1.Size = new System.Drawing.Size(90, 90);
+            this.flpHrana1.TabIndex = 8;
+            // 
+            // flpTijelo2
+            // 
+            this.flpTijelo2.AutoScroll = true;
+            this.flpTijelo2.Location = new System.Drawing.Point(9, 167);
+            this.flpTijelo2.Name = "flpTijelo2";
+            this.flpTijelo2.Size = new System.Drawing.Size(90, 90);
+            this.flpTijelo2.TabIndex = 8;
+            // 
+            // flpGlava2
+            // 
+            this.flpGlava2.AutoScroll = true;
+            this.flpGlava2.Location = new System.Drawing.Point(9, 46);
+            this.flpGlava2.Name = "flpGlava2";
+            this.flpGlava2.Size = new System.Drawing.Size(90, 90);
+            this.flpGlava2.TabIndex = 8;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -216,6 +276,12 @@
         private System.Windows.Forms.ImageList imglGlava;
         private System.Windows.Forms.ImageList imglTijelo;
         private System.Windows.Forms.ImageList imglHrana;
+        private System.Windows.Forms.FlowLayoutPanel flpHrana2;
+        private System.Windows.Forms.FlowLayoutPanel flpTijelo2;
+        private System.Windows.Forms.FlowLayoutPanel flpGlava2;
+        private System.Windows.Forms.FlowLayoutPanel flpTijelo1;
+        private System.Windows.Forms.FlowLayoutPanel flpHrana1;
+        private System.Windows.Forms.FlowLayoutPanel flpGlava1;
 	}
 }
 
