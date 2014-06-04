@@ -28,6 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.panel1 = new System.Windows.Forms.Panel();
             this.gbxIgrac1 = new System.Windows.Forms.GroupBox();
             this.gbxIgrac2 = new System.Windows.Forms.GroupBox();
@@ -37,6 +39,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.imglGlava = new System.Windows.Forms.ImageList(this.components);
+            this.imglTijelo = new System.Windows.Forms.ImageList(this.components);
+            this.imglHrana = new System.Windows.Forms.ImageList(this.components);
             this.panel1.SuspendLayout();
             this.gbxIgrac1.SuspendLayout();
             this.gbxIgrac2.SuspendLayout();
@@ -135,6 +140,48 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Odaberite hranu zmije:";
             // 
+            // imglGlava
+            // 
+            this.imglGlava.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imglGlava.ImageStream")));
+            this.imglGlava.TransparentColor = System.Drawing.Color.Transparent;
+            this.imglGlava.Images.SetKeyName(0, "g1.png");
+            this.imglGlava.Images.SetKeyName(1, "g2.png");
+            this.imglGlava.Images.SetKeyName(2, "g3.png");
+            this.imglGlava.Images.SetKeyName(3, "g4.png");
+            this.imglGlava.Images.SetKeyName(4, "g5.png");
+            this.imglGlava.Images.SetKeyName(5, "g6.png");
+            this.imglGlava.Images.SetKeyName(6, "g7.png");
+            this.imglGlava.Images.SetKeyName(7, "g8.png");
+            this.imglGlava.Images.SetKeyName(8, "g9.png");
+            this.imglGlava.Images.SetKeyName(9, "g10.png");
+            this.imglGlava.Images.SetKeyName(10, "g11.png");
+            // 
+            // imglTijelo
+            // 
+            this.imglTijelo.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imglTijelo.ImageStream")));
+            this.imglTijelo.TransparentColor = System.Drawing.Color.Transparent;
+            this.imglTijelo.Images.SetKeyName(0, "t1.png");
+            this.imglTijelo.Images.SetKeyName(1, "t2.png");
+            this.imglTijelo.Images.SetKeyName(2, "t3.png");
+            this.imglTijelo.Images.SetKeyName(3, "t4.png");
+            this.imglTijelo.Images.SetKeyName(4, "t5.png");
+            this.imglTijelo.Images.SetKeyName(5, "t6.png");
+            this.imglTijelo.Images.SetKeyName(6, "t7.png");
+            this.imglTijelo.Images.SetKeyName(7, "t8.png");
+            // 
+            // imglHrana
+            // 
+            this.imglHrana.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imglHrana.ImageStream")));
+            this.imglHrana.TransparentColor = System.Drawing.Color.Transparent;
+            this.imglHrana.Images.SetKeyName(0, "h1.png");
+            this.imglHrana.Images.SetKeyName(1, "h2.png");
+            this.imglHrana.Images.SetKeyName(2, "h3.png");
+            this.imglHrana.Images.SetKeyName(3, "h4.png");
+            this.imglHrana.Images.SetKeyName(4, "h5.png");
+            this.imglHrana.Images.SetKeyName(5, "h6.png");
+            this.imglHrana.Images.SetKeyName(6, "h7.png");
+            this.imglHrana.Images.SetKeyName(7, "h8.png");
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,6 +213,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ImageList imglGlava;
+        private System.Windows.Forms.ImageList imglTijelo;
+        private System.Windows.Forms.ImageList imglHrana;
 	}
 }
 
