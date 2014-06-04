@@ -132,14 +132,8 @@ namespace EFMSnake
 			btnStart.Visible = false;
 			this.BackgroundImage = null;
 
-			EFMSnake.Klase.Test t = new EFMSnake.Klase.Test (null);
-			Snake S = new Snake (t.Pnl, glava1, tijelo1, glava2, tijelo2, hrana, Snake.Brzina.Brzina5);
-			t.PostaviSnake (S);
-			t.ShowDialog (this);
-
-
-
-            
+            Snake S = new Snake(efmPanel1, glava1, tijelo1, glava2, tijelo2, hrana, Snake.Brzina.Brzina5);
+            efmPanel1.Visible = true;
         }
 
 

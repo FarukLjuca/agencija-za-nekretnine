@@ -48,6 +48,7 @@
             this.imglHrana = new System.Windows.Forms.ImageList(this.components);
             this.btnStart = new System.Windows.Forms.Button();
             this.btnAbout = new System.Windows.Forms.Button();
+            this.efmPanel1 = new EFMSnake.Klase.EFMPanel();
             this.panel1.SuspendLayout();
             this.gbxIgrac2.SuspendLayout();
             this.gbxIgrac1.SuspendLayout();
@@ -264,12 +265,21 @@
             this.btnAbout.UseVisualStyleBackColor = true;
             this.btnAbout.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // efmPanel1
+            // 
+            this.efmPanel1.Location = new System.Drawing.Point(12, 12);
+            this.efmPanel1.Name = "efmPanel1";
+            this.efmPanel1.Size = new System.Drawing.Size(1099, 639);
+            this.efmPanel1.TabIndex = 3;
+            this.efmPanel1.Visible = false;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1123, 663);
+            this.Controls.Add(this.efmPanel1);
             this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.panel1);
@@ -307,6 +317,7 @@
         private System.Windows.Forms.FlowLayoutPanel flpGlava1;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnAbout;
+        private Klase.EFMPanel efmPanel1;
 	}
 }
 
