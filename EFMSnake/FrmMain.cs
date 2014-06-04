@@ -12,11 +12,11 @@ namespace EFMSnake
 {
 	public partial class FrmMain : Form
 	{
-        public Image glava1;
-        public Image glava2;
-        public Image tijelo1;
-        public Image tijelo2;
-        public Image hrana;
+        public GlavaZmije glava1 = new GlavaZmije();
+        public GlavaZmije glava2;
+        public TijeloZmije tijelo1;
+        public TijeloZmije tijelo2;
+        public HranaZmije hrana;
 
 		public FrmMain()
 		{
@@ -90,7 +90,7 @@ namespace EFMSnake
 
         private void glava1_Click (object seneder, EventArgs e)
         {
-            glava1.
+            
         }
         
         private void glava2_Click (object seneder, EventArgs e)
