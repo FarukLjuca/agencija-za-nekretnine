@@ -28,7 +28,17 @@ namespace EFMSnake
 			//Primjer, da vidite. Ovo sam u designeru postavio, ovdje ne treba
 			//this.BackgroundImage = Properties.Resources.BGround;
             staviSlikice();
-		}
+            postaviDefault();
+        }
+
+        private void postaviDefault()
+        {
+            glava1 = new GlavaZmije(imglGlava.Images[10]);
+            glava2 = new GlavaZmije(imglGlava.Images[11]);
+            tijelo1 = new TijeloZmije(imglTijelo.Images[2]);
+            tijelo2 = new TijeloZmije(imglTijelo.Images[2]);
+            hrana = new HranaZmije(imglHrana.Images[3]);
+        }
 
 
         private void staviSlikice()
