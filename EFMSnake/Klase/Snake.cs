@@ -10,7 +10,7 @@ namespace EFMSnake
 {
 	public class Snake
 	{
-		const int SIZE = 10;
+		const int SIZE = 50;
 		Timer T = new Timer ();
 		public enum Level : uint {Level1 = 1, Level2, Level3, Level4, Level5, Level6, Level7, Level8, Level9, LevelExtreme}
 		private List<Panel> S = new List<Panel> ();
@@ -101,10 +101,10 @@ namespace EFMSnake
 		}
 		int Dir1 = 2, Dir2 = 0;
 		private int[] Speeds = new int[] { 1000, 800, 700, 500, 320, 250, 150, 100, 75, 50 };
-		public Snake(Panel Cont, GlavaZmije G1, TijeloZmije T1, GlavaZmije G2, TijeloZmije T2, HranaZmije H, Brzina L)
+		public Snake(Panel Cont, GlavaZmije G1, TijeloZmije T1, GlavaZmije G2, TijeloZmije T2, HranaZmije H, Level L)
 		{
 			CON = Cont;
-			BrzinaZmije = L;
+			BrzinaZmije = (Brzina)L;
 			Glava1 = G1; Glava2 = G2;
 			Tijelo1 = T1; Tijelo2 = T2;
 			Hrana = H;

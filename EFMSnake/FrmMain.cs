@@ -21,6 +21,26 @@ namespace EFMSnake
 		public FrmMain()
 		{
 			InitializeComponent ();
+			this.KeyDown += FrmMain_KeyDown;
+		}
+		Snake s;
+		void FrmMain_KeyDown(object sender, KeyEventArgs e)
+		{
+			Keys k = e.KeyData;
+			if (k == Keys.Enter || k == Keys.Space)
+			{
+				if (s.DaLiJePauzirana) s.Pokreni ();
+				else s.Pauziraj ();
+			}
+			else if (k == Keys.A) s.UpravljajZmijom1 (Snake.Direct.Lijevo);
+			else if (k == Keys.W) s.UpravljajZmijom1 (Snake.Direct.Gore);
+			else if (k == Keys.D) s.UpravljajZmijom1 (Snake.Direct.Desno);
+			else if (k == Keys.S) s.UpravljajZmijom1 (Snake.Direct.Dolje);
+
+			else if (k == Keys.Left) s.UpravljajZmijom2 (Snake.Direct.Lijevo);
+			else if (k == Keys.Up) s.UpravljajZmijom2 (Snake.Direct.Gore);
+			else if (k == Keys.Right) s.UpravljajZmijom2 (Snake.Direct.Desno);
+			else if (k == Keys.Down) s.UpravljajZmijom2 (Snake.Direct.Dolje);
 		}
 
 		private void FrmMain_Load(object sender, EventArgs e)
@@ -131,9 +151,14 @@ namespace EFMSnake
 			btnAbout.Visible = false;
 			btnStart.Visible = false;
 			this.BackgroundImage = null;
+			efmPanel1.Visible = false;
 
-            Snake S = new Snake(efmPanel1, glava1, tijelo1, glava2, tijelo2, hrana, Snake.Brzina.Brzina5);
-            efmPanel1.Visible = true;
+
+
+			s = new Snake (efmPanel1, glava1, tijelo1, glava2, tijelo2, hrana, Snake.Level.Level5);
+            //efmPanel1.Visible = true;
+			efmPanel1.Focus ();
+
         }
 
 
