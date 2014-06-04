@@ -30,6 +30,7 @@ namespace EFMSnake
             staviSlikice();
 		}
 
+
         private void staviSlikice()
         {
             foreach (Image im in imglGlava.Images)
@@ -111,6 +112,11 @@ namespace EFMSnake
         private void hrana_Click (object seneder, EventArgs e)
         {
 
+        }
+
+        private void START_Click(object sender, EventArgs e)
+        {
+           
         }
 	}
 }
