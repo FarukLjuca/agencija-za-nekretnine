@@ -5,7 +5,7 @@
     <Window.Background>
         <ImageBrush ImageSource="Image1.png" />
     </Window.Background>
-    <Grid>
+    <Grid Name="grdGlavniGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="Auto"/>
