@@ -127,8 +127,8 @@ namespace EFMSnake
         private void START_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
-            button1.Visible = false;
-            START.Visible = false;
+            btnAbout.Visible = false;
+            btnStart.Visible = false;
             this.BackgroundImage = null;
 
             

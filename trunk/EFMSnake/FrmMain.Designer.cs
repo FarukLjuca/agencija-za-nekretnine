@@ -46,8 +46,8 @@
             this.imglGlava = new System.Windows.Forms.ImageList(this.components);
             this.imglTijelo = new System.Windows.Forms.ImageList(this.components);
             this.imglHrana = new System.Windows.Forms.ImageList(this.components);
-            this.START = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.btnAbout = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.gbxIgrac2.SuspendLayout();
             this.gbxIgrac1.SuspendLayout();
@@ -240,29 +240,29 @@
             this.imglHrana.Images.SetKeyName(9, "1401930259_french_fries.png");
             this.imglHrana.Images.SetKeyName(10, "1401930277_cup_ice_cream.png");
             // 
-            // START
+            // btnStart
             // 
-            this.START.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("START.BackgroundImage")));
-            this.START.ForeColor = System.Drawing.SystemColors.Control;
-            this.START.Location = new System.Drawing.Point(940, 407);
-            this.START.Name = "START";
-            this.START.Size = new System.Drawing.Size(116, 48);
-            this.START.TabIndex = 1;
-            this.START.Text = "START";
-            this.START.UseVisualStyleBackColor = true;
-            this.START.Click += new System.EventHandler(this.START_Click);
+            this.btnStart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnStart.BackgroundImage")));
+            this.btnStart.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnStart.Location = new System.Drawing.Point(940, 407);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(116, 48);
+            this.btnStart.TabIndex = 1;
+            this.btnStart.Text = "START";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.START_Click);
             // 
-            // button1
+            // btnAbout
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(940, 470);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 25);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "About";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnAbout.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAbout.BackgroundImage")));
+            this.btnAbout.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAbout.Location = new System.Drawing.Point(940, 470);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(116, 25);
+            this.btnAbout.TabIndex = 2;
+            this.btnAbout.Text = "About";
+            this.btnAbout.UseVisualStyleBackColor = true;
+            this.btnAbout.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // FrmMain
             // 
@@ -270,8 +270,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1123, 663);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.START);
+            this.Controls.Add(this.btnAbout);
+            this.Controls.Add(this.btnStart);
             this.Controls.Add(this.panel1);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -305,8 +305,8 @@
         private System.Windows.Forms.FlowLayoutPanel flpTijelo1;
         private System.Windows.Forms.FlowLayoutPanel flpHrana;
         private System.Windows.Forms.FlowLayoutPanel flpGlava1;
-        private System.Windows.Forms.Button START;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnAbout;
 	}
 }
 
