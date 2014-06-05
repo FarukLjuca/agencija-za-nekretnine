@@ -47,8 +47,45 @@
             
             <TabItem Name="tabNekretnine"
                      Header="Nekretnine">
-                <TreeView Name="trvNekretnine">
-                </TreeView>
+                
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="110"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <ListView Name="lvwNekretnine"
+                              Grid.Row="0"
+                              Grid.Column="0"/>
+                    <Border Name="borButtoni"
+                            Grid.Row="0"
+                            Grid.Column="1">
+                        <StackPanel Name="spnlButtoni"
+                                    Margin="5">
+                            <TextBlock Name="txtSearch"
+                                       Text="Pretrazivanje:"
+                                       Margin="5,20,5,0"/>
+                            <TextBox Name="tbxSearch"
+                                     Height="23"
+                                     Width="90"
+                                     Margin="5"/>
+                            <TextBlock Name="txtSearchPo"
+                                       Text="Pretrazivanje po:"
+                                       Margin="5,5,5,0"/>
+                            <ComboBox Name="cbbpretrazivanjePo"
+                                      Margin="5"/>
+                            <Button Name="btnUredi"
+                                    Content="Uredi"
+                                    Height="23"
+                                    Width="70"
+                                    Margin="15,50,15,15"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
             </TabItem>
             
             <TabItem Name="tabZaposleni"
