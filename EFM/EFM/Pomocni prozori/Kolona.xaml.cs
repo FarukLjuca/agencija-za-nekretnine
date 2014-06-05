@@ -67,7 +67,7 @@ namespace EFM.Pomocni_prozori
                     tekst1 += a.ToString() + " | " + columnName + " | " + columnValue + "\n";
                 }
             }
-            MessageBox.Show(tekst1);
+            //zMessageBox.Show(tekst1);
             con1.Close();
         }
 

@@ -74,6 +74,9 @@
     <Compile Include="InterniUgovor.cs" />
     <Compile Include="IUgovor.cs" />
     <Compile Include="IVanjskiSaradnik.cs" />
+    <Compile Include="Kontrole\kontrolaNekretnina.xaml.cs">
+      <DependentUpon>kontrolaNekretnina.xaml</DependentUpon>
+    </Compile>
     <Compile Include="KupacProdavac.cs" />
     <Compile Include="Nekretnina.cs" />
     <Compile Include="NekretninaZaUI.cs" />
@@ -105,6 +108,10 @@
     </Compile>
     <Compile Include="Zaposlenici.cs" />
     <Compile Include="Zaposlenik.cs" />
+    <Page Include="Kontrole\kontrolaNekretnina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -170,7 +177,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Kontrole\nek1.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resursi\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
