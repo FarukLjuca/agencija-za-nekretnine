@@ -46,7 +46,7 @@ namespace EFM
         /// <param name="TipNekretnine">Tip Nekretnine (Stan, Kuca, Zemljite, PoslovniProstor, Soba, Apartman, Vikendica, Garaza ili Ostalo)</param>
         /// <param name="DaLiJeCista">True ako je nekretnina cista (opcionalno)</param>
         /// <param name="DaLiJeRezervisana">True ako je nekretnina rezervisana (opcionalno)</param>
-        public Nekretnina(string Lokacija, string opis, EnumTipNekretnine TipNekretnine, bool DaLiJeCista = false, bool DaLiJeRezervisana = false, List<Image> slike)
+        public Nekretnina(string Lokacija, string opis, EnumTipNekretnine TipNekretnine, List<Image> slike, bool DaLiJeCista = false, bool DaLiJeRezervisana = false)
         {
             this.Lokacija = Lokacija;
             Opis = opis;

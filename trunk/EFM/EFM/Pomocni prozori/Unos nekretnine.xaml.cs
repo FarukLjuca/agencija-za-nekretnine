@@ -19,10 +19,11 @@ namespace EFM.Pomocni_prozori
     /// </summary>
     public partial class Unos_nekretnine : Window
     {
-        private List<BitmapImage> slike = new List<BitmapImage>();
+        private List<Image> slike = new List<Image>();
         private int trenutnaSlika;
 
-        public Unos_nekretnine()
+
+        public Unos_nekretnine(TreeView t)
         {
             InitializeComponent();
             cbbTipNekretnine.ItemsSource =
@@ -40,8 +41,11 @@ namespace EFM.Pomocni_prozori
                 Enum.GetValues(typeof(Nekretnina.EnumTipNekretnine)).Cast<Nekretnina.EnumTipNekretnine>().ToList();
             Nekretnina.EnumTipNekretnine e1 = l[cbbTipNekretnine.SelectedIndex];
             Nekretnina n = new Nekretnina(txtLokacija.Text, txtOpis.Text, e1,
-                cbxDaLiJeOciscena.IsChecked == true, cbxRezervisanost.IsChecked == true);
-            //TODO Ovo treba negdje spasiti, to se trebamo dogovoriti kako cemo rjesavati :D
+                slike, cbxDaLiJeOciscena.IsChecked == true, cbxRezervisanost.IsChecked == true);
+            
+            //TODO Spasi u bazu
+
+
         }
 
         private void btnNovaSlika_Click(object sender, RoutedEventArgs e)
@@ -53,12 +57,10 @@ namespace EFM.Pomocni_prozori
             {
                 string put = open.FileName;
 
-                BitmapImage slika = new BitmapImage();
-                slika.BeginInit();
-                slika.UriSource = new Uri(put);
-                slika.EndInit();
+                Image slika = new Image();
+                slika.Source = new ImageSourceConverter().ConvertFromString(put) as ImageSource;
 
-                imgNekretnine.Source = slika;
+                imgNekretnine.Source = slika.Source;
 
                 slike.Add(slika);
                 trenutnaSlika = slike.Count-1;
@@ -70,7 +72,7 @@ namespace EFM.Pomocni_prozori
             trenutnaSlika++;
             if (trenutnaSlika == slike.Count) trenutnaSlika = 0;
 
-            imgNekretnine.Source = slike[trenutnaSlika];
+            imgNekretnine.Source = slike[trenutnaSlika].Source;
         }
 
         private void btnListajLijevo_Click(object sender, RoutedEventArgs e)
@@ -78,7 +80,7 @@ namespace EFM.Pomocni_prozori
             trenutnaSlika--;
             if (trenutnaSlika == -1) trenutnaSlika = slike.Count-1;
 
-            imgNekretnine.Source = slike[trenutnaSlika];
+            imgNekretnine.Source = slike[trenutnaSlika].Source;
         }
     }
 }
