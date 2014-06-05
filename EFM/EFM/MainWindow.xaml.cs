@@ -68,7 +68,7 @@ namespace EFM
 
         void DodajNekretninu(Nekretnina n)
         {
-            UC
+
         }
 
         #endregion
