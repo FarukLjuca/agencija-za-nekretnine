@@ -23,7 +23,7 @@ namespace EFM.Pomocni_prozori
         private int trenutnaSlika;
 
 
-        public Unos_nekretnine(TreeView t)
+        public Unos_nekretnine()
         {
             InitializeComponent();
             cbbTipNekretnine.ItemsSource =
