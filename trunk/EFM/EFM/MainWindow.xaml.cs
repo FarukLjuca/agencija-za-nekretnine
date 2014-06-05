@@ -63,5 +63,14 @@ namespace EFM
             Pomocni_prozori.Unos_entiteta en = new Pomocni_prozori.Unos_entiteta();
             en.ShowDialog();
         }
-	}
+
+        #region Nekretnine
+
+        void DodajNekretninu(Nekretnina n)
+        {
+            UC
+        }
+
+        #endregion
+    }
 }

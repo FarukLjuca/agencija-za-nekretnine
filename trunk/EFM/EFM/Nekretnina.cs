@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace EFM
 {
@@ -36,6 +37,7 @@ namespace EFM
         public bool DaLiJeCista { get; set; }
         public bool DaLiJeRezervisana { get; set; }
         public string Opis { get; set; }
+        public List<Image> Slike { get; set; }
 
         /// <summary>
         /// Kreira novi objekat tipa Nekretnina
@@ -44,13 +46,14 @@ namespace EFM
         /// <param name="TipNekretnine">Tip Nekretnine (Stan, Kuca, Zemljite, PoslovniProstor, Soba, Apartman, Vikendica, Garaza ili Ostalo)</param>
         /// <param name="DaLiJeCista">True ako je nekretnina cista (opcionalno)</param>
         /// <param name="DaLiJeRezervisana">True ako je nekretnina rezervisana (opcionalno)</param>
-        public Nekretnina(string Lokacija, string opis, EnumTipNekretnine TipNekretnine, bool DaLiJeCista = false, bool DaLiJeRezervisana = false)
+        public Nekretnina(string Lokacija, string opis, EnumTipNekretnine TipNekretnine, bool DaLiJeCista = false, bool DaLiJeRezervisana = false, List<Image> slike)
         {
             this.Lokacija = Lokacija;
             Opis = opis;
             this.TipNekretnine = TipNekretnine;
             this.DaLiJeCista = DaLiJeCista;
             this.DaLiJeRezervisana = DaLiJeRezervisana;
+            Slike = slike;
         }
 
         /// <summary>
