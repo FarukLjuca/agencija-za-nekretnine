@@ -66,9 +66,24 @@ namespace EFM
 
         #region Nekretnine
 
-        void DodajNekretninu(Nekretnina n)
+        private void btnEditMode_Click(object sender, RoutedEventArgs e)
         {
+            postaviPanelu();
+        }
 
+        private void postaviPanelu()
+        {
+            btnEditMode.Margin = new Thickness(15, 20, 15, 5);
+
+            Button btnDodaj = new Button();
+            btnDodaj.Margin = new Thickness(15, 5, 15, 5);
+            btnDodaj.Content = "Dodaj novu";
+            spnlButtoni.Children.Add(btnDodaj);
+
+            Button btnObrisi = new Button();
+            btnObrisi.Margin = new Thickness(15, 5, 15, 5);
+            btnObrisi.Content = "Obrisi";
+            spnlButtoni.Children.Add(btnObrisi);
         }
 
         #endregion
