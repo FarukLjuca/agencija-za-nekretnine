@@ -22,7 +22,6 @@ namespace EFM.Pomocni_prozori
         private List<Image> slike = new List<Image>();
         private int trenutnaSlika;
 
-
         public Unos_nekretnine()
         {
             InitializeComponent();
