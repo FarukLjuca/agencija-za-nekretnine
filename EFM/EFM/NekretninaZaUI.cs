@@ -15,7 +15,8 @@ namespace EFM
         public int PeriodUI
         {
             get { return periodUI; }
-            set { if (value < 0) throw new Exception("Period unajmljivanja ili iznajmljivanja ne moze biti negativan!"); periodUI = value; }
+            set { if (value < 0) throw new Exception("Period unajmljivanja ili iznajmljivanja ne moze biti negativan!"); 
+                periodUI = value; }
         }
         
         /// <summary>
