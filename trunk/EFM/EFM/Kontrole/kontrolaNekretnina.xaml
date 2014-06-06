@@ -4,24 +4,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="200" MaxHeight="250" MaxWidth="200" Margin="5">
+             d:DesignHeight="150" d:DesignWidth="120" MaxHeight="150" MaxWidth="120" Margin="5">
     <Grid>
         <Border BorderThickness="5"
                 CornerRadius="20"
                 BorderBrush="Black">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="5"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="10"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="5"/>
                 </Grid.RowDefinitions>
                 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="5"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="5"/>
                 </Grid.ColumnDefinitions>
                 
                 <Image Name="imgSlika"
