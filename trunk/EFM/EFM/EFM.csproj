@@ -72,6 +72,7 @@
     <Compile Include="DAO\DAL.cs" />
     <Compile Include="DAO\IDaoCrud.cs" />
     <Compile Include="DAO\NekretninaDAO.cs" />
+    <Compile Include="DAO\SlikeNekretnineDAO.cs" />
     <Compile Include="DAO\ZaposlenikDAO.cs" />
     <Compile Include="Direktor.cs" />
     <Compile Include="EFMException.cs" />
@@ -106,6 +107,7 @@
       <DependentUpon>Zaglavlje.xaml</DependentUpon>
     </Compile>
     <Compile Include="Racunovodja.cs" />
+    <Compile Include="SlikeNekretnine.cs" />
     <Compile Include="Ugovori.cs" />
     <Compile Include="UnajmljivacIznajmljivac.cs" />
     <Compile Include="VanjskiSaradnici.cs" />
