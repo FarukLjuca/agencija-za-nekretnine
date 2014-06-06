@@ -26,27 +26,8 @@ namespace EFM.DAO
                 ", " + Entity.Cijena.ToString() + ");");
             komanda.Connection = konekcija.Konekcija;
             komanda.ExecuteNonQuery();
-
-            int id = 0;
-            komanda.CommandText = "select id from nekretnine where id = (select max(id) from nekretnine);";
-            SQLiteDataReader citac = komanda.ExecuteReader();
-            while (citac.Read())
-            {
-                id = citac.GetInt32(0);
-            }
- 
-            foreach (BitmapImage i in Entity.Slike)
-            {
-                byte[] slika;
-                JpegBitmapEncoder encoder = new JpegBitmapEncoder();
-                encoder.Frames.Add(BitmapFrame.Create(i));
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    encoder.Save(ms);
-                    slika = ms.ToArray();
-                }
-                komanda.CommandText = "insert into slikenekretnine (nekretnina, slika) values (" + id + ", " + slika + ");";
-            }           
+            konekcija.Diskonektuj();
+           
 			return 0;
 		}
 

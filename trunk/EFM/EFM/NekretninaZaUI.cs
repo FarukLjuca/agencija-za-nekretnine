@@ -29,8 +29,8 @@ namespace EFM
         /// <param name="DaLiJeRezervisana">True ako je nekretnina rezervisana (opcionalno)</param>
         /// <exception cref="EFM.Exc.ArgumentException">Izuzetak biva bacen kada je period unajmljivanja ili iznajmnljivanja nanji od nule</exception>
         public NekretninaZaUI(string Lokacija, string opis, Nekretnina.EnumTipNekretnine TipNekretnine, decimal cijena, 
-            int PeriodUI = 0, bool DaLiJeCista = false, bool DaLiJeRezervisana = false)
-            : base (Lokacija, opis, TipNekretnine, cijena, DaLiJeCista, DaLiJeRezervisana)
+            int PeriodUI = 0, bool DaLiJeRezervisana = false)
+            : base (Lokacija, opis, TipNekretnine, cijena, DaLiJeRezervisana)
         {
             this.periodUI = PeriodUI;
         }
