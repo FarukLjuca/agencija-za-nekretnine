@@ -47,7 +47,8 @@ namespace EFM.Pomocni_prozori
             EFM.Kontrole.kontrolaNekretnina kon = new Kontrole.kontrolaNekretnina(n);
             lista.Children.Add(kon);
 
-            //TODO Spasi u bazuž
+            DAO.NekretninaDAO dao = new DAO.NekretninaDAO();
+            dao.Create(n);
 
             this.Close();
         }
