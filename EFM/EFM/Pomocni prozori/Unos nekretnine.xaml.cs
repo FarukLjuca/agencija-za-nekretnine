@@ -41,16 +41,31 @@ namespace EFM.Pomocni_prozori
             List<Nekretnina.EnumTipNekretnine> l = 
                 Enum.GetValues(typeof(Nekretnina.EnumTipNekretnine)).Cast<Nekretnina.EnumTipNekretnine>().ToList();
             Nekretnina.EnumTipNekretnine e1 = l[cbbTipNekretnine.SelectedIndex];
-            Nekretnina n = new Nekretnina(txtLokacija.Text, txtOpis.Text, e1,
-                decimal.Parse(tbxCijena.Text), cbxRezervisanost.IsChecked == true);
+            try
+            {
+                Nekretnina n = new Nekretnina(txtLokacija.Text, txtOpis.Text, e1,
+                    decimal.Parse(tbxCijena.Text), cbxRezervisanost.IsChecked == true);
 
-            EFM.Kontrole.kontrolaNekretnina kon = new Kontrole.kontrolaNekretnina(n, slike[0]);
-            lista.Children.Add(kon);
+                EFM.Kontrole.kontrolaNekretnina kon = new Kontrole.kontrolaNekretnina(n, slike[0]);
+                lista.Children.Add(kon);
 
-            DAO.NekretninaDAO dao = new DAO.NekretninaDAO();
-            dao.Create(n);
+                DAO.NekretninaDAO daon = new DAO.NekretninaDAO();
+                daon.Create(n);
 
-            this.Close();
+                foreach (BitmapImage i in slike)
+                {
+                    SlikeNekretnina sn = new SlikeNekretnina(n, i);
+
+                    DAO.SlikeNekretninaDAO daosn = new DAO.SlikeNekretninaDAO();
+                    daosn.Create(sn);
+                }
+
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnNovaSlika_Click(object sender, RoutedEventArgs e)

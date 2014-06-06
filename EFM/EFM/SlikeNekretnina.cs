@@ -9,13 +9,11 @@ namespace EFM
 {
     class SlikeNekretnina
     {
-        public int Id { get; set; }
-        public int Nekretnina { get; set; }
+        public Nekretnina Nekretnina { get; set; }
         public BitmapImage Slika { get; set; }
 
-        public SlikeNekretnina(int id, int nekretnina, BitmapImage slika)
+        public SlikeNekretnina(Nekretnina nekretnina, BitmapImage slika)
         {
-            Id = id;
             Nekretnina = nekretnina;
             Slika = slika;
         }
