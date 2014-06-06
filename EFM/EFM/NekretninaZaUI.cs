@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace EFM
 {
@@ -27,7 +27,7 @@ namespace EFM
         /// <param name="DaLiJeCista">True ako je nekretnina cista (opcionalno)</param>
         /// <param name="DaLiJeRezervisana">True ako je nekretnina rezervisana (opcionalno)</param>
         /// <exception cref="EFM.Exc.ArgumentException">Izuzetak biva bacen kada je period unajmljivanja ili iznajmnljivanja nanji od nule</exception>
-        public NekretninaZaUI(string Lokacija, string opis, Nekretnina.EnumTipNekretnine TipNekretnine, double cijena, List<System.Drawing.Image> slike, int PeriodUI = 0, bool DaLiJeCista = false, bool DaLiJeRezervisana = false)
+        public NekretninaZaUI(string Lokacija, string opis, Nekretnina.EnumTipNekretnine TipNekretnine, double cijena, List<BitmapImage> slike, int PeriodUI = 0, bool DaLiJeCista = false, bool DaLiJeRezervisana = false)
             : base (Lokacija, opis, TipNekretnine, cijena, slike, DaLiJeCista, DaLiJeRezervisana)
         {
             this.periodUI = PeriodUI;
