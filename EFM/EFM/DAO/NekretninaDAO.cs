@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
+using System.Windows.Controls;
+using System.IO;
+using System.Windows.Media.Imaging;
 
 namespace EFM.DAO
 {
@@ -18,8 +21,20 @@ namespace EFM.DAO
             DAL konekcija = DAL.Instanca;
             int rez = 0;
             if (Entity.DaLiJeRezervisana == true) rez = 1;
+            byte[] slike = null;
+            foreach (BitmapImage i in Entity.Slike)
+            {
+                JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(i));
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    encoder.Save(ms);
+                    slike += ms.ToArray();
+                } 
+            }
             SQLiteCommand komanda = new SQLiteCommand("insert into nekretnine (lokacija, opis, tip_nekretnine, rezervisanost, cijena, slika) values (" +
-                Entity.Lokacija + ", " + Entity.Opis + ", " + Entity.TipNekretnine.ToString() + ", " + rez.ToString() + Entity.cij
+                Entity.Lokacija + ", " + Entity.Opis + ", " + Entity.TipNekretnine.ToString() + ", " + rez.ToString() + ", " + Entity.Cijena + ", " +
+                slike);
             
 			return 0;
 		}
