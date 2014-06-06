@@ -35,7 +35,7 @@ namespace EFM.DAO
                 encoder.Save(ms);
                 slika = ms.ToArray();
             }
-            komanda.CommandText = "insert into slikenekretnine (nekretnina, slika) values (" + id + ", " + slika + ");";
+            komanda.CommandText = "insert into slikenekretnina (nekretnina, slika) values (" + id + ", " + slika + ");";
             komanda.ExecuteNonQuery();
 
             return 0;
