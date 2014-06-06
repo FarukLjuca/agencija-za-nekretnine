@@ -15,7 +15,7 @@ namespace EFM.DAO
 		public long Create(Nekretnina Entity)
 		{
             DAL con = DAL.Instanca;
-            con.
+            con.Konekcija
 			return 0;
 		}
 

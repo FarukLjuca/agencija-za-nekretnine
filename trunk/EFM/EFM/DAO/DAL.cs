@@ -31,7 +31,7 @@ namespace EFM
 					else return con;
 				}
 			}
-        public void Konektuj()
+        private void Konektuj()
         {
             con = new DB.SQLiteConnection (@"data source=C:\sqlite\efmooad.db;version=3;");
             try
