@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SQLite;
 
 namespace EFM.DAO
 {
@@ -14,8 +15,12 @@ namespace EFM.DAO
 		protected Object Conn = null;
 		public long Create(Nekretnina Entity)
 		{
-            DAL con = DAL.Instanca;
-            con.Konekcija
+            DAL konekcija = DAL.Instanca;
+            int rez = 0;
+            if (Entity.DaLiJeRezervisana == true) rez = 1;
+            SQLiteCommand komanda = new SQLiteCommand("insert into nekretnine (lokacija, opis, tip_nekretnine, rezervisanost, cijena, slika) values (" +
+                Entity.Lokacija + ", " + Entity.Opis + ", " + Entity.TipNekretnine.ToString() + ", " + rez.ToString() + Entity.cij
+            
 			return 0;
 		}
 
