@@ -23,7 +23,7 @@ namespace EFM.Kontrole
         public kontrolaNekretnina(Nekretnina n)
         {
             InitializeComponent();
-            imgSlika. = n.Slike[0];
+            imgSlika.Source = n.Slike[0];
             txtOpis.Text = n.Opis;
         }
     }

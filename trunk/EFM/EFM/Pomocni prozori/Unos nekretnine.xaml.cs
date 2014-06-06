@@ -19,7 +19,7 @@ namespace EFM.Pomocni_prozori
     /// </summary>
     public partial class Unos_nekretnine : Window
     {
-        private List<Image> slike = new List<Image>();
+        private List<BitmapImage> slike = new List<BitmapImage>();
         private int trenutnaSlika;
         WrapPanel lista = null;
 
@@ -42,7 +42,7 @@ namespace EFM.Pomocni_prozori
                 Enum.GetValues(typeof(Nekretnina.EnumTipNekretnine)).Cast<Nekretnina.EnumTipNekretnine>().ToList();
             Nekretnina.EnumTipNekretnine e1 = l[cbbTipNekretnine.SelectedIndex];
             Nekretnina n = new Nekretnina(txtLokacija.Text, txtOpis.Text, e1,
-                slike, cbxDaLiJeOciscena.IsChecked == true, cbxRezervisanost.IsChecked == true);
+                slike,  cbxDaLiJeOciscena.IsChecked == true, cbxRezervisanost.IsChecked == true);
 
             EFM.Kontrole.kontrolaNekretnina kon = new Kontrole.kontrolaNekretnina(n);
             lista.Children.Add(kon);
