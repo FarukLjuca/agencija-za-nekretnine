@@ -82,7 +82,7 @@
                     
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="120"/>
                     </Grid.ColumnDefinitions>
                     
                     <WrapPanel Name="wpnlNekretnine"
@@ -90,7 +90,9 @@
                                Grid.Column="0"/>
                     <Border Name="borButtoni"
                             Grid.Row="0"
-                            Grid.Column="1">
+                            Grid.Column="1"
+                            BorderBrush="Black"
+                            BorderThickness="5">
                         <StackPanel Name="spnlButtoni"
                                     Margin="5">
                             <TextBlock Name="txtSearch"
