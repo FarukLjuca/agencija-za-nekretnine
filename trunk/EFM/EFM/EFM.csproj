@@ -37,12 +37,17 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>EFM.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="SQLite.Designer, Version=1.0.92.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Data.SQLite, Version=1.0.92.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -64,6 +69,7 @@
     <Compile Include="AgencijaZaReklamiranje.cs" />
     <Compile Include="Agent.cs" />
     <Compile Include="Cistacica.cs" />
+    <Compile Include="DAO\DAL.cs" />
     <Compile Include="DAO\IDaoCrud.cs" />
     <Compile Include="DAO\NekretninaDAO.cs" />
     <Compile Include="DAO\ZaposlenikDAO.cs" />
