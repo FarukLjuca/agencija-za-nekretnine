@@ -21,12 +21,14 @@ namespace EFM.Pomocni_prozori
     {
         private List<Image> slike = new List<Image>();
         private int trenutnaSlika;
+        WrapPanel lista = null;
 
-        public Unos_nekretnine()
+        public Unos_nekretnine(WrapPanel l)
         {
             InitializeComponent();
             cbbTipNekretnine.ItemsSource =
                 Enum.GetValues(typeof(Nekretnina.EnumTipNekretnine)).Cast<Nekretnina.EnumTipNekretnine>().ToList();
+            lista = l;
         }
         
         private void btnCancel_Click(object sender, RoutedEventArgs e)
@@ -41,10 +43,13 @@ namespace EFM.Pomocni_prozori
             Nekretnina.EnumTipNekretnine e1 = l[cbbTipNekretnine.SelectedIndex];
             Nekretnina n = new Nekretnina(txtLokacija.Text, txtOpis.Text, e1,
                 slike, cbxDaLiJeOciscena.IsChecked == true, cbxRezervisanost.IsChecked == true);
-            
-            //TODO Spasi u bazu
 
+            EFM.Kontrole.kontrolaNekretnina kon = new Kontrole.kontrolaNekretnina(n);
+            lista.Children.Add(kon);
 
+            //TODO Spasi u bazuž
+
+            this.Close();
         }
 
         private void btnNovaSlika_Click(object sender, RoutedEventArgs e)

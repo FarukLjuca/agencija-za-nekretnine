@@ -58,9 +58,9 @@
                         <ColumnDefinition Width="110"/>
                     </Grid.ColumnDefinitions>
                     
-                    <ListView Name="lvwNekretnine"
-                              Grid.Row="0"
-                              Grid.Column="0"/>
+                    <WrapPanel Name="wpnlNekretnine"
+                               Grid.Row="0"
+                               Grid.Column="0"/>
                     <Border Name="borButtoni"
                             Grid.Row="0"
                             Grid.Column="1">
