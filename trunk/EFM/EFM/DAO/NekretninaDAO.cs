@@ -22,7 +22,7 @@ namespace EFM.DAO
             int rez = 0;
             if (Entity.DaLiJeRezervisana == true) rez = 1;
             byte[] slike = null;
-            foreach (Image i in Entity.Slike)
+            /*foreach (Image i in Entity.Slike)
             {
                 JpegBitmapEncoder encoder = new JpegBitmapEncoder();
                 encoder.Frames.Add(BitmapFrame.Create(i));
@@ -31,7 +31,7 @@ namespace EFM.DAO
                     encoder.Save(ms);
                     slike += ms.ToArray();
                 } 
-            }
+            }*/
             SQLiteCommand komanda = new SQLiteCommand("insert into nekretnine (lokacija, opis, tip_nekretnine, rezervisanost, cijena, slika) values (" +
                 Entity.Lokacija + ", " + Entity.Opis + ", " + Entity.TipNekretnine.ToString() + ", " + rez.ToString() + ", " + Entity.Cijena + ", " +
                 slike);

@@ -42,7 +42,7 @@ namespace EFM.Pomocni_prozori
                 Enum.GetValues(typeof(Nekretnina.EnumTipNekretnine)).Cast<Nekretnina.EnumTipNekretnine>().ToList();
             Nekretnina.EnumTipNekretnine e1 = l[cbbTipNekretnine.SelectedIndex];
             Nekretnina n = new Nekretnina(txtLokacija.Text, txtOpis.Text, e1,
-                slike,  cbxDaLiJeOciscena.IsChecked == true, cbxRezervisanost.IsChecked == true);
+                decimal.Parse(tbxCijena.Text), slike, cbxRezervisanost.IsChecked == true);
 
             EFM.Kontrole.kontrolaNekretnina kon = new Kontrole.kontrolaNekretnina(n);
             lista.Children.Add(kon);
@@ -61,10 +61,12 @@ namespace EFM.Pomocni_prozori
             {
                 string put = open.FileName;
 
-                Image slika = new Image();
-                slika.Source = new ImageSourceConverter().ConvertFromString(put) as ImageSource;
+                BitmapImage slika = new BitmapImage();
+                slika.BeginInit();
+                slika.UriSource = new Uri(put, UriKind.Absolute);
+                slika.EndInit();
 
-                imgNekretnine.Source = slika.Source;
+                imgNekretnine.Source = slika;
 
                 slike.Add(slika);
                 trenutnaSlika = slike.Count-1;
@@ -76,7 +78,7 @@ namespace EFM.Pomocni_prozori
             trenutnaSlika++;
             if (trenutnaSlika == slike.Count) trenutnaSlika = 0;
 
-            imgNekretnine.Source = slike[trenutnaSlika].Source;
+            imgNekretnine.Source = slike[trenutnaSlika];
         }
 
         private void btnListajLijevo_Click(object sender, RoutedEventArgs e)
@@ -84,7 +86,7 @@ namespace EFM.Pomocni_prozori
             trenutnaSlika--;
             if (trenutnaSlika == -1) trenutnaSlika = slike.Count-1;
 
-            imgNekretnine.Source = slike[trenutnaSlika].Source;
+            imgNekretnine.Source = slike[trenutnaSlika];
         }
     }
 }
