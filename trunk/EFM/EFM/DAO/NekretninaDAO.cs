@@ -21,21 +21,32 @@ namespace EFM.DAO
             DAL konekcija = DAL.Instanca;
             int rez = 0;
             if (Entity.DaLiJeRezervisana == true) rez = 1;
-            byte[] slike = null;
-            /*foreach (Image i in Entity.Slike)
+            SQLiteCommand komanda = new SQLiteCommand("insert into nekretnine (lokacija, opis, tip_nekretnine, rezervisanost, cijena, slika) values (" +
+                Entity.Lokacija + ", " + Entity.Opis + ", " + Entity.TipNekretnine.ToString() + ", " + rez.ToString() +
+                ", " + Entity.Cijena);
+            komanda.Connection = konekcija.Konekcija;
+            komanda.ExecuteNonQuery();
+
+            int id;
+            komanda.CommandText = "select id from nekretnine where id = (select max(id) from nekretnine));";
+            SQLiteDataReader citac = new SQLiteDataReader();
+            while (citac.Read())
             {
+
+            }
+ 
+            foreach (BitmapImage i in Entity.Slike)
+            {
+                byte[] slika;
                 JpegBitmapEncoder encoder = new JpegBitmapEncoder();
                 encoder.Frames.Add(BitmapFrame.Create(i));
                 using (MemoryStream ms = new MemoryStream())
                 {
                     encoder.Save(ms);
-                    slike += ms.ToArray();
-                } 
-            }*/
-            SQLiteCommand komanda = new SQLiteCommand("insert into nekretnine (lokacija, opis, tip_nekretnine, rezervisanost, cijena, slika) values (" +
-                Entity.Lokacija + ", " + Entity.Opis + ", " + Entity.TipNekretnine.ToString() + ", " + rez.ToString() + ", " + Entity.Cijena + ", " +
-                slike);
-            
+                    slika = ms.ToArray();
+                }
+                komanda.CommandText = "insert into slikenekretnine (nekretnina, slika) values (" + 
+            }           
 			return 0;
 		}
 
