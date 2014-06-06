@@ -59,6 +59,10 @@
                        Grid.Column="0"
                        Text="Cijena:"
                        TextAlignment="Right"/>
+            <TextBox Name="tbxCijena"
+                     Grid.Row="4"
+                     Grid.Column="1"
+                     Margin="5"/>
             <CheckBox Name="cbxRezervisanost"
                   Grid.Row="5"
                   Grid.Column="0"
