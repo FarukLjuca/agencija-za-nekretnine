@@ -22,7 +22,7 @@ namespace EFM.DAO
             int rez = 0;
             if (Entity.DaLiJeRezervisana == true) rez = 1;
             byte[] slike = null;
-            foreach (BitmapImage i in Entity.Slike)
+            foreach (Image i in Entity.Slike)
             {
                 JpegBitmapEncoder encoder = new JpegBitmapEncoder();
                 encoder.Frames.Add(BitmapFrame.Create(i));
