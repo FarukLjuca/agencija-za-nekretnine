@@ -31,7 +31,7 @@ namespace EFM
 
         private void mitUnosNekretnina_Click(object sender, RoutedEventArgs e)
         {
-            Pomocni_prozori.Unos_nekretnine n = new Pomocni_prozori.Unos_nekretnine();
+            Pomocni_prozori.Unos_nekretnine n = new Pomocni_prozori.Unos_nekretnine(wpnlNekretnine);
             n.ShowDialog();
         }
 
@@ -78,12 +78,19 @@ namespace EFM
             Button btnDodaj = new Button();
             btnDodaj.Margin = new Thickness(15, 5, 15, 5);
             btnDodaj.Content = "Dodaj novu";
+            btnDodaj.Click += new RoutedEventHandler(dodajNekretninu_Click);
             spnlButtoni.Children.Add(btnDodaj);
 
             Button btnObrisi = new Button();
             btnObrisi.Margin = new Thickness(15, 5, 15, 5);
             btnObrisi.Content = "Obrisi";
             spnlButtoni.Children.Add(btnObrisi);
+        }
+
+        private void dodajNekretninu_Click(object seneder, RoutedEventArgs e)
+        {
+            Pomocni_prozori.Unos_nekretnine nek = new Pomocni_prozori.Unos_nekretnine(wpnlNekretnine);
+            nek.ShowDialog();
         }
 
         #endregion
