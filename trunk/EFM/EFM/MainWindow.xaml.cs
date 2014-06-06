@@ -27,6 +27,7 @@ namespace EFM
 			InitializeComponent ();
             WndLogin w = new WndLogin();
             //w.ShowDialog(); itirita svaki put, Faruk
+            popuniNekretnine();
 		}
 
         private void mitUnosNekretnina_Click(object sender, RoutedEventArgs e)
@@ -91,6 +92,11 @@ namespace EFM
         {
             Pomocni_prozori.Unos_nekretnine nek = new Pomocni_prozori.Unos_nekretnine(wpnlNekretnine);
             nek.ShowDialog();
+        }
+
+        private void popuniNekretnine()
+        {
+            DAL
         }
 
         #endregion
