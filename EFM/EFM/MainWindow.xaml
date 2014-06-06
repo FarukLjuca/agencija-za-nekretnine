@@ -1,7 +1,9 @@
 ﻿<Window x:Class="EFM.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Agencija za nekretnine" Height="350" Width="525">
+        
+        Title="Agencija za nekretnine" Height="350" Width="525"
+         MinHeight="250" MinWidth="300">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -42,6 +44,31 @@
             
             <TabItem Name="tabDobrodosli"
                      Header="Dobrodosli">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45"></RowDefinition>
+                        <RowDefinition Height="18"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="20"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Name="tbDate" Grid.Row="1" Margin="10,0,-10,0">Petak, 05.06.2014</TextBlock>
+                    <TextBlock Name="tbIme"  HorizontalAlignment="Left" Margin="10,7,0,0" TextWrapping="Wrap"
+                               Text="XY, dobrodošli" VerticalAlignment="Top" 
+                               FontWeight="Bold" FontSize="25" 
+                               Grid.Row="0" Foreground="Green" FontFamily="Tahoma"/>
+                    <Button Name="BtnExit" Content="Izađi" Click="BtnExit_Click" HorizontalAlignment="Right" Margin="0,0,5,0" Grid.Row="3" VerticalAlignment="Top" Width="75"/>
+
+                    
+                        <Grid.Background>
+                            <RadialGradientBrush Center="0.5,0.5" GradientOrigin="1,0.9" ColorInterpolationMode="ScRgbLinearInterpolation" RadiusX="0.6" RadiusY="0.7">
+                                <GradientStop Color="White" Offset="0.2"></GradientStop>
+                                <GradientStop Color="PaleGreen" Offset="0.8"></GradientStop>
+                            <GradientStop Color="PaleGreen" Offset="0.7"></GradientStop>
+                            <GradientStop Color="{DynamicResource {x:Static SystemColors.ControlBrush}}" Offset="1"></GradientStop>
+                            </RadialGradientBrush>
+                        </Grid.Background>
+                    
+                </Grid>
                 
             </TabItem>
             

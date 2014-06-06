@@ -94,5 +94,11 @@ namespace EFM
         }
 
         #endregion
+
+		private void BtnExit_Click(object sender, RoutedEventArgs e)
+		{
+			//TODO: Snimiti u bazu ILI kreirati Exit event pa u njemu snimati
+			Application.Current.Shutdown (0);
+		}
     }
 }

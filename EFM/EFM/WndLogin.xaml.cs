@@ -23,5 +23,15 @@ namespace EFM
 		{
 			InitializeComponent ();
 		}
+
+		private void btnOK_Click_1(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void btnCancel_Click_1(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }
