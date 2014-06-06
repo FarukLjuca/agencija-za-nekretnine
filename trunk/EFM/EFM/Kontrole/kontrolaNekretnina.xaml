@@ -4,11 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="150" d:DesignWidth="120" MaxHeight="150" MaxWidth="120" Margin="5">
-    <Grid>
+             d:DesignHeight="160" d:DesignWidth="120" MaxHeight="160" MaxWidth="120" Margin="5">
+    <StackPanel>
         <Border BorderThickness="5"
                 CornerRadius="20"
-                BorderBrush="Black">
+                BorderBrush="Black"
+                Height="140">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="5"/>
@@ -19,9 +20,9 @@
                 </Grid.RowDefinitions>
                 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="10"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
                 
                 <Image Name="imgSlika"
@@ -31,8 +32,9 @@
                 <TextBlock Name="txtOpis"
                            Grid.Row="3"
                            Grid.Column="1"
-                           TextAlignment="Center"/>
+                           TextAlignment="Center"
+                           TextWrapping="Wrap"/>
             </Grid>
         </Border>
-    </Grid>
+    </StackPanel>
 </UserControl>

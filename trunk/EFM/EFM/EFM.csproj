@@ -184,9 +184,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Kontrole\nek1.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Resursi\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
