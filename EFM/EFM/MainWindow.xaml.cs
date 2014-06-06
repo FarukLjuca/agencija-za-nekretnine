@@ -96,7 +96,7 @@ namespace EFM
 
         private void popuniNekretnine()
         {
-            DAL
+
         }
 
         #endregion
