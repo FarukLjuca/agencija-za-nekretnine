@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace EFM
 {
-    class SlikeNekretnine
+    class SlikeNekretnina
     {
         public int Id { get; set; }
         public int Nekretnina { get; set; }
-        public byte[] Slika { get; set; }
+        public BitmapImage Slika { get; set; }
 
-        public SlikeNekretnine(int id, int nekretnina, byte[] slika)
+        public SlikeNekretnina(int id, int nekretnina, BitmapImage slika)
         {
             Id = id;
             Nekretnina = nekretnina;

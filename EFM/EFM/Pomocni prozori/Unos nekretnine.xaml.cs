@@ -42,9 +42,9 @@ namespace EFM.Pomocni_prozori
                 Enum.GetValues(typeof(Nekretnina.EnumTipNekretnine)).Cast<Nekretnina.EnumTipNekretnine>().ToList();
             Nekretnina.EnumTipNekretnine e1 = l[cbbTipNekretnine.SelectedIndex];
             Nekretnina n = new Nekretnina(txtLokacija.Text, txtOpis.Text, e1,
-                decimal.Parse(tbxCijena.Text), slike, cbxRezervisanost.IsChecked == true);
+                decimal.Parse(tbxCijena.Text), cbxRezervisanost.IsChecked == true);
 
-            EFM.Kontrole.kontrolaNekretnina kon = new Kontrole.kontrolaNekretnina(n);
+            EFM.Kontrole.kontrolaNekretnina kon = new Kontrole.kontrolaNekretnina(n, slike[0]);
             lista.Children.Add(kon);
 
             DAO.NekretninaDAO dao = new DAO.NekretninaDAO();
