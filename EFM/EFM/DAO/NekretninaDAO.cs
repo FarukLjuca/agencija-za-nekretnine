@@ -14,19 +14,8 @@ namespace EFM.DAO
 		protected Object Conn = null;
 		public long Create(Nekretnina Entity)
 		{
-			/*
-			 * Ovjde implementiramo INSERT SQL komande
-			 * ------------------------------------------------------------------
-			 * Eh, problem je što smo odlučili (za sada) da koristimo fakultetsku bazu
-			 * Emir nam je napravio acc.. i imali smo problema sa konektovanjem na nju.
-			 * Cilj je, između ostaloga, da imamo modularnu aplikaciju čak i u smislu
-			 * konektora. Sada ćemo u početku napraviti da se konektujemo na DB2 na ETFLAB
-			 * i pokušaćemo da to bude toliko modularno da kasnije pređemo na MySQL
-			 * a da ne mijenjamo ništa osim deklaracije konekcije (sada je to običan Conn object)
-			 * 
-			 * To ćemo uraditi kada se uspijemo nakačiti na ETFLAB. Bilo je nekih problema pa
-			 * je Emir objašnjavao na raznjem predavanju kako se postavke extractuju :)
-			 */
+            DAL con = DAL.Instanca;
+            con.
 			return 0;
 		}
 
