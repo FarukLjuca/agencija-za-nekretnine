@@ -22,14 +22,20 @@ namespace EFM
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		Privilegija privilegija;
 		public MainWindow()
 		{
 			InitializeComponent ();
             WndLogin w = new WndLogin();
-            //w.ShowDialog(); itirita svaki put, Faruk
+			if (w.ShowDialog () != true) Application.Current.Shutdown ();
+			privilegija = w.Privilegija;
+			tbIme.Text = w.User.Ime + ", dobrodošli";
+			tbDate.Text = DateTime.Today.DayOfWeek.ToString () + ", " + DateTime.Today.ToShortDateString ();
+
+
             popuniNekretnine();
 		}
-
+		public enum Privilegija : uint { Direktor, Admin, Agent, Racunovodja, Cistacica }
         private void mitUnosNekretnina_Click(object sender, RoutedEventArgs e)
         {
             Pomocni_prozori.Unos_nekretnine n = new Pomocni_prozori.Unos_nekretnine(wpnlNekretnine);
