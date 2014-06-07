@@ -31,7 +31,7 @@ namespace EFM
         }
         private DAL() { }
          ~DAL() { Diskonektuj(); }
-		public static DB.SQLiteConnection Konekcija 
+		public DB.SQLiteConnection Konekcija 
 			{
 				get 
 				{
