@@ -101,12 +101,19 @@
                             <TextBox Name="tbxSearch"
                                      Height="23"
                                      Width="90"
-                                     Margin="5"/>
+                                     Margin="5" TextChanged="tbxSearch_TextChanged"/>
                             <TextBlock Name="txtSearchPo"
                                        Text="Pretrazivanje po:"
                                        Margin="5,5,5,0"/>
                             <ComboBox Name="cbbpretrazivanjePo"
-                                      Margin="5"/>
+                                      Margin="5">
+                                <ComboBoxItem Name="cbbiOpisu"
+                                              Content="Opisu"/>
+                                <ComboBoxItem Name="cbbiLokaciji"
+                                              Content="Lokaciji"/>
+                                <ComboBoxItem Name="cbbiTipu"
+                                              Content="Tipu nekretnine"/>
+                            </ComboBox>
                             <Button Name="btnEditMode"
                                     Content="Edit mode"
                                     Height="23"

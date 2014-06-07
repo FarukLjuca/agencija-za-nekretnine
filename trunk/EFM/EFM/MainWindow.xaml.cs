@@ -38,7 +38,7 @@ namespace EFM
 
         private void mitUnosNekretnina_Click(object sender, RoutedEventArgs e)
         {
-            Pomocni_prozori.Unos_nekretnine n = new Pomocni_prozori.Unos_nekretnine(wpnlNekretnine);
+            Pomocni_prozori.Unos_nekretnine n = new Pomocni_prozori.Unos_nekretnine(nekretnine);
             n.ShowDialog();
         }
 
@@ -73,11 +73,34 @@ namespace EFM
 
         #region Nekretnine
 
+        bool editMode = false;
         List<Nekretnina> nekretnine = new List<Nekretnina>();
+
+        private void refreshN()
+        {
+            wpnlNekretnine.Children.RemoveRange(0, wpnlNekretnine.Children.Count);
+            foreach (Nekretnina n in nekretnine)
+            {
+                Kontrole.kontrolaNekretnina kn = new Kontrole.kontrolaNekretnina(n, n.Slike[0]);
+                wpnlNekretnine.Children.Add(kn);
+            }
+        }
+
+        private void refreshCheckN()
+        {
+            wpnlNekretnine.Children.RemoveRange(0, wpnlNekretnine.Children.Count);
+            foreach (Nekretnina n in nekretnine)
+            {
+                Kontrole.checkNekretnina kn = new Kontrole.checkNekretnina(n, n.Slike[0]);
+                wpnlNekretnine.Children.Add(kn);
+            }
+        }
 
         private void btnEditMode_Click(object sender, RoutedEventArgs e)
         {
             postaviPanelu();
+            refreshCheckN();
+            editMode = true;
         }
 
         private void postaviPanelu()
@@ -99,13 +122,23 @@ namespace EFM
 
         private void dodajNekretninu_Click(object seneder, RoutedEventArgs e)
         {
-            Pomocni_prozori.Unos_nekretnine nek = new Pomocni_prozori.Unos_nekretnine(wpnlNekretnine);
+            Pomocni_prozori.Unos_nekretnine nek = new Pomocni_prozori.Unos_nekretnine(nekretnine);
             nek.ShowDialog();
+            if (editMode == true) refreshCheckN();
+            else refreshN();
         }
 
-        private void obrisiNekretninu_Click(object seneder, RoutedEventArgs e)
+        private void obrisiNekretnine_Click(object seneder, RoutedEventArgs e)
         {
-            
+            foreach (Kontrole.checkNekretnina cn in wpnlNekretnine.Children)
+            {
+                if (cn.IsChecked == true)
+                {
+                    nekretnine.Remove(cn.nekretnina);
+                }
+            }
+            if (editMode == true) refreshCheckN();
+            else refreshN();
         }
 
         private void popuniNekretnine()
@@ -120,6 +153,11 @@ namespace EFM
                 wpnlNekretnine.Children.Add(kn);
             }
             */
+        }
+
+        private void tbxSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if 
         }
 
         #endregion
@@ -154,6 +192,5 @@ namespace EFM
             }
 
         }
-
     }
 }
