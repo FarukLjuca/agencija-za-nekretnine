@@ -26,7 +26,10 @@ namespace EFM
 
 		private void btnOK_Click_1(object sender, RoutedEventArgs e)
 		{
-
+			DAO.ZaposlenikDAO d = new DAO.ZaposlenikDAO ();
+			Direktor dd = new Direktor ();
+			dd.UserName = TxtUserID.Text;
+			dd = d.Read (dd);
 		}
 
 		private void btnCancel_Click_1(object sender, RoutedEventArgs e)
