@@ -47,6 +47,7 @@ namespace EFM.DAO
                         r.GetDecimal(5), true));
                     if (r.GetInt32(4) == 0) 
                         nekretnine[nekretnine.Count - 1].DaLiJeRezervisana = false;
+                    nekretnine[nekretnine.Count - 1].Id = r.GetInt32(0);
                 }
                 konekcija.Diskonektuj();
                 return nekretnine;                
@@ -69,6 +70,7 @@ namespace EFM.DAO
                         (Nekretnina.EnumTipNekretnine)Enum.Parse(typeof(Nekretnina.EnumTipNekretnine), r.GetString(3), true),
                         r.GetDecimal(5), true);
                 if (r.GetInt32(5) == 0) n.DaLiJeRezervisana = false;
+                n.Id = r.GetInt32(0);
             }
             kon.Diskonektuj();
 			return n;
