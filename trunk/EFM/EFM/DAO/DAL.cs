@@ -5,11 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using DB = System.Data.SQLite;
 using System.Data.SqlClient;
+using System.Drawing;
 namespace EFM
 {
 	public class DAL
 	{
-        private string host, db, user, pass;
+		public static byte[] ImgToBin(System.Drawing.Image imageIn)
+		{
+			System.IO.MemoryStream ms = new System.IO.MemoryStream ();
+			imageIn.Save (ms, System.Drawing.Imaging.ImageFormat.Gif);
+			return ms.ToArray ();
+		}
+		public static Image BinToImage(byte[] byteArrayIn)
+		{
+			System.IO.MemoryStream ms = new System.IO.MemoryStream (byteArrayIn);
+			Image returnImage = Image.FromStream (ms);
+			return returnImage;
+		}
         private static DB.SQLiteConnection con = null;
 
         private static DAL instanca = null;
@@ -19,13 +31,13 @@ namespace EFM
         }
         private DAL() { }
          ~DAL() { Diskonektuj(); }
-		public DB.SQLiteConnection Konekcija 
+		public static DB.SQLiteConnection Konekcija 
 			{
 				get 
 				{
 					if (con == null)
 					{
-						Konektuj();
+						Instanca.Konektuj();
 						return con;
 					}
 					else return con;
