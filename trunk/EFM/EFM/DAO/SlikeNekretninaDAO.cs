@@ -65,8 +65,7 @@ namespace EFM.DAO
                 {
                     NekretninaDAO nek = new NekretninaDAO();
                     int redniBr = reader.GetInt32(1);
-                    List<Nekretnina> nekretnine = nek.getAll();
-                    Nekretnina n = nekretnine[];
+                    Nekretnina n = nek.getById(redniBr);
 
                     stream = new FileStream("tmp" + ".bmp", FileMode.OpenOrCreate, FileAccess.Write);
                     writer = new BinaryWriter(stream);
