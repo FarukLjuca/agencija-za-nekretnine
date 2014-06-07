@@ -27,7 +27,7 @@ namespace EFM.DAO
 			return 0;
 		}
 
-		public Zaposlenik Read(Zaposlenik Entity)
+		public Zaposlenik Read(int id)
 		{
 			return null;
 			throw new Exc.LazyDeveloperException ();
