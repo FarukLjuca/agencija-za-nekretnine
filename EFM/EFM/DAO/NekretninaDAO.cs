@@ -104,8 +104,9 @@ namespace EFM.DAO
 
 		public void Delete(Nekretnina Entity)
 		{
-		
-			throw new Exc.LazyDeveloperException ();
+            DAL konekcija = DAL.Instanca;
+            SQLiteCommand komanda = new SQLiteCommand("delete from nekretnine where id = " + Entity.ID + ");", konekcija.Konekcija);
+            komanda.ExecuteNonQuery();
 		}
 	}
 }

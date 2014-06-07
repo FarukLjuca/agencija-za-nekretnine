@@ -81,6 +81,9 @@
     <Compile Include="InterniUgovor.cs" />
     <Compile Include="IUgovor.cs" />
     <Compile Include="IVanjskiSaradnik.cs" />
+    <Compile Include="Kontrole\checkNekretnina.xaml.cs">
+      <DependentUpon>checkNekretnina.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Kontrole\kontrolaNekretnina.xaml.cs">
       <DependentUpon>kontrolaNekretnina.xaml</DependentUpon>
     </Compile>
@@ -116,6 +119,10 @@
     </Compile>
     <Compile Include="Zaposlenici.cs" />
     <Compile Include="Zaposlenik.cs" />
+    <Page Include="Kontrole\checkNekretnina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Kontrole\kontrolaNekretnina.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

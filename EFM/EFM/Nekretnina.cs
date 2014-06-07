@@ -29,7 +29,6 @@ namespace EFM
             Ostalo
         };
 
-        public int Id { get; set; }
         public string Lokacija { get; set; }
         /// <summary>
         /// Označava koji je tip nekretnine
