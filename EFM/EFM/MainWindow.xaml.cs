@@ -81,8 +81,11 @@ namespace EFM
             wpnlNekretnine.Children.RemoveRange(0, wpnlNekretnine.Children.Count);
             foreach (Nekretnina n in nekretnine)
             {
-                Kontrole.kontrolaNekretnina kn = new Kontrole.kontrolaNekretnina(n, n.Slike[0]);
-                wpnlNekretnine.Children.Add(kn);
+                if (n.prikazi == true)
+                {
+                    Kontrole.kontrolaNekretnina kn = new Kontrole.kontrolaNekretnina(n, n.Slike[0]);
+                    wpnlNekretnine.Children.Add(kn);
+                }
             }
         }
 
@@ -91,8 +94,11 @@ namespace EFM
             wpnlNekretnine.Children.RemoveRange(0, wpnlNekretnine.Children.Count);
             foreach (Nekretnina n in nekretnine)
             {
-                Kontrole.checkNekretnina kn = new Kontrole.checkNekretnina(n, n.Slike[0]);
-                wpnlNekretnine.Children.Add(kn);
+                if (n.prikazi == true)
+                {
+                    Kontrole.checkNekretnina kn = new Kontrole.checkNekretnina(n, n.Slike[0]);
+                    wpnlNekretnine.Children.Add(kn);
+                }
             }
         }
 
@@ -126,6 +132,7 @@ namespace EFM
             nek.ShowDialog();
             if (editMode == true) refreshCheckN();
             else refreshN();
+            tbxSearch_TextChanged(tbxSearch, null);
         }
 
         private void obrisiNekretnine_Click(object seneder, RoutedEventArgs e)
@@ -153,11 +160,43 @@ namespace EFM
                 wpnlNekretnine.Children.Add(kn);
             }
             */
+            cbbpretrazivanjePo.SelectedIndex = 0;
         }
 
         private void tbxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if 
+            if (cbbpretrazivanjePo.SelectedIndex == 0)
+            {
+                foreach (Nekretnina n in nekretnine)
+                {
+                    if (!n.Opis.Contains(tbxSearch.Text))
+                        n.prikazi = false;
+                    else
+                        n.prikazi = true;
+                }
+            }
+            else if (cbbpretrazivanjePo.SelectedIndex == 1)
+            {
+                foreach (Nekretnina n in nekretnine)
+                {
+                    if (!n.Lokacija.Contains(tbxSearch.Text))
+                        n.prikazi = false;
+                    else
+                        n.prikazi = true;
+                }
+            }
+            else
+            {
+                foreach (Nekretnina n in nekretnine)
+                {
+                    if (!n.TipNekretnine.ToString().Contains(tbxSearch.Text))
+                        n.prikazi = false;
+                    else
+                        n.prikazi = true;
+                }
+            }
+            if (editMode == true) refreshCheckN();
+            else refreshN();
         }
 
         #endregion
