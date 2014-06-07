@@ -111,6 +111,9 @@
     <Compile Include="Ugovori.cs" />
     <Compile Include="UnajmljivacIznajmljivac.cs" />
     <Compile Include="VanjskiSaradnici.cs" />
+    <Compile Include="WndLogin.xaml.cs">
+      <DependentUpon>WndLogin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Zaposlenici.cs" />
     <Compile Include="Zaposlenik.cs" />
     <Page Include="Kontrole\kontrolaNekretnina.xaml">
@@ -147,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pomocni prozori\Zaglavlje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WndLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
