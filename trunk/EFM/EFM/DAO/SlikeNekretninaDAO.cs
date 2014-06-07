@@ -48,17 +48,17 @@ namespace EFM.DAO
             try
             {
                 DAL konekcija = DAL.Instanca;
-                SQLiteCommand c = new SQLiteCommand("select * from student", konekcija.Konekcija);
+                SQLiteCommand c = new SQLiteCommand("select * from slikenekretnina;", konekcija.Konekcija);
                 SQLiteDataReader r = c.ExecuteReader();
                 List<SlikeNekretnina> slike = new List<SlikeNekretnina>();
                 while (r.Read())
                 {
                     NekretninaDAO nek = new NekretninaDAO();
                     int redniBr = r.GetInt32(1);
-                    Nekretnina n = nek.getAll()[redniBr];
+                    List<Nekretnina> nekretnine = nek.getAll();
+                    Nekretnina n = nekretnine[redniBr];
 
-                    byte[] byteval = null;
-                    MemoryStream strmImg = new MemoryStream(byteval);
+                    MemoryStream strmImg = new MemoryStream(r.GetByte(2));
                     BitmapImage myBitmapImage = new BitmapImage();
                     myBitmapImage.BeginInit();
                     myBitmapImage.StreamSource = strmImg;
@@ -67,6 +67,7 @@ namespace EFM.DAO
 
                     slike.Add(new SlikeNekretnina(n, myBitmapImage));
                 }
+                konekcija.Diskonektuj();
                 return slike;
             }
             catch (Exception e)

@@ -36,15 +36,17 @@ namespace EFM.DAO
             try
             {
                 DAL konekcija = DAL.Instanca;
-                SQLiteCommand c = new SQLiteCommand("select * from student", konekcija.Konekcija);
+                SQLiteCommand c = new SQLiteCommand("select * from nekretnine;", konekcija.Konekcija);
                 SQLiteDataReader r = c.ExecuteReader();
                 List<Nekretnina> nekretnine = new List<Nekretnina>();
                 while (r.Read())
                 {
+
                     nekretnine.Add(new Nekretnina(r.GetString(1), r.GetString(2), 
-                        (Nekretnina.EnumTipNekretnine)Enum.Parse(typeof(Nekretnina.EnumTipNekretnine), r.GetString(3), true),
-                        r.GetDecimal(4), true));
-                    if (r.GetInt32(5) == 0) nekretnine[nekretnine.Count - 1].DaLiJeRezervisana = false;
+                        (Nekretnina.EnumTipNekretnine)Enum.Parse(typeof(Nekretnina.EnumTipNekretnine), r.GetString(3)),
+                        r.GetDecimal(5), true));
+                    if (r.GetInt32(4) == 0) 
+                        nekretnine[nekretnine.Count - 1].DaLiJeRezervisana = false;
                 }
                 konekcija.Diskonektuj();
                 return nekretnine;                
