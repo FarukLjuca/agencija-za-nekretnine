@@ -16,16 +16,17 @@ namespace EFM.DAO
         public long Create(SlikeNekretnina Entity)
         {
             DAL konekcija = DAL.Instanca;
-            SQLiteCommand komanda = new SQLiteCommand();
+            SQLiteCommand komanda = new SQLiteCommand("select id from nekretnine where id = (select max(id) from nekretnine);");
             komanda.Connection = konekcija.Konekcija;
 
             int id = 0;
-            komanda.CommandText = "select id from nekretnine where id = (select max(id) from nekretnine);";
+            komanda.ExecuteNonQuery();
             SQLiteDataReader citac = komanda.ExecuteReader();
             while (citac.Read())
             {
                 id = citac.GetInt32(0);
             }
+            citac.Close();
 
             byte[] slika;
             JpegBitmapEncoder encoder = new JpegBitmapEncoder();
@@ -35,8 +36,9 @@ namespace EFM.DAO
                 encoder.Save(ms);
                 slika = ms.ToArray();
             }
-            komanda.CommandText = "insert into slikenekretnina (nekretnina, slika) values (" + id + ", " + slika + ");";
+            komanda.CommandText = "insert into slikenekretnina (nekretnina, slika) values (" + id.ToString() + ", '" + slika + "');";
             komanda.ExecuteNonQuery();
+            konekcija.Diskonektuj();
 
             return 0;
         }

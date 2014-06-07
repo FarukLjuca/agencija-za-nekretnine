@@ -48,7 +48,7 @@ namespace EFM
         {
             try
             {
-                if (con != null)  con.Close();
+                if (con != null) { con.Close(); instanca = null; con = null; }
             }
             catch (Exception e) { throw e; }
         }

@@ -38,34 +38,27 @@ namespace EFM.Pomocni_prozori
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-            List<Nekretnina.EnumTipNekretnine> l = 
+            List<Nekretnina.EnumTipNekretnine> l =
                 Enum.GetValues(typeof(Nekretnina.EnumTipNekretnine)).Cast<Nekretnina.EnumTipNekretnine>().ToList();
             Nekretnina.EnumTipNekretnine e1 = l[cbbTipNekretnine.SelectedIndex];
-            try
+            Nekretnina n = new Nekretnina(txtLokacija.Text, txtOpis.Text, e1,
+                Convert.ToDecimal(tbxCijena.Text), cbxRezervisanost.IsChecked == true);
+
+            EFM.Kontrole.kontrolaNekretnina kon = new Kontrole.kontrolaNekretnina(n, slike[0]);
+            lista.Children.Add(kon);
+
+            DAO.NekretninaDAO daon = new DAO.NekretninaDAO();
+            daon.Create(n);
+
+            foreach (BitmapImage i in slike)
             {
-                Nekretnina n = new Nekretnina(txtLokacija.Text, txtOpis.Text, e1,
-                    decimal.Parse(tbxCijena.Text), cbxRezervisanost.IsChecked == true);
+                SlikeNekretnina sn = new SlikeNekretnina(n, i);
 
-                EFM.Kontrole.kontrolaNekretnina kon = new Kontrole.kontrolaNekretnina(n, slike[0]);
-                lista.Children.Add(kon);
-
-                DAO.NekretninaDAO daon = new DAO.NekretninaDAO();
-                daon.Create(n);
-
-                foreach (BitmapImage i in slike)
-                {
-                    SlikeNekretnina sn = new SlikeNekretnina(n, i);
-
-                    DAO.SlikeNekretninaDAO daosn = new DAO.SlikeNekretninaDAO();
-                    daosn.Create(sn);
-                }
-
-                this.Close();
+                DAO.SlikeNekretninaDAO daosn = new DAO.SlikeNekretninaDAO();
+                daosn.Create(sn);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
+            this.Close();
         }
 
         private void btnNovaSlika_Click(object sender, RoutedEventArgs e)
