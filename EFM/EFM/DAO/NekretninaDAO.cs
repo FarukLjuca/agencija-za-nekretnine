@@ -41,12 +41,14 @@ namespace EFM.DAO
                 List<Nekretnina> nekretnine = new List<Nekretnina>();
                 while (r.Read())
                 {
-
+                    int test = r.GetInt32(0);
                     nekretnine.Add(new Nekretnina(r.GetString(1), r.GetString(2), 
                         (Nekretnina.EnumTipNekretnine)Enum.Parse(typeof(Nekretnina.EnumTipNekretnine), r.GetString(3), true),
-                        r.GetDecimal(4), 0,  true));
-                    if (r.GetInt32(5) == 0) nekretnine[nekretnine.Count - 1].DaLiJeRezervisana = false;
-                    nekretnine[nekretnine.Count - 1].Id = r.GetInt32(0);
+                        0, 0,  true));
+                    if (r.GetInt32(4) == 0)
+                        nekretnine[nekretnine.Count - 1].DaLiJeRezervisana = false;
+                    nekretnine[nekretnine.Count - 1].Id = test;
+                    nekretnine[nekretnine.Count - 1].Cijena = r.GetDecimal(5);
                 }
                 konekcija.Diskonektuj();
                 return nekretnine;                
@@ -74,6 +76,25 @@ namespace EFM.DAO
             kon.Diskonektuj();
 			return n;
 		}
+
+        public Nekretnina getById(int id)
+        {
+            DAL kon = DAL.Instanca;
+            SQLiteCommand com = new SQLiteCommand("select * from nekretnine where id = " + id + ";", kon.Konekcija);
+            SQLiteDataReader r = com.ExecuteReader();
+            Nekretnina n = null;
+            while (r.Read())
+            {
+                int test = r.GetInt32(0);
+                n = new Nekretnina(r.GetString(1), r.GetString(2),
+                        (Nekretnina.EnumTipNekretnine)Enum.Parse(typeof(Nekretnina.EnumTipNekretnine), r.GetString(3), true),
+                        r.GetDecimal(5), id, true);
+                if (test == 0) n.DaLiJeRezervisana = false;
+                n.Id = test;
+            }
+            kon.Diskonektuj();
+            return n;
+        }
 
 		public Nekretnina Update(Nekretnina Entity)
 		{
