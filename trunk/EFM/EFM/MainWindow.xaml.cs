@@ -73,6 +73,8 @@ namespace EFM
 
         #region Nekretnine
 
+        List<Nekretnina> nekretnine = new List<Nekretnina>();
+
         private void btnEditMode_Click(object sender, RoutedEventArgs e)
         {
             postaviPanelu();
@@ -91,6 +93,7 @@ namespace EFM
             Button btnObrisi = new Button();
             btnObrisi.Margin = new Thickness(15, 5, 15, 5);
             btnObrisi.Content = "Obrisi";
+            btnObrisi.Click += new RoutedEventHandler(obrisiNekretnine_Click);
             spnlButtoni.Children.Add(btnObrisi);
         }
 
@@ -98,6 +101,11 @@ namespace EFM
         {
             Pomocni_prozori.Unos_nekretnine nek = new Pomocni_prozori.Unos_nekretnine(wpnlNekretnine);
             nek.ShowDialog();
+        }
+
+        private void obrisiNekretninu_Click(object seneder, RoutedEventArgs e)
+        {
+            
         }
 
         private void popuniNekretnine()
