@@ -11,11 +11,12 @@ namespace EFM
     {
         public Nekretnina Nekretnina { get; set; }
         public BitmapImage Slika { get; set; }
-
-        public SlikeNekretnina(Nekretnina nekretnina, BitmapImage slika)
+		public int ID { get; set; }
+        public SlikeNekretnina(Nekretnina nekretnina, BitmapImage slika, int ID = 0)
         {
             Nekretnina = nekretnina;
             Slika = slika;
+			this.ID = ID;
         }
     }
 }

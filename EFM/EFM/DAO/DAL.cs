@@ -12,12 +12,14 @@ namespace EFM
 	{
 		public static byte[] ImgToBin(System.Drawing.Image imageIn)
 		{
+			if (imageIn == null) return new byte[0];
 			System.IO.MemoryStream ms = new System.IO.MemoryStream ();
 			imageIn.Save (ms, System.Drawing.Imaging.ImageFormat.Gif);
 			return ms.ToArray ();
 		}
 		public static Image BinToImage(byte[] byteArrayIn)
 		{
+			if (byteArrayIn.Length == 0) return null;
 			System.IO.MemoryStream ms = new System.IO.MemoryStream (byteArrayIn);
 			Image returnImage = Image.FromStream (ms);
 			return returnImage;

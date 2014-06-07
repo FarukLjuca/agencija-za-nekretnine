@@ -38,7 +38,7 @@ namespace EFM
         public bool DaLiJeRezervisana { get; set; }
         public string Opis { get; set; }
         public decimal Cijena { get; set; }
-
+		public int ID { get; set; }
         /// <summary>
         /// Kreira novi objekat tipa Nekretnina
         /// </summary>
@@ -46,7 +46,7 @@ namespace EFM
         /// <param name="TipNekretnine">Tip Nekretnine (Stan, Kuca, Zemljite, PoslovniProstor, Soba, Apartman, Vikendica, Garaza ili Ostalo)</param>
         /// <param name="DaLiJeCista">True ako je nekretnina cista (opcionalno)</param>
         /// <param name="DaLiJeRezervisana">True ako je nekretnina rezervisana (opcionalno)</param>
-        public Nekretnina(string Lokacija, string opis, EnumTipNekretnine TipNekretnine, decimal cijena,
+        public Nekretnina(string Lokacija, string opis, EnumTipNekretnine TipNekretnine, decimal cijena, int ID,
             bool DaLiJeRezervisana = false)
         {
             this.Lokacija = Lokacija;
@@ -54,6 +54,7 @@ namespace EFM
             this.TipNekretnine = TipNekretnine;
             this.DaLiJeRezervisana = DaLiJeRezervisana;
             Cijena = cijena;
+			this.ID = ID;
         }
 
         /// <summary>

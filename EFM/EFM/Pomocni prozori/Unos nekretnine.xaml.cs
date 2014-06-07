@@ -42,7 +42,7 @@ namespace EFM.Pomocni_prozori
                 Enum.GetValues(typeof(Nekretnina.EnumTipNekretnine)).Cast<Nekretnina.EnumTipNekretnine>().ToList();
             Nekretnina.EnumTipNekretnine e1 = l[cbbTipNekretnine.SelectedIndex];
             Nekretnina n = new Nekretnina(txtLokacija.Text, txtOpis.Text, e1,
-                Convert.ToDecimal(tbxCijena.Text), cbxRezervisanost.IsChecked == true);
+                Convert.ToDecimal(tbxCijena.Text),0, cbxRezervisanost.IsChecked == true);
 
             EFM.Kontrole.kontrolaNekretnina kon = new Kontrole.kontrolaNekretnina(n, slike[0]);
             lista.Children.Add(kon);

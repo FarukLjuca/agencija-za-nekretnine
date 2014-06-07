@@ -120,5 +120,47 @@ namespace EFM
 			//TODO: Snimiti u bazu ILI kreirati Exit event pa u njemu snimati
 			Application.Current.Shutdown (0);
 		}
+		public static System.Drawing.Bitmap BitmapSourceToBitmap2(BitmapSource srs)
+		{
+			int width = srs.PixelWidth;
+			int height = srs.PixelHeight;
+			int stride = width * ((srs.Format.BitsPerPixel + 7) / 8);
+			IntPtr ptr = IntPtr.Zero;
+			try
+			{
+				ptr = System.Runtime.InteropServices.Marshal.AllocHGlobal (height * stride);
+				srs.CopyPixels (new Int32Rect (0, 0, width, height), ptr, height * stride, stride);
+				using (var btm = new System.Drawing.Bitmap (width, height, stride, System.Drawing.Imaging.PixelFormat.Format1bppIndexed, ptr))
+				{
+					return new System.Drawing.Bitmap (btm);
+				}
+			}
+			finally
+			{
+				if (ptr != IntPtr.Zero)
+					System.Runtime.InteropServices.Marshal.FreeHGlobal (ptr);
+			}
+		}
+		private void Button_Click_1(object sender, RoutedEventArgs e)
+		{
+			Zaposlenik z = new Administrator
+			{
+				Ime = "Meho",
+				Prezime = "Mehić",
+				AdresaStanovanja = "KK",
+				BrojLicneKarte = "BL3K_KBSJrt43",
+				BrojTelefona = "0534300434030",
+				JMBG = "JMBG129466546",
+				DatumRodjenja = DateTime.Today,
+				DatumUposlenja = DateTime.Today,
+				PassWord = "Password",
+				Plata = 1231,
+				Slika = null,
+				UserName = "mmehic3"
+			};
+			DAO.ZaposlenikDAO d = new DAO.ZaposlenikDAO ();
+			System.Windows.Forms.MessageBox.Show (d.Create (z).ToString());
+			d.Read (z);
+		}
     }
 }
