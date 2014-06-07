@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Data.SQLite;
 using System.Data.OleDb;
 using EFM.DAO;
+using System.Reflection;
 
 namespace EFM
 {
@@ -78,11 +79,25 @@ namespace EFM
 
         private void refreshN()
         {
+
             wpnlNekretnine.Children.RemoveRange(0, wpnlNekretnine.Children.Count);
             foreach (Nekretnina n in nekretnine)
             {
                 if (n.prikazi == true)
                 {
+                    if (n.Slike.Count == 0)
+                    {
+                        Assembly assembly = Assembly.GetCallingAssembly();
+
+                        BitmapImage img = new BitmapImage();
+                        img.BeginInit();
+                        img.UriSource = new Uri(@"pack://application:,,,/" + assembly.GetName().Name + ";component/Resursi/nekretnina.jpg",
+                            UriKind.Absolute);
+                        img.EndInit();
+
+                        n.Slike.Add(img);
+                    }
+
                     Kontrole.kontrolaNekretnina kn = new Kontrole.kontrolaNekretnina(n, n.Slike[0]);
                     wpnlNekretnine.Children.Add(kn);
                 }
@@ -96,6 +111,19 @@ namespace EFM
             {
                 if (n.prikazi == true)
                 {
+                    if (n.Slike.Count == 0)
+                    {
+                        Assembly assembly = Assembly.GetCallingAssembly();
+
+                        BitmapImage img = new BitmapImage();
+                        img.BeginInit();
+                        img.UriSource = new Uri(@"pack://application:,,,/" + assembly.GetName().Name + ";component/Resursi/nekretnina.jpg",
+                            UriKind.Absolute);
+                        img.EndInit();
+
+                        n.Slike.Add(img);
+                    }
+
                     Kontrole.checkNekretnina kn = new Kontrole.checkNekretnina(n, n.Slike[0]);
                     wpnlNekretnine.Children.Add(kn);
                 }
