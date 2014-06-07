@@ -60,13 +60,14 @@
 
                     
                         <Grid.Background>
-                            <RadialGradientBrush Center="0.5,0.5" GradientOrigin="1,0.9" ColorInterpolationMode="ScRgbLinearInterpolation" RadiusX="0.6" RadiusY="0.7">
-                                <GradientStop Color="White" Offset="0.2"></GradientStop>
-                                <GradientStop Color="PaleGreen" Offset="0.8"></GradientStop>
-                            <GradientStop Color="PaleGreen" Offset="0.7"></GradientStop>
-                            <GradientStop Color="{DynamicResource {x:Static SystemColors.ControlBrush}}" Offset="1"></GradientStop>
-                            </RadialGradientBrush>
-                        </Grid.Background>
+                        <LinearGradientBrush  StartPoint="0.0,0.0" EndPoint="0.0,1.0">
+                            <GradientStop Color="DarkGreen" Offset="0"/>
+                            <GradientStop Color="PaleGreen" Offset="0.1"/>
+                            <GradientStop Color="PaleGreen" Offset="0.2"/>
+                            <GradientStop Color="DarkGreen" Offset="1"/>
+
+                        </LinearGradientBrush>
+                    </Grid.Background>
                     
                 </Grid>
                 
@@ -140,3 +141,11 @@
                     
     </Grid>
 </Window>
+    <!-- Ne dirati :P
+    <RadialGradientBrush Center="0.5,0.5" GradientOrigin="1,0.9" ColorInterpolationMode="ScRgbLinearInterpolation" RadiusX="0.6" RadiusY="0.7">
+        <GradientStop Color="White" Offset="0.2"></GradientStop>
+        <GradientStop Color="PaleGreen" Offset="0.8"></GradientStop>
+        <GradientStop Color="PaleGreen" Offset="0.7"></GradientStop>
+        <GradientStop Color="{DynamicResource {x:Static SystemColors.ControlBrush}}" Offset="1"></GradientStop>
+    </RadialGradientBrus>
+    -->

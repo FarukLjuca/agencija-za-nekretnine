@@ -17,11 +17,12 @@ namespace EFM
         /// <param name="BrojTelefona">Broj telefona od administratora</param>
         /// <param name="DatumRodjenja">Datum rodjenja administratora</param>
         /// <param name="BrojLicneKarte">Broj licne karte od administratora</param>
-        public Administrator(string Ime, string Prezime, string AdresaStanovanja, string BrojTelefona, DateTime DatumRodjenja, string BrojLicneKarte, decimal Plata)
-            : base (Ime, Prezime, AdresaStanovanja, BrojTelefona, DatumRodjenja, BrojLicneKarte, Plata)
-        {
+		//public Administrator(string Ime, string Prezime, string AdresaStanovanja, string BrojTelefona, DateTime DatumRodjenja, string BrojLicneKarte, decimal Plata)
+		//	: base (Ime, Prezime, AdresaStanovanja, BrojTelefona, DatumRodjenja, BrojLicneKarte, Plata,  "", null, 0, null) 
+			//TODO: 0 onaj ko je pravio admin-a obavezno da ovo popravi
+		//{
 
-        }
+		//}
 
         /// <summary>
         /// Konstrukor bez parametara, namjenjen za inicijaliziranje administratora
@@ -30,7 +31,12 @@ namespace EFM
         {
 
         }
-    }
+
+		public override string TIP
+		{
+			get { return "ADMIN"; }
+		}
+	}
 }
 
 

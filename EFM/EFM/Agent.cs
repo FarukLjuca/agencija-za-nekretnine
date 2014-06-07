@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace EFM
 {
     public class Agent
-        : Osoba
+        : Zaposlenik
     {
         public List<Klijent> Klijenti { get; set; }
         private decimal povisica;
@@ -29,12 +29,13 @@ namespace EFM
         /// <param name="BrojLicneKarte">Broj licne karte agenta</param>
         /// <param name="Povisica">Povisica agenta (opcionalno)</param>
         /// <exception cref="EFM.Exc.ArgumentException">Izuzetak biva bacen kada je povisica agenta negativna</exception>
-        public Agent(string Ime, string Prezime, string AdresaStanovanja, string BrojTelefona, DateTime DatumRodjenja, string BrojLicneKarte, decimal Povisica = 0)
-            : base (Ime, Prezime, AdresaStanovanja, BrojTelefona, DatumRodjenja, BrojLicneKarte)
-        {
-            this.Klijenti = new List<Klijent>();
-            this.Povisica = Povisica;
-        }
+		//public Agent(string Ime, string Prezime, string AdresaStanovanja, string BrojTelefona, DateTime DatumRodjenja, string BrojLicneKarte, decimal Povisica = 0)
+		//	: base (Ime, Prezime, AdresaStanovanja, BrojTelefona, DatumRodjenja, BrojLicneKarte)
+		//{
+		//	this.Klijenti = new List<Klijent>();
+		//	this.Povisica = Povisica;
+		//}
+		//TODO: popraviti ovo
 
         /// <summary>
         /// Konstrukor bez parametara, namjenjes iskljucivo za serijalizaciju/deserijalizaciju
@@ -43,5 +44,10 @@ namespace EFM
         {
 
         }
-    }
+
+		public override string TIP
+		{
+			get { return "AGENT"; }
+		}
+	}
 }
