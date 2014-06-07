@@ -49,7 +49,7 @@ namespace EFM.DAO
             {
                 DAL connection = DAL.Instanca;
                 SQLiteCommand c = new SQLiteCommand("select * from slikenekretnina;", connection.Konekcija);
-                
+                List<SlikeNekretnina> slike = new List<SlikeNekretnina>();
 
                 FileStream stream;                          
                 BinaryWriter writer;                        
@@ -64,37 +64,32 @@ namespace EFM.DAO
                 while (reader.Read())
                 {
                     NekretninaDAO nek = new NekretninaDAO();
-                    int redniBr = r.GetInt32(1);
+                    int redniBr = reader.GetInt32(1);
                     List<Nekretnina> nekretnine = nek.getAll();
-                    Nekretnina n = nekretnine[redniBr];
+                    Nekretnina n = nekretnine[];
 
-                  stream = new FileStream(
-                    "slika" + ".bmp", FileMode.OpenOrCreate, FileAccess.Write);
-                  writer = new BinaryWriter(stream);
+                    stream = new FileStream("tmp" + ".bmp", FileMode.OpenOrCreate, FileAccess.Write);
+                    writer = new BinaryWriter(stream);
 
-                  startIndex = 0;
+                    startIndex = 0;
 
-                  retval = reader.GetBytes(2, startIndex, outByte, 0, bufferSize);
+                    retval = reader.GetBytes(2, startIndex, outByte, 0, bufferSize);
 
-                  while (retval == bufferSize)
-                  {
-                    writer.Write(outByte);
+                    while (retval == bufferSize)
+                    {
+                        writer.Write(outByte);
+                        writer.Flush();
+
+                        startIndex += bufferSize;
+                        retval = reader.GetBytes(2, startIndex, outByte, 0, bufferSize);
+                    }
+                    writer.Write(outByte, 0, (int)retval - 1);
                     writer.Flush();
 
-                    startIndex += bufferSize;
-                    retval = reader.GetBytes(1, startIndex, outByte, 0, bufferSize);
-                  }
-                  writer.Write(outByte, 0, (int)retval - 1);
-                  writer.Flush();
+                    writer.Close();
+                    stream.Close();
 
-                  writer.Close();
-                  stream.Close();
-                }
-
-                reader.Close();
-                connection.Diskonektuj();
-
-                    MemoryStream strmImg = new MemoryStream(buffer);
+                    MemoryStream strmImg = new MemoryStream(outByte);
                     BitmapImage myBitmapImage = new BitmapImage();
                     myBitmapImage.BeginInit();
                     myBitmapImage.StreamSource = strmImg;
@@ -103,7 +98,7 @@ namespace EFM.DAO
 
                     slike.Add(new SlikeNekretnina(n, myBitmapImage));
                 }
-                konekcija.Diskonektuj();
+                connection.Diskonektuj();
                 return slike;
             }
             catch (Exception e)
