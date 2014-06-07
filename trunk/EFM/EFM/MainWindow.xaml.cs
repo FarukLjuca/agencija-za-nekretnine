@@ -102,7 +102,16 @@ namespace EFM
 
         private void popuniNekretnine()
         {
-
+            /*
+            DAO.NekretninaDAO ndao = new DAO.NekretninaDAO();
+            List<Nekretnina> nekretnine = ndao.getAll();
+            foreach (Nekretnina nek in nekretnine)
+            {
+                DAO.SlikeNekretninaDAO sln = new DAO.SlikeNekretninaDAO();
+                Kontrole.kontrolaNekretnina kn = new Kontrole.kontrolaNekretnina(nek, sln.getAll()[0].Slika);
+                wpnlNekretnine.Children.Add(kn);
+            }
+            */
         }
 
         #endregion
