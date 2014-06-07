@@ -30,10 +30,13 @@
                    TextAlignment="Right"
                    Grid.Row="1"
                    Grid.Column="0" />
-            <TextBox Name="txtLokacija"
-                 Grid.Row="1"
-                 Grid.Column="1" 
-                 Margin="5"/>
+            <Border Name="borLokacija" 
+                    BorderThickness="2"
+                    Grid.Row="1"
+                 Grid.Column="1">
+                <TextBox Name="txtLokacija" 
+                 Margin="1"/>
+            </Border>
             <TextBlock Name="tbxOpis"
                    Text="Opis:"
                    TextAlignment="Right"
@@ -50,10 +53,13 @@
                    TextAlignment="Right"
                    Grid.Row="3"
                    Grid.Column="0" />
-            <ComboBox Name="cbbTipNekretnine"
-                  Grid.Row="3"
-                  Grid.Column="1"
-                  Margin="5" />
+            <Border Name="borTip"
+                    BorderThickness="2"
+                    Grid.Row="3"
+                  Grid.Column="1">
+                <ComboBox Name="cbbTipNekretnine"
+                  Margin="1" />
+            </Border>
             <TextBlock Name="txtCijena"
                        Grid.Row="4"
                        Grid.Column="0"

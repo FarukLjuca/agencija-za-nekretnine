@@ -28,6 +28,7 @@ namespace EFM.DAO
             }
             citac.Close();
 
+            DAL kon1 = DAL.Instanca;
             byte[] slika;
             JpegBitmapEncoder encoder = new JpegBitmapEncoder();
             encoder.Frames.Add(BitmapFrame.Create(Entity.Slika));
@@ -37,8 +38,9 @@ namespace EFM.DAO
                 slika = ms.ToArray();
             }
             komanda.CommandText = "insert into slikenekretnina (nekretnina, slika) values (" + id.ToString() + ", '" + slika + "');";
+            komanda.Connection = kon1.Konekcija;
             komanda.ExecuteNonQuery();
-            konekcija.Diskonektuj();
+            kon1.Diskonektuj();
 
             return 0;
         }
