@@ -17,7 +17,7 @@ namespace EFM.DAO
         {
             DAL konekcija = DAL.Instanca;
             SQLiteCommand komanda = new SQLiteCommand("select id from nekretnine where id = (select max(id) from nekretnine);");
-            komanda.Connection = konekcija.Konekcija;
+            komanda.Connection = konekcija.;
 
             int id = 0;
             komanda.ExecuteNonQuery();
@@ -58,11 +58,14 @@ namespace EFM.DAO
                     List<Nekretnina> nekretnine = nek.getAll();
                     Nekretnina n = nekretnine[redniBr];
 
-                    MemoryStream strmImg = new MemoryStream(r.GetByte(2));
+                    byte[] buffer = null;
+                    r.GetBytes(2, 0, buffer, 0, 10000000);
+
+                    MemoryStream strmImg = new MemoryStream(buffer);
                     BitmapImage myBitmapImage = new BitmapImage();
                     myBitmapImage.BeginInit();
                     myBitmapImage.StreamSource = strmImg;
-                    //myBitmapImage.DecodePixelWidth = 200;
+                    myBitmapImage.DecodePixelWidth = 200;
                     myBitmapImage.EndInit();
 
                     slike.Add(new SlikeNekretnina(n, myBitmapImage));
