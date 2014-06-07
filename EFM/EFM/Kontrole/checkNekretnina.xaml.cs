@@ -20,11 +20,14 @@ namespace EFM.Kontrole
     /// </summary>
     public partial class checkNekretnina : UserControl
     {
+        public Nekretnina nekretnina { get; set; }
+
         public checkNekretnina(Nekretnina n, BitmapImage slika1)
         {
             InitializeComponent();
             imgSlika.Source = slika1;
             txtOpis.Text = n.Opis;
+            nekretnina = n;
         }
 
         public bool IsChecked

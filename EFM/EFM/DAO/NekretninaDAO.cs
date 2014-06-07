@@ -47,7 +47,7 @@ namespace EFM.DAO
                         0, 0,  true));
                     if (r.GetInt32(4) == 0)
                         nekretnine[nekretnine.Count - 1].DaLiJeRezervisana = false;
-                    nekretnine[nekretnine.Count - 1].Id = test;
+                    nekretnine[nekretnine.Count - 1].ID = test;
                     nekretnine[nekretnine.Count - 1].Cijena = r.GetDecimal(5);
                 }
                 konekcija.Diskonektuj();
@@ -71,7 +71,7 @@ namespace EFM.DAO
                         (Nekretnina.EnumTipNekretnine)Enum.Parse(typeof(Nekretnina.EnumTipNekretnine), r.GetString(3), true),
                         r.GetDecimal(5), N.ID, true);
                 if (r.GetInt32(5) == 0) n.DaLiJeRezervisana = false;
-                n.Id = r.GetInt32(0);
+                n.ID = r.GetInt32(0);
             }
             kon.Diskonektuj();
 			return n;
@@ -90,7 +90,7 @@ namespace EFM.DAO
                         (Nekretnina.EnumTipNekretnine)Enum.Parse(typeof(Nekretnina.EnumTipNekretnine), r.GetString(3), true),
                         r.GetDecimal(5), id, true);
                 if (test == 0) n.DaLiJeRezervisana = false;
-                n.Id = test;
+                n.ID = test;
             }
             kon.Diskonektuj();
             return n;

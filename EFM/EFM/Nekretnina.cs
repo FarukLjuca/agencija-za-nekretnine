@@ -38,6 +38,7 @@ namespace EFM
         public string Opis { get; set; }
         public decimal Cijena { get; set; }
 		public int ID { get; set; }
+        public List<BitmapImage> Slike { get; set; }
         /// <summary>
         /// Kreira novi objekat tipa Nekretnina
         /// </summary>
