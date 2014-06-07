@@ -54,8 +54,18 @@ namespace EFM.DAO
                 while (r.Read())
                 {
                     NekretninaDAO nek = new NekretninaDAO();
-                    //Nekretnina n = nek.getAll()[
-                    //slike.Add(new SlikeNekretnina(r.GetString("ime"), r.GetString("prezime")));
+                    int redniBr = r.GetInt32(1);
+                    Nekretnina n = nek.getAll()[redniBr];
+
+                    byte[] byteval = null;
+                    MemoryStream strmImg = new MemoryStream(byteval);
+                    BitmapImage myBitmapImage = new BitmapImage();
+                    myBitmapImage.BeginInit();
+                    myBitmapImage.StreamSource = strmImg;
+                    //myBitmapImage.DecodePixelWidth = 200;
+                    myBitmapImage.EndInit();
+
+                    slike.Add(new SlikeNekretnina(n, myBitmapImage));
                 }
                 return slike;
             }

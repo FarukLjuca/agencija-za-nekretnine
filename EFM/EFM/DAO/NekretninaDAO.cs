@@ -41,10 +41,10 @@ namespace EFM.DAO
                 List<Nekretnina> nekretnine = new List<Nekretnina>();
                 while (r.Read())
                 {
-                    nekretnine.Add(new Nekretnina(r.GetString(0), r.GetString(1), 
-                        (Nekretnina.EnumTipNekretnine)Enum.Parse(typeof(Nekretnina.EnumTipNekretnine), r.GetString(2), true),
-                        r.GetDecimal(3), true));
-                    if (r.GetInt32(4) == 0) nekretnine[nekretnine.Count-1].DaLiJeRezervisana = false;
+                    nekretnine.Add(new Nekretnina(r.GetString(1), r.GetString(2), 
+                        (Nekretnina.EnumTipNekretnine)Enum.Parse(typeof(Nekretnina.EnumTipNekretnine), r.GetString(3), true),
+                        r.GetDecimal(4), true));
+                    if (r.GetInt32(5) == 0) nekretnine[nekretnine.Count - 1].DaLiJeRezervisana = false;
                 }
                 konekcija.Diskonektuj();
                 return nekretnine;                
@@ -62,9 +62,12 @@ namespace EFM.DAO
             SQLiteDataReader r = com.ExecuteReader();
             Nekretnina n = null;
             while (r.Read())
-                n = new Nekretnina(r.GetString(0), r.GetString(1),
-                        (Nekretnina.EnumTipNekretnine)Enum.Parse(typeof(Nekretnina.EnumTipNekretnine), r.GetString(2), true),
-                        r.GetDecimal(3), true);
+            {
+                n = new Nekretnina(r.GetString(1), r.GetString(2),
+                        (Nekretnina.EnumTipNekretnine)Enum.Parse(typeof(Nekretnina.EnumTipNekretnine), r.GetString(3), true),
+                        r.GetDecimal(5), true);
+                if (r.GetInt32(5) == 0) n.DaLiJeRezervisana = false;
+            }
             kon.Diskonektuj();
 			return n;
 		}
