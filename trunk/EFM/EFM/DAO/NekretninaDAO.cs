@@ -43,18 +43,10 @@ namespace EFM.DAO
                 {
 
                     nekretnine.Add(new Nekretnina(r.GetString(1), r.GetString(2), 
-
                         (Nekretnina.EnumTipNekretnine)Enum.Parse(typeof(Nekretnina.EnumTipNekretnine), r.GetString(3), true),
                         r.GetDecimal(4), 0,  true));
                     if (r.GetInt32(5) == 0) nekretnine[nekretnine.Count - 1].DaLiJeRezervisana = false;
-
-                        (Nekretnina.EnumTipNekretnine)Enum.Parse(typeof(Nekretnina.EnumTipNekretnine), r.GetString(3)),
-                        r.GetDecimal(5), true));
-                    if (r.GetInt32(4) == 0) 
-                        nekretnine[nekretnine.Count - 1].DaLiJeRezervisana = false;
                     nekretnine[nekretnine.Count - 1].Id = r.GetInt32(0);
-
-					nekretnine[nekretnine.Count - 1].ID = nekretnine.Count - 1;
                 }
                 konekcija.Diskonektuj();
                 return nekretnine;                

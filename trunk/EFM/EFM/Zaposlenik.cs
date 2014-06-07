@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 namespace EFM
 {
-    public abstract class Zaposlenik : Osoba
+    public class Zaposlenik : Osoba
     {
     
     private decimal plata;
@@ -53,7 +53,7 @@ namespace EFM
 	}
 	public DateTime DatumUposlenja { get; set; }
 	public Image Slika { get; set; }
-	public abstract string TIP { get; }
+	public virtual string TIP { get; set; }
     /// <summary>
     /// Plata za zaposlenika
     /// </summary>

@@ -23,8 +23,7 @@ namespace EFM
 		string UserName, String PassWord, decimal Plata, Image Slika)
 			: base (Ime, Prezime, AdresaStanovanja, BrojTelefona, DatumRodjenja, DatumUposlenja,
 			BrojLicneKarte, UserName, PassWord, Plata, Slika){}
-		public string UserName { get; set; }
-		public string Password { get; set; }
+
         /// <summary>
         /// Konstrukor bez parametara, namjenjen za inicijaliziranje direktora
         /// </summary>
