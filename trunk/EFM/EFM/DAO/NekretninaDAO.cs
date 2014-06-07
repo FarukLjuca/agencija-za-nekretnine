@@ -31,10 +31,42 @@ namespace EFM.DAO
 			return 0;
 		}
 
-		public Nekretnina Read(Nekretnina Entity)
+        public List<Nekretnina> getAll()
+        {
+            try
+            {
+                DAL konekcija = DAL.Instanca;
+                SQLiteCommand c = new SQLiteCommand("select * from student", konekcija.Konekcija);
+                SQLiteDataReader r = c.ExecuteReader();
+                List<Nekretnina> nekretnine = new List<Nekretnina>();
+                while (r.Read())
+                {
+                    nekretnine.Add(new Nekretnina(r.GetString(0), r.GetString(1), 
+                        (Nekretnina.EnumTipNekretnine)Enum.Parse(typeof(Nekretnina.EnumTipNekretnine), r.GetString(2), true),
+                        r.GetDecimal(3), true));
+                    if (r.GetInt32(4) == 0) nekretnine[nekretnine.Count-1].DaLiJeRezervisana = false;
+                }
+                konekcija.Diskonektuj();
+                return nekretnine;                
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+		public Nekretnina Read(int id)
 		{
-			return null;
-			throw new Exc.LazyDeveloperException();
+            DAL kon = DAL.Instanca;
+            SQLiteCommand com = new SQLiteCommand("select * from nekretnine where id = " + id.ToString(), kon.Konekcija);
+            SQLiteDataReader r = com.ExecuteReader();
+            Nekretnina n = null;
+            while (r.Read())
+                n = new Nekretnina(r.GetString(0), r.GetString(1),
+                        (Nekretnina.EnumTipNekretnine)Enum.Parse(typeof(Nekretnina.EnumTipNekretnine), r.GetString(2), true),
+                        r.GetDecimal(3), true);
+            kon.Diskonektuj();
+			return n;
 		}
 
 		public Nekretnina Update(Nekretnina Entity)

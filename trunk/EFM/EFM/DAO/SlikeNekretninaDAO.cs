@@ -43,7 +43,29 @@ namespace EFM.DAO
             return 0;
         }
 
-        public SlikeNekretnina Read(SlikeNekretnina Entity)
+        public List<SlikeNekretnina> getAll()
+        {
+            try
+            {
+                DAL konekcija = DAL.Instanca;
+                SQLiteCommand c = new SQLiteCommand("select * from student", konekcija.Konekcija);
+                SQLiteDataReader r = c.ExecuteReader();
+                List<SlikeNekretnina> slike = new List<SlikeNekretnina>();
+                while (r.Read())
+                {
+                    NekretninaDAO nek = new NekretninaDAO();
+                    //Nekretnina n = nek.getAll()[
+                    //slike.Add(new SlikeNekretnina(r.GetString("ime"), r.GetString("prezime")));
+                }
+                return slike;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public SlikeNekretnina Read(int id)
         {
             return null;
             throw new Exc.LazyDeveloperException();
