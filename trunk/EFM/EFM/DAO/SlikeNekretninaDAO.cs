@@ -17,7 +17,7 @@ namespace EFM.DAO
         {
             DAL konekcija = DAL.Instanca;
             SQLiteCommand komanda = new SQLiteCommand("select id from nekretnine where id = (select max(id) from nekretnine);");
-            komanda.Connection = konekcija.;
+            komanda.Connection = konekcija.Konekcija;
 
             int id = 0;
             komanda.ExecuteNonQuery();
