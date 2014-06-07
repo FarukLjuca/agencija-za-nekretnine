@@ -39,6 +39,7 @@ namespace EFM
         public decimal Cijena { get; set; }
 		public int ID { get; set; }
         public List<BitmapImage> Slike { get; set; }
+        public bool prikazi { get; set; }
         /// <summary>
         /// Kreira novi objekat tipa Nekretnina
         /// </summary>
@@ -55,6 +56,7 @@ namespace EFM
             this.DaLiJeRezervisana = DaLiJeRezervisana;
             Cijena = cijena;
 			this.ID = ID;
+            prikazi = true;
         }
 
         /// <summary>
