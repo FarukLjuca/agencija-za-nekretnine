@@ -17,21 +17,9 @@ namespace EFM.DAO
 		//	slika blob);
 		public long Create(Zaposlenik E)
 		{
-			DAL D = DAL.Instanca;
-			DB.SQLiteCommand C = new DB.SQLiteCommand ();			
-			C.CommandText = string.Format ("INSERT INTO UPOSLENICI (IME, PREZIME, " +
-			"JMBG, BROJLK, DATUM_RODJENJA, DATUM_ZAPOSLENJA, PLATA, POZICIJA, SLIKA," +
-			"TELBROJ, USERNAME, PASSWORD) VALUES (" +
-			"{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {10}, {11}, @PASS)",
-			E.Ime, E.Prezime, E.JMBG, E.BrojLicneKarte, E.DatumRodjenja,
-			E.DatumUposlenja, E.Plata, E.TIP, DAL.ImgToBin (E.Slika), E.BrojTelefona, E.UserName);
-			C.Parameters.Add ("PASS", System.Data.DbType.String);
-			C.Parameters["PASS"].Value = E.PassWord.ToString();
-			long x = C.ExecuteNonQuery ();
-			return x;
-			}
-
-		public Zaposlenik Read(int id)
+			return 0;
+		}
+		public Zaposlenik Read(Zaposlenik z)
 		{
 			return null;
 			throw new Exc.LazyDeveloperException ();

@@ -30,7 +30,7 @@ namespace EFM
     /// <exception cref="EFM.Exc.ArgumentException">Izuzetak biva bacen kada su podaci netacni</exception>
     public Zaposlenik(string Ime, string Prezime, string AdresaStanovanja, 
 		string BrojTelefona, DateTime DatumRodjenja, DateTime DatumUposlenja, string BrojLicneKarte,
-		string UserName, System.Security.SecureString PassWord, decimal Plata, Image Slika)
+		string UserName, String PassWord, decimal Plata, Image Slika)
             : base (Ime, Prezime, AdresaStanovanja, BrojTelefona, DatumRodjenja, BrojLicneKarte)
         {
             this.Plata = Plata;
@@ -63,7 +63,7 @@ namespace EFM
         set { if (value < 0) throw new Exception("PLata ne moze biti negativna!"); plata = value; } 
     }
 	public string UserName { get; set; }
-	public System.Security.SecureString PassWord { get; set; }
+	public  string PassWord { get; set; }
     /// <summary>
     /// Konstrukor bez parametara, namjenjen za inicijaliziranje zaposlenika
     /// </summary>

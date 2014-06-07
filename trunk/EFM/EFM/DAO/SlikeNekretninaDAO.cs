@@ -79,7 +79,7 @@ namespace EFM.DAO
             }
         }
 
-        public SlikeNekretnina Read(int id)
+        public SlikeNekretnina Read(SlikeNekretnina S)
         {
             return null;
             throw new Exc.LazyDeveloperException();
