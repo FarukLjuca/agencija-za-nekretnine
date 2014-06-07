@@ -17,11 +17,11 @@ namespace EFM
         /// <param name="BrojTelefona">Broj telefona od racunovodje</param>
         /// <param name="DatumRodjenja">Datum rodjenja racunovodje</param>
         /// <param name="BrojLicneKarte">Broj licne karte od racunovodje</param>
-		//public Racunovodja(string Ime, string Prezime, string AdresaStanovanja, string BrojTelefona, DateTime DatumRodjenja, string BrojLicneKarte, decimal Plata)
-		//	: base (Ime, Prezime, AdresaStanovanja, BrojTelefona, DatumRodjenja, BrojLicneKarte, Plata, "", null, 0, null) //TODO: 1 obavezno ispraviti
-		//{
+        public Racunovodja(string Ime, string Prezime, string AdresaStanovanja, string BrojTelefona, DateTime DatumRodjenja, string BrojLicneKarte, double Plata)
+            : base(Ime, Prezime, AdresaStanovanja, BrojTelefona, DatumRodjenja, BrojLicneKarte, Plata)
+        {
 
-		//}
+        }
 
         /// <summary>
         /// Konstrukor bez parametara, namjenjen za inicijaliziranje racunovodje
@@ -30,12 +30,7 @@ namespace EFM
         {
 
         }
-
-		public override string TIP
-		{
-			get { return "RACUNOVODJA"; }
-		}
-	}
+    }
 }
 
 

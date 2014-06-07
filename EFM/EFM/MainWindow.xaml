@@ -9,11 +9,11 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
+
         <Menu Name="menGlavniMeni"
               Height="Auto" 
               VerticalAlignment="Top"
@@ -37,11 +37,11 @@
                           Click="UnosEntiteta" />
             </MenuItem>
         </Menu>
-        
+
         <TabControl Name="tbcGlavniTab"
                     Grid.Row="1"
                     Grid.Column="0">
-            
+
             <TabItem Name="tabDobrodosli"
                      Header="Dobrodosli">
                 <Grid>
@@ -57,36 +57,34 @@
                                FontWeight="Bold" FontSize="25" 
                                Grid.Row="0" Foreground="Green" FontFamily="Tahoma"/>
                     <Button Name="BtnExit" Content="Izađi" Click="BtnExit_Click" HorizontalAlignment="Right" Margin="0,0,5,0" Grid.Row="3" VerticalAlignment="Top" Width="75"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="162,33,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
 
 
                     <Grid.Background>
-                        <LinearGradientBrush  StartPoint="0.0,0.0" EndPoint="0.0,1.0">
-                            <GradientStop Color="DarkGreen" Offset="0"/>
-                            <GradientStop Color="PaleGreen" Offset="0.1"/>
-                            <GradientStop Color="PaleGreen" Offset="0.2"/>
-                            <GradientStop Color="DarkGreen" Offset="1"/>
-
-                        </LinearGradientBrush>
+                        <RadialGradientBrush Center="0.5,0.5" GradientOrigin="1,0.9" ColorInterpolationMode="ScRgbLinearInterpolation" RadiusX="0.6" RadiusY="0.7">
+                            <GradientStop Color="White" Offset="0.2"></GradientStop>
+                            <GradientStop Color="PaleGreen" Offset="0.8"></GradientStop>
+                            <GradientStop Color="PaleGreen" Offset="0.7"></GradientStop>
+                            <GradientStop Color="{DynamicResource {x:Static SystemColors.ControlBrush}}" Offset="1"></GradientStop>
+                        </RadialGradientBrush>
                     </Grid.Background>
-                    
+
                 </Grid>
-                
+
             </TabItem>
-            
+
             <TabItem Name="tabNekretnine"
                      Header="Nekretnine">
-                
+
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    
+
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="120"/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <WrapPanel Name="wpnlNekretnine"
                                Grid.Row="0"
                                Grid.Column="0"/>
@@ -118,35 +116,85 @@
                     </Border>
                 </Grid>
             </TabItem>
-            
+
             <TabItem Name="tabZaposleni"
                      Header="Zaposleni">
-                
+                <!-- TODO GRID -->
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Width="200px" Orientation="Vertical">
+                        <DataGrid Name="zaposleniciGrid" >
+
+                        </DataGrid>
+                    </StackPanel>
+                    <Grid Width="200px">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0">Ime</Label>
+                        <TextBox Name="txtNoviZaposlenikIme" Grid.Row="0" Grid.Column="1"></TextBox>
+
+                        <Label Grid.Row="1" Grid.Column="0">Prezime</Label>
+                        <TextBox Name="txtNoviZaposlenikPrezime"  Grid.Row="1" Grid.Column="1"></TextBox>
+
+                        <Label Grid.Row="2" Grid.Column="0">JMBG</Label>
+                        <TextBox Name="txtNoviZaposlenikJmbg"  Grid.Row="2" Grid.Column="1"></TextBox>
+
+                        <Label Grid.Row="3" Grid.Column="0">Broj LK.</Label>
+                        <TextBox Name="txtNoviZaposlenikBrojLk"  Grid.Row="3" Grid.Column="1"></TextBox>
+
+                        <Label  Grid.Row="4" Grid.Column="0">Plata</Label>
+                        <TextBox Name="txtNoviZaposlenikPlata"  Grid.Row="4" Grid.Column="1"></TextBox>
+
+                        <Label Grid.Row="5" Grid.Column="0">Datum rodjenja</Label>
+                        <DatePicker  Name="txtNoviZaposlenikDatROdj" Grid.Row="5" Grid.Column="1"></DatePicker>
+
+                        <Label Grid.Row="6" Grid.Column="0">Datum zaposlenja</Label>
+                        <DatePicker Name="txtNoviZaposlenikDatZap"  Grid.Row="6" Grid.Column="1"></DatePicker>
+
+                        <Label Grid.Row="7" Grid.Column="0">Pozicija</Label>
+                        <ComboBox  Name="txtNoviZaposlenikPozicija" Grid.Row="7" Grid.Column="1">
+                            <ComboBoxItem Content="Administrator" />
+                            <ComboBoxItem Content="Agent" />
+                            <ComboBoxItem Content="Cistacica" />
+                            <ComboBoxItem Content="Racunovodja" />
+                        </ComboBox>
+                        <Button Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Click="Button_Click_1">
+                            Dodaj zaposlenika
+                        </Button>
+                    </Grid>
+                </StackPanel>
+
+
             </TabItem>
-            
+
             <TabItem Name="tabKlijenti"
                      Header="Klijenti">
-                
+
             </TabItem>
-            
+
             <TabItem Name="tabVSaradnici"
                      Header="Vanjski saradnici">
-                
+
             </TabItem>
-            
+
             <TabItem Name="tabUgovori"
                      Header="Ugovori">
-                
+
             </TabItem>
         </TabControl>
-                    
+
     </Grid>
 </Window>
-    <!-- Ne dirati :P
-    <RadialGradientBrush Center="0.5,0.5" GradientOrigin="1,0.9" ColorInterpolationMode="ScRgbLinearInterpolation" RadiusX="0.6" RadiusY="0.7">
-        <GradientStop Color="White" Offset="0.2"></GradientStop>
-        <GradientStop Color="PaleGreen" Offset="0.8"></GradientStop>
-        <GradientStop Color="PaleGreen" Offset="0.7"></GradientStop>
-        <GradientStop Color="{DynamicResource {x:Static SystemColors.ControlBrush}}" Offset="1"></GradientStop>
-    </RadialGradientBrus>
-    -->
