@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EFM
 {
-    public abstract class VanjskiSaradnik
+    public class VanjskiSaradnik
     {
         public string Naziv { get; set; }
         public long Id { get; set; }

@@ -17,16 +17,9 @@ namespace EFM
 			throw new EFM.Exc.LazyDeveloperException ();
 		}
 
-		public string ID
-		{
-			get
-			{
-				throw new EFM.Exc.LazyDeveloperException ();
-			}
-			set
-			{
-				throw new EFM.Exc.LazyDeveloperException ();
-			}
-		}
+		public int ID { get; set; }
+		public DateTime DatumSklapanja { get; set; }
+		public string Opis { get; set; }
+		public VanjskiSaradnik VanjskiSaradnik { get; set; }
 	}
 }

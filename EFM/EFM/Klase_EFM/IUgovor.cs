@@ -19,6 +19,8 @@ namespace EFM
 		/// <summary>
 		/// ID ugovora pomoću kojeg se identificira
 		/// </summary>
-		String ID { get; set; } 
+		int ID { get; set; }
+		DateTime DatumSklapanja { get; set; }
+		string Opis { get; set; }
 	}
 }

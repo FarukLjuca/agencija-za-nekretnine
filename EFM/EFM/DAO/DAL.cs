@@ -9,7 +9,6 @@ namespace EFM
 {
     public class DAL
     {
-        private string host, db, user, pass;
         private static DB.SQLiteConnection con = null;
 
         private static DAL instanca = null;
