@@ -249,13 +249,13 @@ namespace EFM
             btnDodajKlijenti.Margin = new Thickness(15, 5, 15, 5);
             btnDodajKlijenti.Content = "Dodaj novu";
             btnDodajKlijenti.Click += new RoutedEventHandler(dodajKlijenta_Click);
-            spnlButtoni.Children.Add(btnDodajKlijenti);
+            spnlButtoniKlijenti.Children.Add(btnDodajKlijenti);
 
             Button btnObrisiKlijenti = new Button();
             btnObrisiKlijenti.Margin = new Thickness(15, 5, 15, 5);
             btnObrisiKlijenti.Content = "Obrisi";
             btnObrisiKlijenti.Click += new RoutedEventHandler(obrisiKlijente_Click);
-            spnlButtoni.Children.Add(btnObrisiKlijenti);
+            spnlButtoniKlijenti.Children.Add(btnObrisiKlijenti);
         }
 
         private void dodajKlijenta_Click(object seneder, RoutedEventArgs e)
