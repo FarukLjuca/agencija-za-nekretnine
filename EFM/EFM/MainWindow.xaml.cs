@@ -376,7 +376,7 @@ namespace EFM
             Application.Current.Shutdown(0);
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Unos_Zaposlenika(object sender, RoutedEventArgs e)
         {
             ZaposlenikFactory zaposlenikFactory = new ZaposlenikFactory();
             if (txtNoviZaposlenikPozicija.SelectedValue != null)
@@ -400,7 +400,7 @@ namespace EFM
             }
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void Unos_Vanjskog_Saradnika(object sender, RoutedEventArgs e)
         {
             VanjskiSaradnikUloga vanjskiSaradnikUloga = new VanjskiSaradnikUloga();
             if (txtNoviVSaradnikPozicija.SelectedValue != null)
