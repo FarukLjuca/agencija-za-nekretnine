@@ -18,7 +18,7 @@ namespace EFM
         /// <param name="DatumRodjenja">Datum rodjenja direktora</param>
         /// <param name="BrojLicneKarte">Broj licne karte od direktora</param>
         public Direktor(string Ime, string Prezime, string AdresaStanovanja, string BrojTelefona, DateTime DatumRodjenja, string BrojLicneKarte)
-            : base(Ime, Prezime, AdresaStanovanja, BrojTelefona, DatumRodjenja, BrojLicneKarte)
+            : base(Ime, Prezime, DatumRodjenja, BrojLicneKarte)
         {
 
         }

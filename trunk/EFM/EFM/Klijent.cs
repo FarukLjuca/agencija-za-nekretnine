@@ -28,7 +28,7 @@ namespace EFM
         /// <param name="Agent">Agent koji je lijentu dodjeljen (opcionalno)</param>
         public Klijent(DateTime DatumRodjenja, string Ime, string Prezime, string jmbg, string BrojLicneKarte, 
             string AdresaStanovanja, string BrojTelefona, BitmapImage slika, Agent Agent = null)
-            : base (Ime, Prezime, AdresaStanovanja, BrojTelefona, DatumRodjenja, BrojLicneKarte)
+            : base (Ime, Prezime, DatumRodjenja, BrojLicneKarte)
         {
             this.Agent = Agent;
             this.slika = slika;
