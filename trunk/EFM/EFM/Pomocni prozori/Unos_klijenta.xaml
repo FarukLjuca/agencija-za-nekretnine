@@ -36,7 +36,7 @@
                            Margin="10"/>
 
                 <TextBlock Name="tblIme"
-                           Text="Ime:"
+                           Text="Ime: "
                            Grid.Row="1"
                            Grid.Column="0"
                            HorizontalAlignment="Right"
@@ -49,7 +49,20 @@
                     <TextBox Name="tbxIme"/>
                 </Border>
                 
-                
+                <TextBlock Name="tblPrezime"
+                           Text="Prezime: "
+                           Grid.Row="2"
+                           Grid.Column="0"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"/>
+
+                <Border Name="borPrezime"
+                        BorderBrush="White"
+                        BorderThickness="2.5"
+                        Grid.Row="2"
+                         Grid.Column="1">
+                    <TextBox Name="tbxPrezime"/>
+                </Border>
             </Grid>
         </Border>
     </Grid>
