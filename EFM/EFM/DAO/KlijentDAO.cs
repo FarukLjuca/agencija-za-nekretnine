@@ -50,9 +50,8 @@ namespace EFM.DAO
                 List<Klijent> klijenti = new List<Klijent>();
                 while (r.Read())
                 {
-                    int test = r.GetInt32(0);
                     Klijent k = new Klijent(r.GetDateTime(1), r.GetString(2), r.GetString(3), r.GetString(4), r.GetString(5),
-                        null/*SLIKA*/, null);
+                        null, null);
                     klijenti.Add(k);
                 }
                 konekcija.Diskonektuj();
