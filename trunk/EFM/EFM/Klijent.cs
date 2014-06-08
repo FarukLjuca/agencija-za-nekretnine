@@ -21,13 +21,10 @@ namespace EFM
         /// </summary>
         /// <param name="Ime">Ime klijenta</param>
         /// <param name="Prezime">Prezime klijenta</param>
-        /// <param name="AdresaStanovanja">Adresa stanovanja klijenta</param>
-        /// <param name="BrojTelefona">Broj telefona klijenta</param>
         /// <param name="DatumRodjenja">Datum rodjenja klijenta</param>
         /// <param name="BrojLicneKarte">Broj licne karte klijenta</param>
         /// <param name="Agent">Agent koji je lijentu dodjeljen (opcionalno)</param>
-        public Klijent(DateTime DatumRodjenja, string Ime, string Prezime, string jmbg, string BrojLicneKarte, 
-            string AdresaStanovanja, string BrojTelefona, BitmapImage slika, Agent Agent = null)
+        public Klijent(DateTime DatumRodjenja, string Ime, string Prezime, string jmbg, string BrojLicneKarte, BitmapImage slika, Agent Agent = null)
             : base (Ime, Prezime, DatumRodjenja, BrojLicneKarte)
         {
             this.Agent = Agent;
