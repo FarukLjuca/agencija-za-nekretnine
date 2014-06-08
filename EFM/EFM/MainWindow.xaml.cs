@@ -30,6 +30,7 @@ namespace EFM
         public MainWindow()
         {
             InitializeComponent();
+			Test ();
 			foreach (TabItem t in tbcGlavniTab.Items)
 			{
 				t.Visibility = System.Windows.Visibility.Hidden;
@@ -480,7 +481,24 @@ namespace EFM
             }
         }
 
+		void Test()
+		{
+			return;
+			InterniUgovor E = new InterniUgovor ();
+			E.Opis = "Ovo je jedan interni ugovor!!";
+			E.DatumSklapanja = DateTime.Today;
+			E.ID = 2;
+			InterniUgovorDAO d = new InterniUgovorDAO ();
+			d.Delete (E);
+			return;
+			E.ID = 2;
 
+			System.Windows.Forms.MessageBox.Show ("Izbrisao!");
+			InterniUgovor S = d.Read (E);
+			System.Windows.Forms.MessageBox.Show (S.Opis);
+			System.Windows.Forms.MessageBox.Show (S.DatumSklapanja.ToString());
+
+		}
 
 		private TabItem[] AdminTabs;
 		private TabItem[] AgentTabs;

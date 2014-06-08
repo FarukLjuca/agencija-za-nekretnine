@@ -9,6 +9,12 @@ namespace EFM
 {
     public class DAL
     {
+		public static T REP<T>(T E) where T : new()
+		{
+			
+			if (E == null) return new T ();
+			else return E;
+		}
         private static DB.SQLiteConnection con = null;
 
         private static DAL instanca = null;
@@ -49,7 +55,7 @@ namespace EFM
             {
                 if (con != null) { con.Close(); con = null; instanca = null; }
             }
-            catch (Exception e) { throw e; }
+            catch (Exception e) {  }
         }
     }
 }
