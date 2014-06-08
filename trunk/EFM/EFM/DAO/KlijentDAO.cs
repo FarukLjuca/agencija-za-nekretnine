@@ -28,13 +28,19 @@ namespace EFM.DAO
             }
 
             SQLiteCommand komanda = new SQLiteCommand(
-                "insert into klijenti (datum_rodjenja, ime, prezime, jmbg, brojlk, slika, agent) values ('" +
-                Entity.DatumRodjenja.Year.ToString() + "-" + Entity.DatumRodjenja.Month.ToString() + "-" +
-                Entity.DatumRodjenja.Day.ToString() + "', " + Entity.Ime + ", " + Entity.Prezime + ", " +
-                Entity.JMBG + ", " + Entity.BrojLicneKarte + ", '" + "@photo" + "', null);");
-            komanda.Parameters.Add("@photo", System.Data.DbType.Binary).Value = photo;
+                "insert into klijenti (datum_rodjenja, ime, prezime, jmbg, brojlk, slika, agent)" +
+                "values (@datum_rodjenja, @ime, @prezime, @jmbg, @brojlk, @slika, @agent)");
+            komanda.Parameters.AddRange(new[]
+                {
+                    new SQLiteParameter("@ime", Entity.Ime),
+                    new SQLiteParameter("@prezime", Entity.Prezime),
+                    new SQLiteParameter("@jmbg", Entity.JMBG),
+                    new SQLiteParameter("@brojlk", Entity.BrojLicneKarte),
+                    new SQLiteParameter("@slika", null),
+                    new SQLiteParameter("@agent", null),
+                });
             komanda.Connection = konekcija.Konekcija;
-            komanda.ExecuteNonQuery();
+            komanda.ExecuteScalar();
             konekcija.Diskonektuj();
             
             return 0;
