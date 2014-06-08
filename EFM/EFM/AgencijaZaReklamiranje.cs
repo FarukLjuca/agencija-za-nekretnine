@@ -14,7 +14,7 @@ namespace EFM
         /// <summary>
         /// Kreira novi objekat tipa AgencijaZaReklamiranje
         /// </summary>
-        /// <param name="Ime">Naziv Agencije Za Reklamiranje</param>
+        /// <param name="Naziv">Naziv Agencije Za Reklamiranje</param>
         /// <param name="Plata">Plata od Agencije Za Reklamiranje</param>
         public AgencijaZaReklamiranje(string Naziv, double Plata)
             : base(Naziv, Plata)

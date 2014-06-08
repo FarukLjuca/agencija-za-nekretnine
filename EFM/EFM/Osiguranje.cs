@@ -15,7 +15,7 @@ namespace EFM
         /// <summary>
         /// Kreira novi objekat tipa Osiguranje
         /// </summary>
-        /// <param name="Ime">Naziv Osiguranja</param>
+        /// <param name="Naziv">Naziv Osiguranja</param>
         /// <param name="Plata">Plata od Osiguranja</param>
         public Osiguranje(string Naziv, double Plata)
             : base(Naziv, Plata)
