@@ -27,20 +27,20 @@ namespace EFM.DAO
                 photo = ms.ToArray();
             }
 
-            SQLiteCommand komanda = new SQLiteCommand(
+            SQLiteCommand komanda = konekcija.Konekcija.CreateCommand();
+            komanda.CommandText =
                 "insert into klijenti (datum_rodjenja, ime, prezime, jmbg, brojlk, slika, agent)" +
-                "values (@datum_rodjenja, @ime, @prezime, @jmbg, @brojlk, @slika, @agent); SELECT last_insert_rowid();");
+                "values (@datum_rodjenja, @ime, @prezime, @jmbg, @brojlk, @slika, @agent); SELECT last_insert_rowid();";
             komanda.Parameters.AddRange(new[]
                 {
                     new SQLiteParameter("@ime", Entity.Ime),
                     new SQLiteParameter("@prezime", Entity.Prezime),
                     new SQLiteParameter("@jmbg", Entity.JMBG),
                     new SQLiteParameter("@brojlk", Entity.BrojLicneKarte),
-                    new SQLiteParameter("@slika", photo),
+                    new SQLiteParameter("@slika", System.Data.DbType.Binary, 20).Value = photo,
                     new SQLiteParameter("@agent", 1),
                 });
-            komanda.Connection = konekcija.Konekcija;
-            komanda.ExecuteScalar();
+            Entity.ID = (int)komanda.ExecuteScalar();
             konekcija.Diskonektuj();
             
             return 0;
