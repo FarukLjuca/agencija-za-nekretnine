@@ -91,7 +91,9 @@ namespace EFM.DAO
         internal Zaposlenici List()
         {
             // TODO CHange to DbConnectionBase
+
             DAL kon3 = DAL.Instanca;
+
             SQLiteCommand listCommand = kon3.Konekcija.CreateCommand();
             listCommand.CommandText = "SELECT id, ime, prezime, jmbg, plata, pozicija FROM uposlenici;";
             // Change to base class
