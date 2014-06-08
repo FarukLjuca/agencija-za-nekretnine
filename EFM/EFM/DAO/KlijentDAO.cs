@@ -14,11 +14,11 @@ namespace EFM.DAO
         public long Create(Klijent Entity)
         {
             DAL konekcija = DAL.Instanca;
-            int rez = 0;
-            if (Entity.DaLiJeRezervisana == true) rez = 1;
-            SQLiteCommand komanda = new SQLiteCommand("insert into nekretnine (lokacija, opis, tip_nekretnine, rezervisanost, cijena) values ('" +
-                Entity.Lokacija + "', '" + Entity.Opis + "', '" + Entity.TipNekretnine.ToString() + "', " + rez.ToString() +
-                ", " + Entity.Cijena.ToString() + ");");
+            SQLiteCommand komanda = new SQLiteCommand(
+                "insert into klijenti (datum_rodjenja, ime, prezime, jmbg, brojlk, adresa_stanovanja, broj_telefona, slika, agent) values ('" +
+                Entity.DatumRodjenja.Year.ToString() + "-" + Entity.DatumRodjenja.Month.ToString() + "-" +
+                Entity.DatumRodjenja.Day.ToString() + "', " + Entity.Ime + ", " + Entity.Prezime + ", " + Entity.JMBG + ", " +
+                Entity.BrojLicneKarte + ", " + Entity.AdresaStanovanja + ", " + Entity.BrojTelefona + ", " + s + ", null");
             komanda.Connection = konekcija.Konekcija;
             komanda.ExecuteNonQuery();
             konekcija.Diskonektuj();
@@ -56,39 +56,7 @@ namespace EFM.DAO
 
         public Klijent Read(Klijent N)
         {
-            DAL kon = DAL.Instanca;
-            SQLiteCommand com = new SQLiteCommand("select * from nekretnine where id = " + N.ID.ToString(), kon.Konekcija);
-            SQLiteDataReader r = com.ExecuteReader();
-            Nekretnina n = null;
-            while (r.Read())
-            {
-                n = new Nekretnina(r.GetString(1), r.GetString(2),
-                        (Nekretnina.EnumTipNekretnine)Enum.Parse(typeof(Nekretnina.EnumTipNekretnine), r.GetString(3), true),
-                        r.GetDecimal(5), N.ID, true);
-                if (r.GetInt32(5) == 0) n.DaLiJeRezervisana = false;
-                n.ID = r.GetInt32(0);
-            }
-            kon.Diskonektuj();
-            return n;
-        }
-
-        public Klijent getById(int id)
-        {
-            DAL kon = DAL.Instanca;
-            SQLiteCommand com = new SQLiteCommand("select * from nekretnine where id = " + id + ";", kon.Konekcija);
-            SQLiteDataReader r = com.ExecuteReader();
-            Nekretnina n = null;
-            while (r.Read())
-            {
-                int test = r.GetInt32(0);
-                n = new Nekretnina(r.GetString(1), r.GetString(2),
-                        (Nekretnina.EnumTipNekretnine)Enum.Parse(typeof(Nekretnina.EnumTipNekretnine), r.GetString(3), true),
-                        r.GetDecimal(5), id, true);
-                if (test == 0) n.DaLiJeRezervisana = false;
-                n.ID = test;
-            }
-            kon.Diskonektuj();
-            return n;
+            return null;
         }
 
         public Klijent Update(Klijent Entity)
