@@ -60,7 +60,7 @@ namespace EFM.Pomocni_prozori
                 Agent a = null;
                 if (cbbAgent.SelectedIndex != -1) a = cbbAgent.SelectedItem as Agent;
                 Klijent k = new Klijent(dtpDatumRodjenja.SelectedDate.Value, tbxIme.Text, tbxPrezime.Text, tbxJMBG.Text,
-                    tbxBrLK.Text, tbxAdresa.Text, tbxTel.Text, slika, a);
+                    tbxBrLK.Text, slika, a);
 
                 klijenti.Add(k);
 
