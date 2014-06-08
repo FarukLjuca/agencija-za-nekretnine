@@ -24,12 +24,22 @@ namespace EFM
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Zaposlenici _zaposlenici = new Zaposlenici();
+		private Zaposlenici _zaposlenici = new Zaposlenici();
+		public enum Privilegija : uint { Direktor, Admin, Agent, Racunovodja, Cistacica }
+		Privilegija privilegija;
         public MainWindow()
         {
             InitializeComponent();
-            /*WndLogin w = new WndLogin();*/
-            //w.ShowDialog(); itirita svaki put, Faruk
+			InitializeComponent ();
+			WndLogin w = new WndLogin ();
+			if (w.ShowDialog () != true) Application.Current.Shutdown ();
+			privilegija = w.Privilegija;
+			tbIme.Text = w.User.Ime + ", dobrodošli";
+			var C = new System.Globalization.CultureInfo ("bs-Latn-BA");
+			String Dan = C.DateTimeFormat.GetDayName (DateTime.Today.DayOfWeek);
+			StringBuilder sb = new StringBuilder (Dan);
+			sb[0] = char.ToUpper (sb[0]);
+			tbDate.Text = sb.ToString() + ", " + DateTime.Today.ToShortDateString ();
             popuniNekretnine();
             ZaposlenikDAO zDao = new ZaposlenikDAO();
             _zaposlenici = zDao.List();

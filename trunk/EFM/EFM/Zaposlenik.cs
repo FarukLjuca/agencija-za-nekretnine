@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EFM
 {
-    public abstract class Zaposlenik : Osoba
+    public class Zaposlenik : Osoba
     {
         /// <summary>
         /// Db Id
