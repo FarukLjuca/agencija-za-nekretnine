@@ -55,6 +55,11 @@ namespace EFM.Pomocni_prozori
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
+            validirajAdresu();
+            validirajBroj();
+            validirajIme();
+            validirajJmbg();
+            validirajPrezime();
             if (validirajAdresu() & validirajBroj() & validirajIme() & validirajJmbg() & validirajPrezime())
             {
                 Agent a = null;
@@ -153,7 +158,6 @@ namespace EFM.Pomocni_prozori
                     pocrveni(borJMBG);
                     tbxJMBG.ToolTip = "Polje smije sadrzavati samo brojeve!";
                     dobar = false;
-                    tbxJMBG.Text.Remove(tbxJMBG.Text.IndexOf(c), tbxJMBG.Text.IndexOf(c) + 1);
                     break;
                 }
             }
@@ -189,7 +193,6 @@ namespace EFM.Pomocni_prozori
                     pocrveni(borTel);
                     tbxTel.ToolTip = "Polje smije sadrzavati samo brojeve i praznine!";
                     dobar = false;
-                    tbxTel.Text.Remove(tbxTel.Text.IndexOf(c), tbxTel.Text.IndexOf(c) + 1);
                     break;
                 }
             }

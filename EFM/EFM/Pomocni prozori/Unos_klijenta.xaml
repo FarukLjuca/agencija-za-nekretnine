@@ -171,7 +171,8 @@
                         Grid.Column="6"
                         Grid.ColumnSpan="7"
                         >
-                    <Image Name="imgSlika"/>
+                    <Image Name="imgSlika"
+                           MaxHeight="126"/>
                 </Border>
                 
                 <Button Name="btnDodaj"
