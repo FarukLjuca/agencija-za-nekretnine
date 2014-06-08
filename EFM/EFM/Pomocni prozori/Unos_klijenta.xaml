@@ -1,7 +1,7 @@
 ﻿<Window x:Class="EFM.Pomocni_prozori.Unos_klijenta"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Unos klijenta" Height="281.507" Width="595.891">
+        Title="Unos klijenta" Height="283.507" Width="641.891">
     <Grid>
         <Border Name="borGlavni"
                 BorderThickness="1"
@@ -25,6 +25,7 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="120"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
@@ -146,6 +147,41 @@
                         Grid.Column="4">
                     <ComboBox Name="tbxAgent"/>
                 </Border>
+
+                <Button Name="btnOK"
+                        Content="OK"
+                        Grid.Row="6"
+                        Grid.Column="7" 
+                        Margin="5" 
+                        Click="btnOK_Click"
+                        Width="75"/>
+                <Button Name="btnCancel"
+                        Content="Cancel"
+                        Grid.Row="6"
+                        Grid.Column="6" 
+                        Margin="5" 
+                        Click="btnCancel_Click"
+                        Width="75"/>
+
+                <Border BorderBrush="Black"
+                        BorderThickness="1"
+                        Margin="10"
+                        Grid.Row="0"
+                        Grid.RowSpan="5"
+                        Grid.Column="6"
+                        Grid.ColumnSpan="7"
+                        >
+                    <Image Name="imgSlika"/>
+                </Border>
+                
+                <Button Name="btnDodaj"
+                        Content="Dodaj novu"
+                        Grid.Row="5"
+                        Grid.Column="6"
+                        Grid.ColumnSpan="7"
+                        Height="23"
+                        Width="75"
+                        VerticalAlignment="Top"/>
             </Grid>
         </Border>
     </Grid>
