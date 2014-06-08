@@ -45,6 +45,7 @@ namespace EFM.DAO
                 {
                     new SQLiteParameter("@naziv", Entity.Naziv),
                     new SQLiteParameter("@plata", Entity.Plata),
+                    new SQLiteParameter("@pozicija", role),
                 });
             
             Entity.Id = (long)insertCommand.ExecuteScalar();
@@ -66,7 +67,7 @@ namespace EFM.DAO
             throw new Exc.LazyDeveloperException();
         }
 
-        public void Delete(Zaposlenik Entity)
+        public void Delete(VanjskiSaradnik Entity)
         {
          
         }
@@ -78,7 +79,7 @@ namespace EFM.DAO
             DAL kon5 = DAL.Instanca;
 
             SQLiteCommand listaSaradnika = kon5.Konekcija.CreateCommand();
-            listaSaradnika.CommandText = "SELECT id, naziv, plata, pozicija FROM esaradnici;";
+            listaSaradnika.CommandText = "SELECT id, naziv, plata, pozicija FROM vsaradnici;";
             // Change to base class
             SQLiteDataReader reader = listaSaradnika.ExecuteReader();
             VanjskiSaradnici vanjskiSaradnici = new VanjskiSaradnici();
