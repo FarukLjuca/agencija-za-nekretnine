@@ -37,7 +37,7 @@ namespace EFM.DAO
                     new SQLiteParameter("@prezime", Entity.Prezime),
                     new SQLiteParameter("@jmbg", Entity.JMBG),
                     new SQLiteParameter("@brojlk", Entity.BrojLicneKarte),
-                    new SQLiteParameter("@slika", System.Data.DbType.Binary, 20).Value = photo,
+                    new SQLiteParameter("@slika", System.Data.DbType.Binary, ???).Value = photo,
                     new SQLiteParameter("@agent", 1),
                 });
             Entity.ID = (int)komanda.ExecuteScalar();

@@ -325,7 +325,7 @@ namespace EFM
 
         private void dodajKlijenta_Click(object seneder, RoutedEventArgs e)
         {
-            Pomocni_prozori.Unos_klijenta k = new Pomocni_prozori.Unos_klijenta(klijeti, _zaposlenici);
+            Pomocni_prozori.Unos_klijenta k = new Pomocni_prozori.Unos_klijenta(klijeti, _zaposlenici.ListaZaposlenika);
             k.ShowDialog();
             if (editModeK == true) refreshCheckK();
             else refreshK();
