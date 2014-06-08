@@ -88,7 +88,7 @@ namespace EFM.Pomocni_prozori
 
         private bool prazno(TextBox t, Border b)
         {
-            if (t.Text == "")
+            if (t.Text.Length < 1)
             {
                 pocrveni(b);
                 t.ToolTip = "Polje ne smije biti prazno!";
