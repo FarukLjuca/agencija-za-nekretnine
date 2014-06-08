@@ -36,7 +36,7 @@ namespace EFM
 			}
 			tbcGlavniTab.Items.Clear();
 			WndLogin w = new WndLogin ();
-			if (w.ShowDialog () != true) Application.Current.Shutdown ();
+			if (w.ShowDialog () != true) { Application.Current.Shutdown (); return; }
 			privilegija = w.Privilegija;
 			#region Privilegije
 			AdminTabs = new TabItem[] { tabDobrodosli, tabNekretnine, tabVSaradnici, tabUgovori };
