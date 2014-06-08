@@ -240,6 +240,56 @@
             <TabItem Name="tabVSaradnici"
                      Header="Vanjski saradnici">
 
+                <StackPanel Orientation="Horizontal">
+                    <Grid Width="200px">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0">Ime</Label>
+                        <TextBox Name="txtNoviZaposlenikImee" Grid.Row="0" Grid.Column="1"></TextBox>
+
+                        <Label Grid.Row="1" Grid.Column="0">Prezime</Label>
+                        <TextBox Name="txtNoviZaposlenikPrezimee"  Grid.Row="1" Grid.Column="1"></TextBox>
+
+                       
+                        <Label Grid.Row="3" Grid.Column="0">Broj LK.</Label>
+                        <TextBox Name="txtNoviZaposlenifkBrojLk"  Grid.Row="3" Grid.Column="1"></TextBox>
+
+                        <Label  Grid.Row="4" Grid.Column="0">Plata</Label>
+                        <TextBox Name="txtNoviZaposlefnikPlata"  Grid.Row="4" Grid.Column="1"></TextBox>
+
+                        <Label Grid.Row="5" Grid.Column="0">Datum rodjenja</Label>
+                        <DatePicker  Name="f" Grid.Row="5" Grid.Column="1"></DatePicker>
+
+                        <Label Grid.Row="6" Grid.Column="0">Datum zaposlenja</Label>
+                        <DatePicker Name="txtNoviZaposlenfikDatZap"  Grid.Row="6" Grid.Column="1"></DatePicker>
+
+                        <Label Grid.Row="7" Grid.Column="0">Pozicija</Label>
+                        <ComboBox  Name="txtNoviZaposlenikPozicfija" Grid.Row="7" Grid.Column="1">
+                            <ComboBoxItem Content="Administrator" />
+                            <ComboBoxItem Content="Agent" />
+                            <ComboBoxItem Content="Cistacica" />
+                            <ComboBoxItem Content="Racunovodja" />
+                        </ComboBox>
+                        <Button Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Click="Button_Click_1">
+                            Dodaj zaposlenika
+                        </Button>
+                    </Grid>
+                </StackPanel>
+
             </TabItem>
 
             <TabItem Name="tabUgovori"
