@@ -400,5 +400,10 @@ namespace EFM
             }
 
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            System.Environment.Exit(0);
+        }
     }
 }
