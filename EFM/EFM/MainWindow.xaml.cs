@@ -291,10 +291,10 @@ namespace EFM
 
         private void popuniKlijente()
         {
-            /*
+            
             DAO.KlijentDAO kd = new KlijentDAO();
             klijeti = kd.getAll();
-            */
+            
             refreshK();
             cbbpretrazivanjePoKlijenti.SelectedIndex = 0;
         }
