@@ -20,8 +20,6 @@ namespace EFM
 		/// </summary>
 		/// <param name="Ime">Ime osobe</param>
 		/// <param name="Prezime">Prezime osobe</param>
-		/// <param name="AdresaStanovanja">Adresa stanovanja</param>
-		/// <param name="BrojTelefona">Broj Telefona (format: xxx-yyy-zzz)(ne validira se u V1)</param>
 		/// <param name="DatumRodjenja">DatumRodjenja (ne validira se u V1)</param>
 		/// <param name="BrojLicneKarte">Broj lične karte (ne validira se u V1)</param>
 		public Osoba(String Ime, String Prezime, DateTime DatumRodjenja, String BrojLicneKarte)
