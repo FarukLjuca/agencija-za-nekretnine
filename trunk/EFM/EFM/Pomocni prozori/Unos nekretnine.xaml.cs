@@ -29,6 +29,7 @@ namespace EFM.Pomocni_prozori
             cbbTipNekretnine.ItemsSource =
                 Enum.GetValues(typeof(Nekretnina.EnumTipNekretnine)).Cast<Nekretnina.EnumTipNekretnine>().ToList();
             this.nekretnine = nekretnine;
+            cbbTipNekretnine.SelectedIndex = 0;
         }
         
         private void btnCancel_Click(object sender, RoutedEventArgs e)
@@ -38,27 +39,38 @@ namespace EFM.Pomocni_prozori
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-            List<Nekretnina.EnumTipNekretnine> l =
-                Enum.GetValues(typeof(Nekretnina.EnumTipNekretnine)).Cast<Nekretnina.EnumTipNekretnine>().ToList();
-            Nekretnina.EnumTipNekretnine e1 = l[cbbTipNekretnine.SelectedIndex];
-            Nekretnina n = new Nekretnina(txtLokacija.Text, txtOpis.Text, e1,
-                Convert.ToDecimal(tbxCijena.Text),0, cbxRezervisanost.IsChecked == true);
-            n.Slike = slike;
-
-            nekretnine.Add(n);
-
-            DAO.NekretninaDAO daon = new DAO.NekretninaDAO();
-            daon.Create(n);
-
-            foreach (BitmapImage i in slike)
+            if (validirajLokacije() == true)
             {
-                SlikeNekretnina sn = new SlikeNekretnina(n, i);
+                List<Nekretnina.EnumTipNekretnine> l =
+                    Enum.GetValues(typeof(Nekretnina.EnumTipNekretnine)).Cast<Nekretnina.EnumTipNekretnine>().ToList();
+                Nekretnina.EnumTipNekretnine e1 = l[cbbTipNekretnine.SelectedIndex];
+                if (txtCijena.Text == "") txtCijena.Text = "0";
+                Nekretnina n = new Nekretnina(txtLokacija.Text, txtOpis.Text, e1,
+                    Convert.ToDecimal(tbxCijena.Text), 0, cbxRezervisanost.IsChecked == true);
+                n.Slike = slike;
 
-                DAO.SlikeNekretninaDAO daosn = new DAO.SlikeNekretninaDAO();
-                daosn.Create(sn);
+                nekretnine.Add(n);
+
+                DAO.NekretninaDAO daon = new DAO.NekretninaDAO();
+                daon.Create(n);
+
+                foreach (BitmapImage i in slike)
+                {
+                    SlikeNekretnina sn = new SlikeNekretnina(n, i);
+
+                    DAO.SlikeNekretninaDAO daosn = new DAO.SlikeNekretninaDAO();
+                    daosn.Create(sn);
+                }
+
+                this.Close();
             }
+            else pocrveni(borLokacija);
+        }
 
-            this.Close();
+        private bool validirajLokacije()
+        {
+            if (txtLokacija.Text == "") return false;
+            return true;
         }
 
         private void btnNovaSlika_Click(object sender, RoutedEventArgs e)
@@ -96,6 +108,22 @@ namespace EFM.Pomocni_prozori
             if (trenutnaSlika == -1) trenutnaSlika = slike.Count-1;
 
             imgNekretnine.Source = slike[trenutnaSlika];
+        }
+
+        private void pocrveni (Border b)
+        {
+            b.BorderBrush = Brushes.Red;
+        }
+
+        private void odcrveni(Border b)
+        {
+            b.BorderBrush = Brushes.White;
+        }
+
+        private void txtLokacija_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (validirajLokacije() == false) pocrveni(borLokacija);
+            else odcrveni(borLokacija);
         }
     }
 }

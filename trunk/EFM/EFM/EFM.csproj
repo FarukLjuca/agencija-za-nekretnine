@@ -81,8 +81,14 @@
     <Compile Include="InterniUgovor.cs" />
     <Compile Include="IUgovor.cs" />
     <Compile Include="IVanjskiSaradnik.cs" />
+    <Compile Include="Kontrole\checkKlijent.xaml.cs">
+      <DependentUpon>checkKlijent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Kontrole\checkNekretnina.xaml.cs">
       <DependentUpon>checkNekretnina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Kontrole\kontrolaKlijent.xaml.cs">
+      <DependentUpon>kontrolaKlijent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Kontrole\kontrolaNekretnina.xaml.cs">
       <DependentUpon>kontrolaNekretnina.xaml</DependentUpon>
@@ -106,6 +112,9 @@
     <Compile Include="Pomocni prozori\Unos nekretnine.xaml.cs">
       <DependentUpon>Unos nekretnine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pomocni prozori\Unos_klijenta.xaml.cs">
+      <DependentUpon>Unos_klijenta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pomocni prozori\Zaglavlje.xaml.cs">
       <DependentUpon>Zaglavlje.xaml</DependentUpon>
     </Compile>
@@ -119,7 +128,15 @@
     </Compile>
     <Compile Include="Zaposlenici.cs" />
     <Compile Include="Zaposlenik.cs" />
+    <Page Include="Kontrole\checkKlijent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Kontrole\checkNekretnina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Kontrole\kontrolaKlijent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -153,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pomocni prozori\Unos nekretnine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pomocni prozori\Unos_klijenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -192,7 +213,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resursi\klijent.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resursi\nekretnina.jpg" />
   </ItemGroup>

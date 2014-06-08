@@ -74,7 +74,6 @@
 
             <TabItem Name="tabNekretnine"
                      Header="Nekretnine">
-
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -189,7 +188,53 @@
 
             <TabItem Name="tabKlijenti"
                      Header="Klijenti">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+
+                    <WrapPanel Name="wpnlKlijenti"
+                               Grid.Row="0"
+                               Grid.Column="0"/>
+                    <Border Name="borButtoniKlijenti"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            BorderBrush="Black"
+                            BorderThickness="5">
+                        <StackPanel Name="spnlButtoniKlijenti"
+                                    Margin="5">
+                            <TextBlock Name="txtSearchKlijenti"
+                                       Text="Pretrazivanje:"
+                                       Margin="5,20,5,0"/>
+                            <TextBox Name="tbxSearchKlijenti"
+                                     Height="23"
+                                     Width="90"
+                                     Margin="5" TextChanged="tbxSearchK_TextChanged"/>
+                            <TextBlock Name="txtSearchPoKlijenti"
+                                       Text="Pretrazivanje po:"
+                                       Margin="5,5,5,0"/>
+                            <ComboBox Name="cbbpretrazivanjePoKlijenti"
+                                      Margin="5">
+                                <ComboBoxItem Name="cbbiIme"
+                                              Content="Imenu"/>
+                                <ComboBoxItem Name="cbbiPrezime"
+                                              Content="Prezimenu"/>
+                                <ComboBoxItem Name="cbbiJMBG"
+                                              Content="JMBG"/>
+                            </ComboBox>
+                            <Button Name="btnEditModeKlijenti"
+                                    Content="Edit mode"
+                                    Height="23"
+                                    Width="70"
+                                    Margin="15,50,15,15" Click="btnEditModeK_Click"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
             </TabItem>
 
             <TabItem Name="tabVSaradnici"

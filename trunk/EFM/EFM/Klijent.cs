@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace EFM
 {
@@ -10,6 +11,9 @@ namespace EFM
         : Osoba
     {
         public Agent Agent { get; set; }
+        public bool prikazi { get; set; }
+        public BitmapImage slika { get; set; }
+        public string JMBG { get; set; }
 
         /// <summary>
         /// Kreira novi objekar tipa Klijent
@@ -21,10 +25,13 @@ namespace EFM
         /// <param name="DatumRodjenja">Datum rodjenja klijenta</param>
         /// <param name="BrojLicneKarte">Broj licne karte klijenta</param>
         /// <param name="Agent">Agent koji je lijentu dodjeljen (opcionalno)</param>
-        public Klijent(string Ime, string Prezime, string AdresaStanovanja, string BrojTelefona, DateTime DatumRodjenja, string BrojLicneKarte, Agent Agent = null)
+        public Klijent(DateTime DatumRodjenja, string Ime, string Prezime, string jmbg, string BrojLicneKarte, 
+            string AdresaStanovanja, string BrojTelefona, BitmapImage slika, Agent Agent = null)
             : base (Ime, Prezime, AdresaStanovanja, BrojTelefona, DatumRodjenja, BrojLicneKarte)
         {
             this.Agent = Agent;
+            this.slika = slika;
+            JMBG = jmbg;
         }
 
         /// <summary>
@@ -33,6 +40,11 @@ namespace EFM
         public Klijent()
         {
 
+        }
+
+        public override string ToString()
+        {
+            return Ime + " " + Prezime;
         }
     }
 }
