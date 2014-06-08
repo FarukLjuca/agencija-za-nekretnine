@@ -29,15 +29,15 @@ namespace EFM.DAO
 
             SQLiteCommand komanda = new SQLiteCommand(
                 "insert into klijenti (datum_rodjenja, ime, prezime, jmbg, brojlk, slika, agent)" +
-                "values (@datum_rodjenja, @ime, @prezime, @jmbg, @brojlk, @slika, @agent)");
+                "values (@datum_rodjenja, @ime, @prezime, @jmbg, @brojlk, @slika, @agent); SELECT last_insert_rowid();");
             komanda.Parameters.AddRange(new[]
                 {
                     new SQLiteParameter("@ime", Entity.Ime),
                     new SQLiteParameter("@prezime", Entity.Prezime),
                     new SQLiteParameter("@jmbg", Entity.JMBG),
                     new SQLiteParameter("@brojlk", Entity.BrojLicneKarte),
-                    new SQLiteParameter("@slika", null),
-                    new SQLiteParameter("@agent", null),
+                    new SQLiteParameter("@slika", photo),
+                    new SQLiteParameter("@agent", 1),
                 });
             komanda.Connection = konekcija.Konekcija;
             komanda.ExecuteScalar();
