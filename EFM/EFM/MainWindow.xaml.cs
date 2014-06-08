@@ -398,8 +398,11 @@ namespace EFM
                 //_zaposlenici.ListaZaposlenika.Add(zaposlenik);
                 //zaposleniciGrid.
             }
-
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {}
+        
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
