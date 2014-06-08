@@ -73,6 +73,7 @@
     <Compile Include="DAO\IDaoCrud.cs" />
     <Compile Include="DAO\NekretninaDAO.cs" />
     <Compile Include="DAO\SlikeNekretninaDAO.cs" />
+    <Compile Include="DAO\VanjskiSaradnikDAO.cs" />
     <Compile Include="DAO\ZaposlenikDAO.cs" />
     <Compile Include="Direktor.cs" />
     <Compile Include="EFMException.cs" />
@@ -80,7 +81,6 @@
     <Compile Include="FinalniUgovor.cs" />
     <Compile Include="InterniUgovor.cs" />
     <Compile Include="IUgovor.cs" />
-    <Compile Include="IVanjskiSaradnik.cs" />
     <Compile Include="Kontrole\checkKlijent.xaml.cs">
       <DependentUpon>checkKlijent.xaml</DependentUpon>
     </Compile>
@@ -123,6 +123,7 @@
     <Compile Include="Ugovori.cs" />
     <Compile Include="UnajmljivacIznajmljivac.cs" />
     <Compile Include="VanjskiSaradnici.cs" />
+    <Compile Include="VanjskiSaradnik.cs" />
     <Compile Include="WndLogin.xaml.cs">
       <DependentUpon>WndLogin.xaml</DependentUpon>
     </Compile>
