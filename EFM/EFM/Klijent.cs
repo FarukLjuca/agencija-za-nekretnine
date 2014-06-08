@@ -15,6 +15,8 @@ namespace EFM
         public BitmapImage slika { get; set; }
         public string JMBG { get; set; }
         public int ID { get; set; }
+        public string Adresa { get; set; }
+        public string brojTelefona { get; set; }
 
         /// <summary>
         /// Kreira novi objekar tipa Klijent
