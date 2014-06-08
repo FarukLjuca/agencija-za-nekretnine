@@ -48,6 +48,11 @@ namespace EFM
         {
 
         }
+
+        public override string ToString()
+        {
+            return Ime + " " + Prezime;
+        }
     }
 }
 

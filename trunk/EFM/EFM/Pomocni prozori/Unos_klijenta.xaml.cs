@@ -22,10 +22,15 @@ namespace EFM.Pomocni_prozori
         BitmapImage slika = null;
         List<Klijent> klijenti = null;
 
-        public Unos_klijenta(List<Klijent> k)
+        public Unos_klijenta(List<Klijent> k, List<Zaposlenik> zaposlenici)
         {
             InitializeComponent();
             klijenti = k;
+            foreach (Zaposlenik z in zaposlenici)
+            {
+                if (z is Agent)
+                    cbbAgent.Items.Add(z.ToString());
+            }
         }
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
