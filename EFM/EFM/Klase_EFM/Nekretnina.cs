@@ -66,5 +66,17 @@ namespace EFM
         {
 
         }
+
+        public override string ToString()
+        {
+            string rez = "Jeste";
+            if (DaLiJeRezervisana == false) rez = "Nije";
+            return "Detalji podaci o nekretnini\n" +
+                "\nLokacija: " + Lokacija +
+                "\nOpis: " + Opis +
+                "\nTip nekretnine: " + TipNekretnine.ToString() +
+                "\nRezervisana: " + rez +
+                "\nCijena: " + Cijena.ToString() + " KM";
+        }
     }
 }

@@ -155,6 +155,7 @@ namespace EFM
                     }
 
                     Kontrole.kontrolaNekretnina kn = new Kontrole.kontrolaNekretnina(n, n.Slike[0]);
+                    dodajContextMenu(kn);
                     wpnlNekretnine.Children.Add(kn);
                 }
             }
@@ -181,6 +182,7 @@ namespace EFM
                     }
 
                     Kontrole.checkNekretnina kn = new Kontrole.checkNekretnina(n, n.Slike[0]);
+                    dodajContextMenu(kn);
                     wpnlNekretnine.Children.Add(kn);
                 }
             }
@@ -283,6 +285,37 @@ namespace EFM
             else refreshN();
         }
 
+        private void dodajContextMenu(Control c)
+        {
+            ContextMenu cm = new ContextMenu();
+            MenuItem miDetalji = new MenuItem();
+            miDetalji.Header = "Prikaži detalje";
+            miDetalji.Click += new RoutedEventHandler(detalji);
+            cm.Items.Add(miDetalji);
+
+            c.ContextMenu = cm;
+        }
+
+        private void detalji(object sender, RoutedEventArgs e)
+        {
+            string tekst = "";
+            /*
+            ContextMenuService.GetPlacementTarget(WrapPanelHelper
+
+            if (e.Source is Kontrole.checkKlijent)
+                tekst = (e.Source as Kontrole.checkKlijent).ToString();
+            else if (((e.OriginalSource as MenuItem).Parent as ContextMenu).ItemsSource is Kontrole.checkNekretnina)
+                tekst = (e.Source as Kontrole.checkNekretnina).ToString();
+            else if (e.Source is Kontrole.kontrolaKlijent)
+                tekst = (e.Source as Kontrole.kontrolaKlijent).ToString();
+            else if (e.Source is Kontrole.kontrolaNekretnina)
+                tekst = (e.Source as Kontrole.kontrolaNekretnina).ToString();
+            */
+
+            //TODO Doci do kontrole!!!
+            MessageBox.Show(tekst);
+        }
+
         #endregion
 
         #region Klijenti
@@ -367,6 +400,7 @@ namespace EFM
                     }
 
                     Kontrole.kontrolaKlijent kk = new Kontrole.kontrolaKlijent(k);
+                    dodajContextMenu(kk);
                     wpnlKlijenti.Children.Add(kk);
                 }
             }
@@ -393,6 +427,7 @@ namespace EFM
                     }
 
                     Kontrole.checkKlijent kk = new Kontrole.checkKlijent(k);
+                    dodajContextMenu(kk);
                     wpnlKlijenti.Children.Add(kk);
                 }
             }

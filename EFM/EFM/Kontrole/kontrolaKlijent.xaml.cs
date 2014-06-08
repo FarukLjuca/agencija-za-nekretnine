@@ -20,11 +20,19 @@ namespace EFM.Kontrole
     /// </summary>
     public partial class kontrolaKlijent : UserControl
     {
+        private Klijent klijent = null;
+
         public kontrolaKlijent(Klijent k)
         {
             InitializeComponent();
             imgSlika.Source = k.slika;
             txtNaziv.Text = k.ToString();
+            klijent = k;
+        }
+
+        public override string ToString()
+        {
+            return klijent.ToString1();
         }
     }
 }
