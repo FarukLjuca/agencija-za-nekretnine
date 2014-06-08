@@ -11,7 +11,7 @@ namespace EFM
         /// <summary>
         /// Kreira novi objekat tipa Notar
         /// </summary>
-        /// <param name="Ime">Naziv Notara</param>
+        /// <param name="Naziv">Naziv Notara</param>
         /// <param name="Plata">Plata od notara</param>
         public Notar(string Naziv, double Plata)
             : base(Naziv, Plata)
