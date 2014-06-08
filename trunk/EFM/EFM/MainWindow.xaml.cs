@@ -432,5 +432,35 @@ namespace EFM
         {
             System.Environment.Exit(0);
         }
+
+		private void Hyperlink_Click_1(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void Hyperlink_Click_2(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void Hyperlink_Click_3(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void Hyperlink_Click_4(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void Hyperlink_Click_5(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void Hyperlink_Click_6(object sender, RoutedEventArgs e)
+		{
+
+		}
     }
 }

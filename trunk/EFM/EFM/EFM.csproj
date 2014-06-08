@@ -65,10 +65,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Administrator.cs" />
-    <Compile Include="AgencijaZaReklamiranje.cs" />
-    <Compile Include="Agent.cs" />
-    <Compile Include="Cistacica.cs" />
+    <Compile Include="Klase_EFM\Administrator.cs" />
+    <Compile Include="Klase_EFM\AgencijaZaReklamiranje.cs" />
+    <Compile Include="Klase_EFM\Agent.cs" />
+    <Compile Include="Klase_EFM\Cistacica.cs" />
     <Compile Include="DAO\DAL.cs" />
     <Compile Include="DAO\IDaoCrud.cs" />
     <Compile Include="DAO\KlijentDAO.cs" />
@@ -76,12 +76,12 @@
     <Compile Include="DAO\SlikeNekretninaDAO.cs" />
     <Compile Include="DAO\VanjskiSaradnikDAO.cs" />
     <Compile Include="DAO\ZaposlenikDAO.cs" />
-    <Compile Include="Direktor.cs" />
+    <Compile Include="Klase_EFM\Direktor.cs" />
     <Compile Include="EFMException.cs" />
-    <Compile Include="EksterniUgovor.cs" />
-    <Compile Include="FinalniUgovor.cs" />
-    <Compile Include="InterniUgovor.cs" />
-    <Compile Include="IUgovor.cs" />
+    <Compile Include="Klase_EFM\EksterniUgovor.cs" />
+    <Compile Include="Klase_EFM\FinalniUgovor.cs" />
+    <Compile Include="Klase_EFM\InterniUgovor.cs" />
+    <Compile Include="Klase_EFM\IUgovor.cs" />
     <Compile Include="Kontrole\checkKlijent.xaml.cs">
       <DependentUpon>checkKlijent.xaml</DependentUpon>
     </Compile>
@@ -94,13 +94,13 @@
     <Compile Include="Kontrole\kontrolaNekretnina.xaml.cs">
       <DependentUpon>kontrolaNekretnina.xaml</DependentUpon>
     </Compile>
-    <Compile Include="KupacProdavac.cs" />
-    <Compile Include="Nekretnina.cs" />
-    <Compile Include="NekretninaZaUI.cs" />
-    <Compile Include="Nekretnine.cs" />
-    <Compile Include="Notar.cs" />
-    <Compile Include="Osiguranje.cs" />
-    <Compile Include="Osoba.cs" />
+    <Compile Include="Klase_EFM\KupacProdavac.cs" />
+    <Compile Include="Klase_EFM\Nekretnina.cs" />
+    <Compile Include="Klase_EFM\NekretninaZaUI.cs" />
+    <Compile Include="Klase_EFM\Nekretnine.cs" />
+    <Compile Include="Klase_EFM\Notar.cs" />
+    <Compile Include="Klase_EFM\Osiguranje.cs" />
+    <Compile Include="Klase_EFM\Osoba.cs" />
     <Compile Include="Pomocni prozori\Izmjena entiteta.xaml.cs">
       <DependentUpon>Izmjena entiteta.xaml</DependentUpon>
     </Compile>
@@ -119,17 +119,17 @@
     <Compile Include="Pomocni prozori\Zaglavlje.xaml.cs">
       <DependentUpon>Zaglavlje.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Racunovodja.cs" />
-    <Compile Include="SlikeNekretnina.cs" />
-    <Compile Include="Ugovori.cs" />
-    <Compile Include="UnajmljivacIznajmljivac.cs" />
-    <Compile Include="VanjskiSaradnici.cs" />
-    <Compile Include="VanjskiSaradnik.cs" />
+    <Compile Include="Klase_EFM\Racunovodja.cs" />
+    <Compile Include="Klase_EFM\SlikeNekretnina.cs" />
+    <Compile Include="Klase_EFM\Ugovori.cs" />
+    <Compile Include="Klase_EFM\UnajmljivacIznajmljivac.cs" />
+    <Compile Include="Klase_EFM\VanjskiSaradnici.cs" />
+    <Compile Include="Klase_EFM\VanjskiSaradnik.cs" />
     <Compile Include="WndLogin.xaml.cs">
       <DependentUpon>WndLogin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Zaposlenici.cs" />
-    <Compile Include="Zaposlenik.cs" />
+    <Compile Include="Klase_EFM\Zaposlenici.cs" />
+    <Compile Include="Klase_EFM\Zaposlenik.cs" />
     <Page Include="Kontrole\checkKlijent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -154,7 +154,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Klijent.cs" />
+    <Compile Include="Klase_EFM\Klijent.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -216,6 +216,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resursi\BgImage.jpg" />
     <Content Include="Resursi\klijent.jpg" />
   </ItemGroup>
   <ItemGroup>

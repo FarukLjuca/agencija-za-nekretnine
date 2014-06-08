@@ -103,6 +103,7 @@ namespace EFM.Pomocni_prozori
 
         private bool samoSlova(TextBox t, Border b)
         {
+			
             bool dobar = true;
             foreach (char c in t.Text)
             {
