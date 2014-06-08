@@ -71,6 +71,7 @@
     <Compile Include="Cistacica.cs" />
     <Compile Include="DAO\DAL.cs" />
     <Compile Include="DAO\IDaoCrud.cs" />
+    <Compile Include="DAO\KlijentDAO.cs" />
     <Compile Include="DAO\NekretninaDAO.cs" />
     <Compile Include="DAO\SlikeNekretninaDAO.cs" />
     <Compile Include="DAO\VanjskiSaradnikDAO.cs" />
