@@ -23,14 +23,12 @@ namespace EFM
         /// </summary>
         /// <param name="Ime">Ime agenta</param>
         /// <param name="Prezime">Prezime agenta</param>
-        /// <param name="AdresaStanovanja">Adresa stanovanja agenta</param>
-        /// <param name="BrojTelefona">Broj telefona agenta</param>
         /// <param name="DatumRodjenja">Datum rodjenja agenta</param>
         /// <param name="BrojLicneKarte">Broj licne karte agenta</param>
         /// <param name="Povisica">Povisica agenta (opcionalno)</param>
         /// <exception cref="EFM.Exc.ArgumentException">Izuzetak biva bacen kada je povisica agenta negativna</exception>
-        public Agent(string Ime, string Prezime, string AdresaStanovanja, string BrojTelefona, DateTime DatumRodjenja, string BrojLicneKarte, double Plata, decimal Povisica = 0)
-            : base(Ime, Prezime, AdresaStanovanja, BrojTelefona, DatumRodjenja, BrojLicneKarte, Plata)
+        public Agent(string Ime, string Prezime, DateTime DatumRodjenja, string BrojLicneKarte, double Plata, decimal Povisica = 0)
+            : base(Ime, Prezime, DatumRodjenja, BrojLicneKarte, Plata)
         {
             this.Klijenti = new List<Klijent>();
             this.Povisica = Povisica;

@@ -24,15 +24,12 @@ namespace EFM
 		/// <param name="BrojTelefona">Broj Telefona (format: xxx-yyy-zzz)(ne validira se u V1)</param>
 		/// <param name="DatumRodjenja">DatumRodjenja (ne validira se u V1)</param>
 		/// <param name="BrojLicneKarte">Broj lične karte (ne validira se u V1)</param>
-		public Osoba(String Ime, String Prezime, String AdresaStanovanja,
-					String BrojTelefona, DateTime DatumRodjenja, String BrojLicneKarte)
+		public Osoba(String Ime, String Prezime, DateTime DatumRodjenja, String BrojLicneKarte)
 		{
 			this.Ime = Ime;
 			this.Prezime = Prezime;
 			this.DatumRodjenja = DatumRodjenja;
 			this.BrojLicneKarte = BrojLicneKarte;
-			this.AdresaStanovanja = AdresaStanovanja;
-			this.BrojTelefona = BrojTelefona;
 		}
 		/// <summary>
 		/// Ime osobe
@@ -45,18 +42,12 @@ namespace EFM
 		/// <summary>
 		/// Datum rođenja - Sati se odbacuju
 		/// </summary>
-		public DateTime DatumRodjenja { get; set; }
-		/// <summary>
-		/// Adresa stanovanja
-		/// </summary>
-		public String AdresaStanovanja { get; set; }
+        public DateTime DatumRodjenja { get; set; }
 		/// <summary>
 		/// Broj lične karte (nema validacije)(v1)
 		/// </summary>
 		public String BrojLicneKarte  { get; set; }
 		/// <summary>
 		/// Broj telefona u formatu xxx-yyy-eee (nema validacije)(v1)
-		/// </summary>
-		public String BrojTelefona { get; set; }
 	}
 }
