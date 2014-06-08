@@ -30,9 +30,54 @@ namespace EFM
         public MainWindow()
         {
             InitializeComponent();
+			foreach (TabItem t in tbcGlavniTab.Items)
+			{
+				t.Visibility = System.Windows.Visibility.Hidden;
+			}
+			tbcGlavniTab.Items.Clear();
 			WndLogin w = new WndLogin ();
 			if (w.ShowDialog () != true) Application.Current.Shutdown ();
 			privilegija = w.Privilegija;
+			#region Privilegije
+			AdminTabs = new TabItem[] { tabDobrodosli, tabNekretnine, tabVSaradnici, tabUgovori };
+			DirektorTabs = new TabItem[] { tabDobrodosli, tabNekretnine, tabZaposleni, tabKlijenti, tabVSaradnici, tabUgovori };
+			AgentTabs = new TabItem[] { tabDobrodosli, tabNekretnine, tabKlijenti };
+			RacunovodjaTabs = new TabItem[] { tabDobrodosli, tabZaposleni };
+			CistacicaTabs = new TabItem[] { tabDobrodosli };
+			var Nesto = DirektorTabs;
+			switch (privilegija)
+			{
+				case Privilegija.Direktor:
+					break;
+				case Privilegija.Admin:
+					Nesto = AdminTabs;
+					break;
+				case Privilegija.Agent:
+					Nesto = AgentTabs;
+					break;
+				case Privilegija.Racunovodja:
+					Nesto = RacunovodjaTabs;
+					break;
+				case Privilegija.Cistacica:
+					Nesto = CistacicaTabs;
+					break;
+			}
+			foreach (TabItem t in Nesto)
+			{
+				t.Visibility = System.Windows.Visibility.Visible;
+				tbcGlavniTab.Items.Add (t);
+			}
+			if (tabNekretnine.Visibility == System.Windows.Visibility.Hidden)
+				spLabels.Children.Remove (tbl2);
+			if (tabKlijenti.Visibility == System.Windows.Visibility.Hidden)
+				spLabels.Children.Remove (tbl3);
+			if (tabZaposleni.Visibility == System.Windows.Visibility.Hidden)
+				spLabels.Children.Remove (tbl4);
+			if (tabUgovori.Visibility == System.Windows.Visibility.Hidden)
+				spLabels.Children.Remove (tbl5);
+			if (tabVSaradnici.Visibility == System.Windows.Visibility.Hidden)
+				spLabels.Children.Remove (tbl6);
+			#endregion
 			tbIme.Text = w.User.Ime + ", dobrodošli";
 			var C = new System.Globalization.CultureInfo ("bs-Latn-BA");
 			String Dan = C.DateTimeFormat.GetDayName (DateTime.Today.DayOfWeek);
@@ -44,7 +89,7 @@ namespace EFM
             ZaposlenikDAO zDao = new ZaposlenikDAO();
             _zaposlenici = zDao.List();
             zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
-
+			
         }
 
         private void mitUnosNekretnina_Click(object sender, RoutedEventArgs e)
@@ -436,8 +481,12 @@ namespace EFM
         }
 
 
-        
 
+		private TabItem[] AdminTabs;
+		private TabItem[] AgentTabs;
+		private TabItem[] DirektorTabs;
+		private TabItem[] RacunovodjaTabs;
+		private TabItem[] CistacicaTabs;
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             System.Environment.Exit(0);

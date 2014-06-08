@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Login" Height="146.662" Width="282.735" Topmost="True" 
         ResizeMode="NoResize" ShowInTaskbar="False"
-        WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow"
+        WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow"
          
         >
     <Window.Background>
@@ -33,7 +33,7 @@
 
         </StackPanel>
         <TextBlock Name="tbInfo" Grid.Row="0" HorizontalAlignment="Right" 
-                   Margin="0,0,20,0" Foreground="White" FontWeight="Bold" Visibility="Visible">
+                   Margin="0,0,20,0" Foreground="White" FontWeight="Bold" Visibility="Hidden">
             UserID ili password nisu tačni!
         </TextBlock>
         <Button Name="btnOK" Content="_OK" HorizontalAlignment="Right" 

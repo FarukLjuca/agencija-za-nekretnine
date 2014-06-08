@@ -29,8 +29,16 @@ namespace EFM
 		private void btnOK_Click_1(object sender, RoutedEventArgs e)
 		{
 			//Sada je dovoljno samo kao user i pass prazno -.-
-			if (TxtUserID.Text == "" && TxtPassword.Text == "")
-			{ this.DialogResult = true; Privilegija = MainWindow.Privilegija.Direktor; User = new Zaposlenik { Ime = "Neko" }; this.Close (); return; }
+			string s = TxtUserID.Text;
+			if (!string.IsNullOrWhiteSpace(s))
+				s = s.ToLower ();
+			if (s == "admin") Privilegija = MainWindow.Privilegija.Admin;
+			else if (s == "direktor" || string.IsNullOrWhiteSpace (s)) {Privilegija = MainWindow.Privilegija.Direktor; s = "Direktor";}
+			else if (s == "cistacica") Privilegija = MainWindow.Privilegija.Cistacica;
+			else if (s == "agent") Privilegija = MainWindow.Privilegija.Agent;
+			else if (s.StartsWith ("racun")) Privilegija = MainWindow.Privilegija.Racunovodja;
+			else { tbInfo.Visibility = System.Windows.Visibility.Visible; return; }
+			{ this.DialogResult = true; User = new Zaposlenik { Ime = s.ToUpper() }; this.Close (); return; }
 			//DAO.ZaposlenikDAO d = new DAO.ZaposlenikDAO ();
 			//Zaposlenik z = new Zaposlenik ();
 			//z.UserName = TxtUserID.Text;
