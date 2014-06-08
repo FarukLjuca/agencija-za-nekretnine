@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
+using System.IO;
+using System.Windows.Media.Imaging;
 
 namespace EFM.DAO
 {
@@ -14,18 +16,30 @@ namespace EFM.DAO
         public long Create(Klijent Entity)
         {
             DAL konekcija = DAL.Instanca;
+
+            byte[] photo = null;
+
+            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(Entity.slika));
+            using (MemoryStream ms = new MemoryStream())
+            {
+                encoder.Save(ms);
+                photo = ms.ToArray();
+            }
+
             SQLiteCommand komanda = new SQLiteCommand(
                 "insert into klijenti (datum_rodjenja, ime, prezime, jmbg, brojlk, slika, agent) values ('" +
                 Entity.DatumRodjenja.Year.ToString() + "-" + Entity.DatumRodjenja.Month.ToString() + "-" +
                 Entity.DatumRodjenja.Day.ToString() + "', " + Entity.Ime + ", " + Entity.Prezime + ", " + Entity.JMBG + ", " +
-                Entity.BrojLicneKarte + ", " + s + ", null");
+                Entity.BrojLicneKarte + ", @photo, null");
+            komanda.Parameters.Add("@photo", System.Data.DbType.Binary).Value = photo;
             komanda.Connection = konekcija.Konekcija;
             komanda.ExecuteNonQuery();
             konekcija.Diskonektuj();
             
             return 0;
         }
-
+        /*
         public List<Klijent> getAll()
         {
             try
@@ -53,7 +67,8 @@ namespace EFM.DAO
                 throw e;
             }
         }
-
+        */
+        
         public Klijent Read(Klijent N)
         {
             return null;
