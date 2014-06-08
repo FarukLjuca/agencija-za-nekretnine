@@ -52,8 +52,9 @@
                         <RowDefinition Height="30"></RowDefinition>
                     </Grid.RowDefinitions>
                     <TextBlock x:Name="tbDate" Grid.Row="1" Margin="10,0,-10,0"><Run Text="Petak, 05.06.2014"/></TextBlock>
-                    <TextBlock Name="tbIme"  HorizontalAlignment="Left" Margin="10,7,0,0" TextWrapping="Wrap"
+                    <TextBlock Name="tbIme"  HorizontalAlignment="Left" Margin="10,7,0,0" TextWrapping="NoWrap"
                                Text="XY, dobrodošli" VerticalAlignment="Top" 
+                               
                                FontWeight="Bold" FontSize="25" 
                                Grid.Row="0" Foreground="Green" FontFamily="Tahoma"/>
                     <Button Name="BtnExit" Content="Izađi" Click="BtnExit_Click" HorizontalAlignment="Right" Margin="0,0,5,5" Grid.Row="3" VerticalAlignment="Top" Width="75"/>
@@ -70,14 +71,15 @@
                             <CornerRadius BottomLeft="20" BottomRight="20"  TopLeft="4" TopRight="4"/>
                             
                         </Border.CornerRadius>
-                        <StackPanel Orientation="Vertical">
+                        <StackPanel Name ="spLabels" Orientation="Vertical">
                             <TextBlock Margin="0,5" Name="tbl1">
                                 <Hyperlink Click="Hyperlink_Click_1" Foreground="Blue">Promijeni password...</Hyperlink>
                             </TextBlock>
-                            <Line StrokeThickness="3" Margin="0,5" Visibility="Visible" X1="0" Y1="0" X2="180">
+                            <Line StrokeThickness="2" Margin="0,5" Visibility="Visible" X1="0" Y1="0" X2="180">
                                 <Line.Stroke>
                                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0" Opacity=".5">
-                                        <GradientStop Color="Black" Offset="0" />
+                                        <GradientStop Color="White" Offset="0" />
+                                        <GradientStop Color="Black" Offset="0.5" />
                                         <GradientStop Color="White" Offset="1" />
                                     </LinearGradientBrush>
                                 </Line.Stroke>
@@ -225,7 +227,7 @@
 
             </TabItem>
 
-            <TabItem Name="tabKlijenti"
+            <TabItem x:Name="tabKlijenti"
                      Header="Klijenti">
                 <Grid>
                     <Grid.RowDefinitions>
