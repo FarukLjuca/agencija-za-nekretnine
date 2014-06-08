@@ -60,7 +60,7 @@ namespace EFM.Pomocni_prozori
             validirajIme();
             validirajJmbg();
             validirajPrezime();
-            if (validirajAdresu() & validirajBroj() & validirajIme() & validirajJmbg() & validirajPrezime())
+            if (validirajAdresu() && validirajBroj() && validirajIme() && validirajJmbg() && validirajPrezime())
             {
                 Agent a = null;
                 if (cbbAgent.SelectedIndex != -1) a = cbbAgent.SelectedItem as Agent;
@@ -106,7 +106,7 @@ namespace EFM.Pomocni_prozori
             bool dobar = true;
             foreach (char c in t.Text)
             {
-                if (!((c >= 'A' & c <= 'Z') | (c >= 'a' & c <= 'z') |
+                if (!((c >= 'A' && c <= 'Z') | (c >= 'a' && c <= 'z') |
                     (new List<char>() { 'Č', 'č', 'Ć', 'ć', 'Ž', 'ž', 'Đ', 'đ', 'Š', 'š' }).Exists(element => element == c)))
                 {
                     pocrveni(b);
@@ -128,7 +128,7 @@ namespace EFM.Pomocni_prozori
 
         private bool validirajIme ()
         {
-            if (prazno(tbxIme, borIme) & samoSlova(tbxIme, borIme)) return true;
+            if (prazno(tbxIme, borIme) && samoSlova(tbxIme, borIme)) return true;
             return false;
         }
 
@@ -139,7 +139,7 @@ namespace EFM.Pomocni_prozori
 
         private bool validirajPrezime ()
         {
-            if (prazno(tbxPrezime, borPrezime) & samoSlova(tbxPrezime, borPrezime)) return true;
+            if (prazno(tbxPrezime, borPrezime) && samoSlova(tbxPrezime, borPrezime)) return true;
             return false;
         }
 
@@ -153,7 +153,7 @@ namespace EFM.Pomocni_prozori
             bool dobar = true;
             foreach (char c in tbxJMBG.Text)
             {
-                if (!(c >= '0' & c <= '9'))
+                if (!(c >= '0' && c <= '9'))
                 {
                     pocrveni(borJMBG);
                     tbxJMBG.ToolTip = "Polje smije sadrzavati samo brojeve!";
@@ -164,7 +164,7 @@ namespace EFM.Pomocni_prozori
             if (dobar == true) odcrveni(borJMBG);
             else pocrveni(borJMBG);
 
-            return dobar & prazno(tbxJMBG, borJMBG);
+            return dobar && prazno(tbxJMBG, borJMBG);
         }
 
         private void tbxAdresa_TextChanged(object sender, TextChangedEventArgs e)
@@ -174,7 +174,7 @@ namespace EFM.Pomocni_prozori
 
         private bool validirajAdresu()
         {
-            if (prazno(tbxAdresa, borAdresa) & samoSlova(tbxAdresa, borAdresa)) return true;
+            if (prazno(tbxAdresa, borAdresa) && samoSlova(tbxAdresa, borAdresa)) return true;
             return false;
         }
 
@@ -188,7 +188,7 @@ namespace EFM.Pomocni_prozori
             bool dobar = true;
             foreach (char c in tbxTel.Text)
             {
-                if (!(c >= '0' & c <= '9') & c != ' ')
+                if (!(c >= '0' && c <= '9') && c != ' ')
                 {
                     pocrveni(borTel);
                     tbxTel.ToolTip = "Polje smije sadrzavati samo brojeve i praznine!";
