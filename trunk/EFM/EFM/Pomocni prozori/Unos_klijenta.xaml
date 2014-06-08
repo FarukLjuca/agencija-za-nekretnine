@@ -47,7 +47,7 @@
                         BorderThickness="2.5"
                         Grid.Row="1"
                          Grid.Column="1">
-                    <TextBox Name="tbxIme"/>
+                    <TextBox Name="tbxIme" TextChanged="tbxIme_TextChanged"/>
                 </Border>
                 
                 <TextBlock Name="tblPrezime"
@@ -61,7 +61,7 @@
                         BorderThickness="2.5"
                         Grid.Row="2"
                         Grid.Column="1">
-                    <TextBox Name="tbxPrezime"/>
+                    <TextBox Name="tbxPrezime" TextChanged="tbxPrezime_TextChanged"/>
                 </Border>
 
                 <TextBlock Name="tblDatumRodjenja"
@@ -89,7 +89,7 @@
                         BorderThickness="2.5"
                         Grid.Row="4"
                         Grid.Column="1">
-                    <TextBox Name="tbxJMBG"/>
+                    <TextBox Name="tbxJMBG" TextChanged="tbxJMBG_TextChanged"/>
                 </Border>
 
                 <TextBlock Name="tblBrLK"
@@ -117,7 +117,7 @@
                         BorderThickness="2.5"
                         Grid.Row="2"
                         Grid.Column="4">
-                    <TextBox Name="tbxAdresa"/>
+                    <TextBox Name="tbxAdresa" TextChanged="tbxAdresa_TextChanged"/>
                 </Border>
 
                 <TextBlock Name="tblTel"
@@ -131,7 +131,7 @@
                         BorderThickness="2.5"
                         Grid.Row="3"
                         Grid.Column="4">
-                    <TextBox Name="tbxTel"/>
+                    <TextBox Name="tbxTel" TextChanged="tbxTel_TextChanged"/>
                 </Border>
 
                 <TextBlock Name="tblAgent"
@@ -145,7 +145,7 @@
                         BorderThickness="2.5"
                         Grid.Row="4"
                         Grid.Column="4">
-                    <ComboBox Name="tbxAgent"/>
+                    <ComboBox Name="cbbAgent"/>
                 </Border>
 
                 <Button Name="btnOK"
@@ -181,7 +181,7 @@
                         Grid.ColumnSpan="7"
                         Height="23"
                         Width="75"
-                        VerticalAlignment="Top"/>
+                        VerticalAlignment="Top" Click="btnDodaj_Click"/>
             </Grid>
         </Border>
     </Grid>
