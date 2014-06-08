@@ -1,8 +1,56 @@
 ﻿<Window x:Class="EFM.Pomocni_prozori.Unos_klijenta"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Unos_klijenta" Height="300" Width="300">
+        Title="Unos klijenta" Height="281.507" Width="595.891">
     <Grid>
-        
+        <Border Name="borGlavni"
+                BorderThickness="1"
+                BorderBrush="Black"
+                Margin="5">
+            <Grid Name="griGlavni">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Name="tblNaslov"
+                           Text="Uneiste podatke o novom klijentu:"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="4"
+                           Margin="10"/>
+
+                <TextBlock Name="tblIme"
+                           Text="Ime:"
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"/>
+                <Border Name="borIme"
+                        BorderBrush="White"
+                        BorderThickness="2.5"
+                        Grid.Row="1"
+                         Grid.Column="1">
+                    <TextBox Name="tbxIme"/>
+                </Border>
+                
+                
+            </Grid>
+        </Border>
     </Grid>
 </Window>
