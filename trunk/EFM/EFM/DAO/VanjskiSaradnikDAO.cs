@@ -43,7 +43,7 @@ namespace EFM.DAO
                 "SELECT last_insert_rowid();";
             insertCommand.Parameters.AddRange(new[]
                 {
-                    new SQLiteParameter("@ime", Entity.Naziv),
+                    new SQLiteParameter("@naziv", Entity.Naziv),
                     new SQLiteParameter("@plata", Entity.Plata),
                 });
             
@@ -87,7 +87,7 @@ namespace EFM.DAO
                 VanjskiSaradnikUloga vanjskiSaradnikUloga = new VanjskiSaradnikUloga();
                 VanjskiSaradnik vanjskisaradnik = vanjskiSaradnikUloga.GetSaradnik((string)reader["pozicija"]);
                 vanjskisaradnik.Id = (long)reader["id"];
-                vanjskisaradnik.Naziv = (string)reader["ime"];
+                vanjskisaradnik.Naziv = (string)reader["naziv"];
                 vanjskisaradnik.Plata = (double)reader["plata"];
 
                 vanjskiSaradnici.ListaVanjskihSaradnika.Add(vanjskisaradnik);
