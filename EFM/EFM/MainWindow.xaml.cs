@@ -30,7 +30,6 @@ namespace EFM
         public MainWindow()
         {
             InitializeComponent();
-			InitializeComponent ();
 			WndLogin w = new WndLogin ();
 			if (w.ShowDialog () != true) Application.Current.Shutdown ();
 			privilegija = w.Privilegija;
@@ -41,6 +40,7 @@ namespace EFM
 			sb[0] = char.ToUpper (sb[0]);
 			tbDate.Text = sb.ToString() + ", " + DateTime.Today.ToShortDateString ();
             popuniNekretnine();
+            popuniKlijente();
             ZaposlenikDAO zDao = new ZaposlenikDAO();
             _zaposlenici = zDao.List();
             zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
@@ -142,7 +142,7 @@ namespace EFM
 
         private void btnEditMode_Click(object sender, RoutedEventArgs e)
         {
-            postaviPanelu();
+            if (editMode == false) postaviPanelu();
             refreshCheckN();
             editMode = true;
         }
@@ -244,9 +244,19 @@ namespace EFM
         List<Klijent> klijeti = new List<Klijent>();
         bool editModeK = false;
 
+        private void popuniKlijente()
+        {
+            /*
+            DAO.KlijentDAO kd = new KlijentDAO();
+            klijeti = kd.getAll();
+            */
+            refreshK();
+            cbbpretrazivanjePoKlijenti.SelectedIndex = 0;
+        }
+
         private void btnEditModeK_Click(object sender, RoutedEventArgs e)
         {
-            postaviPaneluK();
+            if (editModeK == false) postaviPaneluK();
             refreshCheckK();
             editModeK = true;
         }

@@ -30,8 +30,8 @@ namespace EFM.DAO
             SQLiteCommand komanda = new SQLiteCommand(
                 "insert into klijenti (datum_rodjenja, ime, prezime, jmbg, brojlk, slika, agent) values ('" +
                 Entity.DatumRodjenja.Year.ToString() + "-" + Entity.DatumRodjenja.Month.ToString() + "-" +
-                Entity.DatumRodjenja.Day.ToString() + "', " + Entity.Ime + ", " + Entity.Prezime + ", " + Entity.JMBG + ", " +
-                Entity.BrojLicneKarte + ", " + photo + ", null");
+                Entity.DatumRodjenja.Day.ToString() + "', " + Entity.Ime + ", " + Entity.Prezime + ", " +
+                Entity.JMBG + ", " + Entity.BrojLicneKarte + ", '" + photo + "', null");
             //komanda.Parameters.Add("@photo", System.Data.DbType.Binary).Value = photo;
             komanda.Connection = konekcija.Konekcija;
             komanda.ExecuteNonQuery();
@@ -39,35 +39,30 @@ namespace EFM.DAO
             
             return 0;
         }
-        /*
+        
         public List<Klijent> getAll()
         {
             try
             {
                 DAL konekcija = DAL.Instanca;
-                SQLiteCommand c = new SQLiteCommand("select * from nekretnine;", konekcija.Konekcija);
+                SQLiteCommand c = new SQLiteCommand("select * from klijenti;", konekcija.Konekcija);
                 SQLiteDataReader r = c.ExecuteReader();
-                List<Nekretnina> nekretnine = new List<Nekretnina>();
+                List<Klijent> klijenti = new List<Klijent>();
                 while (r.Read())
                 {
                     int test = r.GetInt32(0);
-                    nekretnine.Add(new Nekretnina(r.GetString(1), r.GetString(2),
-                        (Nekretnina.EnumTipNekretnine)Enum.Parse(typeof(Nekretnina.EnumTipNekretnine), r.GetString(3), true),
-                        0, 0, true));
-                    if (r.GetInt32(4) == 0)
-                        nekretnine[nekretnine.Count - 1].DaLiJeRezervisana = false;
-                    nekretnine[nekretnine.Count - 1].ID = test;
-                    nekretnine[nekretnine.Count - 1].Cijena = r.GetDecimal(5);
+                    Klijent k = new Klijent(r.GetDateTime(1), r.GetString(2), r.GetString(3), r.GetString(4), r.GetString(5),
+                        null/*SLIKA*/, null);
+                    klijenti.Add(k);
                 }
                 konekcija.Diskonektuj();
-                return nekretnine;
+                return klijenti;
             }
             catch (Exception e)
             {
                 throw e;
             }
         }
-        */
         
         public Klijent Read(Klijent N)
         {
