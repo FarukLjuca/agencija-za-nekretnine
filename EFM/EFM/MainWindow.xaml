@@ -57,7 +57,7 @@
                                FontWeight="Bold" FontSize="25" 
                                Grid.Row="0" Foreground="Green" FontFamily="Tahoma"/>
                     <Button Name="BtnExit" Content="Izađi" Click="BtnExit_Click" HorizontalAlignment="Right" Margin="0,0,5,5" Grid.Row="3" VerticalAlignment="Top" Width="75"/>
-                    <Border BorderThickness="2" Width="181" Margin="10,10,0,10" HorizontalAlignment="Left" Grid.Row="2">
+                    <Border BorderThickness="0" Width="181" Margin="10,10,0,10" HorizontalAlignment="Left" Grid.Row="2">
 
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" Opacity="0.25">
@@ -67,7 +67,7 @@
                             </LinearGradientBrush>
                         </Border.Background>
                         <Border.CornerRadius>
-                            <CornerRadius BottomLeft="20" BottomRight="20"  TopLeft="5" TopRight="5"/>
+                            <CornerRadius BottomLeft="20" BottomRight="20"  TopLeft="4" TopRight="4"/>
                             
                         </Border.CornerRadius>
                         <StackPanel Orientation="Vertical">
@@ -82,19 +82,19 @@
                                     </LinearGradientBrush>
                                 </Line.Stroke>
                             </Line>
-                            <TextBlock Margin="0,5" Name="tbl2">
+                            <TextBlock Margin="1,5" Name="tbl2">
                                 <Hyperlink Click="Hyperlink_Click_2" Foreground="Blue">Pregledaj nekretnine</Hyperlink>
                             </TextBlock>
-                            <TextBlock Margin="0,5" Name="tbl3">
+                            <TextBlock Margin="1,5" Name="tbl3">
                                 <Hyperlink  Click="Hyperlink_Click_3" Foreground="Blue">Pregledaj klijente</Hyperlink>
                             </TextBlock>
-                            <TextBlock Margin="0,5" Name="tbl4">
+                            <TextBlock Margin="1,5" Name="tbl4">
                                 <Hyperlink Click="Hyperlink_Click_4" Foreground="Blue">Pregledaj zaposlene</Hyperlink>
                             </TextBlock>
-                            <TextBlock Margin="0,5" Name="tbl5">
+                            <TextBlock Margin="1,5" Name="tbl5">
                                 <Hyperlink Click="Hyperlink_Click_5" Foreground="Blue">Pregledaj ugovore</Hyperlink>
                             </TextBlock>
-                            <TextBlock Margin="0,5" Name="tbl6">
+                            <TextBlock Margin="1,5" Name="tbl6">
                                 <Hyperlink Click="Hyperlink_Click_6" Foreground="Blue">Pregledaj vanjske saradnike</Hyperlink>
                             </TextBlock>
                         </StackPanel>
@@ -102,7 +102,9 @@
 
 
                     <Grid.Background>
-                        <ImageBrush ImageSource="Resursi/BgImage.jpg"/>
+                        <ImageBrush AlignmentX="Left"
+                                    AlignmentY="Top" ImageSource="Resursi/BgImage.jpg"
+                                     Opacity="0.57"/>
                     </Grid.Background>
 
                 </Grid>
