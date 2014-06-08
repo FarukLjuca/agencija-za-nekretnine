@@ -34,5 +34,10 @@ namespace EFM.Kontrole
         {
             get { return cbxEdit.IsChecked == true; }
         }
+
+        public override string ToString()
+        {
+            return klijent.ToString1();
+        }
     }
 }

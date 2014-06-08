@@ -46,5 +46,15 @@ namespace EFM
         {
             return Ime + " " + Prezime;
         }
+
+        public string ToString1()
+        {
+            return "Detaljni podaci o klijentu\n" +
+                "\nIme: " + Ime +
+                "\nPrezime: " + Prezime +
+                "\nDatum rođenja: " + String.Format("{0:DD.MM.YYYY.", DatumRodjenja) +
+                "\nJMBG: " + JMBG +
+                "\nBroj licne karte: " + BrojLicneKarte;
+        }
     }
 }

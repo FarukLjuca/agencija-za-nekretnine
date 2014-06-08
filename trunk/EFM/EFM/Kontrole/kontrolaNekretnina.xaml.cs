@@ -20,11 +20,19 @@ namespace EFM.Kontrole
     /// </summary>
     public partial class kontrolaNekretnina : UserControl
     {
+        private Nekretnina nekretnina = null;
+
         public kontrolaNekretnina(Nekretnina n, BitmapImage slika1)
         {
             InitializeComponent();
             imgSlika.Source = slika1;
             txtOpis.Text = n.Opis;
+            nekretnina = n;
+        }
+
+        public override string ToString()
+        {
+            return nekretnina.ToString();
         }
     }
 }

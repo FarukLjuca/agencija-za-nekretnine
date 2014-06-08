@@ -326,10 +326,10 @@
 
             </TabItem>
         </TabControl>
-
     </Grid>
 </Window>
-<!--
+
+        <!--
                             <RadialGradientBrush Center="0.5,0.5" GradientOrigin="1,0.9" ColorInterpolationMode="ScRgbLinearInterpolation" RadiusX="0.6" RadiusY="0.7">
                             <GradientStop Color="White" Offset="0.2"></GradientStop>
                             <GradientStop Color="PaleGreen" Offset="0.8"></GradientStop>
