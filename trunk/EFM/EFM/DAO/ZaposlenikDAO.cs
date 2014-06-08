@@ -16,7 +16,7 @@ namespace EFM.DAO
         protected DAL Conn = null;
         public ZaposlenikDAO()
         {
-            Conn = DAL.Instanca;
+
         }
 
         public long Create(Zaposlenik Entity)
@@ -38,8 +38,10 @@ namespace EFM.DAO
             {
                 role = "Administrator";
             }
-            Conn = DAL.Instanca;
-            SQLiteCommand insertCommand = Conn.Konekcija.CreateCommand();
+
+            DAL kon1 = DAL.Instanca;
+
+            SQLiteCommand insertCommand = kon1.Konekcija.CreateCommand();
             insertCommand.CommandText = "INSERT INTO uposlenici(ime, prezime, jmbg, brojlk, plata, pozicija, datum_rodjenja, datum_zaposlenja) " +
                 "VALUES (@ime, @prezime, @jmbg, @brojlk, @plata, @pozicija, @datum_rodjenja, @datum_zaposlenja); " +
                 "SELECT last_insert_rowid();";
@@ -55,6 +57,9 @@ namespace EFM.DAO
                     new SQLiteParameter("@datum_zaposlenja", Entity.DatumZaposlenja)
                 });
             Entity.Id = (long)insertCommand.ExecuteScalar();
+
+            kon1.Diskonektuj();
+
             return Entity.Id;
         }
 
@@ -72,17 +77,22 @@ namespace EFM.DAO
 
         public void Delete(Zaposlenik Entity)
         {
-            SQLiteCommand listCommand = Conn.Konekcija.CreateCommand();
+            DAL kon2 = DAL.Instanca;
+
+            SQLiteCommand listCommand = kon2.Konekcija.CreateCommand();
             listCommand.CommandText = "DELETE FROM uposlenici WHERE id=@id";
             listCommand.Parameters.Add(new SQLiteParameter("@id", Entity.Id));
             // Change to base class
             listCommand.ExecuteNonQuery();
+
+            kon2.Diskonektuj();
         }
 
         internal Zaposlenici List()
         {
             // TODO CHange to DbConnectionBase
-            SQLiteCommand listCommand = Conn.Konekcija.CreateCommand();
+            DAL kon3 = DAL.Instanca;
+            SQLiteCommand listCommand = kon3.Konekcija.CreateCommand();
             listCommand.CommandText = "SELECT id, ime, prezime, jmbg, plata, pozicija FROM uposlenici;";
             // Change to base class
             SQLiteDataReader reader = listCommand.ExecuteReader();
@@ -99,6 +109,8 @@ namespace EFM.DAO
 
                 zaposlenici.ListaZaposlenika.Add(zaposlenik);
             }
+
+            kon3.Diskonektuj();
 
             return zaposlenici;
 
