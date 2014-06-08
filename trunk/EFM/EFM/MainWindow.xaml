@@ -177,7 +177,7 @@
                             <ComboBoxItem Content="Cistacica" />
                             <ComboBoxItem Content="Racunovodja" />
                         </ComboBox>
-                        <Button Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Click="Button_Click_1">
+                        <Button Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Click="Unos_Zaposlenika">
                             Dodaj zaposlenika
                         </Button>
                     </Grid>
@@ -272,7 +272,7 @@
                             <ComboBoxItem Content="Osiguranje" />
                            
                         </ComboBox>
-                        <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Click="Button_Click_3">
+                        <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Click="Unos_Vanjskog_Saradnika">
                             Dodaj VANJSKOG SARADNIKA
                         </Button>
                     </Grid>
