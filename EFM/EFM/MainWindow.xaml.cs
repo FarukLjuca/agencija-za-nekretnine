@@ -229,6 +229,147 @@ namespace EFM
 
         #endregion
 
+        #region Klijenti
+
+        List<Klijent> klijeti = new List<Klijent>();
+        bool editModeK = false;
+
+        private void btnEditModeK_Click(object sender, RoutedEventArgs e)
+        {
+            postaviPaneluK();
+            refreshCheckK();
+            editModeK = true;
+        }
+
+        private void postaviPaneluK()
+        {
+            btnEditModeKlijenti.Margin = new Thickness(15, 20, 15, 5);
+
+            Button btnDodajKlijenti = new Button();
+            btnDodajKlijenti.Margin = new Thickness(15, 5, 15, 5);
+            btnDodajKlijenti.Content = "Dodaj novu";
+            btnDodajKlijenti.Click += new RoutedEventHandler(dodajKlijenta_Click);
+            spnlButtoni.Children.Add(btnDodajKlijenti);
+
+            Button btnObrisiKlijenti = new Button();
+            btnObrisiKlijenti.Margin = new Thickness(15, 5, 15, 5);
+            btnObrisiKlijenti.Content = "Obrisi";
+            btnObrisiKlijenti.Click += new RoutedEventHandler(obrisiKlijente_Click);
+            spnlButtoni.Children.Add(btnObrisiKlijenti);
+        }
+
+        private void dodajKlijenta_Click(object seneder, RoutedEventArgs e)
+        {
+            Pomocni_prozori.Unos_klijenta k = new Pomocni_prozori.Unos_klijenta(klijeti);
+            k.ShowDialog();
+            if (editModeK == true) refreshCheckK();
+            else refreshK();
+            tbxSearchK_TextChanged(tbxSearch, null);
+        }
+
+        private void obrisiKlijente_Click(object seneder, RoutedEventArgs e)
+        {
+            foreach (Kontrole.checkKlijent ck in wpnlKlijenti.Children)
+            {
+                if (ck.IsChecked == true)
+                {
+                    klijeti.Remove(ck.klijent);
+                }
+            }
+            if (editModeK == true) refreshCheckK();
+            else refreshK();
+        }
+
+        private void refreshK()
+        {
+            wpnlKlijenti.Children.RemoveRange(0, wpnlKlijenti.Children.Count);
+            foreach (Klijent k in klijeti)
+            {
+                if (k.prikazi == true)
+                {
+                    if (k.slika == null)
+                    {
+                        Assembly assembly = Assembly.GetCallingAssembly();
+
+                        BitmapImage img = new BitmapImage();
+                        img.BeginInit();
+                        img.UriSource = new Uri(@"pack://application:,,,/" + assembly.GetName().Name + ";component/Resursi/klijent.jpg",
+                            UriKind.Absolute);
+                        img.EndInit();
+
+                        k.slika = img;
+                    }
+
+                    Kontrole.kontrolaKlijent kk = new Kontrole.kontrolaKlijent(k);
+                    wpnlKlijenti.Children.Add(kk);
+                }
+            }
+        }
+
+        private void refreshCheckK()
+        {
+            wpnlKlijenti.Children.RemoveRange(0, wpnlKlijenti.Children.Count);
+            foreach (Klijent k in klijeti)
+            {
+                if (k.prikazi == true)
+                {
+                    if (k.slika == null)
+                    {
+                        Assembly assembly = Assembly.GetCallingAssembly();
+
+                        BitmapImage img = new BitmapImage();
+                        img.BeginInit();
+                        img.UriSource = new Uri(@"pack://application:,,,/" + assembly.GetName().Name + ";component/Resursi/klijent.jpg",
+                            UriKind.Absolute);
+                        img.EndInit();
+
+                        k.slika = img;
+                    }
+
+                    Kontrole.checkKlijent kk = new Kontrole.checkKlijent(k);
+                    wpnlKlijenti.Children.Add(kk);
+                }
+            }
+        }
+
+        private void tbxSearchK_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (cbbpretrazivanjePoKlijenti.SelectedIndex == 0)
+            {
+                foreach (Klijent k in klijeti)
+                {
+                    if (!k.Ime.Contains(tbxSearchKlijenti.Text))
+                        k.prikazi = false;
+                    else
+                        k.prikazi = true;
+                }
+            }
+            else if (cbbpretrazivanjePoKlijenti.SelectedIndex == 1)
+            {
+                foreach (Klijent k in klijeti)
+                {
+                    if (!k.Prezime.Contains(tbxSearchKlijenti.Text))
+                        k.prikazi = false;
+                    else
+                        k.prikazi = true;
+                }
+            }
+            else
+            {
+                foreach (Klijent k in klijeti)
+                {
+                    if (!k.JMBG.ToString().Contains(tbxSearchKlijenti.Text))
+                        k.prikazi = false;
+                    else
+                        k.prikazi = true;
+                }
+            }
+            if (editModeK == true) refreshCheckK();
+            else refreshK();
+        }
+
+        #endregion
+
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
             //TODO: Snimiti u bazu ILI kreirati Exit event pa u njemu snimati
