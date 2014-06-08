@@ -127,12 +127,12 @@
                      Header="Zaposleni">
                 <!-- TODO GRID -->
                 <StackPanel Orientation="Horizontal">
-                    <StackPanel Width="200px" Orientation="Vertical">
+                    <StackPanel Width="300px" Orientation="Vertical">
                         <DataGrid Name="zaposleniciGrid" >
 
                         </DataGrid>
                     </StackPanel>
-                    <Grid Width="200px">
+                    <Grid Width="205">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*"></ColumnDefinition>
                             <ColumnDefinition Width="3*"></ColumnDefinition>
