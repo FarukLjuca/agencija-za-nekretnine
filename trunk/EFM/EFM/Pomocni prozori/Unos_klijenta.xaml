@@ -23,7 +23,7 @@
                     <ColumnDefinition Width="120"/>
                     <ColumnDefinition Width="10"/>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="120"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
@@ -55,13 +55,96 @@
                            Grid.Column="0"
                            HorizontalAlignment="Right"
                            VerticalAlignment="Center"/>
-
                 <Border Name="borPrezime"
                         BorderBrush="White"
                         BorderThickness="2.5"
                         Grid.Row="2"
-                         Grid.Column="1">
+                        Grid.Column="1">
                     <TextBox Name="tbxPrezime"/>
+                </Border>
+
+                <TextBlock Name="tblDatumRodjenja"
+                           Text=" Datum rođenja: "
+                           Grid.Row="3"
+                           Grid.Column="0"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"/>
+                <Border Name="borDatumRodjenja"
+                        BorderBrush="White"
+                        BorderThickness="2.5"
+                        Grid.Row="3"
+                        Grid.Column="1">
+                    <DatePicker Name="dtpDatumRodjenja"/>
+                </Border>
+
+                <TextBlock Name="tblJMBG"
+                           Text="JMBG: "
+                           Grid.Row="4"
+                           Grid.Column="0"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"/>
+                <Border Name="borJMBG"
+                        BorderBrush="White"
+                        BorderThickness="2.5"
+                        Grid.Row="4"
+                        Grid.Column="1">
+                    <TextBox Name="tbxJMBG"/>
+                </Border>
+
+                <TextBlock Name="tblBrLK"
+                           Text=" Broj licne karte: "
+                           Grid.Row="1"
+                           Grid.Column="3"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"/>
+                <Border Name="borBrLK"
+                        BorderBrush="White"
+                        BorderThickness="2.5"
+                        Grid.Row="1"
+                        Grid.Column="4">
+                    <TextBox Name="tbxBrLK"/>
+                </Border>
+
+                <TextBlock Name="tblAdresa"
+                           Text="Adresa: "
+                           Grid.Row="2"
+                           Grid.Column="3"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"/>
+                <Border Name="borAdresa"
+                        BorderBrush="White"
+                        BorderThickness="2.5"
+                        Grid.Row="2"
+                        Grid.Column="4">
+                    <TextBox Name="tbxAdresa"/>
+                </Border>
+
+                <TextBlock Name="tblTel"
+                           Text="Broj telefona: "
+                           Grid.Row="3"
+                           Grid.Column="3"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"/>
+                <Border Name="borTel"
+                        BorderBrush="White"
+                        BorderThickness="2.5"
+                        Grid.Row="3"
+                        Grid.Column="4">
+                    <TextBox Name="tbxTel"/>
+                </Border>
+
+                <TextBlock Name="tblAgent"
+                           Text="Zaduzeni agent: "
+                           Grid.Row="4"
+                           Grid.Column="3"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center"/>
+                <Border Name="borAgent"
+                        BorderBrush="White"
+                        BorderThickness="2.5"
+                        Grid.Row="4"
+                        Grid.Column="4">
+                    <ComboBox Name="tbxAgent"/>
                 </Border>
             </Grid>
         </Border>
