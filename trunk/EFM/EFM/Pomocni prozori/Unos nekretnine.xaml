@@ -73,11 +73,12 @@
                      Grid.Column="1"
                      Margin="5"/>
             <CheckBox Name="cbxRezervisanost"
-                  Grid.Row="5"
-                  Grid.Column="0"
-                  Content="Rezervisanost"
-                  Margin="5"
-                  ToolTip="Oznacite ukoliko je nekretnina rezervisana" />
+                      Grid.Row="5"
+                      Grid.Column="1"
+                      Content="Rezervisanost"
+                      Margin="5"
+                      ToolTip="Oznacite ukoliko je nekretnina rezervisana"
+                      />
             <Button Name="btnOK"
                 Content="OK"
                 Grid.Row="6"
