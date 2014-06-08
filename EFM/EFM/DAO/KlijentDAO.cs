@@ -15,7 +15,7 @@ namespace EFM.DAO
         {
             DAL konekcija = DAL.Instanca;
             SQLiteCommand komanda = new SQLiteCommand(
-                "insert into klijenti (datum_rodjenja, ime, prezime, jmbg, brojlk, adresa_stanovanja, broj_telefona, slika, agent) values ('" +
+                "insert into klijenti (datum_rodjenja, ime, prezime, jmbg, brojlk, slika, agent) values ('" +
                 Entity.DatumRodjenja.Year.ToString() + "-" + Entity.DatumRodjenja.Month.ToString() + "-" +
                 Entity.DatumRodjenja.Day.ToString() + "', " + Entity.Ime + ", " + Entity.Prezime + ", " + Entity.JMBG + ", " +
                 Entity.BrojLicneKarte + ", " + s + ", null");
