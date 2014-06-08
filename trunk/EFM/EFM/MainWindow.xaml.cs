@@ -435,32 +435,32 @@ namespace EFM
 
 		private void Hyperlink_Click_1(object sender, RoutedEventArgs e)
 		{
-
+			System.Windows.Forms.MessageBox.Show ("Nekako trbe odvesti do forme mijenjanja passworda. Ako je ovo napravljeno dobro (kako sam ja zamislio, onda će to lagano biti.. ali et'");
 		}
 
 		private void Hyperlink_Click_2(object sender, RoutedEventArgs e)
 		{
-
+			tbcGlavniTab.SelectedItem = tabNekretnine;
 		}
 
 		private void Hyperlink_Click_3(object sender, RoutedEventArgs e)
 		{
-
+			tbcGlavniTab.SelectedItem = tabKlijenti;
 		}
 
 		private void Hyperlink_Click_4(object sender, RoutedEventArgs e)
 		{
-
+			tbcGlavniTab.SelectedItem = tabZaposleni;
 		}
 
 		private void Hyperlink_Click_5(object sender, RoutedEventArgs e)
 		{
-
+			tbcGlavniTab.SelectedItem = tabUgovori;
 		}
 
 		private void Hyperlink_Click_6(object sender, RoutedEventArgs e)
 		{
-
+			tbcGlavniTab.SelectedItem = tabVSaradnici;
 		}
     }
 }
