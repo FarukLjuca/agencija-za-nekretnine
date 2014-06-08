@@ -7,28 +7,34 @@ using DB = System.Data.SQLite;
 
 namespace EFM
 {
+	
 	public class EksterniUgovorDAO : DAO.IDaoCrud<EksterniUgovor>
 	{
 		public long Create(EksterniUgovor E)
 		{
 			DAL d = DAL.Instanca;
+
 			DB.SQLiteCommand C = new DB.SQLiteCommand ();
 			C.Connection = d.Konekcija;
 			C.CommandText = String.Format ("INSERT INTO EUGOVORI (DATUM, OPIS, ESARADNIK)" + 
-				" VALUES ('{0}', '{1}', {2})", E.DatumSklapanja.ToShortDateString (),
-			 E.Opis, E.VanjskiSaradnik.Id);
+				" VALUES (@DATE, '{0}', {1})",  E.Opis, DAL.REP (E.VanjskiSaradnik).Id);
+			C.Parameters.Add ("@DATE",   System.Data.DbType.String).Value = DT(E.DatumSklapanja);
 			long x = C.ExecuteNonQuery ();
 			return x;
 
 		}
-
+		private string DT(DateTime datetime)
+		{
+			string dateTimeFormat = "{0}-{1}-{2} {3}:{4}:{5}.{6}";
+			return string.Format (dateTimeFormat, datetime.Year, datetime.Month, datetime.Day, datetime.Hour, datetime.Minute, datetime.Second, datetime.Millisecond);
+		}
 		public EksterniUgovor Read(EksterniUgovor E)
 		{
 			DAL d = DAL.Instanca;
 			DB.SQLiteCommand C = new DB.SQLiteCommand ();
 			C.Connection = d.Konekcija;
-			C.CommandText = String.Format ("SELECT * FROM IUGOVORI WHERE ID = @ID");
-			C.Parameters.Add ("@ID");
+			C.CommandText = String.Format ("SELECT * FROM EUGOVORI WHERE ID = @ID");
+			C.Parameters.Add ("@ID", System.Data.DbType.Int32);
 			C.Parameters["@ID"].Value = E.ID;
 			DB.SQLiteDataReader R = C.ExecuteReader ();
 			if (R.Read ())
@@ -37,7 +43,8 @@ namespace EFM
 				F.ID = E.ID;
 				F.Opis = R.GetString (2);
 				F.VanjskiSaradnik = (new DAO.VanjskiSaradnikDAO ()).Read (new VanjskiSaradnik { Id = R.GetInt32 (3) });
-				F.DatumSklapanja = R.GetDateTime (1);
+				//F.DatumSklapanja = (DateTime) R[1];
+				F.DatumSklapanja = DateTime.Parse (R.GetString (1));
 				return F;
 			}
 			else return null;
@@ -48,9 +55,9 @@ namespace EFM
 			DAL d = DAL.Instanca;
 			DB.SQLiteCommand C = new DB.SQLiteCommand ();
 			C.Connection = d.Konekcija;
-			C.CommandText = String.Format ("UPDATE IUGOVORI SET DATUM = '{0}', " +
-						"OPIS = '{1}', ESARADNIK = {2}", E.DatumSklapanja.ToShortDateString (),
-						 E.Opis, E.VanjskiSaradnik.Id);
+			C.CommandText = String.Format ("UPDATE EUGOVORI SET DATUM = @DATE, " +
+						"OPIS = '{0}', ESARADNIK = {1}", E.Opis, DAL.REP(E.VanjskiSaradnik).Id);
+			C.Parameters.Add ("@DATE",  System.Data.DbType.String).Value = DT(E.DatumSklapanja.Date);
 			return E;
 		}
 
@@ -60,7 +67,7 @@ namespace EFM
 			DB.SQLiteCommand C = new DB.SQLiteCommand ();
 			C.Connection = d.Konekcija;
 			C.CommandText = String.Format ("DELETE FROM EUGOVORI WHERE ID = @ID");
-			C.Parameters.Add ("@ID");
+			C.Parameters.Add ("@ID",  System.Data.DbType.Int32);
 			C.Parameters["@ID"].Value = E.ID;
 			C.ExecuteNonQuery ();
 		}

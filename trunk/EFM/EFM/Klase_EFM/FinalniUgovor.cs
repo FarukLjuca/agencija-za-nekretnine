@@ -18,7 +18,7 @@ namespace EFM
 			throw new EFM.Exc.LazyDeveloperException ();
 		}
 
-		public int ID { get; set; }
+		public long ID { get; set; }
 		public DateTime DatumSklapanja { get; set; }
 		public KupacProdavac Kupac { get; set; }
 		public KupacProdavac Prodavac { get; set; }
