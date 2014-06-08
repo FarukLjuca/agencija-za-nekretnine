@@ -401,7 +401,20 @@ namespace EFM
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
-        {}
+        {
+            VanjskiSaradnikUloga vanjskiSaradnikUloga = new VanjskiSaradnikUloga();
+            if (txtNoviVSaradnikPozicija.SelectedValue != null)
+            {
+                var pozicija = (ComboBoxItem)txtNoviVSaradnikPozicija.SelectedValue;
+                VanjskiSaradnik vanjskisaradnik = vanjskiSaradnikUloga.GetSaradnik(pozicija.Content.ToString());
+                vanjskisaradnik.Naziv = txtNoviVSaradnikNaziv.Text;
+                vanjskisaradnik.Plata = double.Parse(txtNoviVSaradnikPlata.Text);
+
+                VanjskiSaradnikDAO vanjskiSaradnikDAO = new VanjskiSaradnikDAO();
+                vanjskiSaradnikDAO.Create(vanjskisaradnik);
+                
+            }
+        }
         
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

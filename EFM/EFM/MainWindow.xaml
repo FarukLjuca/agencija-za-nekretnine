@@ -258,7 +258,9 @@
                             <RowDefinition Height="30px"></RowDefinition>
                             <RowDefinition Height="30px"></RowDefinition>
                         </Grid.RowDefinitions>
-                        
+
+                        <Label  Grid.Row="0" Grid.Column="0">Naziv</Label>
+                        <TextBox Name="txtNoviVSaradnikNaziv"  Grid.Row="0" Grid.Column="1"></TextBox>
 
                         <Label  Grid.Row="1" Grid.Column="0">Plata</Label>
                         <TextBox Name="txtNoviVSaradnikPlata"  Grid.Row="1" Grid.Column="1"></TextBox>
