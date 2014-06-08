@@ -17,17 +17,11 @@ namespace EFM
 		{
 			throw new EFM.Exc.LazyDeveloperException ();
 		}
-
-		public string ID
-		{
-			get
-			{
-				throw new EFM.Exc.LazyDeveloperException ();
-			}
-			set
-			{
-				throw new EFM.Exc.LazyDeveloperException ();
-			}
-		}
+		public Agent Agent { get; set; }
+		public int ID { get; set; }
+		public DateTime DatumSklapanja { get; set; }
+		public KupacProdavac Klijent { get; set; }
+		public Nekretnina Nekretnina { get; set; }
+		public string Opis { get; set; }
 	}
 }
