@@ -411,10 +411,11 @@ namespace EFM
                 vanjskisaradnik.Plata = double.Parse(txtNoviVSaradnikPlata.Text);
 
                 VanjskiSaradnikDAO vanjskiSaradnikDAO = new VanjskiSaradnikDAO();
-                vanjskiSaradnikDAO.Create(vanjskisaradnik);
-                
+                vanjskiSaradnikDAO.Create(vanjskisaradnik);    
             }
         }
+
+
         
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

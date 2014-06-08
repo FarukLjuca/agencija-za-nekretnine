@@ -13,12 +13,10 @@ namespace EFM
         /// </summary>
         /// <param name="Ime">Ime racunovodje</param>
         /// <param name="Prezime">Prezime racunovodje</param>
-        /// <param name="AdresaStanovanja">Adresa racunovodje</param>
-        /// <param name="BrojTelefona">Broj telefona od racunovodje</param>
         /// <param name="DatumRodjenja">Datum rodjenja racunovodje</param>
         /// <param name="BrojLicneKarte">Broj licne karte od racunovodje</param>
         public Racunovodja(string Ime, string Prezime, string AdresaStanovanja, string BrojTelefona, DateTime DatumRodjenja, string BrojLicneKarte, double Plata)
-            : base(Ime, Prezime, AdresaStanovanja, BrojTelefona, DatumRodjenja, BrojLicneKarte, Plata)
+            : base(Ime, Prezime, DatumRodjenja, BrojLicneKarte, Plata)
         {
 
         }

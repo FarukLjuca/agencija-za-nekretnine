@@ -13,12 +13,10 @@ namespace EFM
         /// </summary>
         /// <param name="Ime">Ime administratora</param>
         /// <param name="Prezime">Prezime administratora</param>
-        /// <param name="AdresaStanovanja">Adresa administratora</param>
-        /// <param name="BrojTelefona">Broj telefona od administratora</param>
         /// <param name="DatumRodjenja">Datum rodjenja administratora</param>
         /// <param name="BrojLicneKarte">Broj licne karte od administratora</param>
-        public Cistacica(string Ime, string Prezime, string AdresaStanovanja, string BrojTelefona, DateTime DatumRodjenja, string BrojLicneKarte, double Plata)
-            : base(Ime, Prezime, AdresaStanovanja, BrojTelefona, DatumRodjenja, BrojLicneKarte, Plata)
+        public Cistacica(string Ime, string Prezime, DateTime DatumRodjenja, string BrojLicneKarte, double Plata)
+            : base(Ime, Prezime, DatumRodjenja, BrojLicneKarte, Plata)
         {
 
         }
