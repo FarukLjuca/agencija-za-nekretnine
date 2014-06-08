@@ -13,6 +13,7 @@ namespace EFM.DAO
         protected Object Conn = null;
         public long Create(Klijent Entity)
         {
+            /*
             DAL konekcija = DAL.Instanca;
             SQLiteCommand komanda = new SQLiteCommand(
                 "insert into klijenti (datum_rodjenja, ime, prezime, jmbg, brojlk, slika, agent) values ('" +
@@ -22,10 +23,10 @@ namespace EFM.DAO
             komanda.Connection = konekcija.Konekcija;
             komanda.ExecuteNonQuery();
             konekcija.Diskonektuj();
-
+            */
             return 0;
         }
-
+        /*
         public List<Klijent> getAll()
         {
             try
@@ -53,6 +54,7 @@ namespace EFM.DAO
                 throw e;
             }
         }
+         //*/
 
         public Klijent Read(Klijent N)
         {
