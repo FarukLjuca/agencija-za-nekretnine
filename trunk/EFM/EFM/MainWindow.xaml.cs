@@ -260,8 +260,8 @@ namespace EFM
 
         private void dodajKlijenta_Click(object seneder, RoutedEventArgs e)
         {
-            Pomocni_prozori.Unos_klijenta k = new Pomocni_prozori.Unos_klijenta(klijeti);
-            k.ShowDialog();
+            //Pomocni_prozori.Unos_klijenta k = new Pomocni_prozori.Unos_klijenta(klijeti);
+            //k.ShowDialog();
             if (editModeK == true) refreshCheckK();
             else refreshK();
             tbxSearchK_TextChanged(tbxSearch, null);
