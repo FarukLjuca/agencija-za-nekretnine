@@ -123,14 +123,6 @@
                 Width="20"
                 Margin="13,6,62,6"
                 Click="btnListajLijevo_Click"/>
-            
-            <Rectangle Name="rtgGroup"
-                       Grid.Row="1"
-                       Grid.RowSpan="5"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="2"
-                       Stroke="Black"
-                       Margin="1"/>
         </Grid>
     </Border>
 </Window>
