@@ -18,7 +18,7 @@ namespace EFM.DAO
                 "insert into klijenti (datum_rodjenja, ime, prezime, jmbg, brojlk, adresa_stanovanja, broj_telefona, slika, agent) values ('" +
                 Entity.DatumRodjenja.Year.ToString() + "-" + Entity.DatumRodjenja.Month.ToString() + "-" +
                 Entity.DatumRodjenja.Day.ToString() + "', " + Entity.Ime + ", " + Entity.Prezime + ", " + Entity.JMBG + ", " +
-                Entity.BrojLicneKarte + ", " + Entity.AdresaStanovanja + ", " + Entity.BrojTelefona + ", " + s + ", null");
+                Entity.BrojLicneKarte + ", " + s + ", null");
             komanda.Connection = konekcija.Konekcija;
             komanda.ExecuteNonQuery();
             konekcija.Diskonektuj();
