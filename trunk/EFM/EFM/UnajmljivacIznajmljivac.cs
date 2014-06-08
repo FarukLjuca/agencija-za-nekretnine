@@ -25,7 +25,7 @@ namespace EFM
         /// <param name="Agent">Agent koji je dodjeljen klijentu (opcionalno)</param>
         public UnajmljivacIznajmljivac(string Ime, string Prezime, string AdresaStanovanja, string BrojTelefona, 
             DateTime DatumRodjenja, string BrojLicneKarte, string jmbg, string brtel, BitmapImage slika, Agent Agent = null)
-            : base (DatumRodjenja, Ime, Prezime, jmbg, BrojLicneKarte, AdresaStanovanja, BrojTelefona, slika, Agent)
+            : base (DatumRodjenja, Ime, Prezime, jmbg, BrojLicneKarte, slika, Agent)
         {
             this.Nekretnina = Nekretnina;
         }
