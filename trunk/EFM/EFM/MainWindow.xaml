@@ -40,7 +40,7 @@
 
         <TabControl Name="tbcGlavniTab"
                     Grid.Row="1"
-                    Grid.Column="0">
+                    Grid.Column="0" Margin="0,5,0,-5">
 
             <TabItem Name="tabDobrodosli"
                      Header="Dobrodosli">
@@ -168,12 +168,12 @@
                      Header="Zaposleni">
                 <!-- TODO GRID -->
                 <StackPanel Orientation="Horizontal">
-                    <StackPanel Width="300px" Orientation="Vertical">
+                    <StackPanel Width="428" Orientation="Vertical" Margin="0,0,0,305">
                         <DataGrid Name="zaposleniciGrid" >
 
                         </DataGrid>
                     </StackPanel>
-                    <Grid Width="205">
+                    <Grid Width="247" Margin="20,10,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*"></ColumnDefinition>
                             <ColumnDefinition Width="3*"></ColumnDefinition>
@@ -282,11 +282,11 @@
                      Header="Vanjski saradnici">
                 
                 <StackPanel Orientation="Horizontal">
-                    <Grid Width="200px">
+                    <Grid Width="243">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="67*"></ColumnDefinition>
-                            <ColumnDefinition Width="133*"></ColumnDefinition>
-                            <ColumnDefinition Width="61*"/>
+                            <ColumnDefinition Width="51*"></ColumnDefinition>
+                            <ColumnDefinition Width="128*"></ColumnDefinition>
+                            <ColumnDefinition Width="21*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30px"></RowDefinition>
@@ -301,27 +301,25 @@
                             <RowDefinition Height="30px"></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <Label  Grid.Row="0" Grid.Column="0">Naziv</Label>
-                        <TextBox Name="txtNoviVSaradnikNaziv"  Grid.Row="0" Grid.Column="1"></TextBox>
+                        <Label  Grid.Row="1" Grid.Column="0">Naziv</Label>
+                        <TextBox Name="txtNoviVSaradnikNaziv"  Grid.Row="1" Grid.Column="1"></TextBox>
 
-                        <Label  Grid.Row="1" Grid.Column="0">Plata</Label>
-                        <TextBox Name="txtNoviVSaradnikPlata"  Grid.Row="1" Grid.Column="1"></TextBox>
+                        <Label  Grid.Row="2" Grid.Column="0">Plata</Label>
+                        <TextBox Name="txtNoviVSaradnikPlata"  Grid.Row="2" Grid.Column="1"></TextBox>
 
-                        <Label Grid.Row="2" Grid.Column="0">Pozicija</Label>
-                        <ComboBox  Name="txtNoviVSaradnikPozicija" Grid.Row="2" Grid.Column="1">
+                        <Label Grid.Row="3" Grid.Column="0">Pozicija</Label>
+                        <ComboBox  Name="txtNoviVSaradnikPozicija" Grid.Row="3" Grid.Column="1">
                             <ComboBoxItem Content="AgencijaZaReklamiranje" />
                             <ComboBoxItem Content="Notar" />
                             <ComboBoxItem Content="Osiguranje" />
                            
                         </ComboBox>
-                        <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Click="Unos_Vanjskog_Saradnika">
+                        <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Click="Unos_Vanjskog_Saradnika">
                             Dodaj VANJSKOG SARADNIKA
                         </Button>
                     </Grid>
-                    <StackPanel Width="284" Orientation="Vertical">
-                        <DataGrid Name="saradniciGrid" >
-
-                        </DataGrid>
+                    <StackPanel Width="334" Orientation="Vertical">
+                        <DataGrid x:Name="saradniciGrid" />
                     </StackPanel>
                 </StackPanel>
 
