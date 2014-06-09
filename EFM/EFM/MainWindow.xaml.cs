@@ -288,10 +288,16 @@ namespace EFM
         private void dodajContextMenu(Control c)
         {
             ContextMenu cm = new ContextMenu();
+
             MenuItem miDetalji = new MenuItem();
             miDetalji.Header = "Prikaži detalje";
             miDetalji.Click += new RoutedEventHandler(detalji);
             cm.Items.Add(miDetalji);
+
+            MenuItem miObrisi = new MenuItem();
+            miObrisi.Header = "Obrisi";
+            miObrisi.Click += new RoutedEventHandler(obrisi);
+            cm.Items.Add(miObrisi);
 
             c.ContextMenu = cm;
         }
@@ -299,21 +305,47 @@ namespace EFM
         private void detalji(object sender, RoutedEventArgs e)
         {
             string tekst = "";
-            /*
-            ContextMenuService.GetPlacementTarget(WrapPanelHelper
 
-            if (e.Source is Kontrole.checkKlijent)
-                tekst = (e.Source as Kontrole.checkKlijent).ToString();
-            else if (((e.OriginalSource as MenuItem).Parent as ContextMenu).ItemsSource is Kontrole.checkNekretnina)
-                tekst = (e.Source as Kontrole.checkNekretnina).ToString();
-            else if (e.Source is Kontrole.kontrolaKlijent)
-                tekst = (e.Source as Kontrole.kontrolaKlijent).ToString();
-            else if (e.Source is Kontrole.kontrolaNekretnina)
-                tekst = (e.Source as Kontrole.kontrolaNekretnina).ToString();
-            */
+            var item = sender as MenuItem;
+            var menu = item.Parent as ContextMenu;
 
-            //TODO Doci do kontrole!!!
+            if (menu.PlacementTarget is Kontrole.checkKlijent)
+                tekst = (menu.PlacementTarget as Kontrole.checkKlijent).ToString();
+            else if (menu.PlacementTarget is Kontrole.checkNekretnina)
+                tekst = (menu.PlacementTarget as Kontrole.checkNekretnina).ToString();
+            else if (menu.PlacementTarget is Kontrole.kontrolaKlijent)
+                tekst = (menu.PlacementTarget as Kontrole.kontrolaKlijent).ToString();
+            else if (menu.PlacementTarget is Kontrole.kontrolaNekretnina)
+                tekst = (menu.PlacementTarget as Kontrole.kontrolaNekretnina).ToString();
+
             MessageBox.Show(tekst);
+        }
+
+        private void obrisi(object sender, RoutedEventArgs e)
+        {
+            var item = sender as MenuItem;
+            var menu = item.Parent as ContextMenu;
+
+            if (menu.PlacementTarget is Kontrole.checkKlijent)
+            {
+                klijeti.Remove((menu.PlacementTarget as Kontrole.checkKlijent).klijent);
+                refreshCheckK();
+            }
+            else if (menu.PlacementTarget is Kontrole.checkNekretnina)
+            {
+                nekretnine.Remove((menu.PlacementTarget as Kontrole.checkNekretnina).nekretnina);
+                refreshCheckN();
+            }
+            else if (menu.PlacementTarget is Kontrole.kontrolaKlijent)
+            {
+                klijeti.Remove((menu.PlacementTarget as Kontrole.kontrolaKlijent).klijent);
+                refreshK();
+            }
+            else if (menu.PlacementTarget is Kontrole.kontrolaNekretnina)
+            {
+                nekretnine.Remove((menu.PlacementTarget as Kontrole.kontrolaNekretnina).nekretnina);
+                refreshN();
+            }
         }
 
         #endregion

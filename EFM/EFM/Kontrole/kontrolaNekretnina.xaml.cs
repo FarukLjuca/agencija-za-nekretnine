@@ -20,7 +20,7 @@ namespace EFM.Kontrole
     /// </summary>
     public partial class kontrolaNekretnina : UserControl
     {
-        private Nekretnina nekretnina = null;
+        public Nekretnina nekretnina { get; set; }
 
         public kontrolaNekretnina(Nekretnina n, BitmapImage slika1)
         {
