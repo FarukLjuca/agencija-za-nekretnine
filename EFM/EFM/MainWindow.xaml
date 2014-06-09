@@ -189,6 +189,8 @@
                             <RowDefinition Height="30px"></RowDefinition>
                             <RowDefinition Height="30px"></RowDefinition>
                             <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="30px"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Label Grid.Row="0" Grid.Column="0">Ime</Label>
                         <TextBox Name="txtNoviZaposlenikIme" Grid.Row="0" Grid.Column="1"></TextBox>
@@ -218,7 +220,14 @@
                             <ComboBoxItem Content="Cistacica" />
                             <ComboBoxItem Content="Racunovodja" />
                         </ComboBox>
-                        <Button Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Click="Unos_Zaposlenika">
+                        
+                        <Label Grid.Row="8" Grid.Column="0">Username</Label>
+                        <TextBox Name="txtNoviZaposlenikUsername"  Grid.Row="8" Grid.Column="1"></TextBox>
+
+                        <Label Grid.Row="9" Grid.Column="0">Password</Label>
+                        <TextBox Name="txtNoviZaposlenikPassword"  Grid.Row="9" Grid.Column="1"></TextBox>
+
+                        <Button Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Click="Unos_Zaposlenika">
                             Dodaj zaposlenika
                         </Button>
                     </Grid>

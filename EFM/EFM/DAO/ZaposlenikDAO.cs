@@ -42,8 +42,8 @@ namespace EFM.DAO
             DAL kon1 = DAL.Instanca;
 
             SQLiteCommand insertCommand = kon1.Konekcija.CreateCommand();
-            insertCommand.CommandText = "INSERT INTO uposlenici(ime, prezime, jmbg, brojlk, plata, pozicija, datum_rodjenja, datum_zaposlenja) " +
-                "VALUES (@ime, @prezime, @jmbg, @brojlk, @plata, @pozicija, @datum_rodjenja, @datum_zaposlenja); " +
+            insertCommand.CommandText = "INSERT INTO uposlenici(ime, prezime, jmbg, brojlk, plata, pozicija, datum_rodjenja, datum_zaposlenja, username, password) " +
+                "VALUES (@ime, @prezime, @jmbg, @brojlk, @plata, @pozicija, @datum_rodjenja, @datum_zaposlenja, @username, @password); " +
                 "SELECT last_insert_rowid();";
             insertCommand.Parameters.AddRange(new[]
                 {
@@ -54,7 +54,9 @@ namespace EFM.DAO
                     new SQLiteParameter("@pozicija", role),
                     new SQLiteParameter("@plata", Entity.Plata),
                     new SQLiteParameter("@datum_rodjenja", Entity.DatumRodjenja),
-                    new SQLiteParameter("@datum_zaposlenja", Entity.DatumZaposlenja)
+                    new SQLiteParameter("@datum_zaposlenja", Entity.DatumZaposlenja),
+                    new SQLiteParameter("@username", Entity.Username),
+                    new SQLiteParameter("@password", Entity.Password)
                 });
             Entity.Id = (long)insertCommand.ExecuteScalar();
 
@@ -96,6 +98,7 @@ namespace EFM.DAO
 
             SQLiteCommand listCommand = kon3.Konekcija.CreateCommand();
             listCommand.CommandText = "SELECT id, ime, prezime, jmbg, plata, pozicija FROM uposlenici;";
+            
             // Change to base class
             SQLiteDataReader reader = listCommand.ExecuteReader();
             Zaposlenici zaposlenici = new Zaposlenici();
