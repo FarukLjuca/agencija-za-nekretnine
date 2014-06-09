@@ -22,8 +22,8 @@ namespace EFM
         /// <param name="Username">Username od agenta</param>
         /// <param name="Password">Password od agenta</param>
         
-        public Agent(string Ime, string Prezime, DateTime DatumRodjenja, string BrojLicneKarte, double Plata, string Username, string Password)
-            : base(Ime, Prezime, DatumRodjenja, BrojLicneKarte, Plata, Username, Password)
+        public Agent(string Ime, string Prezime, DateTime DatumRodjenja, string BrojLicneKarte, double Plata, string Username, string Password, string Pozicija)
+            : base(Ime, Prezime, DatumRodjenja, BrojLicneKarte, Plata, Username, Password, Pozicija)
         {
             this.Klijenti = new List<Klijent>();
         }
