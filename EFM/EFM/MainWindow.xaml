@@ -312,7 +312,7 @@
                      Header="Vanjski saradnici">
                 
                 <StackPanel Orientation="Horizontal">
-                    <Grid Width="243">
+                    <Grid Width="247" Margin="20,10,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="51*"></ColumnDefinition>
                             <ColumnDefinition Width="128*"></ColumnDefinition>
@@ -345,7 +345,7 @@
                            
                         </ComboBox>
                         <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Click="Unos_Vanjskog_Saradnika">
-                            Dodaj VANJSKOG SARADNIKA
+                            Dodaj Vanjskog Saradnika
                         </Button>
                         
                         <Label  Grid.Row="6" Grid.Column="0">Id</Label>
@@ -358,11 +358,11 @@
                             <ComboBoxItem Content="Osiguranje" />
                         </ComboBox>
                         <Button Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Click="Obrisi_Vanjskog_Saradnika">
-                            Obrisi VANJSKOG SARADNIKA
+                            Obrisi Vanjskog Saradnika
                         </Button>
                         
                     </Grid>
-                    <StackPanel Width="334" Orientation="Vertical">
+                    <StackPanel Width="428" Orientation="Vertical" Margin="20,0,0,0">
                         <DataGrid x:Name="saradniciGrid" />
                     </StackPanel>
                 </StackPanel>
