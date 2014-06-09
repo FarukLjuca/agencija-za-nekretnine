@@ -25,6 +25,7 @@ namespace EFM
     public partial class MainWindow : Window
     {
 		private Zaposlenici _zaposlenici = new Zaposlenici();
+        private VanjskiSaradnici _saradnici = new VanjskiSaradnici();
 		public enum Privilegija : uint { Direktor, Admin, Agent, Racunovodja, Cistacica }
 		Privilegija privilegija;
         public MainWindow()
@@ -90,6 +91,10 @@ namespace EFM
             ZaposlenikDAO zDao = new ZaposlenikDAO();
             _zaposlenici = zDao.List();
             zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
+
+            VanjskiSaradnikDAO sDao = new VanjskiSaradnikDAO();
+            _saradnici = sDao.List();
+            saradniciGrid.ItemsSource = _saradnici.ListaVanjskihSaradnika;
 			
         }
 
