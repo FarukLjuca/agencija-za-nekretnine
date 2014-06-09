@@ -15,8 +15,11 @@ namespace EFM
         /// <param name="Prezime">Prezime administratora</param>
         /// <param name="DatumRodjenja">Datum rodjenja administratora</param>
         /// <param name="BrojLicneKarte">Broj licne karte od administratora</param>
-        public Administrator(string Ime, string Prezime, string AdresaStanovanja, string BrojTelefona, DateTime DatumRodjenja, string BrojLicneKarte, double Plata)
-            : base(Ime, Prezime, DatumRodjenja, BrojLicneKarte, Plata)
+        /// <param name="Username">Username od administratora</param>
+        /// <param name="Password">Password od administratora</param>
+        
+        public Administrator(string Ime, string Prezime, DateTime DatumRodjenja, string BrojLicneKarte, double Plata, string Username, string Password)
+            : base(Ime, Prezime, DatumRodjenja, BrojLicneKarte, Plata, Username, Password)
         {
 
         }

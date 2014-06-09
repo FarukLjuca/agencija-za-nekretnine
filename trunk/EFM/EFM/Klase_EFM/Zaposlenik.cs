@@ -15,6 +15,9 @@ namespace EFM
         public long Id { get; set; }
         public string Jmbg { get; set; }
         public DateTime DatumZaposlenja { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+
 
         /// <summary>
         /// Kreira novi objekat tipa Zaposlenik
@@ -25,11 +28,15 @@ namespace EFM
         /// <param name="BrojLicneKarte">Broj licne karte od zaposlenika</param>
         /// <param name="Plata">Plata od zaposlenika</param>
         /// <exception cref="EFM.Exc.ArgumentException">Izuzetak biva bacen kada je plata negativna</exception>
+        /// <param name="Plata">Username od zaposlenika</param>
+        /// <param name="Plata">Password od zaposlenika</param>
 
-        public Zaposlenik(string Ime, string Prezime, DateTime DatumRodjenja, string BrojLicneKarte, double Plata)
+        public Zaposlenik(string Ime, string Prezime, DateTime DatumRodjenja, string BrojLicneKarte, double Plata, string Username, string Password)
             : base(Ime, Prezime, DatumRodjenja, BrojLicneKarte)
         {
             this.Plata = Plata;
+            this.Username = Username;
+            this.Password = Password;
         }
 
         /// <summary>

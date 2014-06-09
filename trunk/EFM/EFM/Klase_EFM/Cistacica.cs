@@ -9,14 +9,17 @@ namespace EFM
     public class Cistacica : Zaposlenik
     {
         /// <summary>
-        /// Kreira novi objekat tipa Administrator
+        /// Kreira novi objekat tipa Cistacica
         /// </summary>
-        /// <param name="Ime">Ime administratora</param>
-        /// <param name="Prezime">Prezime administratora</param>
-        /// <param name="DatumRodjenja">Datum rodjenja administratora</param>
-        /// <param name="BrojLicneKarte">Broj licne karte od administratora</param>
-        public Cistacica(string Ime, string Prezime, DateTime DatumRodjenja, string BrojLicneKarte, double Plata)
-            : base(Ime, Prezime, DatumRodjenja, BrojLicneKarte, Plata)
+        /// <param name="Ime">Ime cistacice</param>
+        /// <param name="Prezime">Prezime cistacice</param>
+        /// <param name="DatumRodjenja">Datum rodjenja cistacice</param>
+        /// <param name="BrojLicneKarte">Broj licne karte od cistacice</param>
+        /// <param name="Username">Username od cistacice</param>
+        /// <param name="Password">Password od cistacice</param>
+        
+        public Cistacica(string Ime, string Prezime, DateTime DatumRodjenja, string BrojLicneKarte, double Plata, string Username, string Password)
+            : base(Ime, Prezime, DatumRodjenja, BrojLicneKarte, Plata, Username, Password)
         {
 
         }
