@@ -83,6 +83,7 @@
     <Compile Include="EFMException.cs" />
     <Compile Include="Klase_EFM\EksterniUgovor.cs" />
     <Compile Include="Klase_EFM\FinalniUgovor.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="Klase_EFM\InterniUgovor.cs" />
     <Compile Include="Klase_EFM\IUgovor.cs" />
     <Compile Include="Kontrole\checkKlijent.xaml.cs">
