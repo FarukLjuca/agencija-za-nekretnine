@@ -280,12 +280,13 @@
 
             <TabItem Name="tabVSaradnici"
                      Header="Vanjski saradnici">
-
+                
                 <StackPanel Orientation="Horizontal">
                     <Grid Width="200px">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"></ColumnDefinition>
-                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="67*"></ColumnDefinition>
+                            <ColumnDefinition Width="133*"></ColumnDefinition>
+                            <ColumnDefinition Width="61*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30px"></RowDefinition>
@@ -317,6 +318,11 @@
                             Dodaj VANJSKOG SARADNIKA
                         </Button>
                     </Grid>
+                    <StackPanel Width="284" Orientation="Vertical">
+                        <DataGrid Name="saradniciGrid" >
+
+                        </DataGrid>
+                    </StackPanel>
                 </StackPanel>
 
             </TabItem>
