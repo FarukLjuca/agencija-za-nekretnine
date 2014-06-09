@@ -530,6 +530,8 @@ namespace EFM
                 zaposlenik.DatumZaposlenja = txtNoviZaposlenikDatZap.DisplayDate;
                 zaposlenik.Jmbg = txtNoviZaposlenikJmbg.Text;
                 zaposlenik.BrojLicneKarte = txtNoviZaposlenikBrojLk.Text;
+                zaposlenik.Username = txtNoviZaposlenikUsername.Text;
+                zaposlenik.Password = txtNoviZaposlenikPassword.Text;
 
                 ZaposlenikDAO zaposlenikDao = new ZaposlenikDAO();
                 zaposlenikDao.Create(zaposlenik);
