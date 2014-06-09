@@ -191,6 +191,7 @@
                             <RowDefinition Height="25px"></RowDefinition>
                             <RowDefinition Height="25px"></RowDefinition>
                             <RowDefinition Height="25px"></RowDefinition>
+                            <RowDefinition Height="25px"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Label Grid.Row="0" Grid.Column="0">Ime</Label>
                         <TextBox Name="txtNoviZaposlenikIme" Grid.Row="0" Grid.Column="1"></TextBox>
@@ -231,18 +232,18 @@
                             Dodaj zaposlenika
                         </Button>
 
-                        <Label Grid.Row="12" Grid.Column="0">Id</Label>
-                        <TextBox Name="txtObrisiZaposlenikaId"  Grid.Row="12" Grid.Column="1"></TextBox>
+                        <Label Grid.Row="13" Grid.Column="0">Id</Label>
+                        <TextBox Name="txtObrisiZaposlenikaId"  Grid.Row="13" Grid.Column="1"></TextBox>
 
-                        <Label Grid.Row="13" Grid.Column="0">Pozicija</Label>
-                        <ComboBox  Name="txtObrisiZaposlenikaPozicija" Grid.Row="13" Grid.Column="1">
+                        <Label Grid.Row="14" Grid.Column="0">Pozicija</Label>
+                        <ComboBox  Name="txtObrisiZaposlenikaPozicija" Grid.Row="14" Grid.Column="1">
                             <ComboBoxItem Content="Administrator" />
                             <ComboBoxItem Content="Agent" />
                             <ComboBoxItem Content="Cistacica" />
                             <ComboBoxItem Content="Racunovodja" />
                         </ComboBox>
 
-                        <Button Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="2" Click="Obrisi_Zaposlenika">
+                        <Button Grid.Row="15" Grid.Column="0" Grid.ColumnSpan="2" Click="Obrisi_Zaposlenika">
                             Obrisi zaposlenika
                         </Button>
                     </Grid>
@@ -362,7 +363,7 @@
                         </Button>
                         
                     </Grid>
-                    <StackPanel Width="428" Orientation="Vertical" Margin="20,0,0,0">
+                    <StackPanel Width="428" Orientation="Vertical" Margin="20,40,0,0">
                         <DataGrid x:Name="saradniciGrid" />
                     </StackPanel>
                 </StackPanel>
