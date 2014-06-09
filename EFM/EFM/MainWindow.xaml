@@ -173,6 +173,7 @@
 
                         </DataGrid>
                     </StackPanel>
+                   
                     <Grid Width="247" Margin="20,10,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -326,6 +327,20 @@
                         <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Click="Unos_Vanjskog_Saradnika">
                             Dodaj VANJSKOG SARADNIKA
                         </Button>
+                        
+                        <Label  Grid.Row="6" Grid.Column="0">Id</Label>
+                        <TextBox Name="txtObrisiVSaradnikaId"  Grid.Row="6" Grid.Column="1"></TextBox>
+
+                        <Label Grid.Row="7" Grid.Column="0">Pozicija</Label>
+                        <ComboBox  Name="txtObrisiVSaradnikaPozicija" Grid.Row="7" Grid.Column="1">
+                            <ComboBoxItem Content="AgencijaZaReklamiranje" />
+                            <ComboBoxItem Content="Notar" />
+                            <ComboBoxItem Content="Osiguranje" />
+                        </ComboBox>
+                        <Button Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Click="Obrisi_Vanjskog_Saradnika">
+                            Obrisi VANJSKOG SARADNIKA
+                        </Button>
+                        
                     </Grid>
                     <StackPanel Width="334" Orientation="Vertical">
                         <DataGrid x:Name="saradniciGrid" />

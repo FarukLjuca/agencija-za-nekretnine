@@ -69,7 +69,15 @@ namespace EFM.DAO
 
         public void Delete(VanjskiSaradnik Entity)
         {
-         
+            DAL kon6 = DAL.Instanca;
+
+            SQLiteCommand listaCommand = kon6.Konekcija.CreateCommand();
+            listaCommand.CommandText = "DELETE FROM vsaradnici WHERE id=@id";
+            listaCommand.Parameters.Add(new SQLiteParameter("@id", Entity.Id));
+            // Change to base class
+            listaCommand.ExecuteNonQuery();
+
+            kon6.Diskonektuj();
         }
 
         internal VanjskiSaradnici List()
