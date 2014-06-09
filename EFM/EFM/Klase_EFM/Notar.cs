@@ -13,12 +13,11 @@ namespace EFM
         /// </summary>
         /// <param name="Naziv">Naziv Notara</param>
         /// <param name="Plata">Plata od notara</param>
-        public Notar(string Naziv, double Plata)
-            : base(Naziv, Plata)
+        public Notar(string Naziv, double Plata, string Pozicija)
+            : base(Naziv, Plata, Pozicija)
         {
 
         }
-
         /// <summary>
         /// Konstrukor bez parametara, namjenjen za inicijaliziranje notara
         /// </summary>

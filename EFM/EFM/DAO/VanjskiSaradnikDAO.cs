@@ -98,6 +98,7 @@ namespace EFM.DAO
                 vanjskisaradnik.Id = (long)reader["id"];
                 vanjskisaradnik.Naziv = (string)reader["naziv"];
                 vanjskisaradnik.Plata = (double)reader["plata"];
+                vanjskisaradnik.Pozicija = (string)reader["pozicija"];
 
                 vanjskiSaradnici.ListaVanjskihSaradnika.Add(vanjskisaradnik);
             }

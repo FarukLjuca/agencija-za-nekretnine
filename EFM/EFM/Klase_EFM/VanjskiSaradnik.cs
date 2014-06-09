@@ -9,6 +9,7 @@ namespace EFM
     public class VanjskiSaradnik
     {
         public string Naziv { get; set; }
+        public string Pozicija { get; set; }
         public long Id { get; set; }
         public double plata;
         /// <summary>
@@ -17,10 +18,11 @@ namespace EFM
        
         /// <param name="Plata">Plata od Vanjskog Saradnika</param>
         /// <exception cref="EFM.Exc.ArgumentException">Izuzetak biva bacen kada je plata negativna</exception>
-         public VanjskiSaradnik(string Naziv, double Plata)
+        public VanjskiSaradnik(string Naziv, double Plata, string Pozicija)
         {
              this.Naziv = Naziv;
              this.Plata = Plata;
+             this.Pozicija = Pozicija;
         }
 
         /// <summary>

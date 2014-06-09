@@ -17,8 +17,8 @@ namespace EFM
         /// </summary>
         /// <param name="Naziv">Naziv Osiguranja</param>
         /// <param name="Plata">Plata od Osiguranja</param>
-        public Osiguranje(string Naziv, double Plata)
-            : base(Naziv, Plata)
+        public Osiguranje(string Naziv, double Plata, string Pozicija)
+            : base(Naziv, Plata, Pozicija)
         {
 
         }
