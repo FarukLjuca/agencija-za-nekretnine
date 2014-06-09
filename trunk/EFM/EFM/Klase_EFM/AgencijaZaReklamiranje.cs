@@ -16,8 +16,8 @@ namespace EFM
         /// </summary>
         /// <param name="Naziv">Naziv Agencije Za Reklamiranje</param>
         /// <param name="Plata">Plata od Agencije Za Reklamiranje</param>
-        public AgencijaZaReklamiranje(string Naziv, double Plata)
-            : base(Naziv, Plata)
+        public AgencijaZaReklamiranje(string Naziv, double Plata, string Pozicija)
+            : base(Naziv, Plata, Pozicija)
         {
 
         }
