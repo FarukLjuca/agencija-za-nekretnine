@@ -555,6 +555,19 @@ namespace EFM
             }
         }
 
+        private void Obrisi_Vanjskog_Saradnika(object sender, RoutedEventArgs e)
+        {
+            VanjskiSaradnikUloga obrisiSaradnika = new VanjskiSaradnikUloga();
+            if (txtObrisiVSaradnikaPozicija.SelectedValue != null)
+            {
+                var pozicija = (ComboBoxItem)txtObrisiVSaradnikaPozicija.SelectedValue;
+                VanjskiSaradnik vanjskisaradnik = obrisiSaradnika.GetSaradnik(pozicija.Content.ToString());
+                vanjskisaradnik.Id = long.Parse(txtObrisiVSaradnikaId.Text);
+                VanjskiSaradnikDAO vanjskiSaradnikDAO = new VanjskiSaradnikDAO();
+                vanjskiSaradnikDAO.Delete(vanjskisaradnik);
+            }
+        }
+
 		void Test()
 		{
 			return;
