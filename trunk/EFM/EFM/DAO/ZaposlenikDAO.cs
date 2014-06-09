@@ -98,7 +98,7 @@ namespace EFM.DAO
             DAL kon3 = DAL.Instanca;
 
             SQLiteCommand listCommand = kon3.Konekcija.CreateCommand();
-            listCommand.CommandText = "SELECT id, ime, prezime, jmbg, plata, pozicija FROM uposlenici;";
+            listCommand.CommandText = "SELECT id, ime, prezime, jmbg, plata, pozicija, brojlk, datum_rodjenja, datum_zaposlenja, username FROM uposlenici;";
             
             // Change to base class
             SQLiteDataReader reader = listCommand.ExecuteReader();
@@ -113,6 +113,8 @@ namespace EFM.DAO
                 zaposlenik.Jmbg = (string)reader["jmbg"];
                 zaposlenik.Plata = (double)reader["plata"];
                 zaposlenik.Pozicija = (string)reader["pozicija"];
+                zaposlenik.BrojLicneKarte = (string)reader["brojlk"];
+                zaposlenik.Username = (string)reader["username"];
 
                 zaposlenici.ListaZaposlenika.Add(zaposlenik);
             }
