@@ -15,8 +15,11 @@ namespace EFM
         /// <param name="Prezime">Prezime racunovodje</param>
         /// <param name="DatumRodjenja">Datum rodjenja racunovodje</param>
         /// <param name="BrojLicneKarte">Broj licne karte od racunovodje</param>
-        public Racunovodja(string Ime, string Prezime, string AdresaStanovanja, string BrojTelefona, DateTime DatumRodjenja, string BrojLicneKarte, double Plata)
-            : base(Ime, Prezime, DatumRodjenja, BrojLicneKarte, Plata)
+        /// <param name="Username">Username od racunovodje</param>
+        /// <param name="Password">Password od racunovodje</param>
+        
+        public Racunovodja(string Ime, string Prezime, DateTime DatumRodjenja, string BrojLicneKarte, double Plata, string Username, string Password)
+            : base(Ime, Prezime, DatumRodjenja, BrojLicneKarte, Plata, Username, Password)
         {
 
         }
