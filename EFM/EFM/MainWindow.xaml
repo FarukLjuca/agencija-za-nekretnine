@@ -168,30 +168,29 @@
                      Header="Zaposleni">
                 <!-- TODO GRID -->
                 <StackPanel Orientation="Horizontal">
-                    <StackPanel Width="428" Orientation="Vertical" Margin="0,0,0,305">
-                        <DataGrid Name="zaposleniciGrid" >
-
-                        </DataGrid>
-                    </StackPanel>
-                   
+                    
                     <Grid Width="247" Margin="20,10,0,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"></ColumnDefinition>
-                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="8*"></ColumnDefinition>
+                            <ColumnDefinition Width="11*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="30px"></RowDefinition>
-                            <RowDefinition Height="30px"></RowDefinition>
-                            <RowDefinition Height="30px"></RowDefinition>
-                            <RowDefinition Height="30px"></RowDefinition>
-                            <RowDefinition Height="30px"></RowDefinition>
-                            <RowDefinition Height="30px"></RowDefinition>
-                            <RowDefinition Height="30px"></RowDefinition>
-                            <RowDefinition Height="30px"></RowDefinition>
-                            <RowDefinition Height="30px"></RowDefinition>
-                            <RowDefinition Height="30px"></RowDefinition>
-                            <RowDefinition Height="30px"></RowDefinition>
-                            <RowDefinition Height="30px"></RowDefinition>
+                            <RowDefinition Height="25px"></RowDefinition>
+                            <RowDefinition Height="25px"></RowDefinition>
+                            <RowDefinition Height="25px"></RowDefinition>
+                            <RowDefinition Height="25px"></RowDefinition>
+                            <RowDefinition Height="25px"></RowDefinition>
+                            <RowDefinition Height="25px"></RowDefinition>
+                            <RowDefinition Height="25px"></RowDefinition>
+                            <RowDefinition Height="25px"></RowDefinition>
+                            <RowDefinition Height="25px"></RowDefinition>
+                            <RowDefinition Height="25px"></RowDefinition>
+                            <RowDefinition Height="25px"></RowDefinition>
+                            <RowDefinition Height="25px"></RowDefinition>
+                            <RowDefinition Height="25px"></RowDefinition>
+                            <RowDefinition Height="25px"></RowDefinition>
+                            <RowDefinition Height="25px"></RowDefinition>
+                            <RowDefinition Height="25px"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Label Grid.Row="0" Grid.Column="0">Ime</Label>
                         <TextBox Name="txtNoviZaposlenikIme" Grid.Row="0" Grid.Column="1"></TextBox>
@@ -205,7 +204,7 @@
                         <Label Grid.Row="3" Grid.Column="0">Broj LK.</Label>
                         <TextBox Name="txtNoviZaposlenikBrojLk"  Grid.Row="3" Grid.Column="1"></TextBox>
 
-                        <Label  Grid.Row="4" Grid.Column="0">Plata</Label>
+                        <Label Grid.Row="4" Grid.Column="0">Plata</Label>
                         <TextBox Name="txtNoviZaposlenikPlata"  Grid.Row="4" Grid.Column="1"></TextBox>
 
                         <Label Grid.Row="5" Grid.Column="0">Datum rodjenja</Label>
@@ -231,7 +230,28 @@
                         <Button Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Click="Unos_Zaposlenika">
                             Dodaj zaposlenika
                         </Button>
+
+                        <Label Grid.Row="12" Grid.Column="0">Id</Label>
+                        <TextBox Name="txtObrisiZaposlenikaId"  Grid.Row="12" Grid.Column="1"></TextBox>
+
+                        <Label Grid.Row="13" Grid.Column="0">Pozicija</Label>
+                        <ComboBox  Name="txtObrisiZaposlenikaPozicija" Grid.Row="13" Grid.Column="1">
+                            <ComboBoxItem Content="Administrator" />
+                            <ComboBoxItem Content="Agent" />
+                            <ComboBoxItem Content="Cistacica" />
+                            <ComboBoxItem Content="Racunovodja" />
+                        </ComboBox>
+
+                        <Button Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="2" Click="Obrisi_Zaposlenika">
+                            Obrisi zaposlenika
+                        </Button>
                     </Grid>
+
+                    <StackPanel Width="428" Orientation="Vertical" Margin="20,0,0,0">
+                        <DataGrid Name="zaposleniciGrid" >
+                        </DataGrid>
+                    </StackPanel>
+                    
                 </StackPanel>
 
 

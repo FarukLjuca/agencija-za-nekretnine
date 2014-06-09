@@ -540,6 +540,19 @@ namespace EFM
             }
         }
 
+        private void Obrisi_Zaposlenika(object sender, RoutedEventArgs e)
+        {
+            ZaposlenikFactory obrisiZaposlenika = new ZaposlenikFactory();
+            if (txtObrisiZaposlenikaPozicija.SelectedValue != null)
+            {
+                var pozicija = (ComboBoxItem)txtObrisiZaposlenikaPozicija.SelectedValue;
+                Zaposlenik obrisizaposlenik = obrisiZaposlenika.GetZaposlenik(pozicija.Content.ToString());
+                obrisizaposlenik.Id = long.Parse(txtObrisiZaposlenikaId.Text);
+                ZaposlenikDAO obrisiZaposlenikDao = new ZaposlenikDAO();
+                obrisiZaposlenikDao.Delete(obrisizaposlenik);
+            }
+        }
+
         private void Unos_Vanjskog_Saradnika(object sender, RoutedEventArgs e)
         {
             VanjskiSaradnikUloga vanjskiSaradnikUloga = new VanjskiSaradnikUloga();
@@ -561,10 +574,10 @@ namespace EFM
             if (txtObrisiVSaradnikaPozicija.SelectedValue != null)
             {
                 var pozicija = (ComboBoxItem)txtObrisiVSaradnikaPozicija.SelectedValue;
-                VanjskiSaradnik vanjskisaradnik = obrisiSaradnika.GetSaradnik(pozicija.Content.ToString());
-                vanjskisaradnik.Id = long.Parse(txtObrisiVSaradnikaId.Text);
-                VanjskiSaradnikDAO vanjskiSaradnikDAO = new VanjskiSaradnikDAO();
-                vanjskiSaradnikDAO.Delete(vanjskisaradnik);
+                VanjskiSaradnik obrisisaradnik = obrisiSaradnika.GetSaradnik(pozicija.Content.ToString());
+                obrisisaradnik.Id = long.Parse(txtObrisiVSaradnikaId.Text);
+                VanjskiSaradnikDAO obrisiSaradnikDAO = new VanjskiSaradnikDAO();
+                obrisiSaradnikDAO.Delete(obrisisaradnik);
             }
         }
 
