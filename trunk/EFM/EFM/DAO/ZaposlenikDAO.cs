@@ -57,6 +57,7 @@ namespace EFM.DAO
                     new SQLiteParameter("@datum_zaposlenja", Entity.DatumZaposlenja),
                     new SQLiteParameter("@username", Entity.Username),
                     new SQLiteParameter("@password", Entity.Password)
+                    
                 });
             Entity.Id = (long)insertCommand.ExecuteScalar();
 
@@ -111,6 +112,7 @@ namespace EFM.DAO
                 zaposlenik.Prezime = (string)reader["prezime"];
                 zaposlenik.Jmbg = (string)reader["jmbg"];
                 zaposlenik.Plata = (double)reader["plata"];
+                zaposlenik.Pozicija = (string)reader["pozicija"];
 
                 zaposlenici.ListaZaposlenika.Add(zaposlenik);
             }
