@@ -20,7 +20,7 @@ namespace EFM.Kontrole
     /// </summary>
     public partial class kontrolaKlijent : UserControl
     {
-        private Klijent klijent = null;
+        public Klijent klijent { get; set; }
 
         public kontrolaKlijent(Klijent k)
         {
