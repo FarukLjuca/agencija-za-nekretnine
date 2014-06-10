@@ -50,7 +50,7 @@
 			this.btnStart = new System.Windows.Forms.Button();
 			this.btnAbout = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
-			this.efmPanel1 = new Klase.EFMPanel ();
+			this.efmPanel1 = new EFMSnake.Klase.EFMPanel ();
 			this.gbxIgrac2.SuspendLayout();
 			this.gbxIgrac1.SuspendLayout();
 			this.SuspendLayout();
