@@ -514,6 +514,7 @@ namespace EFM
             Application.Current.Shutdown(0);
         }
 
+
         private void Unos_Zaposlenika(object sender, RoutedEventArgs e)
         {
             ZaposlenikFactory zaposlenikFactory = new ZaposlenikFactory();
@@ -543,6 +544,7 @@ namespace EFM
                 zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
             }
         }
+
 
         private void Obrisi_Zaposlenika(object sender, RoutedEventArgs e)
         {
@@ -588,6 +590,8 @@ namespace EFM
                 }
            }
         }
+
+        #region ValidiranjeUnosaSaradnika
 
         private void pocrveni(Border b)
         {
@@ -670,7 +674,7 @@ namespace EFM
             return dobar && prazno(txtNoviVSaradnikPlata, borPlata);
         }
 
-
+        #endregion
 
         private void Obrisi_Vanjskog_Saradnika(object sender, RoutedEventArgs e)
         {
@@ -695,6 +699,8 @@ namespace EFM
             }
         }
 
+        #region ValidiranjeBrisanjaSaradnika
+
         private void ID_TextChanged(object sender, TextChangedEventArgs e)
         {            
             validirajID();
@@ -718,6 +724,8 @@ namespace EFM
 
             return dobar && prazno( txtObrisiVSaradnikaId, borID);
         }
+
+        #endregion
 
 		void Test()
 		{
