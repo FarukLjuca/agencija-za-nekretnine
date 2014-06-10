@@ -561,39 +561,162 @@ namespace EFM
             }
         }
 
+
+
         private void Unos_Vanjskog_Saradnika(object sender, RoutedEventArgs e)
         {
-            VanjskiSaradnikUloga vanjskiSaradnikUloga = new VanjskiSaradnikUloga();
-            if (txtNoviVSaradnikPozicija.SelectedValue != null)
+            
+            validirajNaziv();
+            validirajPlatu();
+            
+            if (validirajNaziv() && validirajPlatu())
             {
-                var pozicija = (ComboBoxItem)txtNoviVSaradnikPozicija.SelectedValue;
-                VanjskiSaradnik vanjskisaradnik = vanjskiSaradnikUloga.GetSaradnik(pozicija.Content.ToString());
-                vanjskisaradnik.Naziv = txtNoviVSaradnikNaziv.Text;
-                vanjskisaradnik.Plata = double.Parse(txtNoviVSaradnikPlata.Text);
-                VanjskiSaradnikDAO vanjskiSaradnikDAO = new VanjskiSaradnikDAO();
-                vanjskiSaradnikDAO.Create(vanjskisaradnik);
+       
+                VanjskiSaradnikUloga vanjskiSaradnikUloga = new VanjskiSaradnikUloga();
+                if (txtNoviVSaradnikPozicija.SelectedValue != null)
+                {
+                    var pozicija = (ComboBoxItem)txtNoviVSaradnikPozicija.SelectedValue;
+                    VanjskiSaradnik vanjskisaradnik = vanjskiSaradnikUloga.GetSaradnik(pozicija.Content.ToString());
+                    vanjskisaradnik.Naziv = txtNoviVSaradnikNaziv.Text;
+                    vanjskisaradnik.Plata = double.Parse(txtNoviVSaradnikPlata.Text);
+                    VanjskiSaradnikDAO vanjskiSaradnikDAO = new VanjskiSaradnikDAO();
+                    vanjskiSaradnikDAO.Create(vanjskisaradnik);
 
-                VanjskiSaradnikDAO sDao = new VanjskiSaradnikDAO();
-                _saradnici = sDao.List();
-                saradniciGrid.ItemsSource = _saradnici.ListaVanjskihSaradnika;
+                    VanjskiSaradnikDAO sDao = new VanjskiSaradnikDAO();
+                    _saradnici = sDao.List();
+                    saradniciGrid.ItemsSource = _saradnici.ListaVanjskihSaradnika;
+                }
+           }
+        }
+
+        private void pocrveni(Border b)
+        {
+            b.BorderBrush = Brushes.Red;
+        }
+
+        private void odcrveni(Border b)
+        {
+            b.BorderBrush = Brushes.White;
+        }
+
+        private bool prazno(TextBox t, Border b)
+        {
+            if (t.Text.Length < 1)
+            {
+                pocrveni(b);
+                t.ToolTip = "Polje ne smije biti prazno!";
+                return false;
+            }
+            else
+            {
+                odcrveni(b);
+                return true;
             }
         }
 
+        private bool samoSlova(TextBox t, Border b)
+        {
+			
+            bool dobar = true;
+            foreach (char c in t.Text)
+            {
+                if (!((c >= 'A' && c <= 'Z') | (c >= 'a' && c <= 'z') |
+                    (new List<char>() { 'Č', 'č', 'Ć', 'ć', 'Ž', 'ž', 'Đ', 'đ', 'Š', 'š' }).Exists(element => element == c)))
+                {
+                    pocrveni(b);
+                    t.ToolTip = "Polje smije sadrzavati samo slova!";
+                    dobar = false;
+                    t.Text.Remove(t.Text.IndexOf(c), t.Text.IndexOf(c) + 1);
+                    break;
+                }
+            }
+            if (dobar == true) odcrveni(b);
+            else pocrveni(b);
+            return dobar;
+        }
+
+        private void Naziv_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            validirajNaziv();
+        }
+
+        private bool validirajNaziv ()
+        {
+            if (prazno(txtNoviVSaradnikNaziv, borNaziv) && samoSlova(txtNoviVSaradnikNaziv, borNaziv)) return true;
+            return false;
+        }
+
+        private void Plata_TextChanged(object sender, TextChangedEventArgs e)
+        {            
+            validirajPlatu();
+        }
+
+        private bool validirajPlatu()
+        {
+            bool dobar = true;
+            foreach (char c in txtNoviVSaradnikPlata.Text)
+            {
+                if (!(c >= '0' && c <= '9'))
+                {
+                    pocrveni(borPlata);
+                    txtNoviVSaradnikPlata.ToolTip = "Polje smije sadrzavati samo brojeve!";
+                    dobar = false;
+                    break;
+                }
+            }
+            if (dobar == true) odcrveni(borPlata);
+            else pocrveni(borPlata);
+
+            return dobar && prazno(txtNoviVSaradnikPlata, borPlata);
+        }
+
+
+
         private void Obrisi_Vanjskog_Saradnika(object sender, RoutedEventArgs e)
         {
-            VanjskiSaradnikUloga obrisiSaradnika = new VanjskiSaradnikUloga();
-            if (txtObrisiVSaradnikaPozicija.SelectedValue != null)
-            {
-                var pozicija = (ComboBoxItem)txtObrisiVSaradnikaPozicija.SelectedValue;
-                VanjskiSaradnik obrisisaradnik = obrisiSaradnika.GetSaradnik(pozicija.Content.ToString());
-                obrisisaradnik.Id = long.Parse(txtObrisiVSaradnikaId.Text);
-                VanjskiSaradnikDAO obrisiSaradnikDAO = new VanjskiSaradnikDAO();
-                obrisiSaradnikDAO.Delete(obrisisaradnik);
+            validirajID();
 
-                VanjskiSaradnikDAO sDao = new VanjskiSaradnikDAO();
-                _saradnici = sDao.List();
-                saradniciGrid.ItemsSource = _saradnici.ListaVanjskihSaradnika;
+            if (validirajID())
+            {
+
+                VanjskiSaradnikUloga obrisiSaradnika = new VanjskiSaradnikUloga();
+                if (txtObrisiVSaradnikaPozicija.SelectedValue != null)
+                {
+                    var pozicija = (ComboBoxItem)txtObrisiVSaradnikaPozicija.SelectedValue;
+                    VanjskiSaradnik obrisisaradnik = obrisiSaradnika.GetSaradnik(pozicija.Content.ToString());
+                    obrisisaradnik.Id = long.Parse(txtObrisiVSaradnikaId.Text);
+                    VanjskiSaradnikDAO obrisiSaradnikDAO = new VanjskiSaradnikDAO();
+                    obrisiSaradnikDAO.Delete(obrisisaradnik);
+
+                    VanjskiSaradnikDAO sDao = new VanjskiSaradnikDAO();
+                    _saradnici = sDao.List();
+                    saradniciGrid.ItemsSource = _saradnici.ListaVanjskihSaradnika;
+                }
             }
+        }
+
+        private void ID_TextChanged(object sender, TextChangedEventArgs e)
+        {            
+            validirajID();
+        }
+
+        private bool validirajID()
+        {
+            bool dobar = true;
+            foreach (char c in txtObrisiVSaradnikaId.Text)
+            {
+                if (!(c >= '0' && c <= '9'))
+                {
+                    pocrveni(borID);
+                    txtObrisiVSaradnikaId.ToolTip = "Polje smije sadrzavati samo brojeve!";
+                    dobar = false;
+                    break;
+                }
+            }
+            if (dobar == true) odcrveni(borID);
+            else pocrveni(borID);
+
+            return dobar && prazno( txtObrisiVSaradnikaId, borID);
         }
 
 		void Test()

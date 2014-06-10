@@ -40,7 +40,7 @@
 
         <TabControl Name="tbcGlavniTab"
                     Grid.Row="1"
-                    Grid.Column="0" Margin="0,5,0,-5">
+                    Grid.Column="0" Margin="0,5,0,5">
 
             <TabItem Name="tabDobrodosli"
                      Header="Dobrodosli">
@@ -194,7 +194,7 @@
                             <RowDefinition Height="25px"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Label Grid.Row="0" Grid.Column="0">Ime</Label>
-                        <TextBox Name="txtNoviZaposlenikIme" Grid.Row="0" Grid.Column="1"></TextBox>
+                        <TextBox Name="txtNoviZaposlenikIme" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10" Grid.RowSpan="2"></TextBox>
 
                         <Label Grid.Row="1" Grid.Column="0">Prezime</Label>
                         <TextBox Name="txtNoviZaposlenikPrezime"  Grid.Row="1" Grid.Column="1"></TextBox>
@@ -333,10 +333,23 @@
                         </Grid.RowDefinitions>
 
                         <Label  Grid.Row="1" Grid.Column="0">Naziv</Label>
-                        <TextBox Name="txtNoviVSaradnikNaziv"  Grid.Row="1" Grid.Column="1"></TextBox>
+                        <Border Name="borNaziv"
+                        BorderBrush="White"
+                        BorderThickness="2.5"
+                        Grid.Row="1"
+                        Grid.Column="1">
+                            <TextBox Name="txtNoviVSaradnikNaziv" TextChanged="Naziv_TextChanged"/>
+                        </Border>
 
                         <Label  Grid.Row="2" Grid.Column="0">Plata</Label>
-                        <TextBox Name="txtNoviVSaradnikPlata"  Grid.Row="2" Grid.Column="1"></TextBox>
+                        <Border Name="borPlata"
+                        BorderBrush="White"
+                        BorderThickness="2.5"
+                        Grid.Row="2"
+                        Grid.Column="1">
+                            <TextBox Name="txtNoviVSaradnikPlata" TextChanged="Plata_TextChanged"/>
+                        </Border>
+
 
                         <Label Grid.Row="3" Grid.Column="0">Pozicija</Label>
                         <ComboBox  Name="txtNoviVSaradnikPozicija" Grid.Row="3" Grid.Column="1">
@@ -350,8 +363,14 @@
                         </Button>
                         
                         <Label  Grid.Row="6" Grid.Column="0">Id</Label>
-                        <TextBox Name="txtObrisiVSaradnikaId"  Grid.Row="6" Grid.Column="1"></TextBox>
-
+                        <Border Name="borID"
+                        BorderBrush="White"
+                        BorderThickness="2.5"
+                        Grid.Row="6"
+                        Grid.Column="1">
+                            <TextBox Name="txtObrisiVSaradnikaId" TextChanged="ID_TextChanged"/>
+                        </Border>
+                        
                         <Label Grid.Row="7" Grid.Column="0">Pozicija</Label>
                         <ComboBox  Name="txtObrisiVSaradnikaPozicija" Grid.Row="7" Grid.Column="1">
                             <ComboBoxItem Content="AgencijaZaReklamiranje" />
