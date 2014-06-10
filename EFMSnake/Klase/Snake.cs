@@ -23,7 +23,8 @@ namespace EFMSnake
 			Panel P = new Panel ();
 			P.Height = P.Width = SIZE;
 			P.BackgroundImageLayout = ImageLayout.Zoom;
-			P.BackgroundImage = Tijelo1.Slika;
+            if (S1) P.BackgroundImage = Tijelo1.Slika;
+            else P.BackgroundImage = Tijelo2.Slika;
 			int XX = 0, YY = 0;
 			if (S1)
 			{
@@ -103,7 +104,7 @@ namespace EFMSnake
 				}
 			}
 		}
-		int Dir1 = 2, Dir2 = 0;
+		public int Dir1 = 2, Dir2 = 0;
 		private int[] Speeds = new int[] { 1000, 800, 700, 500, 320, 250, 150, 100, 75, 50 };
 		public Snake(Panel Cont, GlavaZmije G1, TijeloZmije T1, GlavaZmije G2, TijeloZmije T2, HranaZmije H, Level L)
 		{
@@ -178,30 +179,35 @@ namespace EFMSnake
 			MoveSnake ();
 			CON.Invalidate ();
 		}
+        int aa = 0, bb = 0;
 		void HitFood()
 		{
 			if (Q[0].Bounds.IntersectsWith (iHrana.Bounds))
-			{ Dodaj (false); int a = 0, b = 0; RandFood (ref a, ref b); iHrana.Left = a; iHrana.Top = b; }
+            { Dodaj(false); int a = 0, b = 0; RandFood(ref a, ref b); iHrana.Left = a; iHrana.Top = b; ++aa; }
 			if (S[0].Bounds.IntersectsWith (iHrana.Bounds))
-			{ Dodaj (); int a = 0, b = 0; RandFood (ref a, ref b); iHrana.Left = a; iHrana.Top = b;}
+            { Dodaj(); int a = 0, b = 0; RandFood(ref a, ref b); iHrana.Left = a; iHrana.Top = b; ++bb; }
+            CON.Parent.Text = "EFM Snake: " + bb.ToString() + ":" + aa.ToString();
 		}
+        
+        public delegate void Evnt ();
+        public event Evnt GameOver;
 		private void HitWall(bool S1 = true)
 		{
 				for (int a = 1; a < S.Count; ++a)
 					if (S[0].Left < 0 || S[0].Top < 0 || S[0].Right > CON.Width || S[0].Bottom > CON.Height)
-					{ T.Enabled = false; MessageBox.Show ("Player1, GameOver"); T.Enabled = false; }
+                    { T.Enabled = false; MessageBox.Show("Player2 WIN (" + aa.ToString() + " : " + bb.ToString() + ")"); if (GameOver != null) GameOver(); return; }
 		for (int a = 1; a < S.Count; ++a)
 					if (Q[0].Left < 0 || Q[0].Top < 0 || Q[0].Right > CON.Width || Q[0].Bottom > CON.Height)
-					{ T.Enabled = false; MessageBox.Show ("Player2, GameOver"); }
+                    { T.Enabled = false; MessageBox.Show("Player1 WIN (" + aa.ToString() + " : " + bb.ToString() + ")"); if (GameOver != null) GameOver(); return; }
 		}
 		private void HitSelf(bool S1 = true)
 		{
 				for (int a = 1; a < S.Count; ++a)
 					if (S[0].Bounds.IntersectsWith (S[a].Bounds))
-					{ T.Enabled = false; MessageBox.Show ("Player1, GameOver"); T.Enabled = false; }
+                    { T.Enabled = false; MessageBox.Show("Player2 WIN (" + aa.ToString() + " : " + bb.ToString() + ")"); if (GameOver != null) GameOver(); return; }
 				for (int a = 1; a < Q.Count; ++a)
 					if (Q[0].Bounds.IntersectsWith (Q[a].Bounds))
-					{ T.Enabled = false; MessageBox.Show ("Player2, GameOver"); T.Enabled = false; }
+                    { T.Enabled = false; MessageBox.Show("Player1 WIN (" + aa.ToString() + " : " + bb.ToString() + ")"); if (GameOver != null) GameOver(); return; }
 		}
 		public Brzina BrzinaZmije
 		{

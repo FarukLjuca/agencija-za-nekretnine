@@ -33,14 +33,14 @@ namespace EFMSnake
 				else s.Pauziraj ();
 			}
 			else if (k == Keys.A) s.UpravljajZmijom1 (Snake.Direct.Lijevo);
-			else if (k == Keys.W) s.UpravljajZmijom1 (Snake.Direct.Gore);
-			else if (k == Keys.D) s.UpravljajZmijom1 (Snake.Direct.Desno);
-			else if (k == Keys.S) s.UpravljajZmijom1 (Snake.Direct.Dolje);
+            else if (k == Keys.W) s.UpravljajZmijom1(Snake.Direct.Gore);
+            else if (k == Keys.D) s.UpravljajZmijom1(Snake.Direct.Desno);
+            else if (k == Keys.S) s.UpravljajZmijom1(Snake.Direct.Dolje);
 
-			else if (k == Keys.Left) s.UpravljajZmijom2 (Snake.Direct.Lijevo);
-			else if (k == Keys.Up) s.UpravljajZmijom2 (Snake.Direct.Gore);
-			else if (k == Keys.Right) s.UpravljajZmijom2 (Snake.Direct.Desno);
-			else if (k == Keys.Down) s.UpravljajZmijom2 (Snake.Direct.Dolje);
+            else if (k == Keys.Left) s.UpravljajZmijom2(Snake.Direct.Lijevo);
+            else if (k == Keys.Up) s.UpravljajZmijom2(Snake.Direct.Gore);
+            else if (k == Keys.Right) s.UpravljajZmijom2(Snake.Direct.Desno);
+            else if (k == Keys.Down) s.UpravljajZmijom2(Snake.Direct.Dolje);
 		}
 
 		private void FrmMain_Load(object sender, EventArgs e)
@@ -155,10 +155,19 @@ namespace EFMSnake
 
 
 			efmPanel1.BorderStyle = BorderStyle.FixedSingle;
-			s = new Snake (efmPanel1, glava1, tijelo1, glava2, tijelo2, hrana, Snake.Level.Level3);
+			s = new Snake (efmPanel1, glava1, tijelo1, glava2, tijelo2, hrana, Snake.Level.LevelExtreme);
+            s.GameOver += s_GameOver;
             efmPanel1.Visible = true;
 			efmPanel1.Focus ();
 			efmPanel1.Refresh ();
+
+        }
+
+        void s_GameOver()
+        {
+            s = null;
+            efmPanel1.Controls.Clear();
+            START_Click(null, null);
 
         }
 
