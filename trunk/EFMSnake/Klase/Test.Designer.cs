@@ -28,22 +28,22 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.efmPanel1 = new EFMSnake.Klase.EFMPanel();
+			this.EnilPanel = new EFMSnake.Klase.EFMPanel();
 			this.SuspendLayout();
 			// 
-			// efmPanel1
+			// EnilPanel
 			// 
-			this.efmPanel1.Location = new System.Drawing.Point(5, 10);
-			this.efmPanel1.Name = "efmPanel1";
-			this.efmPanel1.Size = new System.Drawing.Size(735, 410);
-			this.efmPanel1.TabIndex = 0;
+			this.EnilPanel.Location = new System.Drawing.Point(5, 10);
+			this.EnilPanel.Name = "EnilPanel";
+			this.EnilPanel.Size = new System.Drawing.Size(735, 410);
+			this.EnilPanel.TabIndex = 0;
 			// 
 			// Test
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(750, 430);
-			this.Controls.Add(this.efmPanel1);
+			this.Controls.Add(this.EnilPanel);
 			this.KeyPreview = true;
 			this.Name = "Test";
 			this.Text = "Test";
@@ -54,6 +54,6 @@
 
 		#endregion
 
-		private EFMPanel efmPanel1;
+		private EFMPanel EnilPanel;
 	}
 }

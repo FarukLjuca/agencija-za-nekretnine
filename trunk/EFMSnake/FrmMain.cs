@@ -23,7 +23,7 @@ namespace EFMSnake
 			InitializeComponent ();
 			this.KeyDown += FrmMain_KeyDown;
 		}
-		Snake s;
+		Snake s = null;
 		void FrmMain_KeyDown(object sender, KeyEventArgs e)
 		{
 			Keys k = e.KeyData;
@@ -151,13 +151,14 @@ namespace EFMSnake
 			btnAbout.Visible = false;
 			btnStart.Visible = false;
 			this.BackgroundImage = null;
-			efmPanel1.Visible = false;
+			//efmPanel1.Visible = false;
 
 
-
-			s = new Snake (efmPanel1, glava1, tijelo1, glava2, tijelo2, hrana, Snake.Level.Level5);
-            //efmPanel1.Visible = true;
+			efmPanel1.BorderStyle = BorderStyle.FixedSingle;
+			s = new Snake (efmPanel1, glava1, tijelo1, glava2, tijelo2, hrana, Snake.Level.Level3);
+            efmPanel1.Visible = true;
 			efmPanel1.Focus ();
+			efmPanel1.Refresh ();
 
         }
 

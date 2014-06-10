@@ -12,7 +12,7 @@ namespace EFMSnake.Klase
 {
 	public partial class Test : Form
 	{
-		public EFMPanel Pnl { get { return efmPanel1; } }
+		public EFMPanel Pnl { get { return EnilPanel; } }
 			public void PostaviSnake(Snake sss) {  s = sss; }
 		public Test(Snake ss)
 		{

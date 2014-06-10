@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Diagnostics;
 
 namespace EFMSnake
 {
 	public class Snake
 	{
-		const int SIZE = 50;
+		const int SIZE = 15;
 		Timer T = new Timer ();
 		public enum Level : uint {Level1 = 1, Level2, Level3, Level4, Level5, Level6, Level7, Level8, Level9, LevelExtreme}
 		private List<Panel> S = new List<Panel> ();
@@ -60,8 +61,9 @@ namespace EFMSnake
 			while (true)
 			{
 				S = R.Next (Min, Max + 1);
-				if (S % SIZE == 0)
+				if ( (S) % SIZE == 0)
 				{
+					System.Diagnostics.Debug.WriteLine (S);
 					return S;
 				}
 			}
@@ -92,6 +94,8 @@ namespace EFMSnake
 					}
 					if (!SS)
 					{
+						Debug.WriteLine ("X = " + A.ToString ());
+						Debug.WriteLine ("Y = " + B.ToString ());
 						X = A;
 						Y = B;
 						break; 
@@ -103,7 +107,11 @@ namespace EFMSnake
 		private int[] Speeds = new int[] { 1000, 800, 700, 500, 320, 250, 150, 100, 75, 50 };
 		public Snake(Panel Cont, GlavaZmije G1, TijeloZmije T1, GlavaZmije G2, TijeloZmije T2, HranaZmije H, Level L)
 		{
+
 			CON = Cont;
+			CON.Controls.Clear ();
+			Q.Clear ();
+			S.Clear ();
 			BrzinaZmije = (Brzina)L;
 			Glava1 = G1; Glava2 = G2;
 			Tijelo1 = T1; Tijelo2 = T2;
@@ -120,7 +128,7 @@ namespace EFMSnake
 			{
 				Panel P = new Panel ();
 				CON.Controls.Add (P);
-				P.Left = 3 * SIZE;
+				P.Left =   3 * SIZE;
 				P.Top = 0;
 				P.Height = P.Width = SIZE;
 				P.BackgroundImageLayout = ImageLayout.Zoom;
@@ -130,8 +138,8 @@ namespace EFMSnake
 			{
 				Panel P = new Panel ();
 				CON.Controls.Add (P);
-				P.Left = CON.Width - 3 * SIZE;
-				P.Top = CON.Height - SIZE;
+				P.Left = Rand (CON.Width - 3 * SIZE, CON.Width - SIZE);
+				P.Top = Rand (CON.Height - 2 * SIZE, CON.Height - SIZE);
 				P.Height = P.Width = SIZE;
 				P.BackgroundImageLayout = ImageLayout.Zoom;
 				P.BackgroundImage = Glava2.Slika;
@@ -142,7 +150,6 @@ namespace EFMSnake
 			Dodaj ();
 			Dodaj (false);
 			Dodaj (false);
-			T = new Timer ();
 			T.Tick += T_Tick;
 			
 
@@ -165,8 +172,36 @@ namespace EFMSnake
 		};
 		void T_Tick(object sender, EventArgs e)
 		{
+			HitSelf ();
+			HitFood ();
+			HitWall ();
 			MoveSnake ();
 			CON.Invalidate ();
+		}
+		void HitFood()
+		{
+			if (Q[0].Bounds.IntersectsWith (iHrana.Bounds))
+			{ Dodaj (false); int a = 0, b = 0; RandFood (ref a, ref b); iHrana.Left = a; iHrana.Top = b; }
+			if (S[0].Bounds.IntersectsWith (iHrana.Bounds))
+			{ Dodaj (); int a = 0, b = 0; RandFood (ref a, ref b); iHrana.Left = a; iHrana.Top = b;}
+		}
+		private void HitWall(bool S1 = true)
+		{
+				for (int a = 1; a < S.Count; ++a)
+					if (S[0].Left < 0 || S[0].Top < 0 || S[0].Right > CON.Width || S[0].Bottom > CON.Height)
+					{ T.Enabled = false; MessageBox.Show ("Player1, GameOver"); T.Enabled = false; }
+		for (int a = 1; a < S.Count; ++a)
+					if (Q[0].Left < 0 || Q[0].Top < 0 || Q[0].Right > CON.Width || Q[0].Bottom > CON.Height)
+					{ T.Enabled = false; MessageBox.Show ("Player2, GameOver"); }
+		}
+		private void HitSelf(bool S1 = true)
+		{
+				for (int a = 1; a < S.Count; ++a)
+					if (S[0].Bounds.IntersectsWith (S[a].Bounds))
+					{ T.Enabled = false; MessageBox.Show ("Player1, GameOver"); T.Enabled = false; }
+				for (int a = 1; a < Q.Count; ++a)
+					if (Q[0].Bounds.IntersectsWith (Q[a].Bounds))
+					{ T.Enabled = false; MessageBox.Show ("Player2, GameOver"); T.Enabled = false; }
 		}
 		public Brzina BrzinaZmije
 		{
@@ -179,6 +214,7 @@ namespace EFMSnake
 				S[a].Location = S[a - 1].Location;
 			S[0].Left += X1;
 			S[0].Top += Y1;
+			Debug.WriteLine ("(X; Y) = (" + S[0].Left.ToString () + ", " + S[0].Top.ToString () + ")");
 			for (int a = Q.Count - 1; a > 0; --a)
 				Q[a].Location = Q[a - 1].Location;
 			Q[0].Left += X2;
