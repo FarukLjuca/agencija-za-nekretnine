@@ -140,7 +140,6 @@ namespace EFM
 
         private void refreshN()
         {
-
             wpnlNekretnine.Children.RemoveRange(0, wpnlNekretnine.Children.Count);
             foreach (Nekretnina n in nekretnine)
             {
@@ -241,16 +240,16 @@ namespace EFM
 
         private void popuniNekretnine()
         {
-            /*
             DAO.NekretninaDAO ndao = new DAO.NekretninaDAO();
             List<Nekretnina> nekretnine = ndao.getAll();
             foreach (Nekretnina nek in nekretnine)
             {
                 DAO.SlikeNekretninaDAO sln = new DAO.SlikeNekretninaDAO();
                 Kontrole.kontrolaNekretnina kn = new Kontrole.kontrolaNekretnina(nek, sln.getAll()[0].Slika);
-                wpnlNekretnine.Children.Add(kn);
             }
-            */
+            if (editMode == true) refreshN();
+            else refreshCheckN();
+            
             cbbpretrazivanjePo.SelectedIndex = 0;
         }
 

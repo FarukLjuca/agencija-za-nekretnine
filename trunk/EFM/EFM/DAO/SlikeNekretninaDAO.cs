@@ -29,15 +29,8 @@ namespace EFM.DAO
             citac.Close();
 
             DAL kon1 = DAL.Instanca;
-            byte[] slika;
-            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create(Entity.Slika));
-            using (MemoryStream ms = new MemoryStream())
-            {
-                encoder.Save(ms);
-                slika = ms.ToArray();
-            }
-            komanda.CommandText = "insert into slikenekretnina (nekretnina, slika) values (" + id.ToString() + ", '" + slika + "');";
+            komanda.CommandText = "insert into slikenekretnina (nekretnina, slika) values (" + id.ToString() + ", @slika);";
+            komanda.Parameters.Add("@slika", System.Data.DbType.Binary).Value = Helper.DajByte(Entity.Slika);
             komanda.Connection = kon1.Konekcija;
             komanda.ExecuteNonQuery();
             kon1.Diskonektuj();
@@ -51,17 +44,8 @@ namespace EFM.DAO
             {
                 DAL connection = DAL.Instanca;
                 SQLiteCommand c = new SQLiteCommand("select * from slikenekretnina;", connection.Konekcija);
-                List<SlikeNekretnina> slike = new List<SlikeNekretnina>();
-
-                FileStream stream;                          
-                BinaryWriter writer;                        
-
-                int bufferSize = 100;                   
-                byte[] outByte = new byte[bufferSize];  
-                long retval;                            
-                long startIndex = 0;                                        
-
                 SQLiteDataReader reader = c.ExecuteReader();
+                List<SlikeNekretnina> slike = new List<SlikeNekretnina>();
 
                 while (reader.Read())
                 {
@@ -69,35 +53,7 @@ namespace EFM.DAO
                     int redniBr = reader.GetInt32(1);
                     Nekretnina n = nek.getById(redniBr);
 
-                    stream = new FileStream("tmp" + ".bmp", FileMode.OpenOrCreate, FileAccess.Write);
-                    writer = new BinaryWriter(stream);
-
-                    startIndex = 0;
-
-                    retval = reader.GetBytes(2, startIndex, outByte, 0, bufferSize);
-
-                    while (retval == bufferSize)
-                    {
-                        writer.Write(outByte);
-                        writer.Flush();
-
-                        startIndex += bufferSize;
-                        retval = reader.GetBytes(2, startIndex, outByte, 0, bufferSize);
-                    }
-                    writer.Write(outByte, 0, (int)retval - 1);
-                    writer.Flush();
-
-                    writer.Close();
-                    stream.Close();
-
-                    MemoryStream strmImg = new MemoryStream(outByte);
-                    BitmapImage myBitmapImage = new BitmapImage();
-                    myBitmapImage.BeginInit();
-                    myBitmapImage.StreamSource = strmImg;
-                    myBitmapImage.DecodePixelWidth = 200;
-                    myBitmapImage.EndInit();
-
-                    slike.Add(new SlikeNekretnina(n, myBitmapImage));
+                    slike.Add(new SlikeNekretnina(n, Helper.DajSliku(reader, 1)));
                 }
                 connection.Diskonektuj();
                 return slike;
