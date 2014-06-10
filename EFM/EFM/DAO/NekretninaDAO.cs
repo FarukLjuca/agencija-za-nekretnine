@@ -50,6 +50,7 @@ namespace EFM.DAO
                     nekretnine[nekretnine.Count - 1].ID = test;
                     nekretnine[nekretnine.Count - 1].Cijena = r.GetDecimal(5);
                 }
+                r.Close();
                 konekcija.Diskonektuj();
                 return nekretnine;                
             }
@@ -92,6 +93,7 @@ namespace EFM.DAO
                 if (test == 0) n.DaLiJeRezervisana = false;
                 n.ID = test;
             }
+            r.Close();
             kon.Diskonektuj();
             return n;
         }

@@ -39,6 +39,7 @@ namespace EFM.DAO
                 List<Klijent> klijenti = new List<Klijent>();
                 while (r.Read())
                 {
+                    int a = r.GetInt32(0);
                     Klijent k = new Klijent(r.GetDateTime(1), r.GetString(2), r.GetString(3), r.GetString(4), r.GetString(5),
                         null, null);
                     BitmapImage img = Helper.DajSliku(r, 6);
@@ -48,8 +49,10 @@ namespace EFM.DAO
                         if (z.Id == id) { k.Agent = z as Agent; break; }
                     }
                     k.slika = img;
+                    k.ID = a;
                     klijenti.Add(k);
                 }
+                r.Close();
                 konekcija.Diskonektuj();
                 return klijenti;
             }

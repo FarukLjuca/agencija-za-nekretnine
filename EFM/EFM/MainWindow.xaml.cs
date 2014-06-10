@@ -240,6 +240,7 @@ namespace EFM
 
         private void popuniNekretnine()
         {
+            /*
             DAO.NekretninaDAO ndao = new DAO.NekretninaDAO();
             List<Nekretnina> nekretnine = ndao.getAll();
             foreach (Nekretnina nek in nekretnine)
@@ -249,6 +250,7 @@ namespace EFM
             }
             if (editMode == true) refreshN();
             else refreshCheckN();
+            */
             
             cbbpretrazivanjePo.SelectedIndex = 0;
         }
@@ -361,9 +363,10 @@ namespace EFM
 
         private void popuniKlijente()
         {
-            
+            /*
             DAO.KlijentDAO kd = new KlijentDAO();
             klijeti = kd.getAll(_zaposlenici.ListaZaposlenika);
+            */
             
             refreshK();
             cbbpretrazivanjePoKlijenti.SelectedIndex = 0;
