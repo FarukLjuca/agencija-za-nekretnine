@@ -535,8 +535,12 @@ namespace EFM
 
                 ZaposlenikDAO zaposlenikDao = new ZaposlenikDAO();
                 zaposlenikDao.Create(zaposlenik);
-                //_zaposlenici.ListaZaposlenika.Add(zaposlenik);
+                _zaposlenici.ListaZaposlenika.Add(zaposlenik);
                 //zaposleniciGrid.
+                //zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
+                ZaposlenikDAO zDao = new ZaposlenikDAO();
+                _zaposlenici = zDao.List();
+                zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
             }
         }
 
@@ -550,6 +554,10 @@ namespace EFM
                 obrisizaposlenik.Id = long.Parse(txtObrisiZaposlenikaId.Text);
                 ZaposlenikDAO obrisiZaposlenikDao = new ZaposlenikDAO();
                 obrisiZaposlenikDao.Delete(obrisizaposlenik);
+
+                ZaposlenikDAO zDao = new ZaposlenikDAO();
+                _zaposlenici = zDao.List();
+                zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
             }
         }
 
@@ -562,9 +570,12 @@ namespace EFM
                 VanjskiSaradnik vanjskisaradnik = vanjskiSaradnikUloga.GetSaradnik(pozicija.Content.ToString());
                 vanjskisaradnik.Naziv = txtNoviVSaradnikNaziv.Text;
                 vanjskisaradnik.Plata = double.Parse(txtNoviVSaradnikPlata.Text);
-
                 VanjskiSaradnikDAO vanjskiSaradnikDAO = new VanjskiSaradnikDAO();
-                vanjskiSaradnikDAO.Create(vanjskisaradnik);    
+                vanjskiSaradnikDAO.Create(vanjskisaradnik);
+
+                VanjskiSaradnikDAO sDao = new VanjskiSaradnikDAO();
+                _saradnici = sDao.List();
+                saradniciGrid.ItemsSource = _saradnici.ListaVanjskihSaradnika;
             }
         }
 
@@ -578,6 +589,10 @@ namespace EFM
                 obrisisaradnik.Id = long.Parse(txtObrisiVSaradnikaId.Text);
                 VanjskiSaradnikDAO obrisiSaradnikDAO = new VanjskiSaradnikDAO();
                 obrisiSaradnikDAO.Delete(obrisisaradnik);
+
+                VanjskiSaradnikDAO sDao = new VanjskiSaradnikDAO();
+                _saradnici = sDao.List();
+                saradniciGrid.ItemsSource = _saradnici.ListaVanjskihSaradnika;
             }
         }
 
