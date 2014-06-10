@@ -42,6 +42,9 @@ namespace EFM.DAO
         {
             try
             {
+
+                NekretninaDAO nek = new NekretninaDAO();
+                List<Nekretnina> lista = nek.getAll();
                 DAL connection = DAL.Instanca;
                 SQLiteCommand c = new SQLiteCommand("select * from slikenekretnina;", connection.Konekcija);
                 SQLiteDataReader reader = c.ExecuteReader();
@@ -49,12 +52,17 @@ namespace EFM.DAO
 
                 while (reader.Read())
                 {
-                    NekretninaDAO nek = new NekretninaDAO();
                     int redniBr = reader.GetInt32(1);
-                    Nekretnina n = nek.getById(redniBr);
-
-                    slike.Add(new SlikeNekretnina(n, Helper.DajSliku(reader, 1)));
+                    Nekretnina n = null;
+                    foreach (Nekretnina nekr in lista)
+                    {
+                        if (redniBr == nekr.ID) { n = nekr; break; }
+                    }
+                    BitmapImage sl = Helper.DajSliku(reader, 2);
+                    SlikeNekretnina sln = new SlikeNekretnina(n, sl);
+                    slike.Add(sln);
                 }
+                reader.Close();
                 connection.Diskonektuj();
                 return slike;
             }

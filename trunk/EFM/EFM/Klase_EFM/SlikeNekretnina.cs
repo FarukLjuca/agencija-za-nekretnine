@@ -7,16 +7,20 @@ using System.Windows.Media.Imaging;
 
 namespace EFM
 {
-    class SlikeNekretnina
+    public class SlikeNekretnina
     {
         public Nekretnina Nekretnina { get; set; }
         public BitmapImage Slika { get; set; }
 		public int ID { get; set; }
-        public SlikeNekretnina(Nekretnina nekretnina, BitmapImage slika, int ID = 0)
+        public SlikeNekretnina(Nekretnina nekretnina, BitmapImage slika)
         {
             Nekretnina = nekretnina;
             Slika = slika;
-			this.ID = ID;
+        }
+
+        public SlikeNekretnina()
+        {
+            
         }
     }
 }
