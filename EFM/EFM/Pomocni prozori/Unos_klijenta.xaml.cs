@@ -68,8 +68,7 @@ namespace EFM.Pomocni_prozori
             if (validirajAdresu() && validirajBroj() && validirajIme() && validirajJmbg() && validirajPrezime())
             {
                 Agent a = cbbAgent.SelectedItem as Agent;
-                if (cbbAgent.SelectedIndex != -1) a = cbbAgent.SelectedItem as Agent;
-                Klijent k = new Klijent(dtpDatumRodjenja.SelectedDate.Value, tbxIme.Text, tbxPrezime.Text, tbxJMBG.Text,
+                Klijent k = new Klijent(dtpDatumRodjenja.DisplayDate, tbxIme.Text, tbxPrezime.Text, tbxJMBG.Text,
                     tbxBrLK.Text, slika, a);
 
                 klijenti.Add(k);

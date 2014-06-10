@@ -32,6 +32,7 @@ namespace EFM
             this.Agent = Agent;
             this.slika = slika;
             JMBG = jmbg;
+            prikazi = true;
         }
 
         /// <summary>
