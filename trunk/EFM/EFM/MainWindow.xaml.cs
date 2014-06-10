@@ -362,10 +362,10 @@ namespace EFM
 
         private void popuniKlijente()
         {
-            /*
+            
             DAO.KlijentDAO kd = new KlijentDAO();
-            klijeti = kd.getAll();
-            */
+            klijeti = kd.getAll(_zaposlenici.ListaZaposlenika);
+            
             refreshK();
             cbbpretrazivanjePoKlijenti.SelectedIndex = 0;
         }
