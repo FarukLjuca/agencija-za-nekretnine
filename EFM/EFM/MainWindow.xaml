@@ -233,7 +233,13 @@
                         </Button>
 
                         <Label Grid.Row="13" Grid.Column="0">Id</Label>
-                        <TextBox Name="txtObrisiZaposlenikaId"  Grid.Row="13" Grid.Column="1"></TextBox>
+                        <Border Name="borZapID"
+                        BorderBrush="White"
+                        BorderThickness="2.5"
+                        Grid.Row="13"
+                        Grid.Column="1">
+                            <TextBox Name="txtObrisiZaposlenikaId" TextChanged="IDZap_TextChanged"/>
+                        </Border>
 
                         <Label Grid.Row="14" Grid.Column="0">Pozicija</Label>
                         <ComboBox  Name="txtObrisiZaposlenikaPozicija" Grid.Row="14" Grid.Column="1">
