@@ -947,11 +947,13 @@ namespace EFM
 
         private void dodajE_Click(object sender, RoutedEventArgs e)
         {
+            /*
             Pomocni_prozori.UnosEUgovora IU = new Pomocni_prozori.UnosEUgovora(_saradnici.ListaVanjskihSaradnika, Eugovori);
             IU.ShowDialog();
 
             refreshI();
             tbxTraziEks_TextChanged(null, null);
+            */
         }
 
 
@@ -973,9 +975,11 @@ namespace EFM
 
         private void refreshEBaza()
         {
+            /*
             EksterniUgovorDAO dao = new EksterniUgovorDAO();
             Eugovori = dao.getAll();
             dtgEksterni.ItemsSource = Eugovori;
+            */
         }
 
         private void refreshE()
