@@ -159,5 +159,10 @@ namespace EFM.Pomocni_prozori
         {
             validirajCijenu();
         }
+
+        public void popuni(Nekretnina n)
+        {
+
+        }
     }
 }
