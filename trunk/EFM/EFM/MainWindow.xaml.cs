@@ -373,32 +373,61 @@ namespace EFM
             var menu = item.Parent as ContextMenu;
 
             Pomocni_prozori.Unos_klijenta uk = new Pomocni_prozori.Unos_klijenta(klijeti, _zaposlenici.ListaZaposlenika);
+            Pomocni_prozori.Unos_nekretnine un = new Pomocni_prozori.Unos_nekretnine(nekretnine, klijeti);
 
             Klijent k = null;
+            Nekretnina n = null;
 
             if (menu.PlacementTarget is Kontrole.checkKlijent)
             {
                 k = (menu.PlacementTarget as Kontrole.checkKlijent).klijent;
+                uk.popuni(k);
             }
             else if (menu.PlacementTarget is Kontrole.kontrolaKlijent)
             {
                 k = (menu.PlacementTarget as Kontrole.kontrolaKlijent).klijent;
+                uk.popuni(k);
+            }
+            else if (menu.PlacementTarget is Kontrole.kontrolaNekretnina)
+            {
+                n = (menu.PlacementTarget as Kontrole.kontrolaNekretnina).nekretnina;
+                un.popuni(k);
             }
 
-            uk.popuni(k);
-
-            if (uk.ShowDialog() == true)
+            if (k != null)
             {
-                KlijentDAO dao = new KlijentDAO();
-                dao.Delete((menu.PlacementTarget as Kontrole.kontrolaKlijent).klijent);
+                if (uk.ShowDialog() == true)
+                {
+                    KlijentDAO dao = new KlijentDAO();
+                    dao.Delete((menu.PlacementTarget as Kontrole.kontrolaKlijent).klijent);
 
-                if (menu.PlacementTarget is Kontrole.checkKlijent)
-                {
-                    refreshCheckK();
+                    if (menu.PlacementTarget is Kontrole.checkKlijent)
+                    {
+                        refreshCheckK();
+                    }
+                    else if (menu.PlacementTarget is Kontrole.kontrolaKlijent)
+                    {
+                        refreshK();
+                    }
+
                 }
-                else if (menu.PlacementTarget is Kontrole.kontrolaKlijent)
+            }
+            else if (n != null)
+            {
+                if (un.ShowDialog() == true)
                 {
-                    refreshK();
+                    NekretninaDAO dao = new NekretninaDAO();
+                    dao.Delete((menu.PlacementTarget as Kontrole.kontrolaNekretnina).klijent);
+
+                    if (menu.PlacementTarget is Kontrole.checkNekretnina)
+                    {
+                        refreshCheckN();
+                    }
+                    else if (menu.PlacementTarget is Kontrole.kontrolaNekretnina)
+                    {
+                        refreshN();
+                    }
+
                 }
             }
         }
