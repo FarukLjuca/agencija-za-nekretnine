@@ -53,7 +53,7 @@ namespace EFM
             return "Detaljni podaci o klijentu\n" +
                 "\nIme: " + Ime +
                 "\nPrezime: " + Prezime +
-                "\nDatum rođenja: " + String.Format("{0:DD.MM.YYYY.", DatumRodjenja) +
+                "\nDatum rođenja: " + String.Format("{0}", DatumRodjenja.ToShortDateString()) +
                 "\nJMBG: " + JMBG +
                 "\nBroj licne karte: " + BrojLicneKarte;
         }

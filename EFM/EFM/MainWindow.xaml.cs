@@ -243,14 +243,14 @@ namespace EFM
 
         private void popuniNekretnine()
         {
-            /*
+            
             DAO.NekretninaDAO ndao = new DAO.NekretninaDAO();
-            List<Nekretnina> nekretnine = ndao.getAll(klijeti);
+            nekretnine = ndao.getAll(klijeti);
             foreach (Nekretnina nek in nekretnine)
             {
                 DAO.SlikeNekretninaDAO slndao = new DAO.SlikeNekretninaDAO();
                 List<SlikeNekretnina> sln = new List<SlikeNekretnina>();
-                sln = slndao.getAll(klijeti);
+                sln = slndao.getAll(klijeti, nekretnine);
                 foreach (SlikeNekretnina SN in sln)
                 {
                     if (SN.Nekretnina == nek) nek.Slike.Add(SN.Slika);
@@ -258,7 +258,7 @@ namespace EFM
             }
             if (editMode == true) refreshN();
             else refreshCheckN();
-            */
+            
             
             cbbpretrazivanjePo.SelectedIndex = 0;
         }

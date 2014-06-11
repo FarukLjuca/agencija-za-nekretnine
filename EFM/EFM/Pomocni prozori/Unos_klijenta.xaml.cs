@@ -29,7 +29,7 @@ namespace EFM.Pomocni_prozori
             foreach (Zaposlenik z in zaposlenici)
             {
                 if (z is Agent)
-                    cbbAgent.Items.Add(z.ToString());
+                    cbbAgent.Items.Add(z);
             }
         }
 
