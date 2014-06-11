@@ -121,6 +121,9 @@
     <Compile Include="Pomocni prozori\Unos nekretnine.xaml.cs">
       <DependentUpon>Unos nekretnine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pomocni prozori\UnosEUgovora.xaml.cs">
+      <DependentUpon>UnosEUgovora.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pomocni prozori\UnosIugovora.xaml.cs">
       <DependentUpon>UnosIugovora.xaml</DependentUpon>
     </Compile>
@@ -187,6 +190,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pomocni prozori\Unos nekretnine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pomocni prozori\UnosEUgovora.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

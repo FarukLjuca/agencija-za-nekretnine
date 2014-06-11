@@ -896,7 +896,99 @@ namespace EFM
 
         #endregion
 
-		void Test()
+
+        #region Eksterni ugovori
+
+        private List<EksterniUgovor> Eugovori = new List<EksterniUgovor>();
+
+        private void btnEditEks_Click(object sender, RoutedEventArgs e)
+        {
+            btnEditModeKlijenti.Margin = new Thickness(15, 20, 15, 5);
+
+            Button btnDodajE = new Button();
+            btnDodajE.Margin = new Thickness(15, 5, 15, 5);
+            btnDodajE.Content = "Dodaj novi";
+            btnDodajE.Click += new RoutedEventHandler(dodajE_Click);
+            spnlEks.Children.Add(btnDodajE);
+
+            Button btnObrisiE = new Button();
+            btnObrisiE.Margin = new Thickness(15, 5, 15, 5);
+            btnObrisiE.Content = "Obrisi";
+            btnObrisiE.Click += new RoutedEventHandler(obrisiE_Click);
+            spnlEks.Children.Add(btnObrisiE);
+        }
+
+
+        private void obrisiE_Click(object sender, RoutedEventArgs e)
+        {
+            List<int> broj = new List<int>();
+            Pomocni_prozori.ID id = new Pomocni_prozori.ID(broj);
+
+            if (id.ShowDialog() == true)
+            {
+                bool imaGa = false;
+                EksterniUgovor iu = null;
+                foreach (EksterniUgovor i in Eugovori)
+                {
+                    if (i.ID == broj[0]) { imaGa = true; iu = i; break; }
+                }
+
+                if (imaGa == true)
+                {
+                    EksterniUgovorDAO dao = new EksterniUgovorDAO();
+                    dao.Delete(iu);
+                }
+                else MessageBox.Show("ID koji ste unijeli ne postoji!");
+
+                refreshEBaza();
+            }
+        }
+
+        private void dodajE_Click(object sender, RoutedEventArgs e)
+        {
+            Pomocni_prozori.UnosEUgovora IU = new Pomocni_prozori.UnosEUgovora(_saradnici.ListaVanjskihSaradnika, Eugovori);
+            IU.ShowDialog();
+
+            refreshI();
+            tbxTraziEks_TextChanged(null, null);
+        }
+
+
+
+        private void tbxTraziEks_TextChanged(object sender, RoutedEventArgs e)
+        {
+            if (cbbpretraziPo.SelectedIndex == 0)
+            {
+                foreach (EksterniUgovor i in Eugovori)
+                {
+                    if (i.VanjskiSaradnik.Naziv.Contains(tbxTraziEks.Text))
+                        i.prikazi = true;
+                    else i.prikazi = false;
+                }
+            }
+
+            refreshE();
+        }
+
+        private void refreshEBaza()
+        {
+            EksterniUgovorDAO dao = new EksterniUgovorDAO();
+            Eugovori = dao.getAll();
+            dtgEksterni.ItemsSource = Eugovori;
+        }
+
+        private void refreshE()
+        {
+            foreach (EksterniUgovor i in Eugovori)
+            {
+                if (i.prikazi == true) dtgEksterni.Items.Add(i);
+            }
+        }
+        
+        #endregion
+
+
+        void Test()
 		{
 			return;
 			InterniUgovor E = new InterniUgovor ();
