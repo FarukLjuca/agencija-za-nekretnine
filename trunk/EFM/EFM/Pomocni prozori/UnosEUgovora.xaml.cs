@@ -15,11 +15,10 @@ using System.Windows.Shapes;
 namespace EFM.Pomocni_prozori
 {
     /// <summary>
-    /// Interaction logic for UnosIugovora.xaml
+    /// Interaction logic for UnosEUgovora.xaml
     /// </summary>
     public partial class UnosEUgovora : Window
     {
-        /*
         List<VanjskiSaradnik> z;
         List<EksterniUgovor> i;
 
@@ -38,6 +37,7 @@ namespace EFM.Pomocni_prozori
             set { cbbVanjskiSaradnik.SelectedItem = value; }
         }
 
+
         public UnosEUgovora(List<VanjskiSaradnik> z, List<EksterniUgovor> i)
         {
             InitializeComponent();
@@ -45,9 +45,9 @@ namespace EFM.Pomocni_prozori
             this.i = i;
             foreach (VanjskiSaradnik zap in z)
             {
-                cbbVanjskiSaradnik.Items.Add(sar.ToString());
+                cbbVanjskiSaradnik.Items.Add(zap.ToString());
             }
-            
+
         }
 
         private void btnCancell_Click(object sender, RoutedEventArgs e)
@@ -89,6 +89,6 @@ namespace EFM.Pomocni_prozori
                 this.Close();
             }
         }
-        */
+
     }
 }
