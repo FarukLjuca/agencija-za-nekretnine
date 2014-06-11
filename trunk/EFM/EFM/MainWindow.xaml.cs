@@ -417,7 +417,7 @@ namespace EFM
                 if (un.ShowDialog() == true)
                 {
                     NekretninaDAO dao = new NekretninaDAO();
-                    dao.Delete((menu.PlacementTarget as Kontrole.kontrolaNekretnina).klijent);
+                    dao.Delete((menu.PlacementTarget as Kontrole.kontrolaNekretnina).nekretnina);
 
                     if (menu.PlacementTarget is Kontrole.checkNekretnina)
                     {
