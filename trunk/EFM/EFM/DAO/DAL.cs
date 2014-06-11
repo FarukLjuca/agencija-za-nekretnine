@@ -23,7 +23,7 @@ namespace EFM
             get { return (instanca == null) ? instanca = new DAL() : instanca; }
         }
         private DAL() { }
-        ~DAL() { Diskonektuj(); }
+        ~DAL() {/* Diskonektuj();*/ }
         public DB.SQLiteConnection Konekcija
         {
             get

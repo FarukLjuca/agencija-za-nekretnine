@@ -38,13 +38,10 @@ namespace EFM.DAO
             return 0;
         }
 
-        public List<SlikeNekretnina> getAll(List<Klijent> klijenti)
+        public List<SlikeNekretnina> getAll(List<Klijent> klijenti, List<Nekretnina> nekretnine)
         {
             try
             {
-
-                NekretninaDAO nek = new NekretninaDAO();
-                List<Nekretnina> lista = nek.getAll(klijenti);
                 DAL connection = DAL.Instanca;
                 SQLiteCommand c = new SQLiteCommand("select * from slikenekretnina;", connection.Konekcija);
                 SQLiteDataReader reader = c.ExecuteReader();
@@ -54,21 +51,23 @@ namespace EFM.DAO
                 {
                     int redniBr = reader.GetInt32(1);
                     Nekretnina n = null;
-                    foreach (Nekretnina nekr in lista)
+                    foreach (Nekretnina nekr in nekretnine)
                     {
                         if (redniBr == nekr.ID) { n = nekr; break; }
                     }
-                    BitmapImage sl = Helper.DajSliku(reader, 2);
+                    BitmapImage sl = reader.DajSliku(2);
                     SlikeNekretnina sln = new SlikeNekretnina(n, sl);
                     slike.Add(sln);
                 }
-                reader.Close();
-                connection.Diskonektuj();
+                //reader.Close();
+                //connection.Diskonektuj();
                 return slike;
             }
             catch (Exception e)
             {
-                throw e;
+                System.Windows.MessageBox.Show(e.ToString());
+                return null;
+               // throw e;
             }
         }
 
