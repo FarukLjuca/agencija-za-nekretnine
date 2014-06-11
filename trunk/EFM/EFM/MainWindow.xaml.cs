@@ -88,6 +88,7 @@ namespace EFM
 			tbDate.Text = sb.ToString() + ", " + DateTime.Today.ToShortDateString ();
             popuniNekretnine();
             popuniKlijente();
+            popuniIugovore();
             ZaposlenikDAO zDao = new ZaposlenikDAO();
             _zaposlenici = zDao.List();
             zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
@@ -240,7 +241,7 @@ namespace EFM
 
         private void popuniNekretnine()
         {
-            
+            /*
             DAO.NekretninaDAO ndao = new DAO.NekretninaDAO();
             List<Nekretnina> nekretnine = ndao.getAll(klijeti);
             foreach (Nekretnina nek in nekretnine)
@@ -255,7 +256,7 @@ namespace EFM
             }
             if (editMode == true) refreshN();
             else refreshCheckN();
-            
+            */
             
             cbbpretrazivanjePo.SelectedIndex = 0;
         }
@@ -368,10 +369,10 @@ namespace EFM
 
         private void popuniKlijente()
         {
-            /*
+            
             DAO.KlijentDAO kd = new KlijentDAO();
             klijeti = kd.getAll(_zaposlenici.ListaZaposlenika);
-            */
+            
             
             refreshK();
             cbbpretrazivanjePoKlijenti.SelectedIndex = 0;
@@ -664,6 +665,14 @@ namespace EFM
                 if (i.prikazi == true) SearchIUgovori.Add( new Klase_EFM.DTGIugovori(i));
             }
             dtgInterni.ItemsSource = SearchIUgovori;
+        }
+
+        private void popuniIugovore()
+        {
+            refreshIBaza();
+            refreshI();
+
+            cbbpretrazivanjePoI.SelectedIndex = 1;
         }
 
         #endregion

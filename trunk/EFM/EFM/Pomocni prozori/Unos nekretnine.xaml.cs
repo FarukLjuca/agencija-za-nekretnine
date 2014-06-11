@@ -43,7 +43,7 @@ namespace EFM.Pomocni_prozori
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-            if (validirajLokacije() == true)
+            if (validirajLokacije() == true && validirajCijenu() == true)
             {
                 List<Nekretnina.EnumTipNekretnine> l =
                     Enum.GetValues(typeof(Nekretnina.EnumTipNekretnine)).Cast<Nekretnina.EnumTipNekretnine>().ToList();
@@ -127,8 +127,32 @@ namespace EFM.Pomocni_prozori
 
         private void txtLokacija_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (validirajLokacije() == false) pocrveni(borLokacija);
+            if (validirajLokacije() == false) { pocrveni(borLokacija); tbxLokacija.ToolTip = "Polje ne smije biti prazno!"; }
             else odcrveni(borLokacija);
+        }
+
+        private bool validirajCijenu()
+        {
+            bool dobar = true;
+            foreach (char c in tbxCijena.Text)
+            {
+                if (!(c >= '0' && c <= '9'))
+                {
+                    tbxCijena.ToolTip = "Polje smije sadrzavari samo brojeve!";
+                    borCijena.BorderBrush = Brushes.Red;
+                    dobar = false;
+                    break;
+                }
+            }
+
+            if (dobar == true) borCijena.BorderBrush = Brushes.White;
+
+            return dobar;
+        }
+
+        private void tbxCijena_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            validirajCijenu();
         }
     }
 }
