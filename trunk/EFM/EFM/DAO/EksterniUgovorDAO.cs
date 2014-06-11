@@ -16,7 +16,7 @@ namespace EFM
 
 			DB.SQLiteCommand C = new DB.SQLiteCommand ();
 			C.Connection = d.Konekcija;
-			C.CommandText = String.Format ("INSERT INTO EUGOVORI (DATUM, OPIS, ESARADNIK)" + 
+			C.CommandText = String.Format ("INSERT INTO EUGOVORI (DATUM, OPIS, VSARADNIK)" + 
 				" VALUES (@DATE, '{0}', {1})",  E.Opis, DAL.REP (E.VanjskiSaradnik).Id);
 			C.Parameters.Add ("@DATE",   System.Data.DbType.String).Value = DT(E.DatumSklapanja);
 			long x = C.ExecuteNonQuery ();

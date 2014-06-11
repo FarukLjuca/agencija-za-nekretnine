@@ -760,23 +760,143 @@ namespace EFM
             }
         }
 
+        /*#region ValidiranjeUnosaZaposlenika
+
+        private void pocrveni(Border b)
+        {
+            b.BorderBrush = Brushes.Red;
+        }
+
+        private void odcrveni(Border b)
+        {
+            b.BorderBrush = Brushes.White;
+        }
+
+        private bool prazno(TextBox t, Border b)
+        {
+            if (t.Text.Length < 1)
+            {
+                pocrveni(b);
+                t.ToolTip = "Polje ne smije biti prazno!";
+                return false;
+            }
+            else
+            {
+                odcrveni(b);
+                return true;
+            }
+        }
+
+        private bool samoSlova(TextBox t, Border b)
+        {
+
+            bool dobar = true;
+            foreach (char c in t.Text)
+            {
+                if (!((c >= 'A' && c <= 'Z') | (c >= 'a' && c <= 'z') |
+                    (new List<char>() { 'Č', 'č', 'Ć', 'ć', 'Ž', 'ž', 'Đ', 'đ', 'Š', 'š' }).Exists(element => element == c)))
+                {
+                    pocrveni(b);
+                    t.ToolTip = "Polje smije sadrzavati samo slova!";
+                    dobar = false;
+                    t.Text.Remove(t.Text.IndexOf(c), t.Text.IndexOf(c) + 1);
+                    break;
+                }
+            }
+            if (dobar == true) odcrveni(b);
+            else pocrveni(b);
+            return dobar;
+        }
+
+        private void Naziv_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            validirajNaziv();
+        }
+
+        private bool validirajNaziv()
+        {
+            if (prazno(txtNoviVSaradnikNaziv, borNaziv) && samoSlova(txtNoviVSaradnikNaziv, borNaziv)) return true;
+            return false;
+        }
+
+        private void Plata_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            validirajPlatu();
+        }
+
+        private bool validirajPlatu()
+        {
+            bool dobar = true;
+            foreach (char c in txtNoviVSaradnikPlata.Text)
+            {
+                if (!(c >= '0' && c <= '9'))
+                {
+                    pocrveni(borPlata);
+                    txtNoviVSaradnikPlata.ToolTip = "Polje smije sadrzavati samo brojeve!";
+                    dobar = false;
+                    break;
+                }
+            }
+            if (dobar == true) odcrveni(borPlata);
+            else pocrveni(borPlata);
+
+            return dobar && prazno(txtNoviVSaradnikPlata, borPlata);
+        }
+
+        #endregion*/
+
+
 
         private void Obrisi_Zaposlenika(object sender, RoutedEventArgs e)
         {
-            ZaposlenikFactory obrisiZaposlenika = new ZaposlenikFactory();
-            if (txtObrisiZaposlenikaPozicija.SelectedValue != null)
-            {
-                var pozicija = (ComboBoxItem)txtObrisiZaposlenikaPozicija.SelectedValue;
-                Zaposlenik obrisizaposlenik = obrisiZaposlenika.GetZaposlenik(pozicija.Content.ToString());
-                obrisizaposlenik.Id = long.Parse(txtObrisiZaposlenikaId.Text);
-                ZaposlenikDAO obrisiZaposlenikDao = new ZaposlenikDAO();
-                obrisiZaposlenikDao.Delete(obrisizaposlenik);
+            validirajID();
 
-                ZaposlenikDAO zDao = new ZaposlenikDAO();
-                _zaposlenici = zDao.List();
-                zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
+            if (validirajID())
+            {
+
+                ZaposlenikFactory obrisiZaposlenika = new ZaposlenikFactory();
+                if (txtObrisiZaposlenikaPozicija.SelectedValue != null)
+                {
+                    var pozicija = (ComboBoxItem)txtObrisiZaposlenikaPozicija.SelectedValue;
+                    Zaposlenik obrisizaposlenik = obrisiZaposlenika.GetZaposlenik(pozicija.Content.ToString());
+                    obrisizaposlenik.Id = long.Parse(txtObrisiZaposlenikaId.Text);
+                    ZaposlenikDAO obrisiZaposlenikDao = new ZaposlenikDAO();
+                    obrisiZaposlenikDao.Delete(obrisizaposlenik);
+
+                    ZaposlenikDAO zDao = new ZaposlenikDAO();
+                    _zaposlenici = zDao.List();
+                    zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
+                }
             }
         }
+
+        #region ValidiranjeBrisanjaZaposlenika
+
+        private void IDZap_TextChanged(object sender, TextChangedEventArgs e)
+        {            
+            validirajIDZap();
+        }
+
+        private bool validirajIDZap()
+        {
+            bool dobar = true;
+            foreach (char c in txtObrisiZaposlenikaId.Text)
+            {
+                if (!(c >= '0' && c <= '9'))
+                {
+                    pocrveni(borZapID);
+                    txtObrisiZaposlenikaId.ToolTip = "Polje smije sadrzavati samo brojeve!";
+                    dobar = false;
+                    break;
+                }
+            }
+            if (dobar == true) odcrveni(borZapID);
+            else pocrveni(borZapID);
+
+            return dobar && prazno(txtObrisiZaposlenikaId, borZapID);
+        }
+
+        #endregion
 
 
 
