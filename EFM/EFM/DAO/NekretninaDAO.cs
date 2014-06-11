@@ -23,7 +23,7 @@ namespace EFM.DAO
             if (Entity.DaLiJeRezervisana == true) rez = 1;
             SQLiteCommand komanda = new SQLiteCommand("insert into nekretnine (lokacija, opis, tip_nekretnine, rezervisanost, cijena) values ('" +
                 Entity.Lokacija + "', '" + Entity.Opis + "', '" + Entity.TipNekretnine.ToString() + "', " + rez.ToString() +
-                ", " + Entity.Cijena.ToString() + ");");
+                ", " + Entity.Cijena.ToString() + ", " + Entity.klijent.ID.ToString() + ");");
             komanda.Connection = konekcija.Konekcija;
             komanda.ExecuteNonQuery();
             konekcija.Diskonektuj();
@@ -31,7 +31,7 @@ namespace EFM.DAO
 			return 0;
 		}
 
-        public List<Nekretnina> getAll()
+        public List<Nekretnina> getAll(List<Klijent> klijenti)
         {
             try
             {
@@ -49,6 +49,13 @@ namespace EFM.DAO
                         nekretnine[nekretnine.Count - 1].DaLiJeRezervisana = false;
                     nekretnine[nekretnine.Count - 1].ID = test;
                     nekretnine[nekretnine.Count - 1].Cijena = r.GetDecimal(5);
+                    int kid = r.GetInt32(6);
+                    Klijent k = null;
+                    foreach (Klijent K in klijenti)
+                    {
+                        if (K.ID == kid) { k = K; break; }
+                    }
+                    nekretnine[nekretnine.Count - 1].klijent = k;
                 }
                 r.Close();
                 konekcija.Diskonektuj();
@@ -78,7 +85,7 @@ namespace EFM.DAO
 			return n;
 		}
 
-        public Nekretnina getById(int id)
+        public Nekretnina getById(int id, List<Klijent> klijenti)
         {
             DAL kon = DAL.Instanca;
             SQLiteCommand com = new SQLiteCommand("select * from nekretnine where id = " + id + ";", kon.Konekcija);
@@ -92,6 +99,14 @@ namespace EFM.DAO
                         r.GetDecimal(5), id, true);
                 if (test == 0) n.DaLiJeRezervisana = false;
                 n.ID = test;
+
+                int kid = r.GetInt32(6);
+                Klijent k = null;
+                foreach (Klijent K in klijenti)
+                {
+                    if (K.ID == kid) { k = K; break; }
+                }
+                n.klijent = k;
             }
             r.Close();
             kon.Diskonektuj();

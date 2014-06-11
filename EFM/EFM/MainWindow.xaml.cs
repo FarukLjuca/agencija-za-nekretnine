@@ -100,7 +100,7 @@ namespace EFM
 
         private void mitUnosNekretnina_Click(object sender, RoutedEventArgs e)
         {
-            Pomocni_prozori.Unos_nekretnine n = new Pomocni_prozori.Unos_nekretnine(nekretnine);
+            Pomocni_prozori.Unos_nekretnine n = new Pomocni_prozori.Unos_nekretnine(nekretnine, klijeti);
             n.ShowDialog();
         }
 
@@ -218,7 +218,7 @@ namespace EFM
 
         private void dodajNekretninu_Click(object seneder, RoutedEventArgs e)
         {
-            Pomocni_prozori.Unos_nekretnine nek = new Pomocni_prozori.Unos_nekretnine(nekretnine);
+            Pomocni_prozori.Unos_nekretnine nek = new Pomocni_prozori.Unos_nekretnine(nekretnine, klijeti);
             nek.ShowDialog();
             if (editMode == true) refreshCheckN();
             else refreshN();
@@ -506,6 +506,154 @@ namespace EFM
             }
             if (editModeK == true) refreshCheckK();
             else refreshK();
+        }
+
+        #endregion
+
+        #region Interni ugovori
+
+        private List<InterniUgovor> Iugovori = new List<InterniUgovor>();
+
+        private void btnEditModeI_Click(object sender, RoutedEventArgs e)
+        {
+            btnEditModeKlijenti.Margin = new Thickness(15, 20, 15, 5);
+
+            Button btnDodajI = new Button();
+            btnDodajI.Margin = new Thickness(15, 5, 15, 5);
+            btnDodajI.Content = "Dodaj novi";
+            btnDodajI.Click += new RoutedEventHandler(dodajI_Click);
+            spnlButtoniI.Children.Add(btnDodajI);
+
+            Button btnObrisiI = new Button();
+            btnObrisiI.Margin = new Thickness(15, 5, 15, 5);
+            btnObrisiI.Content = "Obrisi";
+            btnObrisiI.Click += new RoutedEventHandler(obrisiI_Click);
+            spnlButtoniI.Children.Add(btnObrisiI);
+
+            Button btnIzmjeni = new Button();
+            btnIzmjeni.Margin = new Thickness(15, 5, 15, 5);
+            btnIzmjeni.Content = "Izmjeni";
+            btnIzmjeni.Click += new RoutedEventHandler(btnIzmjeni_Click);
+            spnlButtoniI.Children.Add(btnIzmjeni);
+        }
+
+        private void btnIzmjeni_Click(object sender, RoutedEventArgs e)
+        {
+            List<int> broj = new List<int>();
+            Pomocni_prozori.ID id = new Pomocni_prozori.ID(broj);
+
+            if (id.ShowDialog() == true)
+            {
+                bool imaGa = false;
+                InterniUgovor iu = null;
+                foreach (InterniUgovor i in Iugovori)
+                {
+                    if (i.ID == broj[0]) { imaGa = true; iu = i; break; }
+                }
+
+                if (imaGa == true)
+                {
+                    Pomocni_prozori.UnosIugovora IU = new Pomocni_prozori.UnosIugovora(_zaposlenici.ListaZaposlenika, klijeti,
+                nekretnine, Iugovori);
+//TODO
+                    IU.ShowDialog();
+                }
+                else MessageBox.Show("ID koji ste unijeli ne postoji!");
+
+                refreshIBaza();
+            }
+        }
+
+        private void obrisiI_Click(object sender, RoutedEventArgs e)
+        {
+            List<int> broj = new List<int>();
+            Pomocni_prozori.ID id = new Pomocni_prozori.ID(broj);
+
+            if (id.ShowDialog() == true)
+            {
+                bool imaGa = false;
+                InterniUgovor iu = null;
+                foreach (InterniUgovor i in Iugovori)
+	            {
+		            if (i.ID == broj[0]) { imaGa = true; iu = i; break; }
+	            }
+
+                if (imaGa == true)
+                {
+                    InterniUgovorDAO dao = new InterniUgovorDAO();
+                    dao.Delete(iu);
+                }
+                else MessageBox.Show("ID koji ste unijeli ne postoji!");
+
+                refreshIBaza();
+            }
+        }
+
+        private void dodajI_Click(object sender, RoutedEventArgs e)
+        {
+            Pomocni_prozori.UnosIugovora IU = new Pomocni_prozori.UnosIugovora(_zaposlenici.ListaZaposlenika, klijeti,
+                nekretnine, Iugovori);
+            IU.ShowDialog();
+
+            refreshI();
+            tbxSearchI_TextChanged(null, null);
+        }
+
+        private void tbxSearchI_TextChanged(object sender, RoutedEventArgs e)
+        {
+            if (cbbpretrazivanjePoI.SelectedIndex == 0)
+            {
+                foreach (InterniUgovor i in Iugovori)
+                {
+                    if (i.Agent.Ime.Contains(tbxSearchI.Text))
+                        i.prikazi = true;
+                    else i.prikazi = false;
+                }
+            }
+            else if (cbbpretrazivanjePoI.SelectedIndex == 1)
+            {
+                foreach (InterniUgovor i in Iugovori)
+                {
+                    if (i.Agent.Prezime.Contains(tbxSearchI.Text))
+                        i.prikazi = true;
+                    else i.prikazi = false;
+                }
+            }
+            else if (cbbpretrazivanjePoI.SelectedIndex == 2)
+            {
+                foreach (InterniUgovor i in Iugovori)
+                {
+                    if (i.Klijent.Ime.Contains(tbxSearchI.Text))
+                        i.prikazi = true;
+                    else i.prikazi = false;
+                }
+            }
+            else if (cbbpretrazivanjePoI.SelectedIndex == 3)
+            {
+                foreach (InterniUgovor i in Iugovori)
+                {
+                    if (i.Klijent.Prezime.Contains(tbxSearchI.Text))
+                        i.prikazi = true;
+                    else i.prikazi = false;
+                }
+            }
+
+            refreshI();
+        }
+
+        private void refreshIBaza()
+        {
+            InterniUgovorDAO dao = new InterniUgovorDAO();
+            Iugovori = dao.getAll();
+            dtgInterni.ItemsSource = Iugovori;
+        }
+
+        private void refreshI()
+        {
+            foreach (InterniUgovor i in Iugovori)
+            {
+                if (i.prikazi == true) dtgInterni.Items.Add(i);
+            }
         }
 
         #endregion

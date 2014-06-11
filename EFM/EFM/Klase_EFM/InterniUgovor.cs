@@ -20,8 +20,9 @@ namespace EFM
 		public Agent Agent { get; set; }
 		public long ID { get; set; }
 		public DateTime DatumSklapanja { get; set; }
-		public KupacProdavac Klijent { get; set; }
+		public Klijent Klijent { get; set; }
 		public Nekretnina Nekretnina { get; set; }
-		public string Opis { get; set; }
+        public string Opis { get; set; }
+        public bool prikazi { get; set; }
 	}
 }

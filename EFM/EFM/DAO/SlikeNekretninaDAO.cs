@@ -38,13 +38,13 @@ namespace EFM.DAO
             return 0;
         }
 
-        public List<SlikeNekretnina> getAll()
+        public List<SlikeNekretnina> getAll(List<Klijent> klijenti)
         {
             try
             {
 
                 NekretninaDAO nek = new NekretninaDAO();
-                List<Nekretnina> lista = nek.getAll();
+                List<Nekretnina> lista = nek.getAll(klijenti);
                 DAL connection = DAL.Instanca;
                 SQLiteCommand c = new SQLiteCommand("select * from slikenekretnina;", connection.Konekcija);
                 SQLiteDataReader reader = c.ExecuteReader();

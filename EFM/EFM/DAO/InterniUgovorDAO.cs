@@ -45,6 +45,29 @@ namespace EFM
 			else return null;
 		}
 
+        public List<InterniUgovor> getAll()
+        {
+            DAL d = DAL.Instanca;
+            DB.SQLiteCommand C = new DB.SQLiteCommand();
+            C.Connection = d.Konekcija;
+            C.CommandText = String.Format("SELECT * FROM IUGOVORI;");
+            DB.SQLiteDataReader R = C.ExecuteReader();
+            List<InterniUgovor> ugovori = new List<InterniUgovor>();
+            if (R.Read())
+            {
+                InterniUgovor F = new InterniUgovor();
+                F.ID = R.GetInt32(0);
+                F.Klijent = (KupacProdavac)((new DAO.KlijentDAO()).Read(new Klijent { ID = R.GetInt32(4) }));
+                F.Opis = R.GetString(2);
+                F.Agent = (Agent)((new DAO.ZaposlenikDAO()).Read(new Agent { Id = R.GetInt32(3) }));
+                F.DatumSklapanja = DateTime.Parse(R.GetString(1));
+                F.Nekretnina = (new DAO.NekretninaDAO()).Read(new Nekretnina { ID = R.GetInt32(5) });
+                ugovori.Add(F);
+                return ugovori;
+            }
+            else return null;
+        }
+
 		public InterniUgovor Update(InterniUgovor E)
 		{
 			DAL d = DAL.Instanca;
