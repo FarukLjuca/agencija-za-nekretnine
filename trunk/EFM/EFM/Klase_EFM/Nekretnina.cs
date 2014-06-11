@@ -59,6 +59,7 @@ namespace EFM
 			this.ID = ID;
             prikazi = true;
             this.klijent = klijent;
+            Slike = new List<BitmapImage>();
         }
 
         /// <summary>

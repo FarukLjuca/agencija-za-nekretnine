@@ -240,17 +240,22 @@ namespace EFM
 
         private void popuniNekretnine()
         {
-            /*
+            
             DAO.NekretninaDAO ndao = new DAO.NekretninaDAO();
-            List<Nekretnina> nekretnine = ndao.getAll();
+            List<Nekretnina> nekretnine = ndao.getAll(klijeti);
             foreach (Nekretnina nek in nekretnine)
             {
-                DAO.SlikeNekretninaDAO sln = new DAO.SlikeNekretninaDAO();
-                Kontrole.kontrolaNekretnina kn = new Kontrole.kontrolaNekretnina(nek, sln.getAll()[0].Slika);
+                DAO.SlikeNekretninaDAO slndao = new DAO.SlikeNekretninaDAO();
+                List<SlikeNekretnina> sln = new List<SlikeNekretnina>();
+                sln = slndao.getAll(klijeti);
+                foreach (SlikeNekretnina SN in sln)
+                {
+                    if (SN.Nekretnina == nek) nek.Slike.Add(SN.Slika);
+                }
             }
             if (editMode == true) refreshN();
             else refreshCheckN();
-            */
+            
             
             cbbpretrazivanjePo.SelectedIndex = 0;
         }

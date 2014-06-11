@@ -20,7 +20,7 @@ namespace EFM.DAO
             komanda.CommandText =
                 "insert into klijenti (datum_rodjenja, ime, prezime, jmbg, brojlk, slika, agent)" +
                 "values (@datum_rodjenja, '" + Entity.Ime + "', '" + Entity.Prezime + "', '," + Entity.JMBG + 
-                "', '" + Entity.BrojLicneKarte + "', @slika," + (int)5 + ");";
+                "', '" + Entity.BrojLicneKarte + "', @slika," + Entity.Agent.Id + ");";
             komanda.Parameters.Add(new SQLiteParameter("@datum_rodjenja", Entity.DatumRodjenja));
             komanda.Parameters.Add("@slika", System.Data.DbType.Binary).Value = Helper.DajByte(Entity.slika);
             komanda.ExecuteNonQuery();
