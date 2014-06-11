@@ -391,7 +391,12 @@ namespace EFM
             else if (menu.PlacementTarget is Kontrole.kontrolaNekretnina)
             {
                 n = (menu.PlacementTarget as Kontrole.kontrolaNekretnina).nekretnina;
-                un.popuni(k);
+                un.popuni(n);
+            }
+            else if (menu.PlacementTarget is Kontrole.checkNekretnina)
+            {
+                n = (menu.PlacementTarget as Kontrole.checkNekretnina).nekretnina;
+                un.popuni(n);
             }
 
             if (k != null)
