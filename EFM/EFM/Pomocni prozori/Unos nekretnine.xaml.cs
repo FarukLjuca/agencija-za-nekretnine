@@ -141,7 +141,7 @@ namespace EFM.Pomocni_prozori
             bool dobar = true;
             foreach (char c in tbxCijena.Text)
             {
-                if (!(c >= '0' && c <= '9'))
+                if (!(c >= '0' && c <= '9') && c != ',')
                 {
                     tbxCijena.ToolTip = "Polje smije sadrzavari samo brojeve!";
                     borCijena.BorderBrush = Brushes.Red;
@@ -162,7 +162,15 @@ namespace EFM.Pomocni_prozori
 
         public void popuni(Nekretnina n)
         {
-
+            txtLokacija.Text = n.Lokacija;
+            txtOpis.Text = n.Opis;
+            cbbTipNekretnine.SelectedItem = n.TipNekretnine;
+            tbxCijena.Text = n.Cijena.ToString();
+            cbbKlijenti.SelectedItem = n.klijent;
+            cbxRezervisanost.IsChecked = n.DaLiJeRezervisana;
+            slike = n.Slike;
+            if (slike.Count > 0)
+                imgNekretnine.Source = slike[0];
         }
     }
 }
