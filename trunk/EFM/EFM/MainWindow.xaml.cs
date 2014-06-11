@@ -561,6 +561,7 @@ namespace EFM
                 else MessageBox.Show("ID koji ste unijeli ne postoji!");
 
                 refreshIBaza();
+                refreshI();
             }
         }
 
@@ -648,12 +649,16 @@ namespace EFM
             dtgInterni.ItemsSource = Iugovori;
         }
 
+        List<IUgovor> SearchIUgovori = new List<IUgovor>();
+
         private void refreshI()
         {
+            SearchIUgovori = new List<IUgovor>();
             foreach (InterniUgovor i in Iugovori)
             {
-                if (i.prikazi == true) dtgInterni.Items.Add(i);
+                if (i.prikazi == true) SearchIUgovori.Add(i);
             }
+            dtgInterni.ItemsSource = SearchIUgovori;
         }
 
         #endregion
