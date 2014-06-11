@@ -19,7 +19,7 @@
     <SccProvider>SubversionScc</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -27,6 +27,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -41,6 +42,10 @@
     <StartupObject>EFM.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DataMatrix.net">
+      <HintPath>..\..\..\..\Visual Basic\WebCam\DataMatrixNet-bintools-0.4.2\DataMatrix.net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Encoder, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86" />
     <Reference Include="SQLite.Designer, Version=1.0.92.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -56,9 +61,14 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="WebcamControl, Version=3.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\WebcamControl.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -67,7 +77,12 @@
     </ApplicationDefinition>
     <Compile Include="DAO\EksterniUgovorDAO.cs" />
     <Compile Include="DAO\FinalniUgovorDAO.cs" />
+    <Compile Include="ImageP.cs" />
     <Compile Include="DAO\InterniUgovorDAO.cs" />
+    <Compile Include="EBarCode.cs" />
+    <Compile Include="FrmCam.xaml.cs">
+      <DependentUpon>FrmCam.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Klase_EFM\Administrator.cs" />
     <Compile Include="Klase_EFM\AgencijaZaReklamiranje.cs" />
     <Compile Include="Klase_EFM\Agent.cs" />
@@ -147,6 +162,10 @@
     </Compile>
     <Compile Include="Klase_EFM\Zaposlenici.cs" />
     <Compile Include="Klase_EFM\Zaposlenik.cs" />
+    <Page Include="FrmCam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Kontrole\checkKlijent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -257,6 +276,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resursi\klijent.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resursi\WebCam.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
