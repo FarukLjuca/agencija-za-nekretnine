@@ -115,6 +115,9 @@
     <Compile Include="Pomocni prozori\Kolona.xaml.cs">
       <DependentUpon>Kolona.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pomocni prozori\Password.xaml.cs">
+      <DependentUpon>Password.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pomocni prozori\Unos entiteta.xaml.cs">
       <DependentUpon>Unos entiteta.xaml</DependentUpon>
     </Compile>
@@ -182,6 +185,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pomocni prozori\Kolona.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pomocni prozori\Password.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
