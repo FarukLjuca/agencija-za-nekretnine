@@ -453,7 +453,53 @@
                     
                     <TabItem Name="tbiEksterni"
                              Header="Eksterni ugovori">
-                        
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="120"/>
+                            </Grid.ColumnDefinitions>
+
+                            <DataGrid Name="dtgEksterni"
+                                      Grid.Row="0"
+                                      Grid.Column="0"
+                                      Margin="10"/>
+                            <Border Name="borEks"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            BorderBrush="Black"
+                            BorderThickness="5">
+                                <StackPanel Name="spnlEks"
+                                    Margin="5">
+                                    <TextBlock Name="txtTraziEks"
+                                       Text="Pretrazivanje:"
+                                       Margin="5,20,5,0"/>
+                                    <TextBox Name="tbxTraziEks"
+                                     Height="23"
+                                     Width="90"
+                                     Margin="5" TextChanged="tbxTraziEks_TextChanged"/>
+                                    <TextBlock Name="txtTraziEksPo"
+                                       Text="Pretrazivanje po:"
+                                       Margin="5,5,5,0"/>
+                                    <ComboBox Name="cbbpretraziPo"
+                                      Margin="5">
+                                        <ComboBoxItem Name="cbbVanjskomSaradnikuNaziv"
+                                              Content="VanjskiSaradnik - Naziv"/>
+                                    </ComboBox>
+                                    <Button Name="btnEditEks"
+                                    Content="Edit mode"
+                                    Height="23"
+                                    Width="70"
+                                    Margin="15,50,15,15" Click="btnEditEks_Click"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+
+
                     </TabItem>
                 </TabControl>
             </TabItem>

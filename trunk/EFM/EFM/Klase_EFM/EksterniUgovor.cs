@@ -21,5 +21,6 @@ namespace EFM
 		public DateTime DatumSklapanja { get; set; }
 		public string Opis { get; set; }
 		public VanjskiSaradnik VanjskiSaradnik { get; set; }
+        public bool prikazi { get; set; }
 	}
 }
