@@ -21,6 +21,8 @@ namespace EFM.DAO
             DAL konekcija = DAL.Instanca;
             int rez = 0;
             if (Entity.DaLiJeRezervisana == true) rez = 1;
+            if (Entity.klijent == null)
+                Entity.klijent = new Klijent { Ime = "", Prezime = "" };
             SQLiteCommand komanda = new SQLiteCommand("insert into nekretnine (lokacija, opis, tip_nekretnine, rezervisanost, cijena, klijent) values ('" +
                 Entity.Lokacija + "', '" + Entity.Opis + "', '" + Entity.TipNekretnine.ToString() + "', " + rez.ToString() +
                 ", " + Entity.Cijena.ToString() + ", " + Entity.klijent.ID.ToString() + ");");

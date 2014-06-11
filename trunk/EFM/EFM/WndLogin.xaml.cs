@@ -28,7 +28,7 @@ namespace EFM
 		public MainWindow.Privilegija Privilegija { get; private set; }
 		private void btnOK_Click_1(object sender, RoutedEventArgs e)
 		{
-            if (TxtUserID.Text == "root" && TxtPassword.Text == "root")
+            if (TxtUserID.Text == "" && TxtPassword.Text == "")
             {
                 Privilegija = MainWindow.Privilegija.Direktor;
                 this.DialogResult = true;

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.IO;
 using System.Windows.Media.Imaging;
+using System.Reflection;
 
 namespace EFM.DAO
 {
@@ -28,6 +29,18 @@ namespace EFM.DAO
             else
                 komanda.Parameters.Add(new SQLiteParameter("@agent", null));
 
+            if (Entity.slika == null)
+            {
+                Assembly assembly = Assembly.GetCallingAssembly();
+
+                BitmapImage img = new BitmapImage();
+                img.BeginInit();
+                img.UriSource = new Uri(@"pack://application:,,,/" + assembly.GetName().Name + ";component/Resursi/klijent.jpg",
+                    UriKind.Absolute);
+                img.EndInit();
+
+                Entity.slika = img;
+            }
             komanda.Parameters.Add("@slika", System.Data.DbType.Binary).Value = Helper.DajByte(Entity.slika);
             komanda.ExecuteNonQuery();
             konekcija.Diskonektuj();
@@ -49,10 +62,13 @@ namespace EFM.DAO
                     Klijent k = new Klijent(r.GetDateTime(1), r.GetString(2), r.GetString(3), r.GetString(4), r.GetString(5),
                         null, null);
                     BitmapImage img = Helper.DajSliku(r, 6);
-                    int id = r.GetInt32(7);
-                    foreach (Zaposlenik z in zaposlenici)
+                    if (!DBNull.Value.Equals(r["agent"]))
                     {
-                        if (z.Id == id) { k.Agent = z as Agent; break; }
+                        int id = r.GetInt32(7);
+                        foreach (Zaposlenik z in zaposlenici)
+                        {
+                            if (z.Id == id) { k.Agent = z as Agent; break; }
+                        }
                     }
                     k.slika = img;
                     k.ID = a;
