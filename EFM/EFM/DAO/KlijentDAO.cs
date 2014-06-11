@@ -22,7 +22,12 @@ namespace EFM.DAO
                 "values (@datum_rodjenja, '" + Entity.Ime + "', '" + Entity.Prezime + "', '" + Entity.JMBG + 
                 "', '" + Entity.BrojLicneKarte + "', @slika, @agent);";
             komanda.Parameters.Add(new SQLiteParameter("@datum_rodjenja", Entity.DatumRodjenja));
-            komanda.Parameters.Add(new SQLiteParameter("@agent", Entity.Agent.Id));
+
+            if (Entity.Agent != null)
+                komanda.Parameters.Add(new SQLiteParameter("@agent", Entity.Agent.Id));
+            else
+                komanda.Parameters.Add(new SQLiteParameter("@agent", null));
+
             komanda.Parameters.Add("@slika", System.Data.DbType.Binary).Value = Helper.DajByte(Entity.slika);
             komanda.ExecuteNonQuery();
             konekcija.Diskonektuj();
