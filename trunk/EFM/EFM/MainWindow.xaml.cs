@@ -878,24 +878,18 @@ namespace EFM
 
         private void Obrisi_Zaposlenika(object sender, RoutedEventArgs e)
         {
-            validirajID();
-
-            if (validirajID())
+            ZaposlenikFactory obrisiZaposlenika = new ZaposlenikFactory();
+            if (txtObrisiZaposlenikaPozicija.SelectedValue != null)
             {
+                var pozicija = (ComboBoxItem)txtObrisiZaposlenikaPozicija.SelectedValue;
+                Zaposlenik obrisizaposlenik = obrisiZaposlenika.GetZaposlenik(pozicija.Content.ToString());
+                obrisizaposlenik.Id = long.Parse(txtObrisiZaposlenikaId.Text);
+                ZaposlenikDAO obrisiZaposlenikDao = new ZaposlenikDAO();
+                obrisiZaposlenikDao.Delete(obrisizaposlenik);
 
-                ZaposlenikFactory obrisiZaposlenika = new ZaposlenikFactory();
-                if (txtObrisiZaposlenikaPozicija.SelectedValue != null)
-                {
-                    var pozicija = (ComboBoxItem)txtObrisiZaposlenikaPozicija.SelectedValue;
-                    Zaposlenik obrisizaposlenik = obrisiZaposlenika.GetZaposlenik(pozicija.Content.ToString());
-                    obrisizaposlenik.Id = long.Parse(txtObrisiZaposlenikaId.Text);
-                    ZaposlenikDAO obrisiZaposlenikDao = new ZaposlenikDAO();
-                    obrisiZaposlenikDao.Delete(obrisizaposlenik);
-
-                    ZaposlenikDAO zDao = new ZaposlenikDAO();
-                    _zaposlenici = zDao.List();
-                    zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
-                }
+                ZaposlenikDAO zDao = new ZaposlenikDAO();
+                _zaposlenici = zDao.List();
+                zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
             }
         }
 
@@ -926,7 +920,6 @@ namespace EFM
         }
 
         #endregion
-
 
 
         private void Unos_Vanjskog_Saradnika(object sender, RoutedEventArgs e)

@@ -236,9 +236,9 @@
                         <Border Name="borZapID"
                         BorderBrush="White"
                         BorderThickness="2.5"
-                        Grid.Row="13"
+                        Grid.Row="6"
                         Grid.Column="1">
-                            <TextBox Name="txtObrisiZaposlenikaId" TextChanged="IDZap_TextChanged"/>
+                            <TextBox Name="txtObrisiZaposlenikaId" TextChanged="ID_TextChanged"/>
                         </Border>
 
                         <Label Grid.Row="14" Grid.Column="0">Pozicija</Label>
