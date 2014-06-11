@@ -109,6 +109,16 @@ djenja date not null, datum_zaposlenja date not null, plata real, pozicija text,
             throw new Exc.LazyDeveloperException();
         }
 
+        public void Pass(string pass, int id)
+        {
+            DAL konekcija = DAL.Instanca;
+            SQLiteCommand komanda = new SQLiteCommand("update uposlenici set password = @pass where id = @id");
+            komanda.Parameters.Add(new SQLiteParameter("@pass", pass));
+            komanda.Parameters.Add(new SQLiteParameter("@id", id));
+            komanda.Connection = konekcija.Konekcija;
+            komanda.ExecuteNonQuery();
+        }
+
         public void Delete(Zaposlenik Entity)
         {
             DAL kon2 = DAL.Instanca;
