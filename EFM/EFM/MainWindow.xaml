@@ -195,19 +195,50 @@
                             <RowDefinition Height="25px"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Label Grid.Row="0" Grid.Column="0">Ime</Label>
-                        <TextBox Name="txtNoviZaposlenikIme" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10" Grid.RowSpan="2"></TextBox>
+                        <Border Name="borImeID"
+                        BorderBrush="White"
+                        BorderThickness="2.5"
+                        Grid.Row="0"
+                        Grid.Column="1">
+                            <TextBox Name="txtNoviZaposlenikIme" TextChanged="IDIme_TextChanged"/>
+                        </Border>
 
-                        <Label Grid.Row="1" Grid.Column="0">Prezime</Label>
-                        <TextBox Name="txtNoviZaposlenikPrezime"  Grid.Row="1" Grid.Column="1"></TextBox>
+                        <Label Grid.Row="1" Grid.Column="0">Prezime</Label>                      
+                        <Border Name="borPrezimeID"
+                        BorderBrush="White"
+                        BorderThickness="2.5"
+                        Grid.Row="1"
+                        Grid.Column="1">
+                            <TextBox Name="txtNoviZaposlenikPrezime" TextChanged="IDPrezime_TextChanged"/>
+                        </Border>
 
                         <Label Grid.Row="2" Grid.Column="0">JMBG</Label>
-                        <TextBox Name="txtNoviZaposlenikJmbg"  Grid.Row="2" Grid.Column="1"></TextBox>
-
+                        <Border Name="borJmbg"
+                        BorderBrush="White"
+                        BorderThickness="2.5"
+                        Grid.Row="2"
+                        Grid.Column="1">
+                            <TextBox Name="txtNoviZaposlenikJmbg" TextChanged="JMBG_TextChanged"/>
+                        </Border>
+                     
                         <Label Grid.Row="3" Grid.Column="0">Broj LK.</Label>
-                        <TextBox Name="txtNoviZaposlenikBrojLk"  Grid.Row="3" Grid.Column="1"></TextBox>
+                        <Border Name="borBrojLk"
+                        BorderBrush="White"
+                        BorderThickness="2.5"
+                        Grid.Row="3"
+                        Grid.Column="1">
+                            <TextBox Name="txtNoviZaposlenikBrojLk"/>
+                        </Border>
+
 
                         <Label Grid.Row="4" Grid.Column="0">Plata</Label>
-                        <TextBox Name="txtNoviZaposlenikPlata"  Grid.Row="4" Grid.Column="1"></TextBox>
+                        <Border Name="borZapPlata"
+                        BorderBrush="White"
+                        BorderThickness="2.5"
+                        Grid.Row="4"
+                        Grid.Column="1">
+                            <TextBox Name="txtNoviZaposlenikPlata" TextChanged="ZapPlata_TextChanged"/>
+                        </Border>
 
                         <Label Grid.Row="5" Grid.Column="0">Datum rodjenja</Label>
                         <DatePicker  Name="txtNoviZaposlenikDatROdj" Grid.Row="5" Grid.Column="1"></DatePicker>
@@ -224,10 +255,24 @@
                         </ComboBox>
                         
                         <Label Grid.Row="8" Grid.Column="0">Username</Label>
-                        <TextBox Name="txtNoviZaposlenikUsername"  Grid.Row="8" Grid.Column="1"></TextBox>
+                        <Border Name="borUsernameID"
+                        BorderBrush="White"
+                        BorderThickness="2.5"
+                        Grid.Row="8"
+                        Grid.Column="1">
+                            <TextBox Name="txtNoviZaposlenikUsername" TextChanged="IDUsername_TextChanged"/>
+                        </Border>
 
                         <Label Grid.Row="9" Grid.Column="0">Password</Label>
-                        <TextBox Name="txtNoviZaposlenikPassword"  Grid.Row="9" Grid.Column="1"></TextBox>
+                        <Border Name="borPasswordID"
+                        BorderBrush="White"
+                        BorderThickness="2.5"
+                        Grid.Row="9"
+                        Grid.Column="1">
+                            <TextBox Name="txtNoviZaposlenikPassword" TextChanged="IDPassword_TextChanged"/>
+                        </Border>
+
+
 
                         <Button Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Click="Unos_Zaposlenika">
                             Dodaj zaposlenika
@@ -237,7 +282,7 @@
                         <Border Name="borZapID"
                         BorderBrush="White"
                         BorderThickness="2.5"
-                        Grid.Row="6"
+                        Grid.Row="13"
                         Grid.Column="1">
                             <TextBox Name="txtObrisiZaposlenikaId" TextChanged="ID_TextChanged"/>
                         </Border>
