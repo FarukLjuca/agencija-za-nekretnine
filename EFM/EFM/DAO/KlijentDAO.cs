@@ -19,7 +19,7 @@ namespace EFM.DAO
             SQLiteCommand komanda = konekcija.Konekcija.CreateCommand();
             komanda.CommandText =
                 "insert into klijenti (datum_rodjenja, ime, prezime, jmbg, brojlk, slika, agent)" +
-                "values (@datum_rodjenja, '" + Entity.Ime + "', '" + Entity.Prezime + "', '," + Entity.JMBG + 
+                "values (@datum_rodjenja, '" + Entity.Ime + "', '" + Entity.Prezime + "', '" + Entity.JMBG + 
                 "', '" + Entity.BrojLicneKarte + "', @slika," + Entity.Agent.Id + ");";
             komanda.Parameters.Add(new SQLiteParameter("@datum_rodjenja", Entity.DatumRodjenja));
             komanda.Parameters.Add("@slika", System.Data.DbType.Binary).Value = Helper.DajByte(Entity.slika);
@@ -76,7 +76,8 @@ namespace EFM.DAO
         public void Delete(Klijent Entity)
         {
             DAL konekcija = DAL.Instanca;
-            SQLiteCommand komanda = new SQLiteCommand("delete from klijenti where id = " + Entity.ID + ");", konekcija.Konekcija);
+            SQLiteCommand komanda = new SQLiteCommand("delete from klijenti where id = @id;", konekcija.Konekcija);
+            komanda.Parameters.Add(new SQLiteParameter("@id", Entity.ID));
             komanda.ExecuteNonQuery();
         }
     }

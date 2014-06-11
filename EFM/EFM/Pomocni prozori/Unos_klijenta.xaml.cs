@@ -33,6 +33,20 @@ namespace EFM.Pomocni_prozori
             }
         }
 
+        public void popuni (Klijent k)
+        {
+            tbxIme.Text = k.Ime;
+            tbxPrezime.Text = k.Prezime;
+            dtpDatumRodjenja.DisplayDate = k.DatumRodjenja;
+            tbxJMBG.Text = k.JMBG;
+            tbxBrLK.Text = k.BrojLicneKarte;
+            tbxAdresa.Text = k.Adresa;
+            tbxTel.Text = k.brojTelefona;
+            cbbAgent.SelectedItem = k.Agent;
+            slika = k.slika;
+            imgSlika.Source = slika;
+        }
+
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog open = new Microsoft.Win32.OpenFileDialog();
@@ -60,12 +74,12 @@ namespace EFM.Pomocni_prozori
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-            validirajAdresu();
+            //validirajAdresu();
             validirajBroj();
             validirajIme();
             validirajJmbg();
             validirajPrezime();
-            if (validirajAdresu() && validirajBroj() && validirajIme() && validirajJmbg() && validirajPrezime())
+            if (/*validirajAdresu() && */validirajBroj() && validirajIme() && validirajJmbg() && validirajPrezime())
             {
                 Agent a = cbbAgent.SelectedItem as Agent;
                 Klijent k = new Klijent(dtpDatumRodjenja.DisplayDate, tbxIme.Text, tbxPrezime.Text, tbxJMBG.Text,
@@ -112,12 +126,11 @@ namespace EFM.Pomocni_prozori
             foreach (char c in t.Text)
             {
                 if (!((c >= 'A' && c <= 'Z') | (c >= 'a' && c <= 'z') |
-                    (new List<char>() { 'Č', 'č', 'Ć', 'ć', 'Ž', 'ž', 'Đ', 'đ', 'Š', 'š' }).Exists(element => element == c)))
+                    (new List<char>() { 'Č', 'č', 'Ć', 'ć', 'Ž', 'ž', 'Đ', 'đ', 'Š', 'š' , ' '}).Exists(element => element == c)))
                 {
                     pocrveni(b);
                     t.ToolTip = "Polje smije sadrzavati samo slova!";
                     dobar = false;
-                    t.Text.Remove(t.Text.IndexOf(c), t.Text.IndexOf(c) + 1);
                     break;
                 }
             }
@@ -174,7 +187,7 @@ namespace EFM.Pomocni_prozori
 
         private void tbxAdresa_TextChanged(object sender, TextChangedEventArgs e)
         {
-            validirajAdresu();
+            //validirajAdresu();
         }
 
         private bool validirajAdresu()
