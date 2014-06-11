@@ -48,9 +48,10 @@ namespace EFM.Pomocni_prozori
                 List<Nekretnina.EnumTipNekretnine> l =
                     Enum.GetValues(typeof(Nekretnina.EnumTipNekretnine)).Cast<Nekretnina.EnumTipNekretnine>().ToList();
                 Nekretnina.EnumTipNekretnine e1 = l[cbbTipNekretnine.SelectedIndex];
-                if (txtCijena.Text == "") txtCijena.Text = "0";
+                if (tbxCijena.Text == "") tbxCijena.Text = "0.0";
+                decimal dec = Convert.ToDecimal(tbxCijena.Text);
                 Nekretnina n = new Nekretnina(txtLokacija.Text, txtOpis.Text, e1,
-                    Convert.ToDecimal(tbxCijena.Text), 0, cbxRezervisanost.IsChecked == true, null);
+                    dec, 0, cbxRezervisanost.IsChecked == true, null);
                 n.Slike = slike;
                 n.klijent = cbbKlijenti.SelectedItem as Klijent;
 
