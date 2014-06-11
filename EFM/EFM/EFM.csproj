@@ -81,6 +81,7 @@
     <Compile Include="DAO\ZaposlenikDAO.cs" />
     <Compile Include="Klase_EFM\Direktor.cs" />
     <Compile Include="EFMException.cs" />
+    <Compile Include="Klase_EFM\DTGIugovori.cs" />
     <Compile Include="Klase_EFM\EksterniUgovor.cs" />
     <Compile Include="Klase_EFM\FinalniUgovor.cs" />
     <Compile Include="Helper.cs" />
