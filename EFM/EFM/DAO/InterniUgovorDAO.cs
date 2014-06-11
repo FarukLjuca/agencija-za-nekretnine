@@ -53,7 +53,7 @@ namespace EFM
             C.CommandText = String.Format("SELECT * FROM IUGOVORI;");
             DB.SQLiteDataReader R = C.ExecuteReader();
             List<InterniUgovor> ugovori = new List<InterniUgovor>();
-            if (R.Read())
+            while (R.Read())
             {
                 InterniUgovor F = new InterniUgovor();
                 F.ID = R.GetInt32(0);
@@ -63,9 +63,8 @@ namespace EFM
                 F.DatumSklapanja = DateTime.Parse(R.GetString(1));
                 F.Nekretnina = (new DAO.NekretninaDAO()).Read(new Nekretnina { ID = R.GetInt32(5) });
                 ugovori.Add(F);
-                return ugovori;
             }
-            else return null;
+            return ugovori;
         }
 
 		public InterniUgovor Update(InterniUgovor E)
