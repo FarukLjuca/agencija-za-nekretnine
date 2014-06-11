@@ -58,7 +58,7 @@ namespace EFM.Pomocni_prozori
             this.i = i;
             foreach (Zaposlenik zap in z)
             {
-                if (zap.Pozicija == "Agent") cbbAgent.Items.Add(zap.ToString());
+                if (zap.Pozicija == "Agent") cbbAgent.Items.Add(zap);
             }
             cbbKlijent.ItemsSource = k;
         }
@@ -70,7 +70,7 @@ namespace EFM.Pomocni_prozori
             foreach (Nekretnina nek in n)
             {
                 if (nek.klijent == cbbKlijent.SelectedItem as Klijent)
-                    cbbNekretnina.Items.Add(nek.ToString());
+                    cbbNekretnina.Items.Add(nek);
             }
         }
 
@@ -119,6 +119,7 @@ namespace EFM.Pomocni_prozori
                 IU.DatumSklapanja = dtpDatum.DisplayDate;
                 IU.Nekretnina = cbbNekretnina.SelectedItem as Nekretnina;
                 IU.Opis = tbxOpis.Text;
+                IU.prikazi = true;
 
                 i.Add(IU);
 

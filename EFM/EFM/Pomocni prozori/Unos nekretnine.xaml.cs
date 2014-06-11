@@ -30,7 +30,7 @@ namespace EFM.Pomocni_prozori
                 Enum.GetValues(typeof(Nekretnina.EnumTipNekretnine)).Cast<Nekretnina.EnumTipNekretnine>().ToList();
             foreach (Klijent k in klijenti)
             {
-                cbbKlijenti.Items.Add(k.ToString());
+                cbbKlijenti.Items.Add(k);
             }
             this.nekretnine = nekretnine;
             cbbTipNekretnine.SelectedIndex = 0;
@@ -50,8 +50,9 @@ namespace EFM.Pomocni_prozori
                 Nekretnina.EnumTipNekretnine e1 = l[cbbTipNekretnine.SelectedIndex];
                 if (txtCijena.Text == "") txtCijena.Text = "0";
                 Nekretnina n = new Nekretnina(txtLokacija.Text, txtOpis.Text, e1,
-                    Convert.ToDecimal(tbxCijena.Text), 0, cbxRezervisanost.IsChecked == true, cbbKlijenti.SelectedItem as Klijent);
+                    Convert.ToDecimal(tbxCijena.Text), 0, cbxRezervisanost.IsChecked == true, null);
                 n.Slike = slike;
+                n.klijent = cbbKlijenti.SelectedItem as Klijent;
 
                 nekretnine.Add(n);
 
