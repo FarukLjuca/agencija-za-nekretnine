@@ -141,7 +141,7 @@ namespace EFM.Pomocni_prozori
             bool dobar = true;
             foreach (char c in tbxCijena.Text)
             {
-                if (!(c >= '0' && c <= '9') && c != ',')
+                if (!(c >= '0' && c <= '9') && c != '.')
                 {
                     tbxCijena.ToolTip = "Polje smije sadrzavari samo brojeve!";
                     borCijena.BorderBrush = Brushes.Red;

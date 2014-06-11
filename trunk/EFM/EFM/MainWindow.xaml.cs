@@ -414,7 +414,6 @@ namespace EFM
                     {
                         refreshK();
                     }
-
                 }
             }
             else if (n != null)
