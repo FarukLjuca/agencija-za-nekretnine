@@ -40,6 +40,7 @@ namespace EFM
 		public int ID { get; set; }
         public List<BitmapImage> Slike { get; set; }
         public bool prikazi { get; set; }
+        public Klijent klijent { get; set; }
         /// <summary>
         /// Kreira novi objekat tipa Nekretnina
         /// </summary>
@@ -48,7 +49,7 @@ namespace EFM
         /// <param name="DaLiJeCista">True ako je nekretnina cista (opcionalno)</param>
         /// <param name="DaLiJeRezervisana">True ako je nekretnina rezervisana (opcionalno)</param>
         public Nekretnina(string Lokacija, string opis, EnumTipNekretnine TipNekretnine, decimal cijena, int ID,
-            bool DaLiJeRezervisana = false)
+            bool DaLiJeRezervisana = false, Klijent klijent = null)
         {
             this.Lokacija = Lokacija;
             Opis = opis;
@@ -57,6 +58,7 @@ namespace EFM
             Cijena = cijena;
 			this.ID = ID;
             prikazi = true;
+            this.klijent = klijent;
         }
 
         /// <summary>
@@ -67,7 +69,7 @@ namespace EFM
 
         }
 
-        public override string ToString()
+        public string ToString1()
         {
             string rez = "Jeste";
             if (DaLiJeRezervisana == false) rez = "Nije";
@@ -76,7 +78,13 @@ namespace EFM
                 "\nOpis: " + Opis +
                 "\nTip nekretnine: " + TipNekretnine.ToString() +
                 "\nRezervisana: " + rez +
-                "\nCijena: " + Cijena.ToString() + " KM";
+                "\nCijena: " + Cijena.ToString() + " KM" +
+                "\nKlijent: " + klijent.ToString();
+        }
+
+        public override string ToString()
+        {
+            return Opis;
         }
     }
 }

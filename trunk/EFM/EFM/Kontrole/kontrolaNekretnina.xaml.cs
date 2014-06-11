@@ -32,7 +32,7 @@ namespace EFM.Kontrole
 
         public override string ToString()
         {
-            return nekretnina.ToString();
+            return nekretnina.ToString1();
         }
     }
 }

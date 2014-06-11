@@ -23,11 +23,15 @@ namespace EFM.Pomocni_prozori
         private int trenutnaSlika;
         List<Nekretnina> nekretnine = null;
 
-        public Unos_nekretnine(List<Nekretnina> nekretnine)
+        public Unos_nekretnine(List<Nekretnina> nekretnine, List<Klijent> klijenti)
         {
             InitializeComponent();
             cbbTipNekretnine.ItemsSource =
                 Enum.GetValues(typeof(Nekretnina.EnumTipNekretnine)).Cast<Nekretnina.EnumTipNekretnine>().ToList();
+            foreach (Klijent k in klijenti)
+            {
+                cbbKlijenti.Items.Add(k.ToString());
+            }
             this.nekretnine = nekretnine;
             cbbTipNekretnine.SelectedIndex = 0;
         }
@@ -46,7 +50,7 @@ namespace EFM.Pomocni_prozori
                 Nekretnina.EnumTipNekretnine e1 = l[cbbTipNekretnine.SelectedIndex];
                 if (txtCijena.Text == "") txtCijena.Text = "0";
                 Nekretnina n = new Nekretnina(txtLokacija.Text, txtOpis.Text, e1,
-                    Convert.ToDecimal(tbxCijena.Text), 0, cbxRezervisanost.IsChecked == true);
+                    Convert.ToDecimal(tbxCijena.Text), 0, cbxRezervisanost.IsChecked == true, cbbKlijenti.SelectedItem as Klijent);
                 n.Slike = slike;
 
                 nekretnine.Add(n);

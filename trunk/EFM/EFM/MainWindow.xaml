@@ -391,7 +391,71 @@
 
             <TabItem Name="tabUgovori"
                      Header="Ugovori">
+                <TabControl Name="tbcUgovori">
+                    <TabItem Name="tbiInterni"
+                             Header="Interni ugovori">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
 
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="120"/>
+                            </Grid.ColumnDefinitions>
+
+                            <DataGrid Name="dtgInterni"
+                                      Grid.Row="0"
+                                      Grid.Column="0"
+                                      Margin="10"/>
+                            <Border Name="borButtoniI"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            BorderBrush="Black"
+                            BorderThickness="5">
+                                <StackPanel Name="spnlButtoniI"
+                                    Margin="5">
+                                    <TextBlock Name="txtSearchI"
+                                       Text="Pretrazivanje:"
+                                       Margin="5,20,5,0"/>
+                                    <TextBox Name="tbxSearchI"
+                                     Height="23"
+                                     Width="90"
+                                     Margin="5" TextChanged="tbxSearchI_TextChanged"/>
+                                    <TextBlock Name="txtSearchPoI"
+                                       Text="Pretrazivanje po:"
+                                       Margin="5,5,5,0"/>
+                                    <ComboBox Name="cbbpretrazivanjePoI"
+                                      Margin="5">
+                                        <ComboBoxItem Name="cbbZaposlenikuIme"
+                                              Content="Zaposleniku - Ime"/>
+                                        <ComboBoxItem Name="cbbiZapolenikuPrezime"
+                                              Content="Zaposleniku - Prezime"/>
+                                        <ComboBoxItem Name="cbbiKlijentuIme"
+                                              Content="Klijentu - Ime"/>
+                                        <ComboBoxItem Name="cbbiKlijentuPrezime"
+                                              Content="Klijentu - Prezime"/>
+                                    </ComboBox>
+                                    <Button Name="btnEditModeI"
+                                    Content="Edit mode"
+                                    Height="23"
+                                    Width="70"
+                                    Margin="15,50,15,15" Click="btnEditModeI_Click"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </TabItem>
+                    
+                    <TabItem Name="tbiFinalni"
+                             Header="Finalni ugovori">
+                        
+                    </TabItem>
+                    
+                    <TabItem Name="tbiEksterni"
+                             Header="Eksterni ugovori">
+                        
+                    </TabItem>
+                </TabControl>
             </TabItem>
         </TabControl>
     </Grid>

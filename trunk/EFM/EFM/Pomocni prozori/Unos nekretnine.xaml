@@ -10,6 +10,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="33"/>
             </Grid.RowDefinitions>
@@ -72,8 +73,19 @@
                      Grid.Row="4"
                      Grid.Column="1"
                      Margin="5"/>
+            <TextBlock Text="Vlasnik:"
+                       Grid.Row="5"
+                       TextAlignment="Right"
+                       Grid.Column="0"/>
+            <Border Name="borKlijent"
+                    Grid.Column="1"
+                    Grid.Row="5"
+                    BorderBrush="White"
+                    BorderThickness="2.5">
+                <ComboBox Name="cbbKlijenti"/>
+            </Border>
             <CheckBox Name="cbxRezervisanost"
-                      Grid.Row="5"
+                      Grid.Row="6"
                       Grid.Column="1"
                       Content="Rezervisanost"
                       Margin="5"
@@ -81,13 +93,13 @@
                       />
             <Button Name="btnOK"
                 Content="OK"
-                Grid.Row="6"
+                Grid.Row="7"
                 Grid.Column="4" 
                 Margin="5" 
                 Click="btnOK_Click"/>
             <Button Name="btnCancel"
                 Content="Cancel"
-                Grid.Row="6"
+                Grid.Row="7"
                 Grid.Column="3" 
                 Margin="5" 
                 Click="btnCancel_Click"/>
