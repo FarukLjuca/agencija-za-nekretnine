@@ -28,7 +28,7 @@
             </WrapPanel>
             <WrapPanel Margin="3">
                 <TextBlock Width="70">Password</TextBlock>
-                <TextBox Name="TxtPassword" Width="180"></TextBox>
+                <PasswordBox Name="TxtPassword" PasswordChar="•" Width="180" />
             </WrapPanel>
 
         </StackPanel>

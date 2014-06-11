@@ -1242,5 +1242,11 @@ namespace EFM
 		{
 			tbcGlavniTab.SelectedItem = tabVSaradnici;
 		}
+
+		private void Button_Click_1(object sender, RoutedEventArgs e)
+		{
+			FrmCam f = new FrmCam ();
+			f.ShowDialog ();
+		}
     }
 }
