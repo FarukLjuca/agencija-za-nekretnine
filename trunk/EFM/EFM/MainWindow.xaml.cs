@@ -992,13 +992,13 @@ namespace EFM
 
         private void dodajE_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            Pomocni_prozori.UnosEUgovora IU = new Pomocni_prozori.UnosEUgovora(_saradnici.ListaVanjskihSaradnika, Eugovori);
-            IU.ShowDialog();
+            
+            Pomocni_prozori.UnosEUgovora EU = new Pomocni_prozori.UnosEUgovora(_saradnici.ListaVanjskihSaradnika, Eugovori);
+            EU.ShowDialog();
 
-            refreshI();
+            refreshE();
             tbxTraziEks_TextChanged(null, null);
-            */
+            
         }
 
 
