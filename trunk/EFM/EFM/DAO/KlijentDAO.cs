@@ -95,15 +95,6 @@ namespace EFM.DAO
             throw new Exc.LazyDeveloperException();
         }
 
-        public void Pass(string pass, int id)
-        {
-            DAL konekcija = DAL.Instanca;
-            SQLiteCommand komanda = new SQLiteCommand("update zaposleni set password = @pass where id = @id");
-            komanda.Parameters.Add(new SQLiteParameter("@pass", pass));
-            komanda.Parameters.Add(new SQLiteParameter("@id", id));
-            komanda.ExecuteNonQuery();
-        }
-
         public void Delete(Klijent Entity)
         {
             DAL konekcija = DAL.Instanca;

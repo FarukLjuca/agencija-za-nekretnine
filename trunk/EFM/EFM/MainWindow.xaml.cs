@@ -28,6 +28,7 @@ namespace EFM
         private VanjskiSaradnici _saradnici = new VanjskiSaradnici();
 		public enum Privilegija : uint { Direktor, Admin, Agent, Racunovodja, Cistacica }
 		Privilegija privilegija;
+        Zaposlenik user = null;
         public MainWindow()
         {
             InitializeComponent();
@@ -81,6 +82,7 @@ namespace EFM
 				spLabels.Children.Remove (tbl6);
 			#endregion
 			tbIme.Text = w.User.Ime + ", dobrodošli";
+            user = w.User;
 			var C = new System.Globalization.CultureInfo ("bs-Latn-BA");
 			String Dan = C.DateTimeFormat.GetDayName (DateTime.Today.DayOfWeek);
 			StringBuilder sb = new StringBuilder (Dan);
@@ -1215,7 +1217,8 @@ namespace EFM
 
 		private void Hyperlink_Click_1(object sender, RoutedEventArgs e)
 		{
-			System.Windows.Forms.MessageBox.Show ("Nekako trbe odvesti do forme mijenjanja passworda. Ako je ovo napravljeno dobro (kako sam ja zamislio, onda će to lagano biti.. ali et'");
+            Pomocni_prozori.Password p = new Pomocni_prozori.Password(user.Password, (int)user.Id);
+            p.ShowDialog();
 		}
 
 		private void Hyperlink_Click_2(object sender, RoutedEventArgs e)
