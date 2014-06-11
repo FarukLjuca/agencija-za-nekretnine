@@ -1,7 +1,7 @@
 ﻿<Window x:Class="EFM.Pomocni_prozori.Unos_nekretnine"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Unos nekretnine" Height="359.774" Width="448.901">
+        Title="Unos nekretnine" Height="386.897" Width="448.901">
     <Border Margin="5" BorderThickness="1" BorderBrush="Black">
         <Grid>
             <Grid.RowDefinitions>
@@ -72,7 +72,8 @@
             <Border Name="borCijena"
                     Grid.Row="4"
                     Grid.Column="1"
-                    Margin="5">
+                    Margin="5"
+                    BorderThickness="2.5">
                 <TextBox Name="tbxCijena" TextChanged="tbxCijena_TextChanged"/>
             </Border>
             <TextBlock Text="Vlasnik:"

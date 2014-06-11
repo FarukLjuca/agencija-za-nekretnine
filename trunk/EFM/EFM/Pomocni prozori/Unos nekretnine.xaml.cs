@@ -74,8 +74,12 @@ namespace EFM.Pomocni_prozori
 
         private bool validirajLokacije()
         {
-            if (txtLokacija.Text == "") return false;
-            return true;
+            if (txtLokacija.Text == "") { borLokacija.BorderBrush = Brushes.Red; return false; }
+            else
+            {
+                borLokacija.BorderBrush = Brushes.White;
+                return true;
+            }
         }
 
         private void btnNovaSlika_Click(object sender, RoutedEventArgs e)
