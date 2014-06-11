@@ -233,6 +233,8 @@ namespace EFM
                 if (cn.IsChecked == true)
                 {
                     nekretnine.Remove(cn.nekretnina);
+                    DAO.NekretninaDAO dao = new NekretninaDAO();
+                    dao.Delete(cn.nekretnina);
                 }
             }
             if (editMode == true) refreshCheckN();
@@ -311,6 +313,11 @@ namespace EFM
             miObrisi.Click += new RoutedEventHandler(obrisi);
             cm.Items.Add(miObrisi);
 
+            MenuItem miIzmjeni = new MenuItem();
+            miIzmjeni.Header = "Izmjeni";
+            miIzmjeni.Click += new RoutedEventHandler(izmjeni);
+            cm.Items.Add(miIzmjeni);
+
             c.ContextMenu = cm;
         }
 
@@ -357,6 +364,42 @@ namespace EFM
             {
                 nekretnine.Remove((menu.PlacementTarget as Kontrole.kontrolaNekretnina).nekretnina);
                 refreshN();
+            }
+        }
+
+        private void izmjeni(object sender, RoutedEventArgs e)
+        {
+            var item = sender as MenuItem;
+            var menu = item.Parent as ContextMenu;
+
+            Pomocni_prozori.Unos_klijenta uk = new Pomocni_prozori.Unos_klijenta(klijeti, _zaposlenici.ListaZaposlenika);
+
+            Klijent k = null;
+
+            if (menu.PlacementTarget is Kontrole.checkKlijent)
+            {
+                k = (menu.PlacementTarget as Kontrole.checkKlijent).klijent;
+            }
+            else if (menu.PlacementTarget is Kontrole.kontrolaKlijent)
+            {
+                k = (menu.PlacementTarget as Kontrole.kontrolaKlijent).klijent;
+            }
+
+            uk.popuni(k);
+
+            if (uk.ShowDialog() == true)
+            {
+                KlijentDAO dao = new KlijentDAO();
+                dao.Delete((menu.PlacementTarget as Kontrole.kontrolaKlijent).klijent);
+
+                if (menu.PlacementTarget is Kontrole.checkKlijent)
+                {
+                    refreshCheckK();
+                }
+                else if (menu.PlacementTarget is Kontrole.kontrolaKlijent)
+                {
+                    refreshK();
+                }
             }
         }
 
@@ -418,6 +461,8 @@ namespace EFM
                 if (ck.IsChecked == true)
                 {
                     klijeti.Remove(ck.klijent);
+                    KlijentDAO dao = new KlijentDAO();
+                    dao.Delete(ck.klijent);
                 }
             }
             if (editModeK == true) refreshCheckK();
