@@ -669,9 +669,10 @@ namespace EFM
 
         private void popuniIugovore()
         {
+            /*
             refreshIBaza();
             refreshI();
-
+            */
             cbbpretrazivanjePoI.SelectedIndex = 1;
         }
 
