@@ -765,37 +765,49 @@ namespace EFM
         }
 
 
+
         private void Unos_Zaposlenika(object sender, RoutedEventArgs e)
         {
-            ZaposlenikFactory zaposlenikFactory = new ZaposlenikFactory();
-            if (txtNoviZaposlenikPozicija.SelectedValue != null)
+            validirajIme();
+            validirajPrezime();
+            validirajUsername();
+            validirajPassword();
+            validirajJMBG();
+            validirajZapPlatu();
+
+            if (validirajIme() && validirajPrezime() && validirajUsername() && validirajPassword() && validirajJMBG() && validirajZapPlatu())
             {
-                var pozicija = (ComboBoxItem)txtNoviZaposlenikPozicija.SelectedValue;
-                Zaposlenik zaposlenik = zaposlenikFactory.GetZaposlenik(pozicija.Content.ToString());
-                zaposlenik.Ime = txtNoviZaposlenikIme.Text;
-                zaposlenik.Prezime = txtNoviZaposlenikPrezime.Text;
 
-                //TODO Handle exception
-                zaposlenik.Plata = double.Parse(txtNoviZaposlenikPlata.Text);
-                zaposlenik.DatumRodjenja = txtNoviZaposlenikDatROdj.DisplayDate;
-                zaposlenik.DatumZaposlenja = txtNoviZaposlenikDatZap.DisplayDate;
-                zaposlenik.Jmbg = txtNoviZaposlenikJmbg.Text;
-                zaposlenik.BrojLicneKarte = txtNoviZaposlenikBrojLk.Text;
-                zaposlenik.Username = txtNoviZaposlenikUsername.Text;
-                zaposlenik.Password = txtNoviZaposlenikPassword.Text;
+                ZaposlenikFactory zaposlenikFactory = new ZaposlenikFactory();
+                if (txtNoviZaposlenikPozicija.SelectedValue != null)
+                {
+                    var pozicija = (ComboBoxItem)txtNoviZaposlenikPozicija.SelectedValue;
+                    Zaposlenik zaposlenik = zaposlenikFactory.GetZaposlenik(pozicija.Content.ToString());
+                    zaposlenik.Ime = txtNoviZaposlenikIme.Text;
+                    zaposlenik.Prezime = txtNoviZaposlenikPrezime.Text;
 
-                ZaposlenikDAO zaposlenikDao = new ZaposlenikDAO();
-                zaposlenikDao.Create(zaposlenik);
-                _zaposlenici.ListaZaposlenika.Add(zaposlenik);
-                //zaposleniciGrid.
-                //zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
-                ZaposlenikDAO zDao = new ZaposlenikDAO();
-                _zaposlenici = zDao.List();
-                zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
+                    //TODO Handle exception
+                    zaposlenik.Plata = double.Parse(txtNoviZaposlenikPlata.Text);
+                    zaposlenik.DatumRodjenja = txtNoviZaposlenikDatROdj.DisplayDate;
+                    zaposlenik.DatumZaposlenja = txtNoviZaposlenikDatZap.DisplayDate;
+                    zaposlenik.Jmbg = txtNoviZaposlenikJmbg.Text;
+                    zaposlenik.BrojLicneKarte = txtNoviZaposlenikBrojLk.Text;
+                    zaposlenik.Username = txtNoviZaposlenikUsername.Text;
+                    zaposlenik.Password = txtNoviZaposlenikPassword.Text;
+
+                    ZaposlenikDAO zaposlenikDao = new ZaposlenikDAO();
+                    zaposlenikDao.Create(zaposlenik);
+                    _zaposlenici.ListaZaposlenika.Add(zaposlenik);
+                    //zaposleniciGrid.
+                    //zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
+                    ZaposlenikDAO zDao = new ZaposlenikDAO();
+                    _zaposlenici = zDao.List();
+                    zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
+                }
             }
         }
 
-        /*#region ValidiranjeUnosaZaposlenika
+        #region ValidiranjeUnosaZaposlenika
 
         private void pocrveni(Border b)
         {
@@ -843,66 +855,139 @@ namespace EFM
             return dobar;
         }
 
-        private void Naziv_TextChanged(object sender, TextChangedEventArgs e)
+        private void IDIme_TextChanged(object sender, TextChangedEventArgs e)
         {
-            validirajNaziv();
+            validirajIme();
         }
 
-        private bool validirajNaziv()
+        private bool validirajIme()
         {
-            if (prazno(txtNoviVSaradnikNaziv, borNaziv) && samoSlova(txtNoviVSaradnikNaziv, borNaziv)) return true;
+            if (prazno(txtNoviZaposlenikIme, borImeID) && samoSlova(txtNoviZaposlenikIme, borImeID)) return true;
             return false;
         }
 
-        private void Plata_TextChanged(object sender, TextChangedEventArgs e)
+        private void IDPrezime_TextChanged(object sender, TextChangedEventArgs e)
         {
-            validirajPlatu();
+            validirajPrezime();
         }
 
-        private bool validirajPlatu()
+        private bool validirajPrezime()
+        {
+            if (prazno(txtNoviZaposlenikPrezime, borPrezimeID) && samoSlova(txtNoviZaposlenikPrezime, borPrezimeID)) return true;
+            return false;
+        }
+
+        private void IDUsername_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            validirajUsername();
+        }
+
+        private bool validirajUsername()
+        {
+            if ((prazno(txtNoviZaposlenikUsername, borUsernameID))) return true;
+            return false;
+        }
+
+
+        private void IDPassword_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            validirajPassword();
+        }
+
+        private bool validirajPassword()
+        {
+            if ((prazno(txtNoviZaposlenikPassword, borPasswordID))) return true;
+            return false;
+        }
+
+
+        private void JMBG_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            validirajJMBG();
+        }
+
+        private bool validirajJMBG()
         {
             bool dobar = true;
-            foreach (char c in txtNoviVSaradnikPlata.Text)
+            foreach (char c in txtNoviZaposlenikJmbg.Text)
             {
                 if (!(c >= '0' && c <= '9'))
                 {
-                    pocrveni(borPlata);
-                    txtNoviVSaradnikPlata.ToolTip = "Polje smije sadrzavati samo brojeve!";
+                    pocrveni(borJmbg);
+                    txtNoviZaposlenikJmbg.ToolTip = "Polje smije sadrzavati samo brojeve!";
+                    dobar = false;
+                    break;
+                }
+                else if ((txtNoviZaposlenikJmbg.Text.Length) != 13)
+                {
+                    pocrveni(borJmbg);
+                    txtNoviZaposlenikJmbg.ToolTip = "Polje mora imati 13 brojeva";
                     dobar = false;
                     break;
                 }
             }
-            if (dobar == true) odcrveni(borPlata);
-            else pocrveni(borPlata);
+            if (dobar == true) odcrveni(borJmbg);
+            else pocrveni(borJmbg);
 
-            return dobar && prazno(txtNoviVSaradnikPlata, borPlata);
+            return dobar && prazno(txtNoviZaposlenikJmbg, borJmbg);
         }
 
-        #endregion*/
+        private void ZapPlata_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            validirajZapPlatu();
+        }
+
+        private bool validirajZapPlatu()
+        {
+            bool dobar = true;
+            foreach (char c in txtNoviZaposlenikPlata.Text)
+            {
+                if (!(c >= '0' && c <= '9'))
+                {
+                    pocrveni(borZapPlata);
+                    txtNoviZaposlenikPlata.ToolTip = "Polje smije sadrzavati samo brojeve!";
+                    dobar = false;
+                    break;
+                }
+            }
+            if (dobar == true) odcrveni(borZapPlata);
+            else pocrveni(borZapPlata);
+
+            return dobar && prazno(txtNoviZaposlenikPlata, borZapPlata);
+        }
+
+
+        #endregion
 
 
 
         private void Obrisi_Zaposlenika(object sender, RoutedEventArgs e)
         {
-            ZaposlenikFactory obrisiZaposlenika = new ZaposlenikFactory();
-            if (txtObrisiZaposlenikaPozicija.SelectedValue != null)
             {
-                var pozicija = (ComboBoxItem)txtObrisiZaposlenikaPozicija.SelectedValue;
-                Zaposlenik obrisizaposlenik = obrisiZaposlenika.GetZaposlenik(pozicija.Content.ToString());
-                obrisizaposlenik.Id = long.Parse(txtObrisiZaposlenikaId.Text);
-                ZaposlenikDAO obrisiZaposlenikDao = new ZaposlenikDAO();
-                obrisiZaposlenikDao.Delete(obrisizaposlenik);
+                validirajIDZap();
+                if (validirajIDZap())
+                {
+                    ZaposlenikFactory obrisiZaposlenika = new ZaposlenikFactory();
+                    if (txtObrisiZaposlenikaPozicija.SelectedValue != null)
+                    {
+                        var pozicija = (ComboBoxItem)txtObrisiZaposlenikaPozicija.SelectedValue;
+                        Zaposlenik obrisizaposlenik = obrisiZaposlenika.GetZaposlenik(pozicija.Content.ToString());
+                        obrisizaposlenik.Id = long.Parse(txtObrisiZaposlenikaId.Text);
+                        ZaposlenikDAO obrisiZaposlenikDao = new ZaposlenikDAO();
+                        obrisiZaposlenikDao.Delete(obrisizaposlenik);
 
-                ZaposlenikDAO zDao = new ZaposlenikDAO();
-                _zaposlenici = zDao.List();
-                zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
+                        ZaposlenikDAO zDao = new ZaposlenikDAO();
+                        _zaposlenici = zDao.List();
+                        zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
+                    }
+                }
             }
         }
 
         #region ValidiranjeBrisanjaZaposlenika
 
         private void IDZap_TextChanged(object sender, TextChangedEventArgs e)
-        {            
+        {
             validirajIDZap();
         }
 
@@ -956,51 +1041,6 @@ namespace EFM
 
         #region ValidiranjeUnosaSaradnika
 
-        private void pocrveni(Border b)
-        {
-            b.BorderBrush = Brushes.Red;
-        }
-
-        private void odcrveni(Border b)
-        {
-            b.BorderBrush = Brushes.White;
-        }
-
-        private bool prazno(TextBox t, Border b)
-        {
-            if (t.Text.Length < 1)
-            {
-                pocrveni(b);
-                t.ToolTip = "Polje ne smije biti prazno!";
-                return false;
-            }
-            else
-            {
-                odcrveni(b);
-                return true;
-            }
-        }
-
-        private bool samoSlova(TextBox t, Border b)
-        {
-			
-            bool dobar = true;
-            foreach (char c in t.Text)
-            {
-                if (!((c >= 'A' && c <= 'Z') | (c >= 'a' && c <= 'z') |
-                    (new List<char>() { 'Č', 'č', 'Ć', 'ć', 'Ž', 'ž', 'Đ', 'đ', 'Š', 'š' }).Exists(element => element == c)))
-                {
-                    pocrveni(b);
-                    t.ToolTip = "Polje smije sadrzavati samo slova!";
-                    dobar = false;
-                    t.Text.Remove(t.Text.IndexOf(c), t.Text.IndexOf(c) + 1);
-                    break;
-                }
-            }
-            if (dobar == true) odcrveni(b);
-            else pocrveni(b);
-            return dobar;
-        }
 
         private void Naziv_TextChanged(object sender, TextChangedEventArgs e)
         {
