@@ -19,6 +19,7 @@ namespace EFM.Pomocni_prozori
     /// </summary>
     public partial class UnosEUgovora : Window
     {
+        /*
         List<VanjskiSaradnik> z;
         List<EksterniUgovor> i;
 
@@ -88,5 +89,6 @@ namespace EFM.Pomocni_prozori
                 this.Close();
             }
         }
+        */
     }
 }
