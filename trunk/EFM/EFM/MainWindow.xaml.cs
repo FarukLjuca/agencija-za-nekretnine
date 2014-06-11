@@ -649,14 +649,14 @@ namespace EFM
             dtgInterni.ItemsSource = Iugovori;
         }
 
-        List<IUgovor> SearchIUgovori = new List<IUgovor>();
+        List<Klase_EFM.DTGIugovori> SearchIUgovori = new List<Klase_EFM.DTGIugovori>();
 
         private void refreshI()
         {
-            SearchIUgovori = new List<IUgovor>();
+            SearchIUgovori = new List<Klase_EFM.DTGIugovori>();
             foreach (InterniUgovor i in Iugovori)
             {
-                if (i.prikazi == true) SearchIUgovori.Add(i);
+                if (i.prikazi == true) SearchIUgovori.Add( new Klase_EFM.DTGIugovori(i));
             }
             dtgInterni.ItemsSource = SearchIUgovori;
         }
