@@ -16,6 +16,7 @@ using System.Data.SQLite;
 using System.Data.OleDb;
 using EFM.DAO;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace EFM
 {
@@ -1488,7 +1489,8 @@ namespace EFM
 
 		private void mitRestart_Click_1(object sender, RoutedEventArgs e)
 		{
-			//Application.Restart ();
+			Process.Start (Application.ResourceAssembly.Location);
+			Application.Current.Shutdown ();
 		}
 
 		private void mitExit_Click_1(object sender, RoutedEventArgs e)
