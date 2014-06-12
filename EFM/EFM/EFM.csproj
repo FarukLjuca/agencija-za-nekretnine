@@ -42,7 +42,13 @@
     <StartupObject>EFM.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DataMatrix">
+      <HintPath>..\..\..\..\DataMatrix.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Expression.Encoder, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86" />
+    <Reference Include="OnBarcode.Barcode.BarcodeScanner">
+      <HintPath>..\..\..\..\OnBarcode.Barcode.BarcodeScanner.dll</HintPath>
+    </Reference>
     <Reference Include="SQLite.Designer, Version=1.0.92.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />

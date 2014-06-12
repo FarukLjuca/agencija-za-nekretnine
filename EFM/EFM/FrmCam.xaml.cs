@@ -190,7 +190,7 @@ namespace EFM
 			//B2.Save ("nesto2.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
 			System.Collections.ArrayList A = new System.Collections.ArrayList();
 			BarcodeImaging.FullScanPage (ref A, B, 30000);
-			System.Windows.MessageBox.Show (DecodeText (B));
+			//System.Windows.MessageBox.Show (DecodeText (B));
 			if (A.Count > 0)
 			{
 				System.Windows.MessageBox.Show ("Pronađeno: " + A[0].ToString());
