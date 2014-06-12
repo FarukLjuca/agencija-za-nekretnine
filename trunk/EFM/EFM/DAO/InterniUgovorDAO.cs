@@ -59,7 +59,7 @@ namespace EFM
                 F.ID = R.GetInt32(0);
                 F.Klijent = (KupacProdavac)((new DAO.KlijentDAO()).Read(new Klijent { ID = R.GetInt32(4) }));
                 F.Opis = R.GetString(2);
-                F.Agent = (Agent)((new DAO.ZaposlenikDAO()).Read2(new Agent { Id = R.GetInt32(3) }));
+                F.Agent = (Zaposlenik)((new DAO.ZaposlenikDAO()).Read2(new Zaposlenik { Id = R.GetInt32(3) }));
                 F.DatumSklapanja = DateTime.Parse(R.GetString(1));
                 F.Nekretnina = (new DAO.NekretninaDAO()).Read(new Nekretnina { ID = R.GetInt32(5) });
                 ugovori.Add(F);
