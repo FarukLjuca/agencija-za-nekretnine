@@ -28,11 +28,11 @@ namespace EFM
 		public MainWindow.Privilegija Privilegija { get; private set; }
 		private void btnOK_Click_1(object sender, RoutedEventArgs e)
 		{
-            if (TxtUserID.Text == "root" && TxtPassword.Password == "root")
+            if (TxtUserID.Text == "" && TxtPassword.Password == "")
             {
                 Privilegija = MainWindow.Privilegija.Direktor;
                 this.DialogResult = true;
-                User = new Zaposlenik { Ime = "Full Admin (root)" };
+                User = new Zaposlenik { Ime = "Full Admin" };
                 return;
             }
             DAO.ZaposlenikDAO d = new DAO.ZaposlenikDAO();
