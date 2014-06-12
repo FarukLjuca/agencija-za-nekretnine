@@ -868,10 +868,7 @@ namespace EFM
         private void dodajF_Click(object sender, RoutedEventArgs e)
         {
             Pomocni_prozori.UnosFugovora FU = new Pomocni_prozori.UnosFugovora(klijeti, nekretnine, Fugovori);
-            if (FU.ShowDialog() == true)
-            {
-
-            }
+            FU.ShowDialog();
 
             refreshF();
             tbxSearchF_TextChanged(null, null);
