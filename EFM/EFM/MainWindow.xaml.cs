@@ -750,10 +750,11 @@ namespace EFM
 
         private void popuniIugovore()
         {
-            
+            /*
             refreshIBaza();
             refreshI();
-            
+            */
+//TODO Enil
             cbbpretrazivanjePoI.SelectedIndex = 1;
         }
 
