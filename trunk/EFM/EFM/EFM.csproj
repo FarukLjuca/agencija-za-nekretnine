@@ -75,6 +75,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AboutP.xaml.cs">
+      <DependentUpon>AboutP.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DAO\EksterniUgovorDAO.cs" />
     <Compile Include="DAO\FinalniUgovorDAO.cs" />
     <Compile Include="ImageP.cs" />
@@ -162,6 +165,10 @@
     </Compile>
     <Compile Include="Klase_EFM\Zaposlenici.cs" />
     <Compile Include="Klase_EFM\Zaposlenik.cs" />
+    <Page Include="AboutP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FrmCam.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
