@@ -1291,5 +1291,12 @@ namespace EFM
 			FrmCam f = new FrmCam ();
 			f.ShowDialog ();
 		}
+
+        private void About_Click(object sender, RoutedEventArgs e)
+        {
+            AboutP ab = new AboutP();
+            ab.Show();
+
+        }
     }
 }

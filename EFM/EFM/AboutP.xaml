@@ -1,0 +1,11 @@
+﻿<Window x:Class="EFM.AboutP"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AboutP" Height="300" Width="300">
+    <Grid>
+        <TextBlock>
+               Projekat su uradili : Muris Nuhodžić, Faruk Ljuca <LineBreak/>
+               i Enil Pajic
+        </TextBlock>
+    </Grid>
+</Window>
