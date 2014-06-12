@@ -105,6 +105,7 @@
     <Compile Include="DAO\ZaposlenikDAO.cs" />
     <Compile Include="Klase_EFM\Direktor.cs" />
     <Compile Include="EFMException.cs" />
+    <Compile Include="Klase_EFM\DTGFugovori.cs" />
     <Compile Include="Klase_EFM\DTGIugovori.cs" />
     <Compile Include="Klase_EFM\EksterniUgovor.cs" />
     <Compile Include="Klase_EFM\FinalniUgovor.cs" />
@@ -150,6 +151,9 @@
     </Compile>
     <Compile Include="Pomocni prozori\UnosEUgovora.xaml.cs">
       <DependentUpon>UnosEUgovora.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pomocni prozori\UnosFugovora.xaml.cs">
+      <DependentUpon>UnosFugovora.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pomocni prozori\UnosIugovora.xaml.cs">
       <DependentUpon>UnosIugovora.xaml</DependentUpon>
@@ -233,6 +237,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pomocni prozori\UnosEUgovora.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pomocni prozori\UnosFugovora.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

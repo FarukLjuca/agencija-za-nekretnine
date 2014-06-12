@@ -502,7 +502,54 @@
                     
                     <TabItem Name="tbiFinalni"
                              Header="Finalni ugovori">
-                        
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="120"/>
+                            </Grid.ColumnDefinitions>
+
+                            <DataGrid Name="dtgF"
+                                      Grid.Row="0"
+                                      Grid.Column="0"
+                                      Margin="10"/>
+                            <Border Name="borButtoniF"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            BorderBrush="Black"
+                            BorderThickness="5">
+                                <StackPanel Name="spnlButtoniF"
+                                    Margin="5">
+                                    <TextBlock Name="txtSearchF"
+                                       Text="Pretrazivanje:"
+                                       Margin="5,20,5,0"/>
+                                    <TextBox Name="tbxSearchF"
+                                     Height="23"
+                                     Width="90"
+                                     Margin="5" TextChanged="tbxSearchF_TextChanged"/>
+                                    <TextBlock Name="txtSearchPoF"
+                                       Text="Pretrazivanje po:"
+                                       Margin="5,5,5,0"/>
+                                    <ComboBox Name="cbbpretrazivanjePoF"
+                                      Margin="5">
+                                        <ComboBoxItem Name="cbbiProdavacu"
+                                              Content="Klijentu prodavacu - Ime"/>
+                                        <ComboBoxItem Name="cbbiKupcu"
+                                              Content="Klijentu kupcu - Ime"/>
+                                        <ComboBoxItem Name="cbbiOpisu"
+                                              Content="Opisu nekretnine"/>
+                                    </ComboBox>
+                                    <Button Name="btnEditModeF"
+                                    Content="Edit mode"
+                                    Height="23"
+                                    Width="70"
+                                    Margin="15,50,15,15" Click="btnEditModeF_Click"/>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
                     </TabItem>
                     
                     <TabItem Name="tbiEksterni"
