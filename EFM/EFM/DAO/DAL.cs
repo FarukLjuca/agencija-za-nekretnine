@@ -55,7 +55,7 @@ namespace EFM
             {
                 if (con != null) { con.Close(); con = null; instanca = null; }
             }
-            catch (Exception e) {  }
+            catch (Exception) {  }
         }
     }
 }

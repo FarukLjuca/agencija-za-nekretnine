@@ -763,10 +763,10 @@ namespace EFM
 
         private void popuniIugovore()
         {
-            /*
-            refreshIBaza();
-            refreshI();
-            */
+			
+			refreshIBaza();
+			refreshI();
+			
 //TODO Enil
             cbbpretrazivanjePoI.SelectedIndex = 1;
         }
@@ -928,10 +928,10 @@ namespace EFM
 
         private void popuniFugovore()
         {
-            /*
-            refreshFBaza();
-            refreshF();
-            */
+			
+			refreshFBaza();
+			refreshF();
+			
 //TODO Enil
             cbbpretrazivanjePoF.SelectedIndex = 1;
         }

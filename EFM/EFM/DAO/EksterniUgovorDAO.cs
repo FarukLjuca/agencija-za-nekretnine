@@ -16,7 +16,7 @@ namespace EFM
 
 			DB.SQLiteCommand C = new DB.SQLiteCommand ();
 			C.Connection = d.Konekcija;
-			C.CommandText = String.Format ("INSERT INTO EUGOVORI (DATUM, OPIS, VSARADNIK)" + 
+			C.CommandText = String.Format ("INSERT INTO EUGOVORI (DATUM, OPIS, ESARADNIK)" + 
 				" VALUES (@DATE, '{0}', {1})",  E.Opis, DAL.REP (E.VanjskiSaradnik).Id);
 			C.Parameters.Add ("@DATE",   System.Data.DbType.String).Value = DT(E.DatumSklapanja);
 			long x = C.ExecuteNonQuery ();
@@ -50,6 +50,25 @@ namespace EFM
 			else return null;
 		}
 
+		public List<EksterniUgovor> getAll()
+		{
+			DAL d = DAL.Instanca;
+			DB.SQLiteCommand C = new DB.SQLiteCommand ();
+			C.Connection = d.Konekcija;
+			C.CommandText = String.Format ("SELECT * FROM EUGOVORI;");
+			DB.SQLiteDataReader R = C.ExecuteReader ();
+			List<EksterniUgovor> ugovori = new List<EksterniUgovor> ();
+			while (R.Read ())
+			{
+				EksterniUgovor F = new EksterniUgovor ();
+				F.ID = R.GetInt32 (0);
+				F.Opis = R.GetString (2);
+				F.VanjskiSaradnik =  ((new DAO.VanjskiSaradnikDAO ()).Read (new VanjskiSaradnik { Id = R.GetInt32 (3) }));
+				F.DatumSklapanja = DateTime.Parse (R.GetString (1));
+				ugovori.Add (F);
+			}
+			return ugovori;
+		}
 		public EksterniUgovor Update(EksterniUgovor E)
 		{
 			DAL d = DAL.Instanca;
