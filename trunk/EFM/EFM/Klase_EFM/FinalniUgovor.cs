@@ -24,5 +24,6 @@ namespace EFM
 		public Klijent Prodavac { get; set; }
 		public string Opis { get; set; }
 		public Nekretnina Nekretnina { get; set; }
+        public bool prikazi { get; set; }
 	}
 }
