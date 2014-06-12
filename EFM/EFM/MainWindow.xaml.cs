@@ -91,6 +91,7 @@ namespace EFM
             popuniNekretnine();
             popuniKlijente();
             popuniIugovore();
+            popuniFugovore();
             ZaposlenikDAO zDao = new ZaposlenikDAO();
             _zaposlenici = zDao.List();
             zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
@@ -603,26 +604,30 @@ namespace EFM
 
         private void btnEditModeI_Click(object sender, RoutedEventArgs e)
         {
+            if (editModeI == false)
+            {
+                btnEditModeI.Margin = new Thickness(15, 20, 15, 5);
+
+                Button btnDodajI = new Button();
+                btnDodajI.Margin = new Thickness(15, 5, 15, 5);
+                btnDodajI.Content = "Dodaj novi";
+                btnDodajI.Click += new RoutedEventHandler(dodajI_Click);
+                spnlButtoniI.Children.Add(btnDodajI);
+
+                Button btnObrisiI = new Button();
+                btnObrisiI.Margin = new Thickness(15, 5, 15, 5);
+                btnObrisiI.Content = "Obrisi";
+                btnObrisiI.Click += new RoutedEventHandler(obrisiI_Click);
+                spnlButtoniI.Children.Add(btnObrisiI);
+
+                Button btnIzmjeni = new Button();
+                btnIzmjeni.Margin = new Thickness(15, 5, 15, 5);
+                btnIzmjeni.Content = "Izmjeni";
+                btnIzmjeni.Click += new RoutedEventHandler(btnIzmjeni_Click);
+                spnlButtoniI.Children.Add(btnIzmjeni);
+            }
+
             editModeI = true;
-            btnEditModeI.Margin = new Thickness(15, 20, 15, 5);
-
-            Button btnDodajI = new Button();
-            btnDodajI.Margin = new Thickness(15, 5, 15, 5);
-            btnDodajI.Content = "Dodaj novi";
-            btnDodajI.Click += new RoutedEventHandler(dodajI_Click);
-            spnlButtoniI.Children.Add(btnDodajI);
-
-            Button btnObrisiI = new Button();
-            btnObrisiI.Margin = new Thickness(15, 5, 15, 5);
-            btnObrisiI.Content = "Obrisi";
-            btnObrisiI.Click += new RoutedEventHandler(obrisiI_Click);
-            spnlButtoniI.Children.Add(btnObrisiI);
-
-            Button btnIzmjeni = new Button();
-            btnIzmjeni.Margin = new Thickness(15, 5, 15, 5);
-            btnIzmjeni.Content = "Izmjeni";
-            btnIzmjeni.Click += new RoutedEventHandler(btnIzmjeni_Click);
-            spnlButtoniI.Children.Add(btnIzmjeni);
         }
 
         private void btnIzmjeni_Click(object sender, RoutedEventArgs e)
@@ -643,8 +648,13 @@ namespace EFM
                 {
                     Pomocni_prozori.UnosIugovora IU = new Pomocni_prozori.UnosIugovora(_zaposlenici.ListaZaposlenika, klijeti,
                 nekretnine, Iugovori);
-//TODO
-                    IU.ShowDialog();
+                    if (IU.ShowDialog() == true)
+                    {
+                        InterniUgovorDAO dao = new InterniUgovorDAO();
+                        dao.Delete(iu);
+                        refreshIBaza();
+                        refreshI();
+                    }
                 }
                 else MessageBox.Show("ID koji ste unijeli ne postoji!");
 
@@ -769,26 +779,30 @@ namespace EFM
 
         private void btnEditModeF_Click(object sender, RoutedEventArgs e)
         {
+            if (editModeF == false)
+            {
+                btnEditModeF.Margin = new Thickness(15, 20, 15, 5);
+
+                Button btnDodajF = new Button();
+                btnDodajF.Margin = new Thickness(15, 5, 15, 5);
+                btnDodajF.Content = "Dodaj novi";
+                btnDodajF.Click += new RoutedEventHandler(dodajF_Click);
+                spnlButtoniF.Children.Add(btnDodajF);
+
+                Button spnlButtoniF = new Button();
+                spnlButtoniF.Margin = new Thickness(15, 5, 15, 5);
+                spnlButtoniF.Content = "Obrisi";
+                spnlButtoniF.Click += new RoutedEventHandler(obrisiF_Click);
+                spnlButtoniF.Children.Add(spnlButtoniF);
+
+                Button btnIzmjeniF = new Button();
+                btnIzmjeniF.Margin = new Thickness(15, 5, 15, 5);
+                btnIzmjeniF.Content = "Izmjeni";
+                btnIzmjeniF.Click += new RoutedEventHandler(btnIzmjeniF_Click);
+                spnlButtoniF.Children.Add(btnIzmjeniF);
+            }
+
             editModeF = true;
-            btnEditModeF.Margin = new Thickness(15, 20, 15, 5);
-
-            Button btnDodajF = new Button();
-            btnDodajF.Margin = new Thickness(15, 5, 15, 5);
-            btnDodajF.Content = "Dodaj novi";
-            btnDodajF.Click += new RoutedEventHandler(dodajF_Click);
-            spnlButtoniF.Children.Add(btnDodajF);
-
-            Button spnlButtoniF = new Button();
-            spnlButtoniF.Margin = new Thickness(15, 5, 15, 5);
-            spnlButtoniF.Content = "Obrisi";
-            spnlButtoniF.Click += new RoutedEventHandler(obrisiF_Click);
-            spnlButtoniF.Children.Add(spnlButtoniF);
-
-            Button btnIzmjeniF = new Button();
-            btnIzmjeniF.Margin = new Thickness(15, 5, 15, 5);
-            btnIzmjeniF.Content = "Izmjeni";
-            btnIzmjeniF.Click += new RoutedEventHandler(btnIzmjeniF_Click);
-            spnlButtoniF.Children.Add(btnIzmjeniF);
         }
 
         private void btnIzmjeniF_Click(object sender, RoutedEventArgs e)
@@ -808,8 +822,14 @@ namespace EFM
                 if (imaGa == true)
                 {
                     Pomocni_prozori.UnosFugovora FU = new Pomocni_prozori.UnosFugovora(klijeti, nekretnine, Fugovori);
-                    //TODO
-                    FU.ShowDialog();
+                    FU.popuni(fu);
+                    if (FU.ShowDialog() == true)
+                    {
+                        FinalniUgovorDAO dao = new FinalniUgovorDAO();
+                        dao.Delete(fu);
+                        refreshFBaza();
+                        refreshF();
+                    }
                 }
                 else MessageBox.Show("ID koji ste unijeli ne postoji!");
 

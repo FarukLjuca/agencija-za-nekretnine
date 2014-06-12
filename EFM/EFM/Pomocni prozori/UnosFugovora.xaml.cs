@@ -37,6 +37,15 @@ namespace EFM.Pomocni_prozori
                 cbbProdavac.ItemsSource = k;
             }
 
+            public void popuni(FinalniUgovor u)
+            {
+                dtpDatum.SelectedDate = u.DatumSklapanja;
+                tbxOpis.Text = u.Opis;
+                cbbKupac.SelectedItem = u.Kupac;
+                cbbProdavac.SelectedItem = u.Prodavac;
+                cbbNekretnina.SelectedItem = u.Nekretnina;
+            }
+
             private void cbbProdavac_SelectionChanged(object sender, SelectionChangedEventArgs e)
             {
                 cbbNekretnina.IsEnabled = true;
