@@ -85,6 +85,7 @@ djenja date not null, datum_zaposlenja date not null, plata real, pozicija text,
             if (R.Read())
             {
                 Zaposlenik z = new Zaposlenik();
+                z.Id = (long)R["id"];
                 z.Ime = (string)R["ime"];
                 z.Pozicija = (string)R["pozicija"];
                 z.Prezime = (string)R["prezime"];
