@@ -1,5 +1,4 @@
-﻿using DataMatrix.net;
-using Microsoft.Expression.Encoder.Devices;
+﻿using Microsoft.Expression.Encoder.Devices;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -160,20 +159,20 @@ namespace EFM
 		{
 			return (r * 0.299 + g * 0.587 + b * 0.114) / 255;
 		}
-		private string DecodeText(Bitmap b)
-		{
-			DmtxImageDecoder decoder = new DmtxImageDecoder ();
-			System.Drawing.Bitmap oBitmap = new System.Drawing.Bitmap (b);
-			List<string> oList = decoder.DecodeImage (oBitmap);
+		//private string DecodeText(Bitmap b)
+		//{
+		//	DmtxImageDecoder decoder = new DmtxImageDecoder ();
+		//	System.Drawing.Bitmap oBitmap = new System.Drawing.Bitmap (b);
+		//	List<string> oList = decoder.DecodeImage (oBitmap);
 
-			StringBuilder sb = new StringBuilder ();
-			sb.Length = 0;
-			foreach (string s in oList)
-			{
-				sb.Append (s);
-			}
-			return sb.ToString ();
-		}
+		//	StringBuilder sb = new StringBuilder ();
+		//	sb.Length = 0;
+		//	foreach (string s in oList)
+		//	{
+		//		sb.Append (s);
+		//	}
+		//	return sb.ToString ();
+		//}
 		private void BtnOK_Click(object sender, RoutedEventArgs e)
 		{
 			//WCAM.SnapshotFormat = System.Drawing.Imaging.ImageFormat.Png;

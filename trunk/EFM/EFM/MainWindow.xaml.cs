@@ -789,11 +789,11 @@ namespace EFM
                 btnDodajF.Click += new RoutedEventHandler(dodajF_Click);
                 spnlButtoniF.Children.Add(btnDodajF);
 
-                Button spnlButtoniF = new Button();
-                spnlButtoniF.Margin = new Thickness(15, 5, 15, 5);
-                spnlButtoniF.Content = "Obrisi";
-                spnlButtoniF.Click += new RoutedEventHandler(obrisiF_Click);
-                spnlButtoniF.Children.Add(spnlButtoniF);
+                Button spspnlButtoniF = new Button();
+                spspnlButtoniF.Margin = new Thickness(15, 5, 15, 5);
+                spspnlButtoniF.Content = "Obrisi";
+                spspnlButtoniF.Click += new RoutedEventHandler(obrisiF_Click);
+                spnlButtoniF.Children.Add(spspnlButtoniF);
 
                 Button btnIzmjeniF = new Button();
                 btnIzmjeniF.Margin = new Thickness(15, 5, 15, 5);
@@ -908,7 +908,7 @@ namespace EFM
 
         private void refreshFBaza()
         {
-            InterniUgovorDAO dao = new InterniUgovorDAO();
+            FinalniUgovorDAO dao = new FinalniUgovorDAO();
             Fugovori = dao.getAll();
             dtgF.ItemsSource = Fugovori;
         }
@@ -1475,5 +1475,25 @@ namespace EFM
             ab.Show();
 
         }
+
+		private void mitAbout_Click_1(object sender, RoutedEventArgs e)
+		{
+			About_Click (null, null);
+		}
+
+		private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+		{
+			Hyperlink_Click_1 (null, null);
+		}
+
+		private void mitRestart_Click_1(object sender, RoutedEventArgs e)
+		{
+			//Application.Restart ();
+		}
+
+		private void mitExit_Click_1(object sender, RoutedEventArgs e)
+		{
+			Application.Current.Shutdown ();
+		}
     }
 }
