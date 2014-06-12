@@ -673,6 +673,7 @@ namespace EFM
                 else MessageBox.Show("ID koji ste unijeli ne postoji!");
 
                 refreshIBaza();
+                refreshI();
             }
         }
 
@@ -749,10 +750,10 @@ namespace EFM
 
         private void popuniIugovore()
         {
-            /*
+            
             refreshIBaza();
             refreshI();
-            */
+            
             cbbpretrazivanjePoI.SelectedIndex = 1;
         }
 
