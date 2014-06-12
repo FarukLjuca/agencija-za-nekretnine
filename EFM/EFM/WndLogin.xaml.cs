@@ -32,7 +32,7 @@ namespace EFM
             {
                 Privilegija = MainWindow.Privilegija.Direktor;
                 this.DialogResult = true;
-                User = new Zaposlenik { Ime = "Full Admin" };
+                User = new Zaposlenik { Ime = "Full Admin", Id = -7 };
                 return;
             }
             DAO.ZaposlenikDAO d = new DAO.ZaposlenikDAO();

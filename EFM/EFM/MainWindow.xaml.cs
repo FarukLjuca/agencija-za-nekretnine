@@ -1435,6 +1435,12 @@ namespace EFM
 
 		private void Hyperlink_Click_1(object sender, RoutedEventArgs e)
 		{
+			if (user.Id == -7)
+			{
+				System.Windows.MessageBox.Show ("Ovo je testni profil i kao takav nema password-a.",
+					"Profil za testiranje", MessageBoxButton.OK, MessageBoxImage.Information);
+				return;
+			}
             Pomocni_prozori.Password p = new Pomocni_prozori.Password(user.Password, (int)user.Id);
             p.ShowDialog();
 		}
