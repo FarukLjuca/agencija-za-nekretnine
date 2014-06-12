@@ -65,7 +65,43 @@ namespace EFM.DAO
 
             return Entity.Id;
         }
+		public Zaposlenik Read2(Zaposlenik Entity)
+		{
+			DAL kon1 = DAL.Instanca;
 
+			SQLiteCommand insertCommand = new SQLiteCommand ();
+			insertCommand.CommandText = "select * from uposlenici where ID = @user;";
+			insertCommand.Connection = kon1.Konekcija;
+			insertCommand.Parameters.Add (new SQLiteParameter ("@user", Entity.Id));
+
+			/*
+			 * CREATE TABLE uposlenici (id integer primary key autoincrement, ime text not null
+, prezime text not null, jmbg text unique not null, brojlk text unique, datum_ro
+djenja date not null, datum_zaposlenja date not null, plata real, pozicija text,
+ username text, password text);
+			*/
+			DB.SQLiteDataReader R = insertCommand.ExecuteReader ();
+			if (R.Read ())
+			{
+				Zaposlenik z = new Zaposlenik ();
+				z.Id = (long) R["id"];
+				z.Ime = (string) R["ime"];
+				z.Pozicija = (string) R["pozicija"];
+				z.Prezime = (string) R["prezime"];
+				z.Jmbg = (string) R["jmbg"];
+				z.BrojLicneKarte = (string) R["brojlk"];
+				z.DatumRodjenja = R.GetDateTime (5);
+				z.DatumZaposlenja = R.GetDateTime (6);
+				z.Plata = R.GetDouble (7);
+				z.Username = Entity.Username;
+				z.Password = (string) R["password"];
+				return z;
+			}
+			else return null;
+
+
+			kon1.Diskonektuj ();
+		}
         public Zaposlenik Read(Zaposlenik Entity)
         {
             DAL kon1 = DAL.Instanca;
