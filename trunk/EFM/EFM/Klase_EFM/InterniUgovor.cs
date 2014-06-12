@@ -17,7 +17,7 @@ namespace EFM
 		{
 			throw new EFM.Exc.LazyDeveloperException ();
 		}
-		public Agent Agent { get; set; }
+		public Zaposlenik Agent { get; set; }
 		public long ID { get; set; }
 		public DateTime DatumSklapanja { get; set; }
 		public Klijent Klijent { get; set; }
