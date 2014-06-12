@@ -37,6 +37,7 @@ namespace EFM.Pomocni_prozori
             if (validiraj() == true)
             {
                 broj.Add(Convert.ToInt32(tbxID.Text));
+                this.Close();
             }
         }
 
