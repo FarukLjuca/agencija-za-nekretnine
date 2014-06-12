@@ -17,15 +17,16 @@ namespace EFM.Pomocni_prozori
     /// <summary>
     /// Interaction logic for UnosFugovora.xaml
     /// </summary>
-    public partial class UnosFugovora : Window
-    {
         public partial class UnosFugovora : Window
         {
             List<Klijent> k;
             List<Klijent> p;
             List<Nekretnina> n;
             List<FinalniUgovor> f;
-
+			public UnosFugovora()
+			{
+				InitializeComponent ();
+			}
             public UnosFugovora(List<Klijent> k, List<Nekretnina> n, List<FinalniUgovor> f)
             {
                 InitializeComponent();
@@ -114,4 +115,4 @@ namespace EFM.Pomocni_prozori
             }
         }
     }
-}
+

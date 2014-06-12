@@ -20,22 +20,18 @@
               Grid.Row="0"
               Grid.Column="0">
             <MenuItem Header="File"
-                      Name="mitFile"/>
-            <MenuItem Header="Edit"
-                      Name="mitEdit"/>
-            <MenuItem Header="About"
-                      Name="mitAbout"/>
-            <MenuItem Header="Test"
-                      Name="mitTest">
-                <MenuItem Header="Unos nekretnina"
-                          Name="mitUnosNekretnina"
-                          ToolTip="Sluzi za provjeravanje developerima"
-                          Click="mitUnosNekretnina_Click"/>
-                <MenuItem Header="SQLite"
-                          Click="TestPovezivanjaSaBP" />
-                <MenuItem Header="Unos entiteta"
-                          Click="UnosEntiteta" />
+                      Name="mitFile">
+                <MenuItem Name="mitRestart" Click="mitRestart_Click_1" Header="Restart" />
+                <MenuItem Name="mitExit" Click="mitExit_Click_1" Header="Exit">
+                    
+                </MenuItem>
             </MenuItem>
+            <MenuItem Header="Edit"
+                      Name="mitEdit">
+                <MenuItem Header="Promijeni password" Click="MenuItem_Click_1" />
+            </MenuItem>
+            <MenuItem Header="About"
+                      Name="mitAbout" Click="mitAbout_Click_1"/>
         </Menu>
 
         <TabControl Name="tbcGlavniTab"
@@ -101,7 +97,7 @@
                             </TextBlock>
                         </StackPanel>
                     </Border>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="431,157,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+                    <Button Content="WebCamTest" HorizontalAlignment="Left" Margin="523,0,0,0" Grid.Row="3" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
 
                     <Button Content="About" HorizontalAlignment="Left" Margin="626,294,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Click="About_Click" Height="27"/>
 
@@ -150,7 +146,7 @@
                                        Margin="5,5,5,0"/>
                             <ComboBox Name="cbbpretrazivanjePo"
                                       Margin="5">
-                                <ComboBoxItem Name="cbbiOpisu"
+                                <ComboBoxItem Name="cbbiOpisu1"
                                               Content="Opisu"/>
                                 <ComboBoxItem Name="cbbiLokaciji"
                                               Content="Lokaciji"/>
