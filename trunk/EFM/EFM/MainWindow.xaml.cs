@@ -599,10 +599,12 @@ namespace EFM
         #region Interni ugovori
 
         private List<InterniUgovor> Iugovori = new List<InterniUgovor>();
+        private bool editModeI = false;
 
         private void btnEditModeI_Click(object sender, RoutedEventArgs e)
         {
-            btnEditModeKlijenti.Margin = new Thickness(15, 20, 15, 5);
+            editModeI = true;
+            btnEditModeI.Margin = new Thickness(15, 20, 15, 5);
 
             Button btnDodajI = new Button();
             btnDodajI.Margin = new Thickness(15, 5, 15, 5);
@@ -756,6 +758,161 @@ namespace EFM
             */
 //TODO Enil
             cbbpretrazivanjePoI.SelectedIndex = 1;
+        }
+
+        #endregion
+
+        #region Finalni ugovori
+
+        private List<FinalniUgovor> Fugovori = new List<FinalniUgovor>();
+        private bool editModeF = false;
+
+        private void btnEditModeF_Click(object sender, RoutedEventArgs e)
+        {
+            editModeF = true;
+            btnEditModeF.Margin = new Thickness(15, 20, 15, 5);
+
+            Button btnDodajF = new Button();
+            btnDodajF.Margin = new Thickness(15, 5, 15, 5);
+            btnDodajF.Content = "Dodaj novi";
+            btnDodajF.Click += new RoutedEventHandler(dodajF_Click);
+            spnlButtoniF.Children.Add(btnDodajF);
+
+            Button spnlButtoniF = new Button();
+            spnlButtoniF.Margin = new Thickness(15, 5, 15, 5);
+            spnlButtoniF.Content = "Obrisi";
+            spnlButtoniF.Click += new RoutedEventHandler(obrisiF_Click);
+            spnlButtoniF.Children.Add(spnlButtoniF);
+
+            Button btnIzmjeniF = new Button();
+            btnIzmjeniF.Margin = new Thickness(15, 5, 15, 5);
+            btnIzmjeniF.Content = "Izmjeni";
+            btnIzmjeniF.Click += new RoutedEventHandler(btnIzmjeniF_Click);
+            spnlButtoniF.Children.Add(btnIzmjeniF);
+        }
+
+        private void btnIzmjeniF_Click(object sender, RoutedEventArgs e)
+        {
+            List<int> broj = new List<int>();
+            Pomocni_prozori.ID id = new Pomocni_prozori.ID(broj);
+
+            if (id.ShowDialog() == true)
+            {
+                bool imaGa = false;
+                FinalniUgovor fu = null;
+                foreach (FinalniUgovor i in Fugovori)
+                {
+                    if (i.ID == broj[0]) { imaGa = true; fu = i; break; }
+                }
+
+                if (imaGa == true)
+                {
+                    Pomocni_prozori.UnosFugovora FU = new Pomocni_prozori.UnosFugovora(klijeti, nekretnine, Fugovori);
+                    //TODO
+                    FU.ShowDialog();
+                }
+                else MessageBox.Show("ID koji ste unijeli ne postoji!");
+
+                refreshFBaza();
+                refreshF();
+            }
+        }
+
+        private void obrisiF_Click(object sender, RoutedEventArgs e)
+        {
+            List<int> broj = new List<int>();
+            Pomocni_prozori.ID id = new Pomocni_prozori.ID(broj);
+
+            if (id.ShowDialog() == true)
+            {
+                bool imaGa = false;
+                FinalniUgovor fu = null;
+                foreach (FinalniUgovor i in Fugovori)
+                {
+                    if (i.ID == broj[0]) { imaGa = true; fu = i; break; }
+                }
+
+                if (imaGa == true)
+                {
+                    FinalniUgovorDAO dao = new FinalniUgovorDAO();
+                    dao.Delete(fu);
+                }
+                else MessageBox.Show("ID koji ste unijeli ne postoji!");
+
+                refreshFBaza();
+                refreshF();
+            }
+        }
+
+        private void dodajF_Click(object sender, RoutedEventArgs e)
+        {
+            Pomocni_prozori.UnosFugovora FU = new Pomocni_prozori.UnosFugovora(klijeti, nekretnine, Fugovori);
+            FU.ShowDialog();
+
+            refreshF();
+            tbxSearchF_TextChanged(null, null);
+        }
+
+        private void tbxSearchF_TextChanged(object sender, RoutedEventArgs e)
+        {
+            if (cbbpretrazivanjePoF.SelectedIndex == 0)
+            {
+                foreach (FinalniUgovor i in Fugovori)
+                {
+                    if (i.Prodavac.Ime.Contains(tbxSearchF.Text))
+                        i.prikazi = true;
+                    else i.prikazi = false;
+                }
+            }
+            else if (cbbpretrazivanjePoF.SelectedIndex == 1)
+            {
+                foreach (FinalniUgovor i in Fugovori)
+                {
+                    if (i.Kupac.Ime.Contains(tbxSearchF.Text))
+                        i.prikazi = true;
+                    else i.prikazi = false;
+                }
+            }
+            else if (cbbpretrazivanjePoF.SelectedIndex == 2)
+            {
+                foreach (FinalniUgovor i in Fugovori)
+                {
+                    if (i.Nekretnina.Opis.Contains(tbxSearchI.Text))
+                        i.prikazi = true;
+                    else i.prikazi = false;
+                }
+            }
+
+            refreshF();
+        }
+
+        private void refreshFBaza()
+        {
+            InterniUgovorDAO dao = new InterniUgovorDAO();
+            Fugovori = dao.getAll();
+            dtgF.ItemsSource = Fugovori;
+        }
+
+        List<Klase_EFM.DTGFugovori> SearchFUgovori = new List<Klase_EFM.DTGFugovori>();
+
+        private void refreshF()
+        {
+            SearchFUgovori = new List<Klase_EFM.DTGFugovori>();
+            foreach (FinalniUgovor i in Fugovori)
+            {
+                if (i.prikazi == true) SearchFUgovori.Add(new Klase_EFM.DTGFugovori(i));
+            }
+            dtgF.ItemsSource = SearchFUgovori;
+        }
+
+        private void popuniFugovore()
+        {
+            /*
+            refreshFBaza();
+            refreshF();
+            */
+//TODO Enil
+            cbbpretrazivanjePoF.SelectedIndex = 1;
         }
 
         #endregion

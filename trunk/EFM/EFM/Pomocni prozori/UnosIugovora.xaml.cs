@@ -24,31 +24,6 @@ namespace EFM.Pomocni_prozori
         List<Nekretnina> n;
         List<InterniUgovor> i;
 
-        public DateTime Kdatum
-        {
-            set { dtpDatum.DisplayDate = value; }
-        }
-
-        public string Kopis
-        {
-            set { tbxOpis.Text = value; }
-        }
-
-        public Zaposlenik Kagent
-        {
-            set { cbbAgent.SelectedItem = value; }
-        }
-
-        public Klijent Kklijent
-        {
-            set { cbbKlijent.SelectedItem = value; }
-        }
-
-        public Nekretnina Knekretnina
-        {
-            set { cbbNekretnina.SelectedItem = value; }
-        }
-
         public UnosIugovora(List<Zaposlenik> z, List<Klijent> k, List<Nekretnina> n, List<InterniUgovor> i)
         {
             InitializeComponent();

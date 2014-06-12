@@ -20,8 +20,8 @@ namespace EFM
 
 		public long ID { get; set; }
 		public DateTime DatumSklapanja { get; set; }
-		public KupacProdavac Kupac { get; set; }
-		public KupacProdavac Prodavac { get; set; }
+		public Klijent Kupac { get; set; }
+		public Klijent Prodavac { get; set; }
 		public string Opis { get; set; }
 		public Nekretnina Nekretnina { get; set; }
 	}
