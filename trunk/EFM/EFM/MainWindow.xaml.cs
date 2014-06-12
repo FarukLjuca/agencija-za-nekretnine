@@ -965,7 +965,6 @@ namespace EFM
                     zaposlenik.Ime = txtNoviZaposlenikIme.Text;
                     zaposlenik.Prezime = txtNoviZaposlenikPrezime.Text;
 
-                    //TODO Handle exception
                     zaposlenik.Plata = double.Parse(txtNoviZaposlenikPlata.Text);
                     zaposlenik.DatumRodjenja = txtNoviZaposlenikDatROdj.DisplayDate;
                     zaposlenik.DatumZaposlenja = txtNoviZaposlenikDatZap.DisplayDate;
@@ -977,8 +976,7 @@ namespace EFM
                     ZaposlenikDAO zaposlenikDao = new ZaposlenikDAO();
                     zaposlenikDao.Create(zaposlenik);
                     _zaposlenici.ListaZaposlenika.Add(zaposlenik);
-                    //zaposleniciGrid.
-                    //zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
+                    
                     ZaposlenikDAO zDao = new ZaposlenikDAO();
                     _zaposlenici = zDao.List();
                     zaposleniciGrid.ItemsSource = _zaposlenici.ListaZaposlenika;
