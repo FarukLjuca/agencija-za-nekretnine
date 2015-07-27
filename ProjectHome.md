@@ -1,0 +1,1 @@
+Ovo je aplikacija namjenjena za pomoć Agenciji za Nekretnine
